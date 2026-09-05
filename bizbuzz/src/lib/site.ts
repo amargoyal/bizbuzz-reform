@@ -1,9 +1,9 @@
 import type { NavItem } from "@/components/ds/NavBar";
 
 export const SITE_URL = "https://www.bizbuzz.it";
-
 /** Path prefix this build is served under. Empty at the domain root. */
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const CONTACT_EMAIL = "bizbuzznfp@gmail.com";
 
 /** Registration forms. These are the live Google Forms the org already uses. */
@@ -66,9 +66,9 @@ export const FOOTER_COLUMNS = [
     title: "By season",
     links: [
       { label: "2027", href: "/camps#2027" },
-      { label: "2026", href: "/seasons" },
-      { label: "2025", href: "/seasons" },
-      { label: "2024", href: "/seasons" },
+      { label: "2026", href: "/seasons#2026" },
+      { label: "2025", href: "/seasons#2025" },
+      { label: "2024", href: "/seasons#2024" },
     ],
   },
   {

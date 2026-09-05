@@ -1,3 +1,7 @@
+import { IMPACT } from "@/data/impact";
+import data2024 from "@/data/2024.json";
+import data2025 from "@/data/2025.json";
+import data2026 from "@/data/2026.json";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Chip, Eyebrow, Stat } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
@@ -31,13 +35,14 @@ const SEASONS = [
     status: "Season complete",
     chipTone: "hairline" as const,
     title: "The year camp split into two tracks",
-    blurb:
-      "KidPreneur and VentureLab ran in parallel across six sessions each, ending in two separate Fish Tank divisions. Mayor Scott Wehrli returned for speaking skills and Isha Elandassery led finance.",
+    blurb: data2026.summary,
     stats: [
-      { value: "2", label: "tracks" },
-      { value: "12", label: "sessions" },
-      { value: "2", label: "divisions" },
+      { value: String(data2026.kpis.students), label: "students" },
+      { value: String(data2026.kpis.sessions), label: "sessions" },
+      { value: String(data2026.kpis.programsRun), label: "programs" },
+      { value: String(data2026.kpis.officeHours), label: "office hours" },
     ],
+    archive: data2026,
     campHref: "/camps#2026",
     campLabel: "2026 camp",
     tankHref: "/fish-tank#2026",
@@ -50,13 +55,14 @@ const SEASONS = [
     status: "Season complete",
     chipTone: "hairline" as const,
     title: "Bigger stage at Benedictine University",
-    blurb:
-      "Seven sessions and 120 students, with five guest speakers including Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli. Fish Tank moved to Benedictine University with 70 competitors and 10 judges.",
+    blurb: data2025.summary,
     stats: [
-      { value: "120", label: "students" },
-      { value: "7", label: "sessions" },
-      { value: "70", label: "competitors" },
+      { value: String(data2025.kpis.students), label: "students" },
+      { value: String(data2025.kpis.sessions), label: "sessions" },
+      { value: String(data2025.kpis.programsRun), label: "programs" },
+      { value: String(data2025.kpis.officeHours), label: "office hours" },
     ],
+    archive: data2025,
     campHref: "/camps#2025",
     campLabel: "2025 camp",
     tankHref: "/fish-tank#2025",
@@ -69,13 +75,14 @@ const SEASONS = [
     status: "Where it started",
     chipTone: "hairline" as const,
     title: "The first summer, six weeks after founding",
-    blurb:
-      "Six sessions, seven guest speakers, and 110 students learning ideation, marketing, finance and pitching. The inaugural Fish Tank at College of DuPage drew 100+ competitors and 11 judges for $750 in prizes.",
+    blurb: data2024.summary,
     stats: [
-      { value: "110", label: "students" },
-      { value: "6", label: "sessions" },
-      { value: "$750", label: "in prizes" },
+      { value: String(data2024.kpis.students), label: "students" },
+      { value: String(data2024.kpis.sessions), label: "sessions" },
+      { value: String(data2024.kpis.programsRun), label: "programs" },
+      { value: String(data2024.kpis.officeHours), label: "office hours" },
     ],
+    archive: data2024,
     campHref: "/camps#2024",
     campLabel: "2024 camp",
     tankHref: "/fish-tank#2024",
@@ -128,16 +135,16 @@ export default function SeasonsPage() {
           }}
         >
           <Reveal>
-            <Stat value={<CountUp to={230} />} label="camp students" note="2024 and 2025 cohorts" />
+            <Stat value={<CountUp to={IMPACT.students} suffix="+" />} label="students taught" note="across all programs since 2024" />
           </Reveal>
           <Reveal delay={80}>
-            <Stat value={<CountUp to={560} suffix="+" />} label="reached through workshops" />
+            <Stat value={<CountUp to={IMPACT.officeHours} />} label="mentoring hours" />
           </Reveal>
           <Reveal delay={160}>
-            <Stat value={<CountUp to={3} />} label="Fish Tank competitions" />
+            <Stat value={<CountUp to={IMPACT.sessions} />} label="camp and workshop sessions" />
           </Reveal>
           <Reveal delay={240}>
-            <Stat value={<CountUp to={26} />} label="partner schools" />
+            <Stat value={<CountUp to={IMPACT.schools} />} label="schools represented" />
           </Reveal>
         </div>
       </section>
@@ -203,6 +210,29 @@ export default function SeasonsPage() {
                       </div>
                     ))}
                   </div>
+                  {s.archive && (
+                    <details className="bb-details">
+                      <summary>{s.year} program details and timeline</summary>
+                      <div className="bb-content-stack" style={{ padding: 0 }}>
+                        {s.archive.programs.map((program) => (
+                          <article key={program.id}>
+                            <h3 className="bb-display-4">{program.title}</h3>
+                            <p className="bb-caption">{program.dateISO} · {program.venue} · {program.attendance} students</p>
+                            <p className="bb-body">{program.description}</p>
+                          </article>
+                        ))}
+                        <h3 className="bb-display-4">Season timeline</h3>
+                        <ol>
+                          {s.archive.timeline.map((event) => (
+                            <li key={event.id} style={{ marginBottom: "var(--space-5)" }}>
+                              <p><time dateTime={event.dateISO}>{event.dateISO}</time> · {event.label}</p>
+                              <p className="bb-body">{event.detail}</p>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    </details>
+                  )}
                   <div
                     style={{
                       display: "flex",

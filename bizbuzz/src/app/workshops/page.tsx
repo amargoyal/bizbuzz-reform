@@ -1,3 +1,6 @@
+import { WORKSHOP_PARTICIPATION, WORKSHOP_STUDENTS } from "@/data/impact";
+import workshopArchive from "@/data/workshops.json";
+import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow, Stat } from "@/components/ds/Card";
@@ -30,30 +33,8 @@ const MODULES = [
 ];
 
 const WORKSHOPS = [
-  { title: "2025 Naperville Children's Business Fair", date: "August 9, 2025", location: "Naperville, IL" },
-  {
-    title: "DuPage Children's Business Fair workshops",
-    date: "March 16 – April 26, 2025",
-    location: "DuPage County, IL",
-  },
-  {
-    title: "Madison Junior High mxINCedu mentorship program",
-    date: "August 15 – December 20, 2024",
-    location: "Naperville, IL",
-  },
-  {
-    title: "Brookdale Elementary School workshops",
-    date: "October 30 – November 20, 2024",
-    location: "Naperville, IL",
-  },
-  { title: "Best Brains Learning Center workshops", date: "August 6 – 7, 2024", location: "Naperville, IL" },
-  {
-    title: "2024 Naperville Children's Business Fair workshops",
-    date: "July 6 – August 3, 2024",
-    location: "Naperville, IL",
-  },
-  { title: "Crone Middle School talk", date: "May 31, 2024", location: "Naperville, IL" },
-  { title: "Scott Elementary School talk", date: "May 21, 2024", location: "Naperville, IL" },
+  { id: "naperville2026", title: "2026 Naperville Children's Business Fair", date: "2026", location: "Naperville, IL", description: "100+ students participated in the 2026 Naperville Children's Business Fair.", sessions: [], images: [] },
+  ...workshopArchive,
 ];
 
 const IMAGERY = [
@@ -125,13 +106,13 @@ export default function WorkshopsPage() {
           }}
         >
           <Reveal>
-            <Stat value={<CountUp to={560} suffix="+" />} label="students reached" note="since May 2024" />
+            <Stat value={<CountUp to={WORKSHOP_STUDENTS} suffix="+" />} label="workshop and fair participation" note="since May 2024" />
           </Reveal>
           <Reveal delay={80}>
-            <Stat value={<CountUp to={7} />} label="workshop series delivered" />
+            <Stat value={<CountUp to={WORKSHOP_PARTICIPATION.length} />} label="workshop and fair programs" />
           </Reveal>
           <Reveal delay={160}>
-            <Stat value={<CountUp to={17} />} label="individual sessions run" />
+            <Stat value={<CountUp to={3} />} label="seasons of programming" />
           </Reveal>
           <Reveal delay={240}>
             <Stat value={<CountUp to={0} prefix="$" />} label="charged to any school" note="always free" />
@@ -245,7 +226,15 @@ export default function WorkshopsPage() {
                     borderTop: "1px solid var(--border-hairline)",
                   }}
                 >
-                  <h3 className="bb-display-4">{w.title}</h3>
+                  <div>
+                    <h3 className="bb-display-4">{w.title}</h3>
+                    <details className="bb-details">
+                      <summary>Program details</summary>
+                      <p className="bb-body">{w.description}</p>
+                      <ul>{w.sessions.map((session) => <li key={session}>{session}</li>)}</ul>
+                      <ArchiveGallery images={w.images} title={w.title} />
+                    </details>
+                  </div>
                   <p className="bb-mono">{w.date}</p>
                   <p className="bb-caption">{w.location}</p>
                 </div>

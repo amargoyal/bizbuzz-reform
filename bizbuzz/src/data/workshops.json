@@ -1,0 +1,132 @@
+[
+  {
+    "id": "naperville2025",
+    "title": "2025 Naperville Children's Business Fair",
+    "date": "August 9th, 2025",
+    "location": "Naperville, IL",
+    "description": "BizBuzz staff judged a full-day, farmers-market style event at the new Matrix Club, where kidpreneurs ages 5–14 tested the waters of entrepreneurship by selling handmade goods and pitching their small businesses.",
+    "sessions": [
+      "Naperville Children's Business Fair | August 9th, 2025"
+    ],
+    "images": [
+      "/workshops/ncbf/1.jpeg",
+      "/workshops/ncbf/2.jpeg",
+      "/workshops/ncbf/3.jpeg"
+    ]
+  },
+  {
+    "id": "dupage",
+    "title": "Dupage Children's Business Fair Workshops",
+    "date": "March 16th, 2025 to April 26th, 2025",
+    "location": "Dupage County, IL",
+    "description": "Three workshops preparing 30 entrepreneurs for the upcoming Dupage Children's Business Fair, guiding them through ideation, marketing, and finance.",
+    "sessions": [
+      "DCBF Workshop 1 | March 16th, 2025",
+      "DCBF Workshop 2 | March 23rd, 2025",
+      "DCBF Workshop 3 | April 6th, 2025",
+      "Dupage Children's Business Fair | April 26th, 2025"
+    ],
+    "images": [
+      "/workshops/dcbf/1.jpg",
+      "/workshops/dcbf/2.jpg",
+      "/workshops/dcbf/3.jpg"
+    ]
+  },
+  {
+    "id": "madison",
+    "title": "Madison Junior High mxINCedu Mentorship Program",
+    "date": "August 15th, 2024 to December 20th, 2024",
+    "location": "Naperville, IL",
+    "description": "A mentorship program enhancing the mxINCedu curriculum with new worksheets, slides, and activities for 90 students.",
+    "sessions": [
+      "Madison Mentorship Program | August 15th, 2024 to December 20th, 2024"
+    ],
+    "images": [
+      "/workshops/mm/1.png",
+      "/workshops/mm/2.jpg",
+      "/workshops/mm/3.png"
+    ]
+  },
+  {
+    "id": "brookdale",
+    "title": "Brookdale Elementary School Workshops",
+    "date": "October 30th, 2024 to November 20th, 2024",
+    "location": "Naperville, IL",
+    "description": "Four workshops teaching 20 young entrepreneurs fundamental business skills, culminating in a school Pitch Night for parents and high school guest judges.",
+    "sessions": [
+      "Brookdale Workshop 1 | October 30th, 2024",
+      "Brookdale Workshop 2 | November 3rd, 2024",
+      "Brookdale Workshop 3 | November 10th, 2024",
+      "Brookdale Workshop 4 | November 20th, 2024"
+    ],
+    "images": [
+      "/workshops/be/1.png",
+      "/workshops/be/2.png",
+      "/workshops/be/3.png"
+    ]
+  },
+  {
+    "id": "bestbrains",
+    "title": "Best Brains Learning Center Workshops",
+    "date": "August 6th, 2024 to August 7th, 2024",
+    "location": "Naperville, IL",
+    "description": "Two workshops introducing 20 students to entrepreneurship and the process of turning imagination into innovation.",
+    "sessions": [
+      "Best Brains Workshop 1 | August 6th, 2024",
+      "Best Brains Workshop 2 | August 7th, 2024"
+    ],
+    "images": [
+      "/workshops/bb/1.jpg",
+      "/workshops/bb/2.jpg",
+      "/workshops/bb/3.png"
+    ]
+  },
+  {
+    "id": "naperville",
+    "title": "2024 Naperville Children's Business Fair Workshops",
+    "date": "July 6th, 2024 to August 3rd, 2024",
+    "location": "Naperville, IL",
+    "description": "Three workshops helping 50 students use creative problem-solving, marketing, and finance to launch products sold alongside 150 young entrepreneurs at the Naperville Children's Business Fair.",
+    "sessions": [
+      "NCBF Workshop 1 | July 6th, 2024",
+      "NCBF Workshop 2 | July 13th, 2024",
+      "NCBF Workshop 3 | July 20th, 2024",
+      "Naperville Children's Business Fair | August 3rd, 2024"
+    ],
+    "images": [
+      "/workshops/ncbf/1.jpeg",
+      "/workshops/ncbf/2.jpeg",
+      "/workshops/ncbf/3.jpeg"
+    ]
+  },
+  {
+    "id": "crone",
+    "title": "Crone Middle School Talk",
+    "date": "May 31st, 2024",
+    "location": "Naperville, IL",
+    "description": "A school talk encouraging 60 students to see themselves as problem-solvers and future business creators.",
+    "sessions": [
+      "Crone Middle School Talk | May 31st, 2024"
+    ],
+    "images": [
+      "/workshops/cm/1.jpg",
+      "/workshops/cm/2.jpg",
+      "/workshops/cm/3.jpg"
+    ]
+  },
+  {
+    "id": "scott",
+    "title": "Scott Elementary School Talk",
+    "date": "May 21st, 2024",
+    "location": "Naperville, IL",
+    "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses—even as kids.",
+    "sessions": [
+      "Scott Elementary School Talk | May 21st, 2024"
+    ],
+    "images": [
+      "/workshops/se/1.png",
+      "/workshops/se/2.png",
+      "/workshops/se/3.png"
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "year": 2026,
+  "summary": "BizBuzz 2026 ran two six-week camps side by side — KidPreneur Camp and Venture Lab — alongside the Fish Tank competition and the Naperville Children's Business Fair, reaching 365 students.",
+  "kpis": {
+    "students": 365,
+    "sessions": 6,
+    "programsRun": 3,
+    "attendance": 365,
+    "officeHours": 145
+  },
+  "programs": [
+    {
+      "id": "camp-2026",
+      "kind": "camp",
+      "title": "2026 Summer Entrepreneurship Camp",
+      "dateISO": "2026-06-05",
+      "venue": "95th Street & Nichols Libraries, Naperville",
+      "attendance": 165,
+      "description": "Two six-week programs running simultaneously — KidPreneur Camp and Venture Lab — from June 5 to July 10, covering ideation, finance, marketing and prototyping, business models, presentation skills, and a mock pitch.",
+      "images": [
+        "/camp_imgs/2026/session1kp/session1kpa.JPG",
+        "/camp_imgs/2026/session1kp/session1kpb.JPG",
+        "/camp_imgs/2026/session1kp/session1kpc.JPG"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": "t1",
+      "dateISO": "2026-06-05",
+      "label": "2026 Summer Camps Begin",
+      "detail": "KidPreneur Camp and Venture Lab launch simultaneously."
+    },
+    {
+      "id": "t2",
+      "dateISO": "2026-07-10",
+      "label": "Final Camp Session",
+      "detail": "Mock pitch session closes both six-week programs."
+    }
+  ],
+  "stories": [],
+  "partners": [],
+  "press": [],
+  "gallery": [
+    "/camp_imgs/2026/session1kp/session1kpa.JPG",
+    "/camp_imgs/2026/session2kp/session2kpa.jpg",
+    "/camp_imgs/2026/session3kp/session3kpa.jpg"
+  ]
+}

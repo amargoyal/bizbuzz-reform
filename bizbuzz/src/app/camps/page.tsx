@@ -90,8 +90,9 @@ const SEASONS: CampSeason[] = [
     summary:
       "2026 ran KidPreneur and VentureLab side by side, six sessions each. Same six weeks, two levels, two separate Fish Tank divisions at the end. Isha Elandassery led the finance workshop and Mayor Scott Wehrli returned for speaking skills.",
     curriculumNote:
-      "KidPreneur sessions shown. VentureLab followed the same weeks with feasibility, prototyping and Demo Day practice.",
+      "Explore both tracks below: KidPreneur and VentureLab followed the same six weeks, with a different curriculum for each level.",
     stats: [
+      { value: "165", label: "students taught" },
       { value: "2", label: "tracks" },
       { value: "6", label: "sessions per track" },
       { value: "2", label: "Fish Tank divisions" },
@@ -110,56 +111,7 @@ const SEASONS: CampSeason[] = [
           "A Startup Ideation Lab, feasibility and market research, prototyping, project management, and Demo Day practice.",
       },
     ],
-    sessions: [
-      {
-        n: "01",
-        title: "Ideation",
-        date: "June 5, 2026",
-        venue: "Naperville, IL",
-        blurb:
-          "Kidpreneurs met their high school instructors over Networking Bingo, then built a Bug-Me List and turned everyday problems into business ideas. BizBucks started here.",
-      },
-      {
-        n: "02",
-        title: "Finance",
-        date: "June 12, 2026",
-        venue: "Nichols Library",
-        blurb:
-          "A Price is Right icebreaker taught cost, price and profit. Then a Startup Auction, Shark Tank deal decisions, Business Disaster scenarios and the $100 Challenge.",
-      },
-      {
-        n: "03",
-        title: "Marketing and prototyping",
-        date: "June 19, 2026",
-        venue: "Naperville, IL",
-        blurb:
-          "How businesses attract customers and build a brand. Students created their own brand identity and designed the first simple prototypes of their ideas.",
-      },
-      {
-        n: "04",
-        title: "Problem solving and business models",
-        date: "June 26, 2026",
-        venue: "Naperville, IL",
-        blurb:
-          "Breaking an idea into target audience, pricing and operations, and seeing how a business generates revenue.",
-      },
-      {
-        n: "05",
-        title: "Presentational and speaking skills",
-        date: "July 3, 2026",
-        venue: "Naperville, IL",
-        blurb:
-          "Structuring a compelling pitch, then practising tone, body language and storytelling until it lands.",
-      },
-      {
-        n: "06",
-        title: "Mock pitch",
-        date: "July 10, 2026",
-        venue: "Naperville, IL",
-        blurb:
-          "Everything together in a Fish Tank-style setting, with feedback from instructors and peers before the real competition.",
-      },
-    ],
+    sessions: [],
   },
   {
     year: "2025",
@@ -174,57 +126,7 @@ const SEASONS: CampSeason[] = [
       { value: "5", label: "guest speakers" },
     ],
     tracks: [],
-    sessions: [
-      {
-        n: "01",
-        title: "Ideation",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Finding real problems and turning them into ideas worth building.",
-      },
-      {
-        n: "02",
-        title: "Finance",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Cost, price, profit, and what to do when the numbers do not work.",
-      },
-      {
-        n: "03",
-        title: "Marketing",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Brand, audience and message, with Kandice Henning as guest speaker.",
-      },
-      {
-        n: "04",
-        title: "Pitch development",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Shark Tank alum Lindsey Fleischhauer on what a good pitch sounds like.",
-      },
-      {
-        n: "05",
-        title: "Product design",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Prototyping and iterating on the thing itself.",
-      },
-      {
-        n: "06",
-        title: "Speaking skills",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Mayor Scott Wehrli on speaking to a room that is not obliged to listen.",
-      },
-      {
-        n: "07",
-        title: "Mock pitch",
-        date: "Summer 2025",
-        venue: "Naperville, IL",
-        blurb: "Full dress rehearsal for the Benedictine University stage.",
-      },
-    ],
+    sessions: [],
   },
   {
     year: "2024",
@@ -239,51 +141,7 @@ const SEASONS: CampSeason[] = [
       { value: "7", label: "guest speakers" },
     ],
     tracks: [],
-    sessions: [
-      {
-        n: "01",
-        title: "Ideation",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb:
-          "The first BizBuzz session ever run. Finding problems, and finding the nerve to say an idea out loud.",
-      },
-      {
-        n: "02",
-        title: "Marketing",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb: "Who is this for, and how would they ever hear about it.",
-      },
-      {
-        n: "03",
-        title: "Finance",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb: "Pricing, costs and profit, taught with games rather than spreadsheets.",
-      },
-      {
-        n: "04",
-        title: "Business challenges",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb: "Hands-on challenges with guest speakers working alongside the teams.",
-      },
-      {
-        n: "05",
-        title: "Pitching",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb: "Building the pitch, then saying it again until it is short.",
-      },
-      {
-        n: "06",
-        title: "Mock pitch",
-        date: "Summer 2024",
-        venue: "Naperville, IL",
-        blurb: "The rehearsal for the inaugural Fish Tank at College of DuPage.",
-      },
-    ],
+    sessions: [],
   },
 ];
 

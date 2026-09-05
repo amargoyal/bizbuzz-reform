@@ -1,37 +1,16 @@
+import { IMPACT, IMPACT_STATS, PROGRAM_PARTICIPATION, SCHOOL_DIRECTORY } from "@/data/impact";
+import { PEOPLE } from "@/data/team";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Chip, Eyebrow } from "@/components/ds/Card";
+import { Eyebrow, Stat } from "@/components/ds/Card";
 import { Parallax, Reveal } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
 
-const LEADERSHIP = [
-  { name: "Allen Xu", role: "Co-Founder", image: "/team/Allen.png" },
-  { name: "Aarav Khullar", role: "Co-Founder", image: "/team/Aarav.png" },
-  { name: "Taksh Taware", role: "President", image: "/team/Taksh.png" },
-  { name: "Lakhi Thotakura", role: "Chief Operating Officer", image: "/team/Lakhi.jpeg" },
-  { name: "Elena Kang Chou", role: "Chief Marketing Officer", image: "/team/Elena_clean.png" },
-  { name: "Abby May", role: "Chief Financial Officer", image: "/team/Abby.jpeg" },
-  { name: "Amar Goyal", role: "Chief Technology Officer", image: "/team/Amar_clean.png" },
-  { name: "Elizabeth Gao", role: "Executive Director", image: "/team/Elizabeth.jpeg" },
-];
-
-const INSTRUCTORS = [
-  "Onkar Lidder",
-  "Abhinav Byju",
-  "Anay Apte",
-  "Ankita Senapati",
-  "Ansh Shah",
-  "Ben Gula",
-  "Hadley Benson",
-  "Wes Karubas",
-  "Yuju Cho",
-  "Zahra Moosani",
-  "Rehaan John",
-];
-
-const YOUTH = ["Vivaan Khullar", "Evan Xu", "Mishi Patel", "Ethan Nie", "Jazzy Soodan"];
+const LEADERSHIP = [...PEOPLE.coFounders2026, ...PEOPLE.leadershipTeam2026];
+const INSTRUCTORS = PEOPLE.instructors;
+const YOUTH = PEOPLE.youthLeadership;
 
 const PRESS = [
   {
@@ -179,14 +158,46 @@ export default function AboutPage() {
                   offer a completely free platform designed by students, for students.
                 </p>
                 <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  Two summers later that has meant 230 camp students, 560 more reached through workshops, three Fish
-                  Tank competitions, and students from 26 schools across Naperville and greater Chicagoland.
+                  Since 2024, we have taught {IMPACT.students.toLocaleString()}+ students across camps, competitions
+                  and workshops, reaching {IMPACT.schools} schools in {IMPACT.districts} districts across Chicagoland.
                 </p>
                 <p className="bb-body" style={{ fontWeight: "var(--weight-semibold)", color: "var(--text-display)" }}>
                   Let&apos;s turn imagination into innovation.
                 </p>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact" className="bb-content-section">
+        <div className="bb-content-stack">
+          <h2 className="bb-display-2">Our impact since 2024</h2>
+          <div className="bb-data-grid">
+            {IMPACT_STATS.map((stat) => (
+              <Stat key={stat.label} value={stat.value} label={stat.label} note={stat.description} />
+            ))}
+          </div>
+          <details className="bb-details">
+            <summary>Participation by program</summary>
+            <dl className="bb-data-list">
+              {PROGRAM_PARTICIPATION.map((program) => (
+                <div key={program.label}>
+                  <dt>{program.label}</dt><dd>{program.total} students</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+          <div>
+            <h3 className="bb-display-3">Schools and districts we serve</h3>
+            {SCHOOL_DIRECTORY.map((group) => (
+              <details className="bb-details" key={group.title}>
+                <summary>{group.title}</summary>
+                <ul className="bb-directory">
+                  {group.items.map((name) => <li key={name}>{name}</li>)}
+                </ul>
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -254,12 +265,29 @@ export default function AboutPage() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
                     <p className="bb-display-4">{m.name}</p>
                     <p className="bb-caption">{m.role}</p>
+                    <details className="bb-details">
+                      <summary>Read biography</summary>
+                      <p className="bb-body">{m.description}</p>
+                    </details>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="bb-content-section" style={{ background: "var(--surface-sunken)", paddingTop: 0 }}>
+        <details className="bb-details bb-content-stack">
+          <summary>2025 leadership team</summary>
+          {[...PEOPLE.coFounders, ...PEOPLE.leadershipTeam].map((person) => (
+            <div key={person.name}>
+              <h3 className="bb-display-4">{person.name}</h3>
+              <p className="bb-caption">{person.role}</p>
+              <p className="bb-body">{person.description}</p>
+            </div>
+          ))}
+        </details>
       </section>
 
       {/* ----------------------------------------------------- Instructors */}
@@ -289,8 +317,11 @@ export default function AboutPage() {
           <div style={{ gridColumn: "6 / span 7" }}>
             <Reveal delay={120}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
-                {INSTRUCTORS.map((name) => (
-                  <Chip key={name}>{name}</Chip>
+                {INSTRUCTORS.map((person) => (
+                  <details className="bb-details" key={person.name}>
+                    <summary>{person.name}</summary>
+                    <p className="bb-body">{person.description}</p>
+                  </details>
                 ))}
               </div>
             </Reveal>
@@ -299,8 +330,11 @@ export default function AboutPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
                 <p className="bb-eyebrow">Youth leadership team</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
-                  {YOUTH.map((name) => (
-                    <Chip key={name}>{name}</Chip>
+                  {YOUTH.map((person) => (
+                    <details className="bb-details" key={person.name}>
+                      <summary>{person.name}</summary>
+                      <p className="bb-body">{person.description}</p>
+                    </details>
                   ))}
                 </div>
               </div>

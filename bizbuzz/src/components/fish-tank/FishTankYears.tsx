@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import results from "@/data/fish-tank.json";
+import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import { Chip } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
 import { Tabs } from "@/components/ds/NavBar";
@@ -20,11 +22,15 @@ export type FishTankYear = {
 /** Year switcher for the Fish Tank archive. `#2024`…`#2026` deep-link into it. */
 export default function FishTankYears({ years, initialYear }: { years: FishTankYear[]; initialYear: string }) {
   const [year, setYear] = useState(initialYear);
+  const archive = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const sync = () => {
       const h = window.location.hash.replace("#", "");
-      if (years.some((y) => y.year === h)) setYear(h);
+      if (years.some((y) => y.year === h)) {
+        setYear(h);
+        requestAnimationFrame(() => archive.current?.scrollIntoView({ block: "start" }));
+      }
     };
     sync();
     window.addEventListener("hashchange", sync);
@@ -33,8 +39,10 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
 
   const current = years.find((y) => y.year === year) ?? years[0];
 
+  const result = results[current.year as keyof typeof results];
+
   return (
-    <section style={{ paddingBlock: "0 var(--section-y)" }}>
+    <section ref={archive} id="season-archive" style={{ paddingBlock: "0 var(--section-y)" }}>
       <div
         style={{
           maxWidth: "var(--container)",
@@ -59,7 +67,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
           value={current.year}
           onChange={(v) => {
             setYear(v);
-            history.replaceState(null, "", `#${v}`);
+            history.replaceState(history.state, "", `#${v}`);
           }}
         />
 
@@ -104,6 +112,42 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
             <MediaCard ratio="4 / 3" scrim src={current.image} alt={current.alt} chips={current.chips} />
           </div>
         </div>
+        {result && (
+          <div key={current.year}>
+            <h3 className="bb-display-3">{current.year} results and judges</h3>
+            <details className="bb-details">
+              <summary>Competition winners</summary>
+              <div className="bb-data-grid">
+                {result.winners.map((winner) => (
+                  <article key={winner.placement}>
+                    <MediaCard ratio="4 / 3" src={winner.image} alt={`${winner.team}, ${winner.placement}`} />
+                    <p className="bb-caption">{winner.placement} · {winner.team}</p>
+                    <h4 className="bb-display-4">{winner.project}</h4>
+                    <p className="bb-body">{winner.description}</p>
+                  </article>
+                ))}
+              </div>
+            </details>
+            {result.judges.map((group) => (
+              <details className="bb-details" key={group.title}>
+                <summary>{group.title}</summary>
+                <div className="bb-data-grid">
+                  {group.judges.map((judge) => (
+                    <article key={judge.name}>
+                      <h4 className="bb-display-4">{judge.name}</h4>
+                      <p className="bb-caption">{judge.title}</p>
+                      <p className="bb-body">{judge.bio}</p>
+                    </article>
+                  ))}
+                </div>
+              </details>
+            ))}
+            <details className="bb-details">
+              <summary>Competition photos</summary>
+              <ArchiveGallery images={result.gallery} title={`Fish Tank ${current.year}`} />
+            </details>
+          </div>
+        )}
       </div>
     </section>
   );

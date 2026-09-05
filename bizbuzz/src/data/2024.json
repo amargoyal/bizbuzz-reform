@@ -1,0 +1,293 @@
+{
+  "year": 2024,
+  "summary": "Our inaugural season: BizBuzz delivered school talks, a six-week summer entrepreneurship camp, the Fish Tank pitch competition, and year-round workshops across DuPage County, reaching 720 students.",
+  "kpis": {
+    "students": 720,
+    "sessions": 18,
+    "programsRun": 13,
+    "attendance": 720,
+    "officeHours": 381
+  },
+  "programs": [
+    {
+      "id": "camp-2024-session1",
+      "kind": "camp",
+      "title": "Camp Session 1: Ideation & Innovation",
+      "dateISO": "2024-06-12",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 110,
+      "description": "Students kicked off our free 2024 Summer Entrepreneurship Camp by exploring the basics of business-minded thinking, learning how to identify and solve real-world problems. After being introduced to concepts like value creation and market fit with 10 instructors, students dove into our Mini Fish Tank activity with $200+ in prizes.",
+      "images": [
+        "/camp_imgs/cards/session1/1.png",
+        "/camp_imgs/cards/session1/2.png",
+        "/camp_imgs/cards/session1/3.png"
+      ]
+    },
+    {
+      "id": "camp-2024-session2",
+      "kind": "camp",
+      "title": "Camp Session 2: Unique Value Proposition & Networking",
+      "dateISO": "2024-06-19",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 110,
+      "description": "Students learned how to craft a unique value proposition for their businesses and practiced their networking skills with 9 instructors. They put their skills to the test in a coffee shop simulation contest with $100 in awards.",
+      "images": [
+        "/camp_imgs/cards/session2/1.png",
+        "/camp_imgs/cards/session2/2.jpg",
+        "/camp_imgs/cards/session2/3.jpg"
+      ]
+    },
+    {
+      "id": "camp-2024-session3",
+      "kind": "camp",
+      "title": "Camp Session 3: Marketing",
+      "dateISO": "2024-06-26",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 110,
+      "description": "Students explored marketing, branding, and advertising through activities like the 'Guess the Brand' game and a flyer design challenge with $140 in prizes.",
+      "images": [
+        "/camp_imgs/cards/session3/1.jpg",
+        "/camp_imgs/cards/session3/2.jpg",
+        "/camp_imgs/cards/session3/3.jpg"
+      ]
+    },
+    {
+      "id": "camp-2024-session4",
+      "kind": "camp",
+      "title": "Camp Session 4: Public Speaking",
+      "dateISO": "2024-07-03",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 110,
+      "description": "Students explored the art of sales and pitching. Guided by 14 instructors, they practiced their public speaking skills and competed in an interactive, hands-on pitch contest with over $170 in prizes.",
+      "images": [
+        "/camp_imgs/cards/session4/1.jpg",
+        "/camp_imgs/cards/session4/2.jpg",
+        "/camp_imgs/cards/session4/3.png"
+      ]
+    },
+    {
+      "id": "camp-2024-session5",
+      "kind": "camp",
+      "title": "Camp Session 5: Finance",
+      "dateISO": "2024-07-10",
+      "venue": "Nichols Library, Naperville",
+      "attendance": 110,
+      "description": "Students learned the basics of personal and business finance from 16 instructors. They then put their skills to the test in a dream vacation budgeting game with over $330 in prizes.",
+      "images": [
+        "/camp_imgs/cards/session5/1.jpg",
+        "/camp_imgs/cards/session5/2.jpg",
+        "/camp_imgs/cards/session5/3.jpg"
+      ]
+    },
+    {
+      "id": "camp-2024-session6",
+      "kind": "camp",
+      "title": "Camp Session 6: Pitching",
+      "dateISO": "2024-07-17",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 110,
+      "description": "The final session before Fish Tank where students finalized their pitch decks and practiced rehearsing their scripts. Preliminary judges offered exciting feedback.",
+      "images": [
+        "/camp_imgs/cards/session6/1.jpg",
+        "/camp_imgs/cards/session6/2.png",
+        "/camp_imgs/cards/session6/3.png"
+      ]
+    },
+    {
+      "id": "fish-tank-2024",
+      "kind": "fish-tank",
+      "title": "Fish Tank 2024 Finals",
+      "dateISO": "2024-07-24",
+      "venue": "College of DuPage, Glen Ellyn",
+      "attendance": 100,
+      "description": "Two-day pitch event where young entrepreneurs pitch innovative ideas, receive expert feedback, and compete for resources to turn their business concepts into reality. Over 100 competitors, 30+ mentors, and 11 judges.",
+      "images": [
+        "/fish_tank/1.jpg",
+        "/fish_tank/2.jpg",
+        "/fish_tank/3.jpg"
+      ]
+    },
+    {
+      "id": "workshop-madison",
+      "kind": "workshop",
+      "title": "Madison Junior High mxINCedu Mentorship Program",
+      "dateISO": "2024-08-15",
+      "venue": "Madison Junior High, Naperville",
+      "attendance": 90,
+      "description": "A mentorship program enhancing the mxINCedu curriculum with new worksheets, slides, and activities for 90 students.",
+      "images": [
+        "/workshops/mm/1.png",
+        "/workshops/mm/2.jpg",
+        "/workshops/mm/3.png"
+      ]
+    },
+    {
+      "id": "workshop-bestbrains",
+      "kind": "workshop",
+      "title": "Best Brains Learning Center Workshops",
+      "dateISO": "2024-08-06",
+      "venue": "Best Brains Learning Center, Naperville",
+      "attendance": 20,
+      "description": "Two workshops introducing 20 students to entrepreneurship and the process of turning imagination into innovation.",
+      "images": [
+        "/workshops/bb/1.jpg",
+        "/workshops/bb/2.jpg",
+        "/workshops/bb/3.png"
+      ]
+    },
+    {
+      "id": "workshop-ncbf",
+      "kind": "workshop",
+      "title": "Naperville Children's Business Fair Workshops",
+      "dateISO": "2024-07-06",
+      "venue": "Naperville, IL",
+      "attendance": 50,
+      "description": "Three workshops helping 50 students use creative problem-solving, marketing, and finance to launch products sold alongside 150 young entrepreneurs at the Naperville Children's Business Fair.",
+      "images": [
+        "/workshops/ncbf/1.jpeg",
+        "/workshops/ncbf/2.jpeg",
+        "/workshops/ncbf/3.jpeg"
+      ]
+    },
+    {
+      "id": "workshop-brookdale",
+      "kind": "workshop",
+      "title": "Brookdale Elementary School Workshops",
+      "dateISO": "2024-10-30",
+      "venue": "Brookdale Elementary, Naperville",
+      "attendance": 20,
+      "description": "Four workshops teaching 20 young entrepreneurs fundamental business skills, culminating in a school Pitch Night for parents and high school guest judges.",
+      "images": [
+        "/workshops/be/1.png",
+        "/workshops/be/2.png",
+        "/workshops/be/3.png"
+      ]
+    },
+    {
+      "id": "workshop-crone",
+      "kind": "workshop",
+      "title": "Crone Middle School Talk",
+      "dateISO": "2024-05-31",
+      "venue": "Crone Middle School, Naperville",
+      "attendance": 60,
+      "description": "A school talk encouraging 60 students to see themselves as problem-solvers and future business creators.",
+      "images": [
+        "/workshops/cm/1.jpg",
+        "/workshops/cm/2.jpg",
+        "/workshops/cm/3.jpg"
+      ]
+    },
+    {
+      "id": "workshop-scott",
+      "kind": "workshop",
+      "title": "Scott Elementary School Talk",
+      "dateISO": "2024-05-21",
+      "venue": "Scott Elementary School, Naperville",
+      "attendance": 135,
+      "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses\u2014even as kids.",
+      "images": [
+        "/workshops/se/1.png",
+        "/workshops/se/2.png",
+        "/workshops/se/3.png"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": "t1",
+      "dateISO": "2024-05-21",
+      "label": "Scott Elementary School Talk",
+      "detail": "First school presentation of the year, inspiring 135 students."
+    },
+    {
+      "id": "t2",
+      "dateISO": "2024-05-31",
+      "label": "Crone Middle School Talk",
+      "detail": "Second school presentation reaching 60 students."
+    },
+    {
+      "id": "t3",
+      "dateISO": "2024-06-12",
+      "label": "Summer Camp Begins",
+      "detail": "Launch of 6-week Summer Entrepreneurship Camp at 95th Street Library."
+    },
+    {
+      "id": "t4",
+      "dateISO": "2024-07-17",
+      "label": "Camp Session 6 & Pitch Preparation",
+      "detail": "Final camp session with preliminary judge feedback before Fish Tank."
+    },
+    {
+      "id": "t5",
+      "dateISO": "2024-07-24",
+      "label": "Fish Tank 2024 Finals",
+      "detail": "100+ students compete at College of DuPage in two-day pitch competition."
+    },
+    {
+      "id": "t6",
+      "dateISO": "2024-08-06",
+      "label": "Best Brains Workshops",
+      "detail": "Partnership workshops introducing entrepreneurship to 20 students."
+    },
+    {
+      "id": "t7",
+      "dateISO": "2024-08-15",
+      "label": "Madison Junior High Program Starts",
+      "detail": "Long-term mentorship program begins with 90 students."
+    },
+    {
+      "id": "t8",
+      "dateISO": "2024-10-30",
+      "label": "Brookdale Elementary Workshops Begin",
+      "detail": "Four-week workshop series teaching 20 young entrepreneurs."
+    }
+  ],
+  "stories": [
+    {
+      "id": "story1",
+      "role": "student",
+      "name": "Garrett Hauk",
+      "headline": "From Idea to First Place: Garrett's Gourmet Dog Treats",
+      "body": "Garrett's Gourmet Dog Treats offers organic, natural, and delicious snacks made with fewer than five ingredients. As a healthier, modern alternative to conventional options, they ensure man's best friend enjoys treats that are both simple and satisfying.",
+      "image": "/fish_tank/ranking/first.jpg"
+    },
+    {
+      "id": "story2",
+      "role": "mentor",
+      "name": "Kandice Henning",
+      "headline": "CEO Shares Journey to Fearless Entrepreneurship",
+      "body": "Sharing her journey of creating one of Naperville's largest nonprofit organizations, she inspired students to embrace risk, pursue their passions, and lead through social innovation.",
+      "image": "/camp_imgs/speakers/kandice_henning.png"
+    }
+  ],
+  "partners": [
+    {
+      "name": "College of DuPage",
+      "logo": "/schools/college-of-dupage.png",
+      "href": "https://cod.edu"
+    },
+    {
+      "name": "Naperville Public Libraries",
+      "logo": "/schools/naperville-central.png"
+    },
+    {
+      "name": "Madison Junior High",
+      "logo": "/schools/madison.png"
+    }
+  ],
+  "press": [],
+  "gallery": [
+    "/fish_tank/1.jpg",
+    "/fish_tank/2.jpg",
+    "/fish_tank/3.jpg",
+    "/fish_tank/4.jpg",
+    "/fish_tank/5.jpg",
+    "/camp_imgs/landing/left.jpg",
+    "/camp_imgs/landing/center.jpg",
+    "/camp_imgs/landing/right.jpg",
+    "/workshops/dcbf/1.jpg",
+    "/workshops/be/1.png",
+    "/image_gallery/1.jpg",
+    "/image_gallery/2.jpg"
+  ]
+}

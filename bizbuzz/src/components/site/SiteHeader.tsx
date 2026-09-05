@@ -25,6 +25,7 @@ export default function SiteHeader({
             style={{ borderRadius: "var(--radius-circle)", display: "block", flex: "0 0 auto" }}
           />
           <span
+            className="bb-nav-wordmark"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 600,

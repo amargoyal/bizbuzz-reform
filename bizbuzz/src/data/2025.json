@@ -1,0 +1,70 @@
+{
+  "year": 2025,
+  "summary": "BizBuzz 2025 grew into a seven-week summer camp, a two-day Fish Tank final at Benedictine University, and workshops at the DuPage and Naperville Children's Business Fairs, reaching 370 students.",
+  "kpis": {
+    "students": 370,
+    "sessions": 11,
+    "programsRun": 4,
+    "attendance": 370,
+    "officeHours": 304
+  },
+  "programs": [
+    {
+      "id": "camp-2025",
+      "kind": "camp",
+      "title": "2025 Summer Entrepreneurship Camp",
+      "dateISO": "2025-06-06",
+      "venue": "95th Street Library, Naperville",
+      "attendance": 120,
+      "description": "A free seven-week camp running from June 6 to July 25, covering networking and ideation, the lean canvas, marketing and branding, prototyping, finance, business planning, and pitch rehearsal.",
+      "images": [
+        "/camp_imgs/2025/session1/session1a.jpg",
+        "/camp_imgs/2025/session1/session1b.jpg",
+        "/camp_imgs/2025/session1/session1c.jpg"
+      ]
+    },
+    {
+      "id": "fish-tank-2025",
+      "kind": "fish-tank",
+      "title": "Fish Tank 2025 Finals",
+      "dateISO": "2025-08-02",
+      "venue": "Benedictine University, Goodwin Hall of Business",
+      "attendance": 70,
+      "description": "Two-day pitch competition on August 2nd and 3rd where young entrepreneurs presented their ventures to Naperville business owners and leaders.",
+      "images": [
+        "/fish_tank/2025/images/gallery-stage.jpg",
+        "/fish_tank/2025/images/gallery-pitching.jpg",
+        "/fish_tank/2025/images/gallery-awards.jpg"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": "t1",
+      "dateISO": "2025-06-06",
+      "label": "2025 Summer Camp Begins",
+      "detail": "Seven-week entrepreneurship camp opens at the 95th Street Library."
+    },
+    {
+      "id": "t2",
+      "dateISO": "2025-07-25",
+      "label": "Final Camp Session",
+      "detail": "Pitch rehearsal and preparation ahead of Fish Tank."
+    },
+    {
+      "id": "t3",
+      "dateISO": "2025-08-02",
+      "label": "Fish Tank 2025 Finals",
+      "detail": "Two-day competition at Benedictine University with 70 competitors."
+    }
+  ],
+  "stories": [],
+  "partners": [],
+  "press": [],
+  "gallery": [
+    "/fish_tank/2025/images/gallery-stage.jpg",
+    "/fish_tank/2025/images/gallery-pitching.jpg",
+    "/fish_tank/2025/images/gallery-awards.jpg",
+    "/camp_imgs/2025/session1/session1a.jpg"
+  ]
+}

@@ -189,6 +189,7 @@ export function ArrowCTA({
       onMouseLeave={() => setHover(false)}
       style={{
         display: "inline-flex",
+        maxWidth: "100%",
         alignItems: "center",
         gap: "var(--space-3)",
         background: "none",
@@ -204,8 +205,9 @@ export function ArrowCTA({
         style={{
           display: "inline-flex",
           alignItems: "center",
-          height: dims,
-          padding: `0 ${dims * 0.52}px`,
+          minHeight: dims,
+          minWidth: 0,
+          padding: `var(--space-3) ${dims * 0.52}px`,
           borderRadius: "var(--radius-pill)",
           border: `1.5px solid ${t.line}`,
           background: hover ? t.hoverFill : t.fill,
@@ -213,7 +215,8 @@ export function ArrowCTA({
           fontWeight: "var(--weight-semibold)" as CSSProperties["fontWeight"],
           fontSize: size === "sm" ? "var(--size-caption)" : "var(--size-body-sm)",
           transition: "var(--transition-control)",
-          whiteSpace: "nowrap",
+          whiteSpace: "normal",
+          textAlign: "center",
         }}
       >
         {children}

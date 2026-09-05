@@ -1,3 +1,4 @@
+import { IMPACT, WORKSHOP_STUDENTS } from "@/data/impact";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Chip, Eyebrow, Stat } from "@/components/ds/Card";
@@ -58,7 +59,7 @@ const PROGRAMS: ProgramPanel[] = [
     title: "Fish Tank",
     blurb:
       "Our pitch competition. Two divisions, real judges, and prizes for the businesses students actually built.",
-    chips: ["Free to enter", "2 divisions", "Shark Tank alum judging", "$750 in prizes"],
+    chips: ["Free to enter", "2 divisions", "Business leaders judging", "$750 in prizes"],
     linkLabel: "See Fish Tank",
     href: "/fish-tank",
     bg: "/fish_tank/2025/images/hero-stage.jpg",
@@ -71,7 +72,7 @@ const PROGRAMS: ProgramPanel[] = [
     title: "Workshops",
     blurb:
       "Condensed curriculum brought to elementary schools, business fairs and community centers. We travel to you.",
-    chips: ["7 series", "17 sessions", "560 students", "We come to your school"],
+    chips: ["School talks and business fairs", `${WORKSHOP_STUDENTS}+ students`, "We come to your school"],
     linkLabel: "Book a workshop",
     href: "/workshops",
     bg: "/image_gallery/Sessions.jpg",
@@ -283,25 +284,25 @@ export default function HomePage() {
           >
             <Reveal>
               <Stat
-                value={<CountUp to={560} suffix="+" />}
-                label="students reached through workshops"
-                note="7 series, 17 sessions"
+                value={<CountUp to={IMPACT.students} suffix="+" />}
+                label="students taught"
+                note="across camps, competitions and workshops"
               />
             </Reveal>
             <Reveal delay={80}>
-              <Stat value={<CountUp to={26} />} label="partner schools across Chicagoland" />
+              <Stat value={<CountUp to={IMPACT.schools} />} label="schools across Chicagoland" />
             </Reveal>
             <Reveal delay={160}>
               <Stat
-                value={<CountUp to={90} suffix="%" />}
-                label="of Naperville K-8 schools teach no business"
-                note="the reason we started"
+                value={<CountUp to={IMPACT.funding} prefix="$" suffix="+" />}
+                label="raised by our community"
+                note="51 community partners"
               />
             </Reveal>
             <Reveal delay={240}>
               <Stat
-                value={<CountUp to={0} prefix="$" />}
-                label="cost to every family, every program"
+                value={<CountUp to={IMPACT.sessions} />}
+                label="camp and workshop sessions"
                 note="always free"
               />
             </Reveal>
@@ -554,7 +555,7 @@ export default function HomePage() {
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", alignItems: "center" }}>
               <Eyebrow dot>Where our students come from</Eyebrow>
               <h2 className="bb-display-3" style={{ maxWidth: "26ch" }}>
-                26 schools across Naperville and greater Chicagoland
+                {IMPACT.schools} schools across Naperville and greater Chicagoland
               </h2>
             </div>
           </Reveal>

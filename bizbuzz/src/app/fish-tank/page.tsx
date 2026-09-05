@@ -16,6 +16,7 @@ const YEARS: FishTankYear[] = [
     summary:
       "Fish Tank 2026 ran two separate tracks so every young entrepreneur competed against peers at their level. A beginner-friendly KidPreneur division and a rigorous VentureLab division, both on the same stage.",
     stats: [
+      { value: "100", label: "competitors" },
       { value: "2", label: "divisions" },
       { value: "Free", label: "to enter" },
       { value: "3–9", label: "grades" },
@@ -27,12 +28,12 @@ const YEARS: FishTankYear[] = [
   {
     year: "2025",
     venue: "Benedictine University",
-    headline: "70 competitors and a Shark Tank judge",
+    headline: "70 competitors at Benedictine University",
     summary:
-      "Our second annual pitch competition, hosted at Benedictine University, where 70 young entrepreneurs competed for funding, mentorship and resources to launch their businesses. The panel included Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli.",
+      "Our second annual pitch competition, hosted at Benedictine University, where 70 young entrepreneurs competed for funding, mentorship and resources to launch their businesses. Students pitched to business owners, investors and community leaders.",
     stats: [
       { value: "70", label: "competitors" },
-      { value: "10", label: "judges" },
+      { value: "11", label: "judges" },
       { value: "5", label: "placed" },
     ],
     image: "/fish_tank/2025/images/gallery-stage.jpg",
@@ -109,8 +110,8 @@ export default function FishTankPage() {
                 Pitch it to a room of real judges
               </h1>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Our flagship competition. Two divisions, a stage, and a panel that includes founders, a Shark Tank
-                alum and the Mayor of Naperville. You do not have to attend camp to compete.
+                Our flagship competition. Two divisions, a stage, and a panel of founders, investors and community
+                leaders. You do not have to attend camp to compete.
               </p>
               <div
                 style={{

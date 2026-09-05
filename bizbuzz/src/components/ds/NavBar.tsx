@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import type { AnchorHTMLAttributes, CSSProperties, ReactNode } from "react";
 import { Button } from "./Button";
-import { isInternalRoute } from "./link";
+import { InternalLink, isInternalRoute } from "./link";
 
 export type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
 
@@ -13,15 +13,16 @@ function NavAnchor({
   style,
   onClick,
   children,
+  ...props
 }: {
   href: string;
   style?: CSSProperties;
   onClick?: () => void;
   children: ReactNode;
-}) {
-  const Tag = isInternalRoute(href) ? Link : "a";
+} & AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const Tag = isInternalRoute(href) ? InternalLink : "a";
   return (
-    <Tag href={href} style={style} onClick={onClick}>
+    <Tag href={href} style={style} onClick={onClick} {...props}>
       {children}
     </Tag>
   );
@@ -55,6 +56,8 @@ export function NavBar({
   const [open, setOpen] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
   const [menu, setMenu] = useState(false);
+  const navId = useId();
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!overlay) return;
@@ -69,6 +72,7 @@ export function NavBar({
     const mq = window.matchMedia("(max-width: 1060px)");
     const sync = () => {
       setCompact(mq.matches);
+      setOpen(null);
       if (!mq.matches) setMenu(false);
     };
     sync();
@@ -81,7 +85,13 @@ export function NavBar({
 
   return (
     <header
-      className={className}
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && menu) {
+          setMenu(false);
+          menuButton.current?.focus();
+        }
+      }}
+      className={`bb-site-nav ${className}`}
       style={{
         // In overlay mode the bar must sit ON the hero, not reserve a band above it.
         position: overlay ? "fixed" : "sticky",
@@ -113,12 +123,15 @@ export function NavBar({
       >
         <Link
           href={brandHref}
+          className="bb-nav-brand"
+          aria-label="Home"
           style={{ display: "flex", alignItems: "center", gap: "var(--space-4)", color: fg, textDecoration: "none" }}
         >
           {brand}
         </Link>
 
         <nav
+          aria-label="Main navigation"
           style={{
             display: "flex",
             alignItems: "center",
@@ -131,11 +144,36 @@ export function NavBar({
               <div
                 key={it.label}
                 onMouseEnter={() => setOpen(it.children ? it.label : null)}
-                onMouseLeave={() => setOpen(null)}
+                onMouseLeave={(event) => {
+                  if (!event.currentTarget.contains(document.activeElement)) setOpen(null);
+                }}
+                onFocus={() => setOpen(it.children ? it.label : null)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) setOpen(null);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") {
+                    event.currentTarget.querySelector<HTMLAnchorElement>("a")?.focus();
+                    setOpen(null);
+                  }
+                  if ((event.key === "ArrowDown" || event.key === "ArrowUp") && it.children) {
+                    event.preventDefault();
+                    setOpen(it.label);
+                    const links = Array.from(event.currentTarget.querySelectorAll<HTMLAnchorElement>("a"));
+                    const index = links.indexOf(document.activeElement as HTMLAnchorElement);
+                    const next = event.key === "ArrowDown"
+                      ? (index + 1) % links.length
+                      : (index - 1 + links.length) % links.length;
+                    requestAnimationFrame(() => links[next]?.focus());
+                  }
+                }}
                 style={{ position: "relative" }}
               >
                 <NavAnchor
                   href={it.href}
+                  aria-expanded={it.children ? open === it.label : undefined}
+                  aria-controls={it.children ? `${navId}-${encodeURIComponent(it.label)}` : undefined}
+                  onClick={() => setOpen(null)}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -186,43 +224,55 @@ export function NavBar({
 
                 {it.children && (
                   <div
+                    id={`${navId}-${encodeURIComponent(it.label)}`}
+                    data-submenu
+                    inert={open !== it.label}
                     style={{
                       position: "absolute",
-                      top: "calc(100% + 14px)",
+                      top: "100%",
                       left: "50%",
-                      transform: `translateX(-50%) translateY(${open === it.label ? "0" : "-6px"})`,
+                      transform: "translateX(-50%)",
                       minWidth: 214,
-                      padding: "var(--space-4)",
-                      background: "var(--surface-card)",
-                      border: "1px solid var(--border-hairline)",
-                      borderRadius: "var(--radius-lg)",
-                      boxShadow: "var(--shadow-lg)",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 2,
-                      opacity: open === it.label ? 1 : 0,
+                      paddingTop: "var(--space-4)",
+                      visibility: open === it.label ? "visible" : "hidden",
                       pointerEvents: open === it.label ? "auto" : "none",
-                      transition:
-                        "opacity var(--dur-base) var(--ease-out-soft), transform var(--dur-base) var(--ease-out-expo)",
                     }}
                   >
-                    {it.children.map((c) => (
-                      <NavAnchor
-                        key={c.label}
-                        href={c.href}
-                        style={{
-                          padding: "10px 14px",
-                          borderRadius: "var(--radius-sm)",
-                          color: "var(--text-body)",
-                          fontFamily: "var(--font-text)",
-                          fontSize: "var(--size-body-sm)",
-                          fontWeight: 500,
-                          textDecoration: "none",
-                        }}
-                      >
-                        {c.label}
-                      </NavAnchor>
-                    ))}
+                    <div
+                      style={{
+                        padding: "var(--space-4)",
+                        background: "var(--surface-card)",
+                        border: "1px solid var(--border-hairline)",
+                        borderRadius: "var(--radius-lg)",
+                        boxShadow: "var(--shadow-lg)",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 2,
+                        opacity: open === it.label ? 1 : 0,
+                        pointerEvents: open === it.label ? "auto" : "none",
+                        transition:
+                          "opacity var(--dur-base) var(--ease-out-soft), transform var(--dur-base) var(--ease-out-expo)",
+                      }}
+                    >
+                      {it.children.map((c) => (
+                        <NavAnchor
+                          key={c.label}
+                          href={c.href}
+                          onClick={() => setOpen(null)}
+                          style={{
+                            padding: "10px 14px",
+                            borderRadius: "var(--radius-sm)",
+                            color: "var(--text-body)",
+                            fontFamily: "var(--font-text)",
+                            fontSize: "var(--size-body-sm)",
+                            fontWeight: 500,
+                            textDecoration: "none",
+                          }}
+                        >
+                          {c.label}
+                        </NavAnchor>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -230,6 +280,7 @@ export function NavBar({
 
           {cta && (
             <Button
+              className="bb-nav-cta"
               href={ctaHref}
               variant="primary"
               size="sm"
@@ -241,9 +292,11 @@ export function NavBar({
 
           {compact && items.length > 0 && (
             <button
+              ref={menuButton}
               type="button"
               aria-label="Menu"
               aria-expanded={menu}
+              aria-controls={`${navId}-mobile`}
               onClick={() => setMenu((m) => !m)}
               style={{
                 width: 46,
@@ -286,10 +339,12 @@ export function NavBar({
 
       {compact && (
         <div
+          id={`${navId}-mobile`}
+          inert={!menu}
           style={{
-            overflow: "hidden",
-            maxHeight: menu ? 520 : 0,
-            transition: "max-height var(--dur-slow) var(--ease-out-expo)",
+            overflowY: menu ? "auto" : "hidden",
+            maxHeight: menu ? "calc(100dvh - 78px)" : 0,
+            visibility: menu ? "visible" : "hidden",
             background: "var(--surface-card)",
             borderBottom: menu ? "1px solid var(--border-hairline)" : "1px solid transparent",
           }}
@@ -305,22 +360,33 @@ export function NavBar({
             }}
           >
             {items.map((it) => (
-              <NavAnchor
-                key={it.label}
-                href={it.href}
-                onClick={() => setMenu(false)}
-                style={{
-                  padding: "12px 0",
-                  borderBottom: "1px solid var(--border-hairline)",
-                  color: "var(--text-display)",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "1.375rem",
-                  letterSpacing: "-0.015em",
-                  textDecoration: "none",
-                }}
-              >
-                {it.label}
-              </NavAnchor>
+              <div key={it.label} style={{ display: "flex", flexDirection: "column" }}>
+                <NavAnchor
+                  href={it.href}
+                  onClick={() => setMenu(false)}
+                  style={{
+                    padding: "12px 0",
+                    borderBottom: "1px solid var(--border-hairline)",
+                    color: "var(--text-display)",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.375rem",
+                    letterSpacing: "-0.015em",
+                    textDecoration: "none",
+                  }}
+                >
+                  {it.label}
+                </NavAnchor>
+                {it.children?.map((child) => (
+                  <NavAnchor
+                    key={child.href}
+                    href={child.href}
+                    onClick={() => setMenu(false)}
+                    style={{ padding: "12px var(--space-5)", color: "var(--text-body)", textDecoration: "none" }}
+                  >
+                    {child.label}
+                  </NavAnchor>
+                ))}
+              </div>
             ))}
           </div>
         </div>

@@ -1,0 +1,515 @@
+{
+  "2024": [
+    {
+      "title": "Summer camp",
+      "sessions": [
+        {
+          "id": "session1",
+          "title": "Ideation & Innovation",
+          "date": "June 12th, 2024",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 1, students kicked off our free 2024 Summer Entrepreneurship Camp by exploring the basics of business-minded thinking, learning how to identify and solve real-world problems. After being introduced to concepts like value creation and market fit with 10 instructors, students dove into our Mini Fish Tank activity with $200+ in prizes.",
+          "speaker": {
+            "name": "Kandice Henning",
+            "role": "CEO of the Alive Center",
+            "topic": "How to Become a Fearless Entrepreneur",
+            "bio": "Sharing her journey of creating one of Naperville's largest nonprofit organizations, she inspired students to embrace risk, pursue their passions, and lead through social innovation.",
+            "image": "/camp_imgs/speakers/kandice_henning.png"
+          },
+          "images": [
+            "/camp_imgs/cards/session1/1.png",
+            "/camp_imgs/cards/session1/2.png",
+            "/camp_imgs/cards/session1/3.png",
+            "/camp_imgs/cards/session1/4.png",
+            "/camp_imgs/cards/session1/5.png"
+          ]
+        },
+        {
+          "id": "session2",
+          "title": "Unique Value Proposition & Networking",
+          "date": "June 19th, 2024",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 2, students learned how to craft a unique value proposition for their businesses and practiced their networking skills with 9 instructors. They put their skills to the test in a coffee shop simulation contest, responding to situations & prompts (and some surprises too!) to maximize profits and win $100 in awards.",
+          "speaker": {
+            "name": "Isha Elandassery",
+            "role": "Founder of Naperville Rising Women in Business",
+            "topic": "Finding Your Competitive Advantage",
+            "bio": "Inspired by an activity she did at Indiana University, she taught students to discover their identity through a self-portrait exercise and apply their newfound skills to networking.",
+            "image": "/camp_imgs/speakers/isha_elandassery.jpg"
+          },
+          "images": [
+            "/camp_imgs/cards/session2/1.png",
+            "/camp_imgs/cards/session2/2.jpg",
+            "/camp_imgs/cards/session2/3.jpg",
+            "/camp_imgs/cards/session2/4.png",
+            "/camp_imgs/cards/session2/5.jpg"
+          ]
+        },
+        {
+          "id": "session3",
+          "title": "Marketing",
+          "date": "June 26th, 2024",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 3, students explored marketing, branding, and advertising through activities like the 'Guess the Brand' game and a flyer design challenge with $140 in prizes. With the Fish Tank competition just weeks away, students refined their business identities with 11 instructors and prepared to share them with the world.",
+          "speaker": {
+            "name": "Mary Gibson",
+            "role": "Naperville Park District President",
+            "topic": "Pitch, Polish, Promote: Branding Lessons from the Ballot",
+            "bio": "After building a personal brand during her Park District election campaign, she taught students how to apply those strategies to their own businesses and innovations.",
+            "image": "/camp_imgs/speakers/mary_gibson.jpg"
+          },
+          "images": [
+            "/camp_imgs/cards/session3/1.jpg",
+            "/camp_imgs/cards/session3/2.jpg",
+            "/camp_imgs/cards/session3/3.jpg",
+            "/camp_imgs/cards/session3/4.jpg",
+            "/camp_imgs/cards/session3/5.jpg"
+          ]
+        },
+        {
+          "id": "session4",
+          "title": "Public Speaking",
+          "date": "July 3rd, 2024",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 4, students explored the art of sales and pitching. Guided by 14 instructors, they practiced their public speaking skills and competed in an interactive, hands-on pitch contest with over $170 in prizes. With this new knowledge, students began developing their presentations and pitches in preparation for Fish Tank.",
+          "speaker": {
+            "name": "Athena Chen",
+            "role": "Founder of the Naperville Children's Business Fair",
+            "topic": "Confident Kidpreneurs: Believe, Build, and Be Bold",
+            "bio": "As someone who ran an Etsy shop with over $11K in revenue and helped hundreds of local students pitch their own businesses, she spoke to students about taking risks despite doubt and embracing the confidence of a kidpreneur who knows they can do it all.",
+            "image": "/camp_imgs/speakers/athena_chen.png"
+          },
+          "images": [
+            "/camp_imgs/cards/session4/1.jpg",
+            "/camp_imgs/cards/session4/2.jpg",
+            "/camp_imgs/cards/session4/3.png",
+            "/camp_imgs/cards/session4/4.jpg",
+            "/camp_imgs/cards/session4/5.jpg"
+          ]
+        },
+        {
+          "id": "session5",
+          "title": "Finance",
+          "date": "July 10th, 2024",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 5, students learned the basics of personal and business finance from 16 instructors. They then put their skills to the test in a dream vacation budgeting game, planning their ideal trip and pitching it for a chance to win over $330 in prizes. Students also continued refining their Fish Tank pitches, now incorporating key financial details into their business plans.",
+          "speaker": {
+            "name": "Scott Wehrli",
+            "role": "Mayor of Naperville",
+            "topic": "From Ideas to Impact: How Innovation Builds Better Communities",
+            "bio": "Mayor Wehrli shared how local entrepreneurs are innovating to solve real community problems in Naperville and beyond, encouraging students to use business as a tool for civic impact and leadership development.",
+            "image": "/camp_imgs/speakers/scott_wehrli.png"
+          },
+          "images": [
+            "/camp_imgs/cards/session5/1.jpg",
+            "/camp_imgs/cards/session5/2.jpg",
+            "/camp_imgs/cards/session5/3.jpg",
+            "/camp_imgs/cards/session5/4.jpg",
+            "/camp_imgs/cards/session5/5.jpg",
+            "/camp_imgs/cards/session5/6.jpg",
+            "/camp_imgs/cards/session5/7.jpg"
+          ]
+        },
+        {
+          "id": "session6",
+          "title": "Pitching",
+          "date": "July 17th, 2024",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 6, the final session before Fish Tank, students participated in a business building workshop to finalize their pitch decks and practice rehearsing their scripts. Joining them for a special surprise were our preliminary judges—Athena Chen, Soohyun Cho, Isabel Yu, Nathan Mendoza, and Olivia Fisz—who offered exciting feedback.",
+          "speaker": {
+            "name": "Sean Riley",
+            "role": "CEO of Dude Wipes",
+            "topic": "Dude, Start Now: Why Entrepreneurship Can't Wait",
+            "bio": "Sean spoke about the power of starting early in entrepreneurship and embracing the journey. He reminded students that by taking the leap now, they are already on the right path in one of the world's most fun and rewarding career choices.",
+            "image": "/camp_imgs/speakers/sean_riley.png"
+          },
+          "images": [
+            "/camp_imgs/cards/session6/1.jpg",
+            "/camp_imgs/cards/session6/2.png",
+            "/camp_imgs/cards/session6/3.png",
+            "/camp_imgs/cards/session6/4.png",
+            "/camp_imgs/cards/session6/5.png"
+          ]
+        }
+      ]
+    }
+  ],
+  "2025": [
+    {
+      "title": "Summer camp",
+      "sessions": [
+        {
+          "id": "session1",
+          "title": "Networking & Ideation",
+          "date": "June 6th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 1, kidpreneurs at our 2025 Summer Entrepreneurship Camp broke the ice with new friends and high school instructors through a high-stakes Networking Bingo game. They then learned to identify and brainstorm real-world problems in an interactive \"Bug-Me List\" and ideation session. The day concluded with a Mini Fish Tank challenge, where students pitched creative product mashups for Jolly Ranchers and $135 in Andy's Ice Cream treat cards.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session1/session1a.jpg",
+            "/camp_imgs/2025/session1/session1b.jpg",
+            "/camp_imgs/2025/session1/session1c.jpg",
+            "/camp_imgs/2025/session1/session1d.jpg",
+            "/camp_imgs/2025/session1/session1e.jpg"
+          ]
+        },
+        {
+          "id": "session2",
+          "title": "Lean Canvas & Value Proposition",
+          "date": "June 13th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 2, kidpreneurs kicked things off with our Inventor Fusion game, combining random objects to invent new products and test their teamwork. They then completed a Lean Canvas Model to refine their business ideas from the previous session. Building on these ideas, they competed in our Pokémon Card Investor Report challenge, where students pitched 30-second summaries of their ideas, advanced through group voting rounds, and competed for Chicago Wolves and White Sox game tickets.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session2/session2a.jpg",
+            "/camp_imgs/2025/session2/session2b.jpg",
+            "/camp_imgs/2025/session2/session2c.jpg",
+            "/camp_imgs/2025/session2/session2d.jpg",
+            "/camp_imgs/2025/session2/session2e.jpg"
+          ]
+        },
+        {
+          "id": "session3",
+          "title": "Marketing & Branding",
+          "date": "June 20th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 3, students learned how to market their business ideas by designing logos, slogans, product sketches, and fliers that built a cohesive brand. After an icebreaker where they pitched creative uses for random objects, each room worked on Canva to build a group logo and flier, deciding on colors, fonts, and layouts together. Students then created their own marketing portfolios and competed in a full-class flier design bracket, with top teams winning Illinois State University football and basketball game tickets.",
+          "speaker": {
+            "name": "Kandice Henning",
+            "role": "CEO of the Alive Center",
+            "topic": "Brand Like a Boss",
+            "bio": "Sharing how strategic marketing grew the ALIVE Center into three Naperville locations and counting, she showed students that powerful branding goes beyond visuals, using storytelling to build genuine connection.",
+            "image": "/camp_imgs/speakers/kandicehenning.jpg",
+            "objectPosition": "center 2%"
+          },
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session3/session3a.jpg",
+            "/camp_imgs/2025/session3/session3b.jpg",
+            "/camp_imgs/2025/session3/session3c.jpg",
+            "/camp_imgs/2025/session3/session3d.jpg",
+            "/camp_imgs/2025/session3/session3e.jpg"
+          ]
+        },
+        {
+          "id": "session4",
+          "title": "Prototyping & Product Creation",
+          "date": "June 27th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 4, students brought their Fish Tank ideas to life through hands-on creation. After the \"Personal Brand Soul Train\" icebreaker, they split into three creative tracks—Tinkercad for 3D modeling, Google Sites for website design, and detailed sketching—to build prototypes, online product pages, and prototype blueprints with high school specialists.",
+          "speaker": {
+            "name": "Lindsey Fleischhauer",
+            "role": "Co-Founder at Totes Babies",
+            "topic": "Totes Babies, Totally Brilliant",
+            "bio": "Walking students through the journey of refining her car seat carrier for parents on the go, she shared how Totes Babies grew from a rough prototype to a Shark Tank success story, eventually pitching it in Las Vegas and securing a deal on Season 12, Episode 17.",
+            "image": "/camp_imgs/speakers/lindseyfleischhauer.jpg",
+            "objectPosition": "30% center"
+          },
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session4/session4a.jpg",
+            "/camp_imgs/2025/session4/session4b.jpg",
+            "/camp_imgs/2025/session4/session4c.jpg",
+            "/camp_imgs/2025/session4/session4d.jpg",
+            "/camp_imgs/2025/session4/session4e.jpg"
+          ]
+        },
+        {
+          "id": "session5",
+          "title": "Finance & Budgeting",
+          "date": "July 11th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 5, students got \"hired\" by Invisibelle, a startup selling invisible products, pitching their wildest talents to instructors in a hilarious Founder's Got Talent challenge. They then learned how to think like entrepreneurs by budgeting a $3,500 dream vacation, making surprise spending choices and pitching their trips to classmates. The top planners walked away with Kane County Cougar and Chicago Fire game tickets, while everyone else scored sweet Jolly Ranchers for a job well done.",
+          "speaker": {
+            "name": "Mary Gibson",
+            "role": "Naperville Park District President",
+            "topic": "Campaigning Your Company",
+            "bio": "As the city's Park District President, she connected big data, emotion, and politics, showing students how running a campaign is just like marketing a business—where authentic, consistent storytelling turns voters and customers into true supporters!",
+            "image": "/camp_imgs/speakers/marygibson.jpeg"
+          },
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session5/session5a.jpg",
+            "/camp_imgs/2025/session5/session5b.jpg",
+            "/camp_imgs/2025/session5/session5c.jpg",
+            "/camp_imgs/2025/session5/session5d.jpg",
+            "/camp_imgs/2025/session5/session5e.jpg"
+          ]
+        },
+        {
+          "id": "session6",
+          "title": "Business Planning & Leadership",
+          "date": "July 18th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 6, students finalized their Fish Tank ideas, outlining full business plans from problem to profit. After hearing advice from Mayor Scott Wehrli and City Finance Director Raymond Munch, they spent the afternoon polishing slides, scripts, and prototypes—and celebrating their progress with prizes like Keller's Farmstead passes, a DuPage Children's Museum family pass, a DuPage Forest Preserve gift card, and a Gourmet Gift Baskets gift card.",
+          "speaker": {
+            "name": "Scott Wehrli",
+            "role": "Mayor of Naperville",
+            "topic": "Leading the Local Way",
+            "bio": "Sharing stories from his journey in public service and business, he inspired students to see leadership as service to their community. He encouraged them to stay curious, take initiative, and use entrepreneurship to make a lasting local impact.",
+            "image": "/camp_imgs/speakers/scottwehrli.jpg"
+          },
+          "speaker2": {
+            "name": "Raymond Munch",
+            "role": "City Director of Finance",
+            "topic": "Finance Fuels Innovation",
+            "bio": "He showed students how budgeting, planning, and smart financial strategy power both cities and startups alike. He connected real-world finance to their Fish Tank projects, emphasizing how numbers can tell the story behind every great idea.",
+            "image": "/camp_imgs/speakers/raymondmunch.jpg",
+            "objectPosition": "center 0%"
+          },
+          "images": [
+            "/camp_imgs/2025/session6/session6a.jpg",
+            "/camp_imgs/2025/session6/session6b.jpg",
+            "/camp_imgs/2025/session6/session6c.jpg",
+            "/camp_imgs/2025/session6/session6d.jpg",
+            "/camp_imgs/2025/session6/session6e.jpg"
+          ]
+        },
+        {
+          "id": "session7",
+          "title": "Pitch Rehearsal & Preparation",
+          "date": "July 25th, 2025",
+          "location": "95th Street Library, Naperville",
+          "description": "Biz, Buzz, Build! Students spent the day fully immersed in their Fish Tank projects, perfecting business plans, building prototypes, and running mock pitches with instructors. The session focused entirely on preparation, teamwork, and refining every detail to get ready for the big day.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session7/session7a.jpg",
+            "/camp_imgs/2025/session7/session7b.jpg",
+            "/camp_imgs/2025/session7/session7c.jpg",
+            "/camp_imgs/2025/session7/session7d.jpg",
+            "/camp_imgs/2025/session7/session7e.jpg"
+          ]
+        }
+      ]
+    }
+  ],
+  "2026": [
+    {
+      "title": "KidPreneur",
+      "sessions": [
+        {
+          "id": "kp-session1",
+          "title": "Ideation",
+          "date": "June 5th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 1, our kidpreneurs kicked things off by connecting with new friends and high school instructors through a high-energy Networking Bingo game. They then explored real-world problem solving with an interactive \"Bug-Me List\" and ideation session, learning how to spot everyday challenges and turn them into business ideas. Throughout the session, they also began learning the importance of using money wisely by earning BizBucks, which they can redeem for a variety of rewards.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session1kp/session1kpa.JPG",
+            "/camp_imgs/2026/session1kp/session1kpb.JPG",
+            "/camp_imgs/2026/session1kp/session1kpc.JPG",
+            "/camp_imgs/2026/session1kp/session1kpd.JPG",
+            "/camp_imgs/2026/session1kp/session1kpe.JPG"
+          ]
+        },
+        {
+          "id": "kp-session2",
+          "title": "Finance",
+          "date": "June 12th, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 2, students took part in an interactive Finance Workshop at Nichols Library, starting with a \"Price is Right\" icebreaker to learn cost, price, and profit. They explored what makes a strong pitch and how to develop ideas, then applied these skills through activities like a Startup Auction, Shark Tank deal decisions, Business Disaster scenarios, and the $100 Challenge. Throughout the session, students practiced teamwork, decision-making, and learned to use money wisely by using opportunities.",
+          "speaker": {
+            "name": "Isha Elandassery",
+            "role": "Entrepreneur & Finance Educator",
+            "topic": "Money Moves & Smart Decisions",
+            "bio": "Bringing finance to life through real-world scenarios, she showed students how smart money decisions fuel entrepreneurship — from startup auctions to Shark Tank-style deal analysis, she made every dollar a lesson in strategy.",
+            "image": "/camp_imgs/speakers/isha_elandassery.jpg"
+          },
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session2kp/session2kpa.jpg",
+            "/camp_imgs/2026/session2kp/session2kpb.jpg",
+            "/camp_imgs/2026/session2kp/session2kpc.jpg",
+            "/camp_imgs/2026/session2kp/session2kpd.jpg",
+            "/camp_imgs/2026/session2kp/session2kpe.jpg",
+            "/camp_imgs/2026/session2kp/session2kpf.jpg",
+            "/camp_imgs/2026/session2kp/session2kpg.jpg"
+          ]
+        },
+        {
+          "id": "kp-session3",
+          "title": "Marketing & Prototyping",
+          "date": "June 19th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 3, students dove into the fundamentals of marketing and product design. They learned how businesses attract customers, build a brand, and communicate value effectively. Through hands-on activities, students created their own brand identity and began designing simple prototypes of their ideas. By testing and refining their concepts, they understood how strong marketing and thoughtful design work together to bring ideas to life and make products stand out.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session3kp/session3kpa.jpg",
+            "/camp_imgs/2026/session3kp/session3kpb.jpg",
+            "/camp_imgs/2026/session3kp/session3kpc.jpg",
+            "/camp_imgs/2026/session3kp/session3kpd.jpg",
+            "/camp_imgs/2026/session3kp/session3kpe.jpg",
+            "/camp_imgs/2026/session3kp/session3kpf.jpg"
+          ]
+        },
+        {
+          "id": "kp-session4",
+          "title": "Problem Solving & Business Models",
+          "date": "June 26th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 4, students focused on solving problems and turning ideas into structured business models. They learned how successful companies identify customer needs, create value, and generate revenue. Through interactive exercises, students broke down their ideas into key components such as target audience, pricing, and operations. By the end of the session, they had a clearer understanding of how businesses function and how to build a sustainable and scalable idea.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session4kp/session4kpa.jpg",
+            "/camp_imgs/2026/session4kp/session4kpb.jpg",
+            "/camp_imgs/2026/session4kp/session4kpc.jpg",
+            "/camp_imgs/2026/session4kp/session4kpd.jpg",
+            "/camp_imgs/2026/session4kp/session4kpe.jpg",
+            "/camp_imgs/2026/session4kp/session4kpf.jpg"
+          ]
+        },
+        {
+          "id": "kp-session5",
+          "title": "Presentational & Speaking Skills",
+          "date": "July 3rd, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 5, students developed strong communication and presentation skills essential for entrepreneurship. They learned how to confidently speak in front of an audience, structure a compelling pitch, and clearly explain their ideas. Through practice activities and feedback, students refined their tone, body language, and storytelling abilities. This session prepared them to present with confidence, helping them effectively share their ideas and persuade others.",
+          "speaker": {
+            "name": "Scott Wehrli",
+            "role": "Mayor of Naperville",
+            "topic": "Leading the Local Way",
+            "bio": "Sharing stories from his journey in public service and business, he inspired students to see leadership as service to their community. He encouraged them to stay curious, take initiative, and use entrepreneurship to make a lasting local impact.",
+            "image": "/camp_imgs/speakers/scottwehrli.jpg"
+          },
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session5kp/session5kpa.jpg",
+            "/camp_imgs/2026/session5kp/session5kpb.jpg",
+            "/camp_imgs/2026/session5kp/session5kpc.jpg",
+            "/camp_imgs/2026/session5kp/session5kpd.jpg",
+            "/camp_imgs/2026/session5kp/session5kpe.jpg",
+            "/camp_imgs/2026/session5kp/session5kpf.jpg"
+          ]
+        },
+        {
+          "id": "kp-session6",
+          "title": "Mock Pitch",
+          "date": "July 10th, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 6, students brought everything together in a Mock Pitch experience. They presented their business ideas in a Fish Tank-style setting, applying the skills learned throughout the program. Students received feedback from instructors and peers, allowing them to improve their ideas and presentation style. This session built confidence, reinforced key concepts, and prepared them for the final competition by simulating a real entrepreneurial pitching environment.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session6/session6a.jpg",
+            "/camp_imgs/2025/session6/session6b.jpg",
+            "/camp_imgs/2025/session6/session6c.jpg",
+            "/camp_imgs/2025/session6/session6d.jpg",
+            "/camp_imgs/2025/session6/session6e.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "VentureLab",
+      "sessions": [
+        {
+          "id": "vl-session1",
+          "title": "Ideation",
+          "date": "June 5th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 1, students were introduced to entrepreneurship through a hands-on Startup Ideation Lab. They learned how to identify real-world problems using a \"Bug Me List\" and turn those challenges into creative business ideas. Through brainstorming, poster creation, and a mini tradeshow, students explored different concepts, collaborated with peers, and began forming teams. By the end of the session, they delivered short pitches and took their first steps toward building a strong, innovative startup idea.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session1/session1a.jpg",
+            "/camp_imgs/2025/session1/session1b.jpg",
+            "/camp_imgs/2025/session1/session1c.jpg",
+            "/camp_imgs/2025/session1/session1d.jpg",
+            "/camp_imgs/2025/session1/session1e.jpg"
+          ]
+        },
+        {
+          "id": "vl-session2",
+          "title": "Feasibility & Market Research",
+          "date": "June 12th, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 2, students continued building on their ideas from the Startup Ideation Lab. They refined their problem-solution concepts, strengthened their understanding of their target audience, and further developed their startup vision. Through continued collaboration, feedback, and pitching practice, students improved their ideas and communication skills. This session reinforced creativity, critical thinking, and iteration, helping students gain confidence in their ideas while preparing for more advanced development in future sessions.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session2vl/session2vla.jpg",
+            "/camp_imgs/2026/session2vl/session2vlb.jpg",
+            "/camp_imgs/2026/session2vl/session2vlc.jpg",
+            "/camp_imgs/2026/session2vl/session2vld.jpg",
+            "/camp_imgs/2026/session2vl/session2vle.jpg",
+            "/camp_imgs/2026/session2vl/session2vlf.jpg",
+            "/camp_imgs/2026/session2vl/session2vlg.jpg"
+          ]
+        },
+        {
+          "id": "vl-session3",
+          "title": "Prototyping",
+          "date": "June 19th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 3, students learned how to bring their ideas to life through prototyping. They explored how successful startups test and refine their concepts using simple models, sketches, or mockups. Through hands-on activities, students created early versions of their product or service and gathered feedback from peers. This process helped them understand the importance of iteration, user experience, and continuous improvement as they began transforming their ideas into something tangible.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session3vl/session3vla.jpg",
+            "/camp_imgs/2026/session3vl/session3vlb.jpg",
+            "/camp_imgs/2026/session3vl/session3vlc.jpg",
+            "/camp_imgs/2026/session3vl/session3vld.jpg",
+            "/camp_imgs/2026/session3vl/session3vle.jpg",
+            "/camp_imgs/2026/session3vl/session3vlf.jpg"
+          ]
+        },
+        {
+          "id": "vl-session4",
+          "title": "Project Management & Linking",
+          "date": "June 26th, 2026",
+          "location": "95th Street Library, Naperville",
+          "description": "In Session 4, students focused on organizing their ideas and managing their projects effectively. They learned how to break down their startup into key tasks, set goals, and assign roles within their teams. Additionally, they explored how different parts of a business connect, including product development, marketing, and operations. Through structured planning activities, students strengthened their teamwork and leadership skills while ensuring their ideas were clear, cohesive, and ready for presentation.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session4vl/session4vla.jpg",
+            "/camp_imgs/2026/session4vl/session4vlb.jpg",
+            "/camp_imgs/2026/session4vl/session4vlc.jpg",
+            "/camp_imgs/2026/session4vl/session4vld.jpg",
+            "/camp_imgs/2026/session4vl/session4vle.jpg",
+            "/camp_imgs/2026/session4vl/session4vlf.jpg"
+          ]
+        },
+        {
+          "id": "vl-session5",
+          "title": "Presentational & Speaking Skills",
+          "date": "July 3rd, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 5, students developed the communication skills needed to present their ideas confidently. They learned how to structure a clear and compelling pitch, improve their public speaking, and use storytelling to engage an audience. Through guided practice and feedback, students refined their delivery, body language, and clarity. This session helped them feel more confident presenting their ideas and prepared them to effectively communicate their startup vision.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2026/session5vl/session5vla.jpg",
+            "/camp_imgs/2026/session5vl/session5vlb.jpg",
+            "/camp_imgs/2026/session5vl/session5vlc.jpg",
+            "/camp_imgs/2026/session5vl/session5vld.jpg",
+            "/camp_imgs/2026/session5vl/session5vle.jpg",
+            "/camp_imgs/2026/session5vl/session5vlf.jpg"
+          ]
+        },
+        {
+          "id": "vl-session6",
+          "title": "Demo Day Practice",
+          "date": "July 10th, 2026",
+          "location": "Nichols Library, Naperville",
+          "description": "In Session 6, students focused on practicing for Demo Day in a low-pressure, supportive environment. They ran through their full pitches, received feedback from instructors and peers, and made final improvements to both their ideas and presentation style. The goal of this session was repetition and refinement, helping students build confidence, fix weak points, and feel fully prepared. By the end, students had a polished pitch and a clear understanding of how to present effectively.",
+          "speaker": null,
+          "speaker2": null,
+          "images": [
+            "/camp_imgs/2025/session6/session6a.jpg",
+            "/camp_imgs/2025/session6/session6b.jpg",
+            "/camp_imgs/2025/session6/session6c.jpg",
+            "/camp_imgs/2025/session6/session6d.jpg",
+            "/camp_imgs/2025/session6/session6e.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

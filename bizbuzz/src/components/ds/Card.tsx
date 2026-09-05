@@ -189,8 +189,11 @@ export function Stat({
 }) {
   return (
     <div
-      className={className}
+      className={`bb-proof-stat ${className}`}
       style={{
+        containerType: "inline-size",
+        width: "100%",
+        minWidth: 0,
         display: "flex",
         flexDirection: "column",
         gap: "var(--space-6)",

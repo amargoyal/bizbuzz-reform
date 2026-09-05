@@ -34,7 +34,13 @@ npm run build   # must pass — it type-checks and lints
 
 ### Copy and data
 
-Page content is typed constants at the top of the relevant `page.tsx`. Anything
+Historical records and site totals live in `src/data/`: `impact.ts` contains
+participation, school directories, funding and cumulative totals; the year JSON
+files contain season statistics; `camps.json`, `fish-tank.json`, `workshops.json`
+and `team.ts` contain program archives and biographies. Keep cumulative totals
+independent of the per-season counts: `main` reports these separately.
+
+Page-specific copy is typed constants at the top of the relevant `page.tsx`. Anything
 shared across pages — registration form URLs, the contact address, nav items,
 footer columns, Cal.com event slugs — belongs in `src/lib/site.ts`, not inline.
 

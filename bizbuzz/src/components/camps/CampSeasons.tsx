@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import campArchive from "@/data/camps.json";
+import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import { Card, Chip } from "@/components/ds/Card";
 import { Tabs } from "@/components/ds/NavBar";
 import { Reveal } from "@/components/ds/motion";
@@ -22,11 +24,17 @@ export type CampSeason = {
  */
 export default function CampSeasons({ seasons, initialYear }: { seasons: CampSeason[]; initialYear: string }) {
   const [year, setYear] = useState(initialYear);
+  const archive = useRef<HTMLElement>(null);
+  const [track, setTrack] = useState("0");
 
   useEffect(() => {
     const sync = () => {
       const h = window.location.hash.replace("#", "");
-      if (seasons.some((s) => s.year === h)) setYear(h);
+      if (seasons.some((s) => s.year === h)) {
+        setYear(h);
+        setTrack("0");
+        requestAnimationFrame(() => archive.current?.scrollIntoView({ block: "start" }));
+      }
     };
     sync();
     window.addEventListener("hashchange", sync);
@@ -35,9 +43,20 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
 
   const current = seasons.find((s) => s.year === year) ?? seasons[0];
 
+  const tracks = campArchive[current.year as keyof typeof campArchive];
+  const selectedTrack = tracks?.[Number(track)] ?? tracks?.[0];
+  const sessions = selectedTrack
+    ? selectedTrack.sessions.map((session, index) => ({
+        n: String(index + 1).padStart(2, "0"), title: session.title,
+        date: session.date, venue: session.location, blurb: session.description,
+        images: session.images,
+        speakers: [session.speaker, "speaker2" in session ? session.speaker2 : null].filter((speaker) => speaker !== null),
+      }))
+    : current.sessions.map((session) => ({ ...session, images: [], speakers: [] }));
+
   return (
     <>
-      <section style={{ paddingBlock: "var(--section-y) 0" }}>
+      <section ref={archive} id="season-archive" style={{ paddingBlock: "var(--section-y) 0" }}>
         <div
           style={{
             maxWidth: "var(--container)",
@@ -62,7 +81,8 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
             value={current.year}
             onChange={(v) => {
               setYear(v);
-              history.replaceState(null, "", `#${v}`);
+              setTrack("0");
+              history.replaceState(history.state, "", `#${v}`);
             }}
           />
 
@@ -166,8 +186,11 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
             </div>
           </Reveal>
 
+          {tracks && tracks.length > 1 && (
+            <Tabs items={tracks.map((item, index) => ({ value: String(index), label: item.title }))} value={track} onChange={setTrack} />
+          )}
           <div style={{ display: "flex", flexDirection: "column" }}>
-            {current.sessions.map((s) => (
+            {sessions.map((s) => (
               <Reveal key={s.n}>
                 <div
                   className="bb-rowlist"
@@ -191,9 +214,23 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                     <p className="bb-mono">{s.date}</p>
                     <p className="bb-mono">{s.venue}</p>
                   </div>
-                  <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    {s.blurb}
-                  </p>
+                  <div>
+                    <p className="bb-body" style={{ color: "var(--text-muted)" }}>{s.blurb}</p>
+                    {s.speakers.map((speaker) => (
+                      <details className="bb-details" key={speaker.name}>
+                        <summary>Guest speaker: {speaker.name}</summary>
+                        <p className="bb-caption">{speaker.role}</p>
+                        <p className="bb-display-4">{speaker.topic}</p>
+                        <p className="bb-body">{speaker.bio}</p>
+                      </details>
+                    ))}
+                    {s.images.length > 0 && (
+                      <details className="bb-details">
+                        <summary>Session photos</summary>
+                        <ArchiveGallery images={s.images} title={`${current.year} ${selectedTrack?.title} ${s.title}`} />
+                      </details>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             ))}

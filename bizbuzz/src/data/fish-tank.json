@@ -1,0 +1,269 @@
+{
+  "2024": {
+    "winners": [
+      {
+        "placement": "1st Place",
+        "team": "Garrett Hauk",
+        "project": "Garrett's Gourmet Dog Treats",
+        "image": "/fish_tank/ranking/first.jpg",
+        "description": "Garrett's Gourmet Dog Treats offers organic, natural, and delicious snacks made with fewer than five ingredients. As a healthier, modern alternative to conventional options, they ensure man's best friend enjoys treats that are both simple and satisfying."
+      },
+      {
+        "placement": "2nd Place",
+        "team": "Taksh Taware & Rohan Patwardhan",
+        "project": "ChitChat Lingo",
+        "image": "/fish_tank/ranking/second.jpg",
+        "description": "ChitChat Lingo empowers immigrants, tourists, and global professionals to speak confidently and fluently in new languages. By focusing on real-life, emotion-filled scenarios, it makes meaningful conversations more natural and accessible than ever."
+      },
+      {
+        "placement": "3rd Place",
+        "team": "Sara Jayaseelan",
+        "project": "Cuisinify",
+        "image": "/fish_tank/ranking/third.jpg",
+        "description": "Cuisinify makes cooking accessible for everyone by tackling ingredient substitutions, leftover use, and nutritious meal prep. With AR technology that identifies recipe substitutes in real time, it empowers anyone to cook anytime with what they have on hand."
+      },
+      {
+        "placement": "4th Place",
+        "team": "Mirav Patel & Mishi Patel",
+        "project": "ECOVision",
+        "image": "/fish_tank/ranking/fourth.jpg",
+        "description": "ECOVision sees something different with corn waste. Instead of leaving it to rot, burn, or decompose, it uses a complex process that extracts leftover compounds in the waste to create yarn, foam, and paper, revolutionizing food waste management."
+      },
+      {
+        "placement": "5th Place",
+        "team": "Claire Shen & Catherine Shen",
+        "project": "Pathway",
+        "image": "/fish_tank/ranking/fifth.jpg",
+        "description": "Pathway streamlines the process of finding communities, activities, and interests for high schoolers, removing the need for expensive college counselors and wasted time on web searches. Pathway creates a pathway for those finding their journey."
+      }
+    ],
+    "judges": [
+      {
+        "title": "Final round judges",
+        "judges": [
+          {
+            "name": "Phil Ramos",
+            "title": "Owner & President \u00b7 Office Furniture Solutions",
+            "bio": "Phil Ramos is the owner and president of Office Furniture Solutions in Naperville, where he has built a respected business providing new and refurbished office furniture. Known for his commitment to community involvement and mentorship, he actively supports local initiatives and youth programs.",
+            "image": null
+          },
+          {
+            "name": "Raymond Munch",
+            "title": "Director of Finance \u00b7 City of Naperville",
+            "bio": "Raymond Munch serves as the Director of Finance for the City of Naperville, overseeing financial operations and managing the city's substantial budget. His career includes over a decade in law enforcement with the Village of Glen Ellyn, followed by leadership roles in city management in DeKalb, Illinois.",
+            "image": null
+          },
+          {
+            "name": "Janet Yang Rohr",
+            "title": "State Representative \u00b7 Illinois' 41st District",
+            "bio": "Janet Yang Rohr is a state representative for Illinois' 41st District, serving since 2021 and focusing on education, healthcare, and economic issues. Before entering politics, she held leadership roles in finance and served on the Naperville District 203 school board.",
+            "image": null
+          },
+          {
+            "name": "Brad Wilson",
+            "title": "Executive Director \u00b7 Naperville Park District",
+            "bio": "Brad Wilson has been the Executive Director of the Naperville Park District since February 2022, after a distinguished 23-year tenure with the organization. He has been with the district for over two decades, beginning as an intern and working his way up through various leadership positions.",
+            "image": null
+          },
+          {
+            "name": "Isha Elandassery",
+            "title": "Founder \u00b7 Naperville Rising Women in Business",
+            "bio": "Isha Elandassery is the founder of Naperville Rising Women in Business (NRWIB), an organization dedicated to empowering young girls to become future leaders. She also created Salus Security, a startup focused on developing discreet emergency wristbands for students.",
+            "image": null
+          }
+        ]
+      },
+      {
+        "title": "Preliminary round judges",
+        "judges": [
+          {
+            "name": "Athena Chen",
+            "title": "Founder @ Naperville Children's Business Fair",
+            "bio": "Athena is an incoming freshman at the Haas School of Business at the University of California-Berkeley. In 2020, she founded the Naperville Children's Business Fair, an entrepreneurship event incubating 200+ businesses run by over 350 kidpreneurs (ages 5-14) selling to 3,500 visitors over the past three years. She is so excited that the Fair is partnering with BizBuzz this year!",
+            "image": "/fish_tank/p_judges/athena.png"
+          },
+          {
+            "name": "Olivia Fisz",
+            "title": "State President @ Illinois DECA",
+            "bio": "Olivia is an incoming freshman at the Wharton School of the University of Pennsylvania, where she will study finance. She currently serves as the Illinois DECA State President, leading over 5,000 members in the world's largest high school business organization. She hopes to show young students how they can use their voices, ideas, and courage to create meaningful change.",
+            "image": "/fish_tank/p_judges/olivia.png"
+          },
+          {
+            "name": "Soohyun Cho",
+            "title": "Student Representative @ City of Naperville",
+            "bio": "Soohyun is an incoming freshman at Rice University majoring in Finance. From working at a sales company to being involved in business organizations at school, he has taken his talents far and wide. This past year, he placed nationally in personal finance and investing competitions, eventually becoming a state champion in DECA.",
+            "image": "/fish_tank/p_judges/soohyun.jpg"
+          },
+          {
+            "name": "Isabel Yu",
+            "title": "Founder @ Suki Jewels",
+            "bio": "Isabel is a rising freshman at UIUC's Gies College of Business, studying marketing and finance. As an upcoming D203 Business Incubator mentor, she is excited to help students further their passion for entrepreneurship. She is also the co-owner of Suki Jewels, a handmade jewelry business that has generated $3,000+ in revenue and 8,000+ supporters to date.",
+            "image": "/fish_tank/p_judges/isabel.png"
+          },
+          {
+            "name": "Ria Pande",
+            "title": "DECA International Finalist",
+            "bio": "Ria is a freshman at the University of California, Santa Barbara, studying business and entrepreneurship. As a finalist at DECA's International Career Development Conference, she has developed strong experience in turning ideas into impact. Ria is passionate about helping students find their voices and couldn't be more excited to support this year's Fish Tank participants as they prepare to pitch and pursue their own entrepreneurial visions!",
+            "image": "/fish_tank/p_judges/ria.png"
+          },
+          {
+            "name": "Nathan Mendoza",
+            "title": "Founder @ Stall Secure LLC",
+            "bio": "Nathan is a rising senior at Naperville North, aspiring to become an entrepreneur while uplifting others. He is the current CEO and Co-Founder of Stall-Secure, which has won first place in three major pitch competitions. To date, he has secured over $9,000 in funding for his company and is looking forward to seeing BizBuzz participants' creativity!",
+            "image": "/fish_tank/p_judges/nathan.png"
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      "/program_cards/fishtank.jpg",
+      "/fish_tank/background.jpg",
+      "/fish_tank/1.jpg",
+      "/fish_tank/2.jpg",
+      "/fish_tank/3.jpg",
+      "/fish_tank/4.jpg",
+      "/fish_tank/5.jpg",
+      "/fish_tank/6.jpg",
+      "/fish_tank/7.jpg",
+      "/fish_tank/8.jpg",
+      "/fish_tank/9.jpg",
+      "/fish_tank/10.jpg",
+      "/fish_tank/11.jpg",
+      "/fish_tank/12.jpg"
+    ]
+  },
+  "2025": {
+    "winners": [
+      {
+        "placement": "1st Place",
+        "team": "AbduRahman Yuldash",
+        "project": "The Better Investor",
+        "image": "/fish_tank/2025/winners/first-place.JPG",
+        "description": "The Better Investor makes growing your money feel less like guesswork and more like a game you can actually win. It replaces fear and FOMO with clarity, teaching timeless investing wisdom through AI coaching that talks with you, not at you. Through the web app, you can earn XP, unlock titles, and watch your confidence grow as your portfolio does too."
+      },
+      {
+        "placement": "2nd Place",
+        "team": "Arjun Singh & Arjun Malhotra",
+        "project": "MagicPillow",
+        "image": "/fish_tank/2025/winners/second-place.JPG",
+        "description": "Magic Pillow is the world's first pillow that dreams as big as you do. It heats when you're cold, cools when you're sweaty, tracks your sleep, and keeps your neck happy through every nap and flight\u2014all for under $80. Built for travelers, hot sleepers, and anyone tired of restless nights, it makes comfort feel a little more like magic."
+      },
+      {
+        "placement": "3rd Place",
+        "team": "Saravan & Shanvitha Palakruthi",
+        "project": "EverFresh",
+        "image": "/fish_tank/2025/winners/third-place.JPG",
+        "description": "EverFresh is a smart stand that keeps food fresher for longer, tackling spoilage in a $30B market. With built-in preservation tech and refillable pouches, it helps households waste less, save more, and enjoy food the way it's meant to taste\u2014fresh."
+      },
+      {
+        "placement": "4th Place",
+        "team": "Ohm Patel, Nikhil Naveen, Sai Sirasani, & Krish Mittal",
+        "project": "Agritech",
+        "image": "/fish_tank/2025/winners/fourth-place.JPG",
+        "description": "Agritech is where agriculture meets technology. It uses innovation in applications of AI, robotics, biotechnology, and data analytics to make farming more sustainable and resilient. From precision irrigation and soil sensors to autonomous tractors and vertical farms, Agritech is redefining how the world grows food."
+      },
+      {
+        "placement": "5th Place",
+        "team": "Sanvi Das & Ovee Yande",
+        "project": "SGS",
+        "image": "/fish_tank/2025/winners/fifth-place.JPG",
+        "description": "SGS is a smart gardening system that takes the guesswork out of growing. Using automated sensors, timed watering, and real-time data, it keeps your plants healthy no matter how busy you are. Every plant parent deserves to be a pro!"
+      }
+    ],
+    "judges": [
+      {
+        "title": "Final round judges",
+        "judges": [
+          {
+            "name": "Aleck Matambo",
+            "title": "Senior Director of Global Procurement @ Google",
+            "bio": "Aleck Matambo led global procurement at Google, managing $16B in annual spend across EMEA, APAC, and LATAM. He developed the company's first AI-native procurement tool, automated contract analysis, and drove a global savings program that improved efficiency by over 10%. He also established the One Google Negotiation Program and Cloud & AI Strategic Alliances Platform, delivering $1B in annual value across 50+ major deals.",
+            "image": "/fish_tank/f_judges/aleck.jpg"
+          },
+          {
+            "name": "Ryan Havlick",
+            "title": "Venture Partner @ Multimodal Ventures",
+            "bio": "Ryan Havlick is a Venture Partner at Multimodal Ventures, a Chicago-based seed-stage fund investing in Y Combinator\u2013backed startups. He helps evaluate potential portfolio investments, enhance Midas (the firm's proprietary data tool), and refine investment strategy and due diligence. He relies on data-driven analysis to assess startups like those BizBuzz kidpreneurs are developing for Fish Tank.",
+            "image": "/fish_tank/f_judges/ryan.jpg"
+          },
+          {
+            "name": "Isha Elandassery",
+            "title": "Founder @ Naperville Rising Women in Business",
+            "bio": "Isha Elandassery is a junior at the Kelley School of Business, where she studies finance and serves as president of the university's Girl Up United Nations chapter. As a former guest speaker for BizBuzz and 2024 Fish Tank judge, she's excited to return once again to create \u201cbiz\u201d and \u201cbuzz.\u201d",
+            "image": "/fish_tank/f_judges/isha.jpg"
+          },
+          {
+            "name": "Usha Shedge",
+            "title": "Founder @ Smart Sakhi",
+            "bio": "Usha Shedge is a social entrepreneur and technologist passionate about using innovation to drive community impact. After 18 years in IT and Business Intelligence, she founded initiatives empowering thousands of youth and women farmers through sustainability projects and mission-driven enterprise.",
+            "image": "/fish_tank/f_judges/usha.jpg"
+          },
+          {
+            "name": "Geetha Pilli",
+            "title": "Director of Enterprise Architecture @ Core-Mark International",
+            "bio": "Geetha Pilli leads technology strategy, system integration, and digital transformation across high-volume retail and supply-chain operations. With an MBA from the University of Chicago Booth School of Business, she drives initiatives that leverage IoT and AI to enhance efficiency and business value.",
+            "image": "/fish_tank/f_judges/geetha.jpg"
+          },
+          {
+            "name": "Nara Rosie",
+            "title": "Consultant @ PwC",
+            "bio": "Nara Rosie brings strategic advisory experience from PwC, helping organizations embrace the consulting mindset behind building scalable, resilient ventures\u2014and inspiring young founders to think the same way.",
+            "image": null
+          }
+        ]
+      },
+      {
+        "title": "Preliminary round judges",
+        "judges": [
+          {
+            "name": "Andrew Bukowski",
+            "title": "Co-Founder @ SmartSeat",
+            "bio": "Andrew is an incoming freshman at Yale University. He raised $30K+ for SmartSeat, a health-tech startup tackling posture and seating-related issues, and was named a Coca-Cola Scholarship Finalist and Conrad Challenge Winner.",
+            "image": null
+          },
+          {
+            "name": "Anay Apte",
+            "title": "Vice President @ Illinois DECA",
+            "bio": "Anay is an incoming freshman at the University of Pennsylvania. He leads 5,400+ DECA members statewide and brings hands-on engineering camp experience to help Fish Tank teams dream big.",
+            "image": null
+          },
+          {
+            "name": "Paul van der Vorst",
+            "title": "Co-Director @ Naperville Children's Business Fair",
+            "bio": "Paul is an incoming freshman at the University of South Carolina. He helped incubate 400+ kid-run businesses selling to 5,000+ visitors and now mentors students through ideation and pitching.",
+            "image": null
+          },
+          {
+            "name": "Amy Yang",
+            "title": "Harvard Book Prize Recipient",
+            "bio": "Amy is a rising senior at Naperville Central High School, passionate about grassroots advocacy and creative problem-solving that brings communities together.",
+            "image": null
+          },
+          {
+            "name": "Ansh Shah",
+            "title": "2024 Executive Director @ BizBuzz",
+            "bio": "Ansh is an incoming freshman at the University of Illinois Urbana-Champaign. A former BizBuzz executive director, he's back as a judge to cheer on the next generation of innovators.",
+            "image": null
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      "/fish_tank/2025/images/goodpic.jpg",
+      "/fish_tank/2025/images/gallery-stage.jpg",
+      "/fish_tank/2025/images/gallery-pitching.jpg",
+      "/fish_tank/2025/images/gallery-prototype.jpg",
+      "/fish_tank/2025/images/gallery-workshop.jpg",
+      "/fish_tank/2025/images/gallery-team.jpg",
+      "/fish_tank/2025/images/gallery-speaker.jpg",
+      "/fish_tank/2025/images/gallery-awards.jpg",
+      "/fish_tank/2025/images/gallery-trophy.jpg",
+      "/fish_tank/2025/images/gallery-market.jpg",
+      "/fish_tank/2025/images/prelim-judge.jpg",
+      "/fish_tank/2025/images/IMG_5116.jpeg",
+      "/fish_tank/2025/images/gallery-friends.jpg",
+      "/fish_tank/2025/images/gallery-group.jpg",
+      "/fish_tank/2025/images/gallery-celebrate.jpg"
+    ]
+  }
+}

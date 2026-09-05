@@ -1,3 +1,4 @@
+import { IMPACT, FUNDING_SUMMARY, SUPPORTERS } from "@/data/impact";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Chip, Eyebrow, Stat } from "@/components/ds/Card";
@@ -151,7 +152,7 @@ export default function SponsorsPage() {
           }}
         >
           <Reveal>
-            <Stat value={<CountUp to={16} />} label="sponsors across three seasons" />
+            <Stat value={<CountUp to={IMPACT.partners} />} label="community partners and supporters" />
           </Reveal>
           <Reveal delay={80}>
             <Stat
@@ -169,11 +170,28 @@ export default function SponsorsPage() {
           </Reveal>
           <Reveal delay={240}>
             <Stat
-              value={<CountUp to={790} suffix="+" />}
+              value={<CountUp to={IMPACT.students} suffix="+" />}
               label="students funded so far"
-              note="camps and workshops"
+              note="camps, competitions and workshops"
             />
           </Reveal>
+        </div>
+      </section>
+
+      <section className="bb-content-section" style={{ paddingTop: 0 }}>
+        <div className="bb-content-stack">
+          <h2 className="bb-display-2">Community support</h2>
+          <div className="bb-data-grid">
+            {FUNDING_SUMMARY.map((stat) => (
+              <Stat key={stat.label} value={stat.value} label={stat.label} note={"helper" in stat ? stat.helper : undefined} />
+            ))}
+          </div>
+          <details className="bb-details">
+            <summary>All 51 community partners and supporters</summary>
+            <ul className="bb-directory">
+              {SUPPORTERS.map((name) => <li key={name}>{name}</li>)}
+            </ul>
+          </details>
         </div>
       </section>
 
