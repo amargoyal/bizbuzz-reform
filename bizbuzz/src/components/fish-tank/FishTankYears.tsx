@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import results from "@/data/fish-tank.json";
 import ArchiveGallery from "@/components/archive/ArchiveGallery";
-import { Chip } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
 import { Tabs } from "@/components/ds/NavBar";
-import { Reveal } from "@/components/ds/motion";
 
 export type FishTankYear = {
   year: string;
@@ -53,14 +51,13 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
           gap: "var(--space-10)",
         }}
       >
-        <Reveal>
+        <div>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-            <p className="bb-eyebrow">Every year so far</p>
             <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
               Three years of pitches
             </h2>
           </div>
-        </Reveal>
+        </div>
 
         <Tabs
           items={years.map((y) => ({ value: y.year, label: y.year }))}
@@ -83,7 +80,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
           <div style={{ gridColumn: "span 6" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
               <div>
-                <Chip tone="accent">{current.venue}</Chip>
+                <span className="bb-meta">{current.venue}</span>
               </div>
               <h3 className="bb-display-3">{current.headline}</h3>
               <p className="bb-body" style={{ color: "var(--text-muted)" }}>

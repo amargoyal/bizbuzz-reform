@@ -5,7 +5,6 @@ import campArchive from "@/data/camps.json";
 import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import { Card, Chip } from "@/components/ds/Card";
 import { Tabs } from "@/components/ds/NavBar";
-import { Reveal } from "@/components/ds/motion";
 
 export type CampSeason = {
   year: string;
@@ -67,14 +66,13 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
             gap: "var(--space-10)",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <p className="bb-eyebrow">Pick a season</p>
-              <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
+                <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
                 Every camp we have run
               </h2>
             </div>
-          </Reveal>
+          </div>
 
           <Tabs
             items={seasons.map((s) => ({ value: s.year, label: s.year }))}
@@ -130,7 +128,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
       {current.tracks.length > 0 && (
         <section style={{ paddingBlock: "var(--section-y-tight) 0" }}>
           <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-            <Reveal>
+            <div>
               <div
                 style={{
                   display: "grid",
@@ -142,7 +140,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                 {current.tracks.map((t) => (
                   <Card key={t.title} pad="var(--space-9)">
                     <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                      <p className="bb-mono">{t.grades}</p>
+                      <p className="bb-meta">{t.grades}</p>
                       <h4 className="bb-display-4">{t.title}</h4>
                       <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                         {t.blurb}
@@ -151,7 +149,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                   </Card>
                 ))}
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       )}
@@ -167,7 +165,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
             gap: "var(--space-10)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -184,14 +182,14 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                 {current.curriculumNote}
               </p>
             </div>
-          </Reveal>
+          </div>
 
           {tracks && tracks.length > 1 && (
             <Tabs items={tracks.map((item, index) => ({ value: String(index), label: item.title }))} value={track} onChange={setTrack} />
           )}
           <div style={{ display: "flex", flexDirection: "column" }}>
             {sessions.map((s) => (
-              <Reveal key={s.n}>
+              <div key={s.n}>
                 <div
                   className="bb-rowlist"
                   style={{
@@ -205,14 +203,14 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                 >
                   <p
                     className="bb-display-3"
-                    style={{ color: "var(--buzz-600)", fontVariantNumeric: "lining-nums tabular-nums" }}
+                    style={{ color: "var(--text-display)", fontVariantNumeric: "lining-nums tabular-nums" }}
                   >
                     {s.n}
                   </p>
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
                     <h4 className="bb-display-4">{s.title}</h4>
-                    <p className="bb-mono">{s.date}</p>
-                    <p className="bb-mono">{s.venue}</p>
+                    <p className="bb-meta">{s.date}</p>
+                    <p className="bb-meta">{s.venue}</p>
                   </div>
                   <div>
                     <p className="bb-body" style={{ color: "var(--text-muted)" }}>{s.blurb}</p>
@@ -232,7 +230,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                     )}
                   </div>
                 </div>
-              </Reveal>
+              </div>
             ))}
             <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
           </div>

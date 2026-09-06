@@ -1,7 +1,7 @@
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
-import { Parallax, Reveal } from "@/components/ds/motion";
+import { Parallax } from "@/components/ds/motion";
 import CalBooking from "@/components/office-hours/CalBooking";
 import Faqs, { type Faq } from "@/components/office-hours/Faqs";
 import SiteFooter from "@/components/site/SiteFooter";
@@ -116,7 +116,7 @@ export default function OfficeHoursPage() {
           }}
         >
           <div style={{ gridColumn: "span 6" }}>
-            <Reveal>
+            <div>
               <div
                 style={{
                   display: "flex",
@@ -125,10 +125,10 @@ export default function OfficeHoursPage() {
                   alignItems: "flex-start",
                 }}
               >
-                <Eyebrow dot>Office hours</Eyebrow>
                 <h1 className="bb-display-1" style={{ maxWidth: "14ch" }}>
-                  One hour, one idea, one of us
+                  One hour, one idea, <span className="bb-brand-text">one of us</span>
                 </h1>
+                <Eyebrow>Office hours</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>
                   Personalized 1-on-1 sessions where you get feedback, ask questions, and make your idea better.
                   Weekdays online over Google Meet, weekends in person at a local library.
@@ -140,7 +140,7 @@ export default function OfficeHoursPage() {
                   <ArrowCTA href="#faqs">Read the FAQs</ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "8 / span 5" }}>
             <Parallax depth={0.5}>
@@ -171,7 +171,7 @@ export default function OfficeHoursPage() {
             alignItems: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -181,7 +181,6 @@ export default function OfficeHoursPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow>Reserve your spot</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
                 Pick a time that works
               </h2>
@@ -190,7 +189,7 @@ export default function OfficeHoursPage() {
                 library location right away. Spots are limited and first come, first served.
               </p>
             </div>
-          </Reveal>
+          </div>
 
           <CalBooking />
         </div>
@@ -208,9 +207,8 @@ export default function OfficeHoursPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <Eyebrow dot>Before you attend</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
                 Come prepared
               </h2>
@@ -219,9 +217,9 @@ export default function OfficeHoursPage() {
                 useful. If they are not followed we reserve the right to cancel your slot.
               </p>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal>
+          <div>
             <div
               className="bb-collapse-2"
               style={{
@@ -234,7 +232,7 @@ export default function OfficeHoursPage() {
               {POLICIES.map((p) => (
                 <Card key={p.n} pad="var(--space-9)">
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                    <p className="bb-display-3" style={{ color: "var(--buzz-600)" }}>
+                    <p className="bb-display-3" style={{ color: "var(--text-display)" }}>
                       {p.n}
                     </p>
                     <h3 className="bb-display-4">{p.title}</h3>
@@ -249,7 +247,7 @@ export default function OfficeHoursPage() {
                 </Card>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -268,7 +266,7 @@ export default function OfficeHoursPage() {
           }}
         >
           <div style={{ gridColumn: "span 4" }}>
-            <Reveal>
+            <div>
               <div
                 className="bb-sticky-none"
                 style={{
@@ -279,7 +277,6 @@ export default function OfficeHoursPage() {
                   top: 108,
                 }}
               >
-                <Eyebrow>Got questions</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "12ch" }}>
                   Frequently asked
                 </h2>
@@ -290,7 +287,7 @@ export default function OfficeHoursPage() {
                   <ArrowCTA href={LINKS.email}>Email the team</ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "6 / span 7" }}>
             <Faqs faqs={FAQS} />
@@ -313,17 +310,16 @@ export default function OfficeHoursPage() {
           }}
         >
           <div style={{ gridColumn: "span 5" }}>
-            <Reveal>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <Eyebrow dot>Where we meet</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
                   At the library, or on a Meet link
                 </h2>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "7 / span 6" }}>
-            <Reveal delay={120}>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <p className="bb-lead">
                   In-person sessions run at 95th Street Library and Nichols Library in Naperville. You always get
@@ -335,7 +331,7 @@ export default function OfficeHoursPage() {
                   you are always in the loop.
                 </p>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

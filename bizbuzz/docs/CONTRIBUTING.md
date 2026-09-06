@@ -51,10 +51,15 @@ Use the tokens. `var(--space-8)`, not `32px`. `var(--surface-card)`, not
 the token set does not have, add it to `globals.css` rather than hard-coding it in
 one place.
 
-Three background families exist and that is deliberate: cream canvas, the
-`.bb-on-buzz` accent band, and the `.bb-on-ink` dark band. Both band classes
-re-point the semantic color variables, so components inside them adapt with no
-extra props. Do not introduce a fourth.
+Follow [the approved design direction](DESIGN.md). Use white canvas and cards,
+neutral gray supporting surfaces (`.bb-on-neutral`), and navy dark sections
+(`.bb-on-ink`). Restore the original sky blue/yellow pairing through selective
+headline phrases, photo backings, and feature areas (`.bb-on-blue`), alongside
+buttons and selected states. Use `--text-brand` for readable blue text; bright
+blue and yellow text belong on navy, not white. Avoid cream and beige washes.
+Use Figtree with the defined heading, body, metadata, and numeric roles. Useful
+labels add information; redundant labels and decorative dots do not. Buttons
+have one coherent hit target and an 8px radius. Ordinary facts are wrapping text.
 
 ### Layout and responsive
 
@@ -74,10 +79,11 @@ it is purely decorative.
 
 ### Motion
 
-Scroll is the primary interaction. Wrap blocks in `<Reveal>` (stagger a group with
-`delay`), use `<Parallax>` for photo drift, `<CountUp>` for stats. All of it
-respects `prefers-reduced-motion` through the token layer — do not hand-roll
-animation that bypasses it.
+Text and statistics render immediately. `CountUp` retains its existing formatting
+contract but displays the final value without animation. Retain the existing
+program panels, archive rail, and photo drift; new motion needs a defined
+interaction or storytelling purpose and must respect `prefers-reduced-motion`.
+Real student activity and local evidence should have visual prominence.
 
 ## Accessibility
 
@@ -88,5 +94,7 @@ animation that bypasses it.
 
 ## Pull requests
 
-Include what changed and why, and screenshots of any page you touched at desktop
-and mobile width. `npm run build` must be clean.
+Include what changed and why, plus before/after screenshots of changed pages at
+desktop and mobile widths. Check white/gray surfaces, dark sections, readable
+wrapping, keyboard focus, and 200% zoom. Visual comparisons are required even
+when automated checks pass. `npm run lint` and `npm run build` must be clean.

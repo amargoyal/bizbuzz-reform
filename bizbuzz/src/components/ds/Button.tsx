@@ -15,11 +15,11 @@ const BASE: CSSProperties = {
   fontFamily: "var(--font-text)",
   fontWeight: "var(--weight-semibold)" as CSSProperties["fontWeight"],
   letterSpacing: "-0.005em",
-  borderRadius: "var(--radius-pill)",
+  borderRadius: "var(--radius-sm)",
   border: "1.5px solid transparent",
   cursor: "pointer",
   textDecoration: "none",
-  whiteSpace: "nowrap",
+  whiteSpace: "normal",
   transition: "var(--transition-control)",
   transformOrigin: "center",
 };
@@ -41,10 +41,10 @@ const VARIANTS: Record<Variant, { rest: CSSProperties; hover: CSSProperties }> =
   },
   secondary: {
     rest: { background: "transparent", color: "var(--text-display)", borderColor: "var(--border-ink)" },
-    hover: { background: "var(--surface-accent-soft)", borderColor: "var(--border-ink)" },
+    hover: { background: "var(--surface-brand-soft)", borderColor: "var(--border-ink)", color: "var(--ink-900)" },
   },
   solid: {
-    rest: { background: "var(--ink-900)", color: "var(--cream-100)", borderColor: "var(--ink-900)" },
+    rest: { background: "var(--ink-900)", color: "var(--neutral-0)", borderColor: "var(--ink-900)" },
     hover: { background: "var(--ink-700)", borderColor: "var(--ink-700)" },
   },
   ghost: {
@@ -52,7 +52,7 @@ const VARIANTS: Record<Variant, { rest: CSSProperties; hover: CSSProperties }> =
     hover: { background: "var(--surface-sunken)" },
   },
   danger: {
-    rest: { background: "var(--ember-600)", color: "var(--cream-50)", borderColor: "var(--ember-600)" },
+    rest: { background: "var(--ember-600)", color: "var(--neutral-0)", borderColor: "var(--ember-600)" },
     hover: { background: "var(--ember-500)", borderColor: "var(--ember-500)" },
   },
 };
@@ -71,7 +71,7 @@ export type ButtonProps = {
   children?: ReactNode;
 };
 
-/** The BizBuzz button. Always a pill. */
+/** Action button with an 8px corner radius. */
 export function Button({
   variant = "primary",
   size = "md",
@@ -127,10 +127,10 @@ type CtaTone = "outline" | "accent" | "inverse";
 
 const CTA_TONES: Record<CtaTone, { fg: string; line: string; fill: string; hoverFill: string }> = {
   outline: {
-    fg: "var(--text-display)",
-    line: "var(--border-ink)",
+    fg: "var(--text-link)",
+    line: "var(--text-link)",
     fill: "transparent",
-    hoverFill: "var(--surface-accent-soft)",
+    hoverFill: "var(--surface-link-hover)",
   },
   accent: {
     fg: "var(--text-on-accent)",
@@ -139,10 +139,10 @@ const CTA_TONES: Record<CtaTone, { fg: string; line: string; fill: string; hover
     hoverFill: "var(--buzz-400)",
   },
   inverse: {
-    fg: "var(--cream-100)",
-    line: "rgba(251,245,233,.5)",
+    fg: "var(--neutral-0)",
+    line: "rgba(255, 255, 255,.5)",
     fill: "transparent",
-    hoverFill: "rgba(251,245,233,.12)",
+    hoverFill: "rgba(255, 255, 255,.12)",
   },
 };
 
@@ -159,8 +159,7 @@ export type ArrowCTAProps = {
 };
 
 /**
- * The signature BizBuzz call to action: a pill label paired with a separate
- * circular arrow. Hovering either half moves the arrow and tints both.
+ * One control, one hit target. The directional arrow sits inside its border.
  */
 export function ArrowCTA({
   children,
@@ -188,71 +187,32 @@ export function ArrowCTA({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        display: "inline-flex",
+        ...BASE,
+        minHeight: dims,
         maxWidth: "100%",
-        alignItems: "center",
-        gap: "var(--space-3)",
-        background: "none",
-        border: "none",
-        padding: 0,
-        cursor: "pointer",
-        textDecoration: "none",
+        padding: "var(--space-3) var(--control-pad-x)",
+        borderColor: t.line,
+        background: hover ? t.hoverFill : t.fill,
         color: t.fg,
+        fontSize: size === "sm" ? "var(--size-caption)" : "var(--size-body-sm)",
         ...style,
       }}
     >
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          minHeight: dims,
-          minWidth: 0,
-          padding: `var(--space-3) ${dims * 0.52}px`,
-          borderRadius: "var(--radius-pill)",
-          border: `1.5px solid ${t.line}`,
-          background: hover ? t.hoverFill : t.fill,
-          fontFamily: "var(--font-text)",
-          fontWeight: "var(--weight-semibold)" as CSSProperties["fontWeight"],
-          fontSize: size === "sm" ? "var(--size-caption)" : "var(--size-body-sm)",
-          transition: "var(--transition-control)",
-          whiteSpace: "normal",
-          textAlign: "center",
-        }}
-      >
-        {children}
-      </span>
-      <span
+      {children}
+      <svg
         aria-hidden="true"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: dims,
-          height: dims,
-          flex: "0 0 auto",
-          borderRadius: "var(--radius-circle)",
-          border: `1.5px solid ${t.line}`,
-          background: hover ? t.hoverFill : t.fill,
-          transition: "var(--transition-control)",
-        }}
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ flexShrink: 0 }}
       >
-        <svg
-          width={dims * 0.42}
-          height={dims * 0.42}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{
-            transform: hover ? "translateX(2px)" : "none",
-            transition: "transform var(--dur-base) var(--ease-out-expo)",
-          }}
-        >
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
-      </span>
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
     </Tag>
   );
 }

@@ -38,7 +38,7 @@ export default function CalBooking() {
       cal("ui", {
         theme: "light",
         cssVarsPerTheme: {
-          light: { "cal-brand": "#e0a400" },
+          light: { "cal-brand": "#17233f" },
           dark: { "cal-brand": "#ffc233" },
         },
         hideEventTypeDetails: false,
@@ -59,7 +59,7 @@ export default function CalBooking() {
       <Tabs items={MODES} value={mode} onChange={setMode} />
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", alignItems: "center" }}>
-        <p className="bb-mono">{BLURB[mode].when}</p>
+        <p className="bb-meta">{BLURB[mode].when}</p>
         <p className="bb-body" style={{ color: "var(--text-muted)", maxWidth: "46ch", textAlign: "center" }}>
           {BLURB[mode].text}
         </p>

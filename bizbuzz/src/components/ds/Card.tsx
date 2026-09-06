@@ -9,8 +9,8 @@ const CARD_TONES: Record<CardTone, CSSProperties> = {
   card: { background: "var(--surface-card)", border: "1px solid var(--border-hairline)" },
   canvas: { background: "transparent", border: "1px solid var(--border-hairline)" },
   sunken: { background: "var(--surface-sunken)", border: "1px solid transparent" },
-  accent: { background: "var(--surface-accent-soft)", border: "1px solid transparent" },
-  ink: { background: "var(--ink-900)", border: "1px solid var(--ink-800)", color: "var(--cream-100)" },
+  accent: { background: "var(--surface-sunken)", border: "1px solid transparent" },
+  ink: { background: "var(--ink-900)", border: "1px solid var(--ink-800)", color: "var(--neutral-0)" },
 };
 
 /** Hairline container. The default BizBuzz card — no shadow, big radius. */
@@ -70,11 +70,11 @@ const CHIP_TONES: Record<ChipTone, CSSProperties> = {
     color: "var(--text-body)",
     border: "1px solid var(--border-hairline-strong)",
   },
-  solid: { background: "var(--ink-900)", color: "var(--cream-100)", border: "1px solid var(--ink-900)" },
+  solid: { background: "var(--ink-900)", color: "var(--neutral-0)", border: "1px solid var(--ink-900)" },
   glass: {
     background: "var(--surface-glass-inverse)",
-    color: "var(--cream-100)",
-    border: "1px solid rgba(251,245,233,.22)",
+    color: "var(--neutral-0)",
+    border: "1px solid rgba(255, 255, 255,.22)",
     backdropFilter: "blur(var(--blur-glass))",
     WebkitBackdropFilter: "blur(var(--blur-glass))",
   },
@@ -93,12 +93,12 @@ const CHIP_TONES: Record<ChipTone, CSSProperties> = {
 };
 
 const CHIP_SIZES: Record<ChipSize, CSSProperties> = {
-  sm: { height: 26, padding: "0 10px", fontSize: "11px" },
-  md: { height: 34, padding: "0 16px", fontSize: "var(--size-caption)" },
-  lg: { height: 42, padding: "0 20px", fontSize: "var(--size-body-sm)" },
+  sm: { minHeight: 26, padding: "4px 10px", fontSize: "var(--size-caption)" },
+  md: { minHeight: 34, padding: "0 16px", fontSize: "var(--size-caption)" },
+  lg: { minHeight: 42, padding: "0 20px", fontSize: "var(--size-body-sm)" },
 };
 
-/** Small rounded label. Solid over photography, hairline on cream. */
+/** Compact status label; ordinary facts use .bb-meta instead. */
 export function Chip({
   tone = "hairline",
   size = "md",
@@ -121,10 +121,10 @@ export function Chip({
         display: "inline-flex",
         alignItems: "center",
         gap: "var(--space-3)",
-        borderRadius: "var(--radius-pill)",
+        borderRadius: "var(--radius-sm)",
         fontFamily: "var(--font-text)",
         fontWeight: "var(--weight-medium)" as CSSProperties["fontWeight"],
-        whiteSpace: "nowrap",
+        whiteSpace: "normal",
         ...(CHIP_TONES[tone] ?? CHIP_TONES.hairline),
         ...(CHIP_SIZES[size] ?? CHIP_SIZES.md),
         ...style,
@@ -135,16 +135,14 @@ export function Chip({
   );
 }
 
-/** Uppercase tracked-out label that sits above a heading. */
+/** Supporting context such as a date or audience; omit redundant labels. */
 export function Eyebrow({
   as: Tag = "p",
-  dot = false,
   className = "",
   style,
   children,
 }: {
   as?: ElementType;
-  dot?: boolean;
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
@@ -154,24 +152,12 @@ export function Eyebrow({
       className={`bb-eyebrow ${className}`}
       style={{ display: "inline-flex", alignItems: "center", gap: "var(--space-3)", ...style }}
     >
-      {dot && (
-        <span
-          aria-hidden="true"
-          style={{
-            width: 7,
-            height: 7,
-            borderRadius: "50%",
-            background: "var(--surface-accent)",
-            flex: "0 0 auto",
-          }}
-        />
-      )}
       {children}
     </Tag>
   );
 }
 
-/** A single proof point: giant serif figure over a sans caption. */
+/** A single proof point: readable numeric figure over a sans caption. */
 export function Stat({
   value,
   label,

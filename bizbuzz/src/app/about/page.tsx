@@ -3,7 +3,7 @@ import { PEOPLE } from "@/data/team";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Eyebrow, Stat } from "@/components/ds/Card";
-import { Parallax, Reveal } from "@/components/ds/motion";
+import { Parallax } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
@@ -66,30 +66,29 @@ export default function AboutPage() {
       <SiteHeader />
 
       {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
+      <section style={{ paddingBlock: "var(--hero-y) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "var(--space-8)",
+                gap: "var(--space-6)",
                 alignItems: "center",
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>About us</Eyebrow>
-              <h1 className="bb-display-1" style={{ maxWidth: "18ch" }}>
-                Two juniors, one gap, and a very full summer
+              <h1 className="bb-display-1" style={{ maxWidth: "24ch" }}>
+                Two juniors, one gap, and a <span className="bb-brand-text">very full summer</span>
               </h1>
               <p className="bb-lead" style={{ maxWidth: "54ch", color: "var(--text-muted)" }}>
                 BizBuzz was founded in April 2024 by two Naperville North High School juniors. Everything we run is
                 free, and it is run by students.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
-        <div style={{ padding: "clamp(40px, 6vw, 80px) clamp(8px, 1vw, 16px) 0" }}>
+        <div style={{ padding: "var(--hero-media-gap) clamp(8px, 1vw, 16px) 0" }}>
           <Parallax depth={0.35}>
             <div
               style={{
@@ -127,7 +126,7 @@ export default function AboutPage() {
           }}
         >
           <div style={{ gridColumn: "span 5" }}>
-            <Reveal>
+            <div>
               <div
                 className="bb-sticky-none"
                 style={{
@@ -138,15 +137,14 @@ export default function AboutPage() {
                   top: 108,
                 }}
               >
-                <Eyebrow>Our mission</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "13ch" }}>
                   90% of schools taught none of this
                 </h2>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "7 / span 6" }}>
-            <Reveal delay={120}>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <p className="bb-lead">
                   In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change
@@ -165,7 +163,7 @@ export default function AboutPage() {
                   Let&apos;s turn imagination into innovation.
                 </p>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -214,7 +212,7 @@ export default function AboutPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -224,16 +222,16 @@ export default function AboutPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>The team</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 Everyone here is still in school
               </h2>
+              <Eyebrow>The team</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 That is the point. Students who just learned this are the best people to teach it to students a few
                 years behind them.
               </p>
             </div>
-          </Reveal>
+          </div>
 
           <div
             style={{
@@ -242,8 +240,8 @@ export default function AboutPage() {
               gap: "var(--grid-gap)",
             }}
           >
-            {LEADERSHIP.map((m, i) => (
-              <Reveal key={m.name} delay={i * 60}>
+            {LEADERSHIP.map((m) => (
+              <div key={m.name}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
                   <div
                     style={{
@@ -251,7 +249,7 @@ export default function AboutPage() {
                       borderRadius: "var(--radius-lg)",
                       overflow: "hidden",
                       aspectRatio: "4 / 5",
-                      background: "var(--cream-300)",
+                      background: "var(--neutral-300)",
                     }}
                   >
                     <Image
@@ -271,7 +269,7 @@ export default function AboutPage() {
                     </details>
                   </div>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -305,17 +303,17 @@ export default function AboutPage() {
           }}
         >
           <div style={{ gridColumn: "span 4" }}>
-            <Reveal>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <Eyebrow>Instructors</Eyebrow>
                 <h3 className="bb-display-3" style={{ maxWidth: "16ch" }}>
                   The people in the room every week
                 </h3>
+                <Eyebrow>Instructors</Eyebrow>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "6 / span 7" }}>
-            <Reveal delay={120}>
+            <div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
                 {INSTRUCTORS.map((person) => (
                   <details className="bb-details" key={person.name}>
@@ -324,9 +322,9 @@ export default function AboutPage() {
                   </details>
                 ))}
               </div>
-            </Reveal>
+            </div>
             <div style={{ height: "var(--space-10)" }} />
-            <Reveal delay={200}>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
                 <p className="bb-eyebrow">Youth leadership team</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
@@ -338,7 +336,7 @@ export default function AboutPage() {
                   ))}
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -355,9 +353,8 @@ export default function AboutPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <Eyebrow dot>Press</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
                 What has been written about us
               </h2>
@@ -366,11 +363,11 @@ export default function AboutPage() {
                 students, and sponsors looking to support youth entrepreneurship.
               </p>
             </div>
-          </Reveal>
+          </div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
             {PRESS.map((n) => (
-              <Reveal key={n.headline}>
+              <div key={n.headline}>
                 <div
                   className="bb-rowlist"
                   style={{
@@ -388,13 +385,13 @@ export default function AboutPage() {
                       borderRadius: "var(--radius-md)",
                       overflow: "hidden",
                       aspectRatio: "4 / 3",
-                      background: "var(--cream-200)",
+                      background: "var(--neutral-100)",
                     }}
                   >
                     <Image src={n.image} alt={n.outlet} fill sizes="200px" style={{ objectFit: "cover" }} />
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                    <p className="bb-mono">{n.meta}</p>
+                    <p className="bb-meta">{n.meta}</p>
                     <h3 className="bb-display-4" style={{ maxWidth: "30ch" }}>
                       {n.headline}
                     </h3>
@@ -406,7 +403,7 @@ export default function AboutPage() {
                     Read it
                   </ArrowCTA>
                 </div>
-              </Reveal>
+              </div>
             ))}
             <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
           </div>
@@ -423,9 +420,9 @@ export default function AboutPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>2025 grant winner</Eyebrow>
+              <Eyebrow>2025 grant winner</Eyebrow>
               <p className="bb-stat">$1,000</p>
               <h2 className="bb-display-3" style={{ maxWidth: "26ch" }}>
                 The largest amount of funding given to any organization in Naperville
@@ -437,14 +434,14 @@ export default function AboutPage() {
                 largest single award in the 2024 to 2025 cycle. They funded us again in 2026.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ------------------------------------------------------------- CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-neutral"
+        style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -454,7 +451,7 @@ export default function AboutPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 Want to help, or join?
@@ -478,7 +475,7 @@ export default function AboutPage() {
                 <ArrowCTA href="/sponsors">Sponsorship tiers</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

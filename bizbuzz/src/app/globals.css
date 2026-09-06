@@ -1,14 +1,10 @@
-/* BizBuzz Design System — global entry point.
-   Ported from the Claude Design project
-   (_ds/bizbuzz-design-system-8ba616e3-b803-4659-a975-91d5faee415f).
-   Fonts load through next/font in src/app/layout.tsx, which sets
-   --font-newsreader / --font-figtree / --font-jetbrains-mono. */
+/* BizBuzz design system: white surfaces with BizBuzz blue, yellow, and navy.
+   Figtree loads through next/font in src/app/layout.tsx. */
 
 /* ============================================================
    Colors
-   Three surfaces carry the whole brand: warm cream canvas,
-   buzz-yellow band, deep ink band. Never introduce a fourth
-   background family.
+   White canvas, neutral supporting surfaces, and navy dark sections.
+   Blue and yellow carry the brand through type, feature surfaces, and actions.
    ============================================================ */
 :root {
   /* ---- Base: Ink (deep indigo — display type, dark bands, footer) ---- */
@@ -22,17 +18,16 @@
   --ink-200: #bfc7d6;
   --ink-100: #dce1ea;
 
-  /* ---- Base: Cream (the canvas the brand lives on) ---- */
-  --cream-50: #fefcf6;
-  --cream-100: #fbf5e9;
-  --cream-200: #f5eddc;
-  --cream-300: #eadfc7;
-  --cream-400: #dbccac;
+  /* ---- Base: neutral surfaces and borders ---- */
+  --neutral-0: #ffffff;
+  --neutral-100: #f5f6f7;
+  --neutral-300: #d9dde3;
+  --neutral-400: #8993a3;
 
   /* ---- Base: Buzz (primary accent — energy, honey, the "buzz") ---- */
   --buzz-700: #b87f00;
   --buzz-600: #e0a400;
-  --buzz-500: #ffc233;
+  --buzz-500: #ffbf00;
   --buzz-400: #ffd470;
   --buzz-300: #ffe29a;
   --buzz-200: #ffedbd;
@@ -52,44 +47,49 @@
   --ember-300: #f2a691;
   --ember-100: #fbe3db;
 
-  /* ---- Base: Sky (info, links on dark, secondary data) ---- */
+  /* ---- Base: Sky (original BizBuzz blue; darker shades for readable text) ---- */
   --sky-700: #155a8a;
-  --sky-600: #1f6fa8;
-  --sky-500: #3b92cd;
+  --sky-600: #0072b5;
+  --sky-500: #38b6ff;
   --sky-300: #a6d2ec;
-  --sky-100: #deeef8;
+  --sky-100: #e6f5ff;
 
   /* ---- Semantic: surfaces ---- */
-  --surface-canvas: var(--cream-100);
-  --surface-card: var(--cream-50);
-  --surface-sunken: var(--cream-200);
+  --surface-canvas: var(--neutral-0);
+  --surface-card: var(--neutral-0);
+  --surface-sunken: var(--neutral-100);
   --surface-inverse: var(--ink-900);
   --surface-inverse-deep: var(--ink-950);
   --surface-accent: var(--buzz-500);
   --surface-accent-soft: var(--buzz-200);
   --surface-accent-faint: var(--buzz-100);
+  --surface-brand: var(--sky-500);
+  --surface-brand-soft: var(--sky-100);
+  --surface-link-hover: var(--sky-100);
   --surface-overlay: rgba(14, 22, 38, 0.58);
   --surface-scrim: rgba(14, 22, 38, 0.42);
-  --surface-glass: rgba(251, 245, 233, 0.72);
-  --surface-glass-inverse: rgba(14, 22, 38, 0.46);
+  --surface-glass: rgba(255, 255, 255, 0.96);
+  --surface-glass-inverse: rgba(14, 22, 38, 0.8);
+  --surface-photo-caption: rgba(14, 22, 38, 0.86);
 
   /* ---- Semantic: text ---- */
   --text-display: var(--ink-900);
-  --text-body: var(--ink-800);
+  --text-body: var(--ink-900);
   --text-muted: var(--ink-500);
-  --text-faint: var(--ink-400);
-  --text-inverse: var(--cream-100);
-  --text-inverse-muted: rgba(251, 245, 233, 0.68);
+  --text-faint: var(--ink-500);
+  --text-inverse: var(--neutral-0);
+  --text-inverse-muted: rgba(255, 255, 255, 0.68);
   --text-on-accent: var(--ink-900);
-  --text-link: var(--ink-900);
-  --text-link-hover: var(--buzz-700);
+  --text-brand: var(--sky-600);
+  --text-link: var(--sky-600);
+  --text-link-hover: var(--sky-700);
 
   /* ---- Semantic: borders ---- */
-  --border-hairline: var(--cream-300);
-  --border-hairline-strong: var(--cream-400);
+  --border-hairline: var(--neutral-300);
+  --border-hairline-strong: var(--neutral-400);
   --border-ink: var(--ink-900);
   --border-ink-soft: rgba(23, 35, 63, 0.14);
-  --border-inverse: rgba(251, 245, 233, 0.2);
+  --border-inverse: rgba(255, 255, 255, 0.2);
   --border-accent: var(--buzz-500);
 
   /* ---- Semantic: status ---- */
@@ -104,63 +104,89 @@
 
   /* ---- Semantic: interaction ---- */
   --focus-ring: var(--ink-900);
-  --focus-ring-offset: var(--cream-100);
+  --focus-ring-offset: var(--neutral-0);
   --selection-bg: var(--buzz-300);
 }
 
 /* Dark band scope — apply to any section painted with --surface-inverse. */
 .bb-on-ink {
+  --surface-link-hover: rgba(255, 255, 255, 0.12);
   --surface-canvas: var(--ink-900);
   --surface-card: var(--ink-800);
   --surface-sunken: var(--ink-950);
-  --text-display: var(--cream-100);
-  --text-body: var(--cream-100);
-  --text-muted: rgba(251, 245, 233, 0.66);
-  --text-faint: rgba(251, 245, 233, 0.44);
-  --text-link: var(--cream-100);
+  --text-display: var(--neutral-0);
+  --text-body: var(--neutral-0);
+  --text-muted: rgba(255, 255, 255, 0.66);
+  --text-faint: rgba(255, 255, 255, 0.7);
+  --text-brand: var(--sky-500);
+  --text-link: var(--neutral-0);
   --text-link-hover: var(--buzz-400);
-  --border-hairline: rgba(251, 245, 233, 0.18);
-  --border-hairline-strong: rgba(251, 245, 233, 0.3);
-  --border-ink: var(--cream-100);
+  --border-hairline: rgba(255, 255, 255, 0.18);
+  --border-hairline-strong: rgba(255, 255, 255, 0.3);
+  --border-ink: var(--neutral-0);
   --focus-ring: var(--buzz-400);
   --focus-ring-offset: var(--ink-900);
 }
 
-/* Accent band scope — apply to any section painted with --surface-accent-soft. */
-.bb-on-buzz {
-  --surface-canvas: var(--buzz-200);
-  --surface-card: var(--buzz-100);
-  --surface-sunken: var(--buzz-300);
-  --border-hairline: rgba(23, 35, 63, 0.14);
-  --border-hairline-strong: rgba(23, 35, 63, 0.24);
+/* Neutral section scope. Cards remain white against the gray band. */
+.bb-on-neutral {
+  --surface-canvas: var(--neutral-100);
+  --surface-card: var(--neutral-0);
+}
+
+/* Brand surfaces use dark foregrounds; saturated blue is never white text. */
+.bb-on-blue {
+  --surface-canvas: var(--sky-500);
+  --surface-sunken: var(--sky-100);
+  --surface-card: var(--neutral-0);
+  --text-muted: var(--ink-900);
+  --text-faint: var(--ink-900);
+  --text-brand: var(--ink-900);
+  --text-link: var(--ink-900);
+  background: var(--surface-brand);
+}
+.bb-brand-text { color: var(--text-brand); }
+.bb-brand-yellow { color: var(--buzz-500); }
+.bb-photo-field {
+  background: linear-gradient(to bottom, transparent 55%, var(--surface-brand-soft) 55%);
+}
+.bb-brand-mission {
+  background: var(--surface-inverse);
+  padding-block: var(--section-y);
+  margin-bottom: var(--section-y);
+}
+.bb-brand-mission h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.bb-brand-mission h2 span { display: block; }
+.bb-brand-card {
+  --text-link: var(--ink-900);
+  --text-muted: var(--ink-900);
+  --text-faint: var(--ink-900);
 }
 
 /* ============================================================
    Typography
-   Two voices: Newsreader (editorial serif) says WHAT WE BELIEVE.
-   Figtree (geometric sans) says HOW IT WORKS. JetBrains Mono
-   labels data.
+   Figtree: bold headlines, semibold headings and figures, regular body text.
+   Supporting dates and labels use the same readable sans-serif family.
    ============================================================ */
 :root {
-  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-text);
   --font-text: var(--font-figtree), "Helvetica Neue", Helvetica, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Display scale — serif, tight leading, optical negative tracking */
-  --size-display-1: clamp(3.5rem, 7.4vw, 6.5rem); /* hero statements */
-  --size-display-2: clamp(2.75rem, 5vw, 4.5rem); /* section openers */
-  --size-display-3: clamp(2rem, 3.2vw, 3rem); /* card titles, stats */
+  /* Heading scale */
+  --size-display-1: clamp(2.5rem, 5.5vw, 4.5rem); /* hero statements */
+  --size-display-2: clamp(2rem, 4vw, 3rem); /* section openers */
+  --size-display-3: clamp(1.5rem, 2.5vw, 2rem); /* card titles, stats */
   --size-display-4: 1.75rem;
 
   /* Text scale — sans */
   --size-lead: clamp(1.0625rem, 1.35vw, 1.375rem); /* deck / intro paragraph */
   --size-body: 1.0625rem;
   --size-body-sm: 0.9375rem;
-  --size-caption: 0.8125rem;
-  --size-eyebrow: 0.75rem;
+  --size-caption: 0.875rem;
+  --size-eyebrow: 0.875rem;
 
-  --lh-display: 0.98;
-  --lh-display-loose: 1.08;
+  --lh-display: 1.08;
+  --lh-display-loose: 1.15;
   --lh-heading: 1.18;
   --lh-body: 1.55;
   --lh-lead: 1.45;
@@ -168,10 +194,9 @@
   --tracking-display: -0.022em;
   --tracking-heading: -0.014em;
   --tracking-body: -0.004em;
-  --tracking-eyebrow: 0.14em;
-  --tracking-mono: 0.02em;
+  --tracking-eyebrow: 0;
 
-  --weight-display: 400; /* Newsreader looks best light-to-regular at size */
+  --weight-display: 600;
   --weight-display-strong: 600;
   --weight-body: 400;
   --weight-medium: 500;
@@ -185,7 +210,7 @@
 
 /* Type roles — use these classes, not raw sizes. */
 .bb-display-1 {
-  font: var(--weight-display) var(--size-display-1) / var(--lh-display) var(--font-display);
+  font: var(--weight-bold) var(--size-display-1) / var(--lh-display) var(--font-display);
   letter-spacing: var(--tracking-display);
   color: var(--text-display);
   text-wrap: balance;
@@ -241,32 +266,32 @@
 .bb-eyebrow {
   font: var(--weight-semibold) var(--size-eyebrow) / 1.2 var(--font-text);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--text-muted);
   margin: 0;
 }
-.bb-mono {
-  font: var(--weight-medium) var(--size-caption) / 1.4 var(--font-mono);
-  letter-spacing: var(--tracking-mono);
+.bb-meta {
+  font: var(--weight-medium) var(--size-caption) / 1.4 var(--font-text);
+  letter-spacing: normal;
   color: var(--text-muted);
   margin: 0;
 }
 .bb-quote {
-  font: var(--weight-display) clamp(1.5rem, 2.4vw, 2.25rem) / 1.34 var(--font-display);
+  font: var(--weight-medium) clamp(1.5rem, 2.4vw, 2.25rem) / 1.34 var(--font-display);
   letter-spacing: var(--tracking-heading);
   color: var(--text-display);
   text-wrap: pretty;
   margin: 0;
 }
 .bb-stat {
-  font: var(--weight-display) clamp(3.5rem, 7vw, 7rem) / 0.9 var(--font-display);
+  font: var(--weight-display) clamp(2.5rem, 6vw, 5rem) / 1.08 var(--font-display);
   letter-spacing: -0.03em;
   color: var(--text-display);
   font-variant-numeric: lining-nums tabular-nums;
   margin: 0;
 }
 .bb-proof-stat > .bb-stat {
-  font-size: clamp(2rem, 20cqi, 6rem);
+  color: var(--text-brand);
+  font-size: clamp(2rem, 18cqi, 5rem);
 }
 .bb-italic {
   font-style: italic;
@@ -296,6 +321,8 @@
   /* Section rhythm — vertical air between full-width bands */
   --section-y: clamp(72px, 9vw, 160px);
   --section-y-tight: clamp(48px, 5vw, 88px);
+  --hero-y: clamp(32px, 4vw, 56px);
+  --hero-media-gap: clamp(24px, 3vw, 40px);
 
   /* Page gutters and measures */
   --gutter: clamp(20px, 4vw, 64px);
@@ -362,7 +389,6 @@
   --radius-lg: 20px;
   --radius-xl: 28px; /* the signature card radius */
   --radius-2xl: 40px;
-  --radius-pill: 999px;
   --radius-circle: 50%;
 
   --border-width: 1px;
@@ -371,7 +397,7 @@
   --border-hair-strong: 1px solid var(--border-hairline-strong);
   --border-outline: 1.5px solid var(--border-ink);
 
-  /* Shadows — warm-tinted, never neutral grey */
+  /* Shadows for elements floating above the page */
   --shadow-none: none;
   --shadow-xs: 0 1px 2px rgba(23, 35, 63, 0.05);
   --shadow-sm: 0 2px 8px rgba(23, 35, 63, 0.06);
@@ -392,7 +418,7 @@
     rgba(14, 22, 38, 0) 72%
   );
   --scrim-top: linear-gradient(to bottom, rgba(14, 22, 38, 0.55) 0%, rgba(14, 22, 38, 0) 60%);
-  --scrim-left: linear-gradient(to right, rgba(14, 22, 38, 0.66) 0%, rgba(14, 22, 38, 0) 62%);
+  --scrim-left: linear-gradient(to right, rgba(14, 22, 38, 0.88) 0%, rgba(14, 22, 38, 0.72) 46%, rgba(14, 22, 38, 0) 80%);
 }
 
 .bb-card {
@@ -424,29 +450,21 @@
 }
 
 /* ============================================================
-   Motion. Scroll is the primary interaction — the page performs
-   as you read it. Everything eases OUT. Nothing bounces except
-   a press.
+   Motion supports interaction and the existing photo/archive storytelling.
+   Text and evidence render immediately.
    ============================================================ */
 :root {
   --ease-out-soft: cubic-bezier(0.22, 0.68, 0.2, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
-  --ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
   --ease-linear: linear;
 
   --dur-instant: 90ms;
   --dur-fast: 160ms;
   --dur-base: 240ms;
   --dur-slow: 420ms;
-  --dur-reveal: 760ms; /* scroll-in of a block */
-  --dur-draw: 1250ms; /* an arrow drawing itself */
-  --dur-count: 1600ms; /* a stat rolling up */
   --dur-marquee: 38s;
 
-  --stagger-step: 80ms;
-  --reveal-rise: 28px;
-  --reveal-blur: 6px;
   --parallax-depth: 64px;
   --hover-lift: -3px;
   --press-scale: 0.975;
@@ -456,54 +474,6 @@
     transform var(--dur-fast) var(--ease-out-soft), box-shadow var(--dur-fast) var(--ease-out-soft);
 }
 
-@keyframes bb-reveal-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, var(--reveal-rise), 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes bb-reveal-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes bb-reveal-scale {
-  from {
-    opacity: 0;
-    transform: scale(0.955);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes bb-reveal-left {
-  from {
-    opacity: 0;
-    transform: translate3d(calc(var(--reveal-rise) * -1.4), 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes bb-reveal-right {
-  from {
-    opacity: 0;
-    transform: translate3d(calc(var(--reveal-rise) * 1.4), 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
 @keyframes bb-marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -512,25 +482,9 @@
     transform: translate3d(-50%, 0, 0);
   }
 }
-@keyframes bb-pop {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --reveal-rise: 0px;
-    --reveal-blur: 0px;
-    --parallax-depth: 0px;
+        --parallax-depth: 0px;
     --hover-lift: 0px;
     --press-scale: 1;
   }
@@ -754,3 +708,35 @@ ol {
     padding-inline: var(--space-5) !important;
   }
 }
+
+/* Supporting facts wrap as text, with one legible backing over photography. */
+.bb-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--weight-medium) var(--size-caption) / var(--lh-body) var(--font-text);
+}
+.bb-photo-facts {
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-photo-caption);
+  color: var(--neutral-0);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 900px) {
+  .bb-panel-scrim {
+    background: rgba(14, 22, 38, 0.76) !important;
+  }
+}
+
+/* Original blue/yellow pairing closes every route. */
+.bb-brand-footer { border-top: 8px solid var(--surface-brand); }
+
+.bb-brand-footer a { overflow-wrap: anywhere; }

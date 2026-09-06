@@ -3,9 +3,9 @@ import data2024 from "@/data/2024.json";
 import data2025 from "@/data/2025.json";
 import data2026 from "@/data/2026.json";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Chip, Eyebrow, Stat } from "@/components/ds/Card";
+import { Chip, Stat } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
-import { CountUp, Parallax, Reveal } from "@/components/ds/motion";
+import { CountUp, Parallax } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
@@ -100,7 +100,7 @@ export default function SeasonsPage() {
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -110,7 +110,6 @@ export default function SeasonsPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>The archive</Eyebrow>
               <h1 className="bb-display-1" style={{ maxWidth: "16ch" }}>
                 Three summers, one at a time
               </h1>
@@ -118,7 +117,7 @@ export default function SeasonsPage() {
                 Everything we have run since April 2024, with the numbers as they actually landed.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -134,18 +133,18 @@ export default function SeasonsPage() {
             gap: "var(--space-9) var(--space-8)",
           }}
         >
-          <Reveal>
+          <div>
             <Stat value={<CountUp to={IMPACT.students} suffix="+" />} label="students taught" note="across all programs since 2024" />
-          </Reveal>
-          <Reveal delay={80}>
+          </div>
+          <div>
             <Stat value={<CountUp to={IMPACT.officeHours} />} label="mentoring hours" />
-          </Reveal>
-          <Reveal delay={160}>
+          </div>
+          <div>
             <Stat value={<CountUp to={IMPACT.sessions} />} label="camp and workshop sessions" />
-          </Reveal>
-          <Reveal delay={240}>
+          </div>
+          <div>
             <Stat value={<CountUp to={IMPACT.schools} />} label="schools represented" />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -162,7 +161,7 @@ export default function SeasonsPage() {
           }}
         >
           {SEASONS.map((s) => (
-            <Reveal key={s.year}>
+            <div key={s.year}>
               <div
                 id={s.year}
                 className="bb-row-12"
@@ -181,7 +180,7 @@ export default function SeasonsPage() {
                     gap: "var(--space-7)",
                   }}
                 >
-                  <p className="bb-stat" style={{ color: "var(--buzz-500)" }}>
+                  <p className="bb-stat" style={{ color: "var(--text-display)" }}>
                     {s.year}
                   </p>
                   <div>
@@ -252,15 +251,15 @@ export default function SeasonsPage() {
                   </Parallax>
                 </div>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </section>
 
       {/* ------------------------------------------------------------- CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-neutral"
+        style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -270,9 +269,8 @@ export default function SeasonsPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>Next season</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 2027 is the one you can still join
               </h2>
@@ -280,7 +278,7 @@ export default function SeasonsPage() {
                 Register for 2027 camp
               </Button>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

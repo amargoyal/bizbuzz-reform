@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow } from "@/components/ds/Card";
 import { MediaCard, Testimonial } from "@/components/ds/MediaCard";
-import { DrawArrow, Parallax, Reveal } from "@/components/ds/motion";
+import { Parallax } from "@/components/ds/motion";
 import FishTankYears, { type FishTankYear } from "@/components/fish-tank/FishTankYears";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -95,7 +95,7 @@ export default function FishTankPage() {
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -105,10 +105,10 @@ export default function FishTankPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Fish Tank</Eyebrow>
               <h1 className="bb-display-1" style={{ maxWidth: "16ch" }}>
-                Pitch it to a room of real judges
+                <span className="bb-brand-text">Pitch it</span> to a room of real judges
               </h1>
+              <Eyebrow>Fish Tank</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 Our flagship competition. Two divisions, a stage, and a panel of founders, investors and community
                 leaders. You do not have to attend camp to compete.
@@ -128,7 +128,7 @@ export default function FishTankPage() {
                 <ArrowCTA href="/office-hours">Book pitch office hours</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
 
         <div
@@ -177,9 +177,8 @@ export default function FishTankPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <Eyebrow>Two divisions</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
                 Two competitions. One stage.
               </h2>
@@ -188,9 +187,9 @@ export default function FishTankPage() {
                 against a ninth grader.
               </p>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "grid",
@@ -201,7 +200,7 @@ export default function FishTankPage() {
             >
               <Card pad="var(--space-10)">
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-mono">Grades 3–6 · KidPreneur camp students</p>
+                  <p className="bb-meta">Grades 3–6 · KidPreneur camp students</p>
                   <h3 className="bb-display-3">KidPreneur division</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                     Built for our youngest entrepreneurs. Students pitch their business ideas in a supportive,
@@ -211,7 +210,7 @@ export default function FishTankPage() {
               </Card>
               <Card pad="var(--space-10)">
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-mono">Grades 6–9 · VentureLab students</p>
+                  <p className="bb-meta">Grades 6–9 · VentureLab students</p>
                   <h3 className="bb-display-3">VentureLab division</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                     For students who have been through the full VentureLab experience. A more rigorous pitch format,
@@ -220,13 +219,10 @@ export default function FishTankPage() {
                 </div>
               </Card>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      <div style={{ display: "flex", justifyContent: "center", paddingBottom: "var(--space-10)" }}>
-        <DrawArrow shape="swoop" size={200} color="var(--buzz-600)" />
-      </div>
 
       <FishTankYears years={YEARS} initialYear="2026" />
 
@@ -235,14 +231,13 @@ export default function FishTankPage() {
         <div
           style={{ maxWidth: "var(--container)", margin: "0 auto var(--space-11)", paddingInline: "var(--gutter)" }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", alignItems: "center" }}>
-              <Eyebrow dot>Competition day</Eyebrow>
               <h3 className="bb-display-2" style={{ maxWidth: "20ch", textAlign: "center" }}>
                 A real stage, a real audience
               </h3>
             </div>
-          </Reveal>
+          </div>
         </div>
         <div
           style={{
@@ -254,10 +249,10 @@ export default function FishTankPage() {
             gap: "var(--grid-gap)",
           }}
         >
-          {GALLERY.map((g, i) => (
-            <Reveal key={g.alt} delay={i * 60}>
+          {GALLERY.map((g) => (
+            <div key={g.alt}>
               <MediaCard ratio="1 / 1" src={g.src} alt={g.alt} meta={g.alt} sizes="(max-width: 900px) 50vw, 25vw" />
-            </Reveal>
+            </div>
           ))}
         </div>
       </section>
@@ -265,7 +260,7 @@ export default function FishTankPage() {
       {/* ----------------------------------------------------------- Quote */}
       <section style={{ paddingBlock: "var(--section-y)" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <Testimonial
               quote="This year, we came back bigger than ever, with more students, more mentors, and an incredible lineup of guest speakers."
               name="BizBuzz on NCTV17 Spotlight"
@@ -274,14 +269,14 @@ export default function FishTankPage() {
               imageSrc="/fish_tank/2025/images/gallery-group.jpg"
               imageAlt="The Fish Tank 2025 group photo"
             />
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ------------------------------------------------------------- CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-neutral"
+        style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -291,9 +286,8 @@ export default function FishTankPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>Enter now</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
                 You do not need to attend camp to compete
               </h2>
@@ -306,7 +300,7 @@ export default function FishTankPage() {
               </Button>
               <p className="bb-caption">Questions? {CONTACT_EMAIL}</p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow, Stat } from "@/components/ds/Card";
-import { CountUp, Parallax, Reveal } from "@/components/ds/motion";
+import { CountUp, Parallax } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
@@ -56,7 +56,7 @@ export default function WorkshopsPage() {
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -66,10 +66,10 @@ export default function WorkshopsPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Workshops</Eyebrow>
               <h1 className="bb-display-1" style={{ maxWidth: "17ch" }}>
-                We bring the camp to your school
+                We bring the camp <span className="bb-brand-text">to your school</span>
               </h1>
+              <Eyebrow>Workshops</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 A condensed version of our curriculum, run in elementary schools, at business fairs and in community
                 centers. Free, and we travel to you.
@@ -89,7 +89,7 @@ export default function WorkshopsPage() {
                 <ArrowCTA href="#history">See where we have been</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -105,18 +105,18 @@ export default function WorkshopsPage() {
             gap: "var(--space-9) var(--space-8)",
           }}
         >
-          <Reveal>
+          <div>
             <Stat value={<CountUp to={WORKSHOP_STUDENTS} suffix="+" />} label="workshop and fair participation" note="since May 2024" />
-          </Reveal>
-          <Reveal delay={80}>
+          </div>
+          <div>
             <Stat value={<CountUp to={WORKSHOP_PARTICIPATION.length} />} label="workshop and fair programs" />
-          </Reveal>
-          <Reveal delay={160}>
+          </div>
+          <div>
             <Stat value={<CountUp to={3} />} label="seasons of programming" />
-          </Reveal>
-          <Reveal delay={240}>
+          </div>
+          <div>
             <Stat value={<CountUp to={0} prefix="$" />} label="charged to any school" note="always free" />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -135,9 +135,8 @@ export default function WorkshopsPage() {
           }}
         >
           <div style={{ gridColumn: "span 5" }}>
-            <Reveal>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <Eyebrow>What a workshop covers</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
                   Design, prototype, and pitch
                 </h2>
@@ -149,10 +148,10 @@ export default function WorkshopsPage() {
                   <ArrowCTA href={LINKS.workshopEmail}>Talk to us about dates</ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "7 / span 6" }}>
-            <Reveal>
+            <div>
               <div
                 style={{
                   display: "grid",
@@ -164,7 +163,7 @@ export default function WorkshopsPage() {
                 {MODULES.map((m) => (
                   <Card key={m.title} pad="var(--space-8)">
                     <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                      <p className="bb-mono">{m.length}</p>
+                      <p className="bb-meta">{m.length}</p>
                       <h3 className="bb-display-4">{m.title}</h3>
                       <p className="bb-body-sm" style={{ color: "var(--text-muted)" }}>
                         {m.blurb}
@@ -173,7 +172,7 @@ export default function WorkshopsPage() {
                   </Card>
                 ))}
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -190,7 +189,7 @@ export default function WorkshopsPage() {
             gap: "var(--space-10)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -201,20 +200,20 @@ export default function WorkshopsPage() {
               }}
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <Eyebrow dot>Every workshop so far</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
                   Eight places, in order
                 </h2>
+                <Eyebrow>Every workshop so far</Eyebrow>
               </div>
               <p className="bb-body" style={{ maxWidth: "32ch", color: "var(--text-muted)" }}>
                 Newest first, going back to the first talk in May 2024.
               </p>
             </div>
-          </Reveal>
+          </div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
             {WORKSHOPS.map((w) => (
-              <Reveal key={w.title}>
+              <div key={w.title}>
                 <div
                   className="bb-rowlist"
                   style={{
@@ -235,10 +234,10 @@ export default function WorkshopsPage() {
                       <ArchiveGallery images={w.images} title={w.title} />
                     </details>
                   </div>
-                  <p className="bb-mono">{w.date}</p>
+                  <p className="bb-meta">{w.date}</p>
                   <p className="bb-caption">{w.location}</p>
                 </div>
-              </Reveal>
+              </div>
             ))}
             <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
           </div>
@@ -276,8 +275,8 @@ export default function WorkshopsPage() {
 
       {/* ------------------------------------------------------------- CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-blue"
+        style={{ paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -287,9 +286,8 @@ export default function WorkshopsPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>Teachers and principals</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
                 Bring BizBuzz to your school
               </h2>
@@ -301,7 +299,7 @@ export default function WorkshopsPage() {
                 Email bizbuzznfp@gmail.com
               </Button>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

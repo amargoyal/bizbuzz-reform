@@ -1,8 +1,8 @@
 import { IMPACT, FUNDING_SUMMARY, SUPPORTERS } from "@/data/impact";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Chip, Eyebrow, Stat } from "@/components/ds/Card";
-import { CountUp, Reveal } from "@/components/ds/motion";
+import { Card, Eyebrow, Stat } from "@/components/ds/Card";
+import { CountUp } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { CONTACT_EMAIL, LINKS } from "@/lib/site";
@@ -47,7 +47,6 @@ const TIER_CARDS = [
     label: "Bronze",
     range: "Up to $250",
     tone: "card" as const,
-    chipTone: "hairline" as const,
     cta: "Sponsor materials",
     href: `mailto:${CONTACT_EMAIL}?subject=Bronze%20sponsorship`,
     perks: [
@@ -60,7 +59,6 @@ const TIER_CARDS = [
     label: "Silver",
     range: "$250 – $999",
     tone: "card" as const,
-    chipTone: "hairline" as const,
     cta: "Sponsor a workshop",
     href: `mailto:${CONTACT_EMAIL}?subject=Silver%20sponsorship`,
     perks: [
@@ -74,7 +72,6 @@ const TIER_CARDS = [
     label: "Gold",
     range: "$1,000 and above",
     tone: "accent" as const,
-    chipTone: "solid" as const,
     cta: "Sponsor a camp session",
     href: `mailto:${CONTACT_EMAIL}?subject=Gold%20sponsorship`,
     perks: [
@@ -102,7 +99,7 @@ export default function SponsorsPage() {
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -112,10 +109,10 @@ export default function SponsorsPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Sponsors</Eyebrow>
               <h1 className="bb-display-1" style={{ maxWidth: "17ch" }}>
                 Free is paid for by somebody
               </h1>
+              <Eyebrow>Sponsors</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 Sixteen Naperville businesses, families and foundations have funded three seasons of camps,
                 workshops and Fish Tank. No student has ever paid a cent.
@@ -135,7 +132,7 @@ export default function SponsorsPage() {
                 <ArrowCTA href="#tiers">See the tiers</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -151,30 +148,30 @@ export default function SponsorsPage() {
             gap: "var(--space-9) var(--space-8)",
           }}
         >
-          <Reveal>
+          <div>
             <Stat value={<CountUp to={IMPACT.partners} />} label="community partners and supporters" />
-          </Reveal>
-          <Reveal delay={80}>
+          </div>
+          <div>
             <Stat
               value={<CountUp to={100} prefix="$" />}
               label="covers materials for one session"
               note="the bronze tier"
             />
-          </Reveal>
-          <Reveal delay={160}>
+          </div>
+          <div>
             <Stat
               value={<CountUp to={1000} prefix="$" />}
               label="funds a whole camp session"
               note="venue, materials, prizes"
             />
-          </Reveal>
-          <Reveal delay={240}>
+          </div>
+          <div>
             <Stat
               value={<CountUp to={IMPACT.students} suffix="+" />}
               label="students funded so far"
               note="camps, competitions and workshops"
             />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -207,18 +204,17 @@ export default function SponsorsPage() {
             gap: "var(--space-12)",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <Eyebrow dot>Thank you</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
                 Who paid for this
               </h2>
             </div>
-          </Reveal>
+          </div>
 
           {TIERS.map((t) => (
             <div key={t.label} style={{ display: "flex", flexDirection: "column", gap: "var(--space-9)" }}>
-              <Reveal>
+              <div>
                 <div
                   style={{
                     display: "flex",
@@ -231,10 +227,10 @@ export default function SponsorsPage() {
                   }}
                 >
                   <h3 className="bb-display-3">{t.label}</h3>
-                  <p className="bb-mono">{t.range}</p>
+                  <p className="bb-meta">{t.range}</p>
                 </div>
-              </Reveal>
-              <Reveal>
+              </div>
+              <div>
                 <div
                   style={{
                     display: "grid",
@@ -266,13 +262,13 @@ export default function SponsorsPage() {
                           }}
                         >
                           <p className="bb-display-4">{s.name}</p>
-                          <p className="bb-mono">{s.meta}</p>
+                          <p className="bb-meta">{s.meta}</p>
                         </div>
                       </div>
                     </Card>
                   ))}
                 </div>
-              </Reveal>
+              </div>
             </div>
           ))}
         </div>
@@ -290,7 +286,7 @@ export default function SponsorsPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -300,7 +296,6 @@ export default function SponsorsPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Sponsorship tiers</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 What your money actually buys
               </h2>
@@ -308,9 +303,9 @@ export default function SponsorsPage() {
                 Every dollar goes to venues, materials and prizes. Nobody here takes a salary.
               </p>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "grid",
@@ -323,7 +318,7 @@ export default function SponsorsPage() {
                 <Card key={c.label} pad="var(--space-10)" tone={c.tone}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)", height: "100%" }}>
                     <div>
-                      <Chip tone={c.chipTone}>{c.label}</Chip>
+                      <span className="bb-meta">{c.label}</span>
                     </div>
                     <p className="bb-display-3">{c.range}</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
@@ -348,7 +343,7 @@ export default function SponsorsPage() {
                 </Card>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -367,11 +362,10 @@ export default function SponsorsPage() {
           }}
         >
           <div style={{ gridColumn: "span 6" }}>
-            <Reveal>
+            <div>
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "flex-start" }}
               >
-                <Eyebrow dot>The ask</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
                   Fund one session. See exactly where it went.
                 </h2>
@@ -388,10 +382,10 @@ export default function SponsorsPage() {
                   </ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "8 / span 5" }}>
-            <Reveal delay={140}>
+            <div>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 {BREAKDOWN.map((b) => (
                   <div
@@ -413,7 +407,7 @@ export default function SponsorsPage() {
                 ))}
                 <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

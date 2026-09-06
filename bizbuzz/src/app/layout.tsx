@@ -1,29 +1,13 @@
 import type { Metadata } from "next";
-import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import { BASE_PATH, SITE_URL } from "@/lib/site";
 
-/* Two voices: Newsreader (editorial serif) says what we believe, Figtree
-   (geometric sans) says how it works. JetBrains Mono labels data. */
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
-  display: "swap",
-});
-
+// One family, with separate heading, body, and numeric roles.
 const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-figtree",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -83,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${figtree.variable} ${jetbrainsMono.variable}`}
+      className={figtree.variable}
     >
       <body>{children}</body>
     </html>

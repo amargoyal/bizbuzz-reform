@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 
 /**
- * Photo block with an optional caption bar and floating chips.
+ * Photo block with optional captions and supporting facts.
  * The workhorse of BizBuzz marketing pages — camp photos, Fish Tank stage shots.
  */
 export function MediaCard({
@@ -56,40 +56,9 @@ export function MediaCard({
           <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
         )}
         {chips.length > 0 && (
-          <div
-            style={{
-              position: "absolute",
-              left: "var(--space-6)",
-              bottom: "var(--space-6)",
-              right: "var(--space-6)",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "var(--space-3)",
-            }}
-          >
-            {chips.map((c) => (
-              <span
-                key={c}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  height: 34,
-                  padding: "0 16px",
-                  borderRadius: "var(--radius-pill)",
-                  background: "var(--surface-glass-inverse)",
-                  border: "1px solid rgba(251,245,233,.22)",
-                  backdropFilter: "blur(var(--blur-glass))",
-                  WebkitBackdropFilter: "blur(var(--blur-glass))",
-                  color: "var(--cream-100)",
-                  fontFamily: "var(--font-text)",
-                  fontWeight: 500,
-                  fontSize: "var(--size-caption)",
-                }}
-              >
-                {c}
-              </span>
-            ))}
-          </div>
+          <ul className="bb-facts bb-photo-facts">
+            {chips.map((fact) => <li key={fact}>{fact}</li>)}
+          </ul>
         )}
       </div>
       {(title || meta) && (
@@ -102,7 +71,7 @@ export function MediaCard({
   );
 }
 
-/** Pull-quote card: oversized mark, serif quote, attribution, optional portrait. */
+/** Readable quote, attribution, and optional portrait. */
 export function Testimonial({
   quote,
   name,
@@ -145,19 +114,6 @@ export function Testimonial({
           justifyContent: "space-between",
         }}
       >
-        <span
-          aria-hidden="true"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: 84,
-            lineHeight: 0.6,
-            color: "var(--buzz-500)",
-            letterSpacing: "-0.04em",
-          }}
-        >
-          &ldquo;
-        </span>
         <blockquote className="bb-quote" style={{ margin: 0 }}>
           {quote}
         </blockquote>
@@ -202,12 +158,10 @@ export function Testimonial({
                 alignItems: "center",
                 height: 32,
                 padding: "0 15px",
-                borderRadius: "var(--radius-pill)",
-                background: "var(--surface-glass-inverse)",
-                border: "1px solid rgba(251,245,233,.22)",
-                backdropFilter: "blur(var(--blur-glass))",
-                WebkitBackdropFilter: "blur(var(--blur-glass))",
-                color: "var(--cream-100)",
+                borderRadius: "var(--radius-sm)",
+                background: "var(--surface-photo-caption)",
+                border: "1px solid rgba(255, 255, 255,.22)",
+                color: "var(--neutral-0)",
                 fontFamily: "var(--font-text)",
                 fontWeight: 500,
                 fontSize: "var(--size-caption)",

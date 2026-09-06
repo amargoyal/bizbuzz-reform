@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowCTA } from "@/components/ds/Button";
 
 export type ProgramPanel = {
-  index: string;
   title: string;
   blurb: string;
   chips: string[];
@@ -28,10 +27,19 @@ export type ProgramPanel = {
  */
 export default function ProgramPanels({ programs }: { programs: ProgramPanel[] }) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const [pinned, setPinned] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 900px), (prefers-reduced-motion: reduce), (hover: none)");
+    const sync = () => setPinned(!mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root) return;
+    if (!root || !pinned) return;
 
     let pairs: { panel: HTMLElement; layer: HTMLElement }[] = [];
     const collect = () => {
@@ -68,28 +76,29 @@ export default function ProgramPanels({ programs }: { programs: ProgramPanel[] }
       window.removeEventListener("resize", sync);
       timers.forEach(clearTimeout);
     };
-  }, [programs]);
+  }, [programs, pinned]);
 
   return (
     <div ref={rootRef}>
       {programs.map((p) => (
-        <div key={p.title} data-panel="" style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+        <div key={p.title} data-panel="" style={{ position: "relative", minHeight: "100svh", height: pinned ? "100vh" : undefined, overflow: "hidden" }}>
           <Image src={p.bg} alt={p.bgAlt} fill sizes="100vw" style={{ objectFit: "cover" }} />
-          <div style={{ position: "absolute", inset: 0, background: "var(--scrim-left)" }} />
+          <div className="bb-panel-scrim" style={{ position: "absolute", inset: 0, background: "var(--scrim-left)" }} />
           <div style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
 
           <div
             data-panel-layer=""
             className="bb-row-12"
             style={{
-              position: "fixed",
+              position: pinned ? "fixed" : "relative",
               left: 0,
               right: 0,
               top: 0,
-              height: "100vh",
+              height: pinned ? "100vh" : undefined,
+              minHeight: "100svh",
               zIndex: 2,
-              clipPath: "inset(0 0 100% 0)",
-              willChange: "clip-path",
+              clipPath: pinned ? "inset(0 0 100% 0)" : "none",
+              willChange: pinned ? "clip-path" : undefined,
               display: "grid",
               gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
               gap: "var(--grid-gap)",
@@ -108,43 +117,22 @@ export default function ProgramPanels({ programs }: { programs: ProgramPanel[] }
                 alignItems: "flex-start",
               }}
             >
-              <p className="bb-mono" style={{ color: "rgba(251,245,233,.72)" }}>
-                {p.index}
-              </p>
               <h3
+                className="bb-display-2"
                 style={{
-                  font: "400 clamp(2.75rem, 5.4vw, 5rem)/0.98 var(--font-display)",
-                  letterSpacing: "-0.028em",
-                  color: "var(--cream-100)",
+                  color: "var(--neutral-0)",
                   margin: 0,
                   maxWidth: "13ch",
                 }}
               >
                 {p.title}
               </h3>
-              <p className="bb-lead" style={{ color: "rgba(251,245,233,.86)", maxWidth: "40ch" }}>
+              <p className="bb-lead" style={{ color: "rgba(255, 255, 255,.86)", maxWidth: "40ch" }}>
                 {p.blurb}
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
-                {p.chips.map((c) => (
-                  <span
-                    key={c}
-                    className="bb-caption"
-                    style={{
-                      background: "var(--surface-glass-inverse)",
-                      backdropFilter: "blur(14px)",
-                      WebkitBackdropFilter: "blur(14px)",
-                      border: "1px solid rgba(251,245,233,.28)",
-                      color: "var(--cream-100)",
-                      padding: "9px 16px",
-                      borderRadius: "var(--radius-pill)",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {c}
-                  </span>
-                ))}
-              </div>
+              <ul className="bb-facts" style={{ color: "var(--neutral-0)" }}>
+                {p.chips.map((fact) => <li key={fact}>{fact}</li>)}
+              </ul>
               <div style={{ paddingTop: "var(--space-3)" }}>
                 <ArrowCTA tone="inverse" href={p.href}>
                   {p.linkLabel}

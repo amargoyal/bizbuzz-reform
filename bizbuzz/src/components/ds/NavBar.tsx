@@ -29,9 +29,9 @@ function NavAnchor({
 }
 
 /**
- * Top bar. Sticky and cream by default; with `overlay` it renders fixed and
+ * Top bar. Sticky and white by default; with `overlay` it renders fixed and
  * transparent so it sits directly on a full-bleed hero, swapping to a blurred
- * cream capsule once scrolled. The BizBuzz nav never draws a hard line.
+ * white capsule once scrolled. The BizBuzz nav never draws a hard line.
  */
 export function NavBar({
   brand,
@@ -81,7 +81,7 @@ export function NavBar({
   }, []);
 
   const light = overlay && !scrolled;
-  const fg = light ? "var(--cream-100)" : "var(--text-display)";
+  const fg = light ? "var(--neutral-0)" : "var(--text-display)";
 
   return (
     <header
@@ -302,8 +302,8 @@ export function NavBar({
                 width: 46,
                 height: 46,
                 flex: "0 0 auto",
-                borderRadius: "var(--radius-circle)",
-                border: `1.5px solid ${light ? "rgba(251,245,233,.45)" : "var(--border-ink)"}`,
+                borderRadius: "var(--radius-sm)",
+                border: `1.5px solid ${light ? "rgba(255, 255, 255,.45)" : "var(--border-ink)"}`,
                 background: "transparent",
                 color: fg,
                 cursor: "pointer",
@@ -488,8 +488,8 @@ export function Footer({
 }) {
   return (
     <footer
-      className={`bb-on-ink ${className}`}
-      style={{ background: "var(--ink-900)", color: "var(--cream-100)", ...style }}
+      className={`bb-on-ink bb-brand-footer ${className}`}
+      style={{ background: "var(--ink-900)", color: "var(--neutral-0)", ...style }}
     >
       <div
         style={{
@@ -515,7 +515,7 @@ export function Footer({
                 fontSize: "clamp(3.5rem,7vw,6.5rem)",
                 lineHeight: 0.86,
                 letterSpacing: "-0.04em",
-                color: "var(--cream-100)",
+                color: "var(--buzz-500)",
               }}
             >
               {brand}
@@ -525,7 +525,7 @@ export function Footer({
                 style={{
                   marginTop: "var(--space-7)",
                   maxWidth: "30ch",
-                  color: "rgba(251,245,233,.66)",
+                  color: "rgba(255, 255, 255,.66)",
                   fontSize: "var(--size-body-sm)",
                   lineHeight: 1.6,
                 }}
@@ -549,9 +549,9 @@ export function Footer({
                     fontFamily: "var(--font-text)",
                     fontWeight: 700,
                     fontSize: "var(--size-caption)",
-                    letterSpacing: "var(--tracking-eyebrow)",
-                    textTransform: "uppercase",
-                    color: "rgba(251,245,233,.5)",
+                    letterSpacing: "normal",
+                    textTransform: "none",
+                    color: "rgba(255, 255, 255,.72)",
                   }}
                 >
                   {col.title}
@@ -563,7 +563,7 @@ export function Footer({
                     style={{
                       fontFamily: "var(--font-display)",
                       fontSize: "1.125rem",
-                      color: "var(--cream-100)",
+                      color: "var(--neutral-0)",
                       textDecoration: "none",
                       lineHeight: 1.3,
                     }}
@@ -580,7 +580,7 @@ export function Footer({
           style={{
             marginTop: "var(--space-12)",
             paddingTop: "var(--space-7)",
-            borderTop: "1px solid rgba(251,245,233,.16)",
+            borderTop: "1px solid rgba(255, 255, 255,.16)",
             display: "flex",
             flexWrap: "wrap",
             gap: "var(--space-7)",
@@ -588,7 +588,7 @@ export function Footer({
             justifyContent: "space-between",
           }}
         >
-          <span style={{ fontSize: "var(--size-caption)", color: "rgba(251,245,233,.5)" }}>{legal}</span>
+          <span style={{ fontSize: "var(--size-caption)", color: "rgba(255, 255, 255,.72)" }}>{legal}</span>
           <div style={{ display: "flex", gap: "var(--space-6)" }}>
             {social.map((s) => (
               <a
@@ -596,7 +596,7 @@ export function Footer({
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "rgba(251,245,233,.72)", fontSize: "var(--size-body-sm)" }}
+                style={{ color: "rgba(255, 255, 255,.72)", fontSize: "var(--size-body-sm)" }}
               >
                 {s.label}
               </a>

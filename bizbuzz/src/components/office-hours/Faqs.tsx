@@ -36,7 +36,7 @@ export default function Faqs({ faqs }: { faqs: Faq[] }) {
               <span className="bb-display-4" style={{ maxWidth: "40ch" }}>
                 {f.q}
               </span>
-              <span className="bb-mono" style={{ flex: "0 0 auto" }}>
+              <span className="bb-meta" style={{ flex: "0 0 auto" }}>
                 {isOpen ? "−" : "+"}
               </span>
             </button>

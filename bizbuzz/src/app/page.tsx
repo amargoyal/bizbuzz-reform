@@ -1,9 +1,9 @@
 import { IMPACT, WORKSHOP_STUDENTS } from "@/data/impact";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Chip, Eyebrow, Stat } from "@/components/ds/Card";
+import { Card, Eyebrow, Stat } from "@/components/ds/Card";
 import { Testimonial } from "@/components/ds/MediaCard";
-import { CountUp, DrawArrow, DrawUnderline, Marquee, Parallax, Reveal, ScrollRail } from "@/components/ds/motion";
+import { CountUp, Marquee, Parallax, ScrollRail } from "@/components/ds/motion";
 import ProgramPanels, { type ProgramPanel } from "@/components/home/ProgramPanels";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -42,7 +42,6 @@ const SCHOOLS = [
 
 const PROGRAMS: ProgramPanel[] = [
   {
-    index: "01 / 04",
     title: "Summer Camp",
     blurb:
       "Six sessions across six weeks. Ideation, finance, marketing, prototyping, speaking, and a mock pitch.",
@@ -55,7 +54,6 @@ const PROGRAMS: ProgramPanel[] = [
     insetAlt: "Marketing and prototyping session",
   },
   {
-    index: "02 / 04",
     title: "Fish Tank",
     blurb:
       "Our pitch competition. Two divisions, real judges, and prizes for the businesses students actually built.",
@@ -68,7 +66,6 @@ const PROGRAMS: ProgramPanel[] = [
     insetAlt: "Fish Tank winners with their trophy",
   },
   {
-    index: "03 / 04",
     title: "Workshops",
     blurb:
       "Condensed curriculum brought to elementary schools, business fairs and community centers. We travel to you.",
@@ -81,7 +78,6 @@ const PROGRAMS: ProgramPanel[] = [
     insetAlt: "Workshop students with their instructors",
   },
   {
-    index: "04 / 04",
     title: "1:1 Mentorship",
     blurb: "Office hours for business incubation, feedback on your idea, and pitch practice before Fish Tank.",
     chips: ["Online or in person", "1 hour a week", "Naperville libraries"],
@@ -190,34 +186,26 @@ export default function HomePage() {
       <SiteHeader />
 
       {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 104px) 0" }}>
+      <section style={{ paddingBlock: "var(--hero-y) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "var(--space-8)",
+                gap: "var(--space-6)",
                 alignItems: "center",
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Naperville, Illinois</Eyebrow>
-              <h1 className="bb-display-1" style={{ maxWidth: "19ch" }}>
-                Every student deserves to find their{" "}
-                <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
-                  own idea
-                  <span
-                    style={{ position: "absolute", left: 0, right: 0, bottom: "-0.16em", pointerEvents: "none" }}
-                  >
-                    <DrawUnderline delay={620} />
-                  </span>
-                </span>
+              <h1 className="bb-display-1" style={{ maxWidth: "24ch" }}>
+                Every student deserves to find <span className="bb-brand-text">their own idea</span>
               </h1>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 BizBuzz is a student-run nonprofit teaching entrepreneurship to grades 3–8. Free camps, free
                 workshops, and a pitch competition called Fish Tank. Built by students, for students.
               </p>
+              <p className="bb-meta">Naperville, Illinois</p>
               <div
                 style={{
                   display: "flex",
@@ -234,17 +222,17 @@ export default function HomePage() {
                 <ArrowCTA href="/seasons">See the 2026 season</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
 
         <div
-          className="bb-mosaic-5"
+          className="bb-mosaic-5 bb-photo-field"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(5, 1fr)",
             gap: "clamp(8px, 1vw, 16px)",
             alignItems: "start",
-            padding: "clamp(40px, 6vw, 88px) clamp(8px, 1vw, 16px) 0",
+            padding: "var(--hero-media-gap) clamp(8px, 1vw, 16px) 0",
           }}
         >
           {HERO_MOSAIC.map((m, i) => (
@@ -282,36 +270,36 @@ export default function HomePage() {
               gap: "var(--space-9) var(--space-8)",
             }}
           >
-            <Reveal>
+            <div>
               <Stat
                 value={<CountUp to={IMPACT.students} suffix="+" />}
                 label="students taught"
                 note="across camps, competitions and workshops"
               />
-            </Reveal>
-            <Reveal delay={80}>
+            </div>
+            <div>
               <Stat value={<CountUp to={IMPACT.schools} />} label="schools across Chicagoland" />
-            </Reveal>
-            <Reveal delay={160}>
+            </div>
+            <div>
               <Stat
                 value={<CountUp to={IMPACT.funding} prefix="$" suffix="+" />}
                 label="raised by our community"
                 note="51 community partners"
               />
-            </Reveal>
-            <Reveal delay={240}>
+            </div>
+            <div>
               <Stat
                 value={<CountUp to={IMPACT.sessions} />}
                 label="camp and workshop sessions"
                 note="always free"
               />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* --------------------------------------------------------- Mission */}
-      <section style={{ paddingBlock: "0 var(--section-y)" }}>
+      <section className="bb-on-ink bb-brand-mission">
         <div
           className="bb-row-12"
           style={{
@@ -325,17 +313,16 @@ export default function HomePage() {
           }}
         >
           <div style={{ gridColumn: "span 5" }}>
-            <Reveal>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <Eyebrow>Why we exist</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
-                  Build Biz. Bring Buzz.
+                  <span className="bb-brand-text">Build Biz.</span>{" "}<span className="bb-brand-yellow">Bring Buzz.</span>
                 </h2>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "7 / span 6" }}>
-            <Reveal delay={120}>
+            <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <p className="bb-lead">
                   Two Naperville North juniors founded BizBuzz in April 2024 after finding that 90% of K-8 schools
@@ -347,13 +334,13 @@ export default function HomePage() {
                   design it. Students run it.
                 </p>
                 <p className="bb-body" style={{ fontWeight: "var(--weight-semibold)", color: "var(--text-display)" }}>
-                  Let&apos;s turn imagination into innovation.
+                  Let&apos;s turn <span className="bb-brand-text">imagination</span> into <span className="bb-brand-yellow">innovation</span>.
                 </p>
                 <div style={{ paddingTop: "var(--space-3)" }}>
                   <ArrowCTA href="/about">Read our story</ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -361,7 +348,7 @@ export default function HomePage() {
       {/* ------------------------------------------------------- Two paths */}
       <section style={{ paddingBlock: "0 var(--section-y)" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "grid",
@@ -370,10 +357,10 @@ export default function HomePage() {
                 alignItems: "stretch",
               }}
             >
-              <Card pad="var(--space-10)">
+              <Card className="bb-brand-card" pad="var(--space-10)" style={{ background: "var(--surface-brand)", borderColor: "var(--surface-brand)" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", height: "100%" }}>
                   <div>
-                    <Chip tone="accent">For students</Chip>
+                    <span className="bb-meta">For students</span>
                   </div>
                   <h3 className="bb-display-3">You have an idea. We&apos;ll help you build it.</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
@@ -388,7 +375,7 @@ export default function HomePage() {
               <Card pad="var(--space-10)">
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", height: "100%" }}>
                   <div>
-                    <Chip>For parents and schools</Chip>
+                    <span className="bb-meta">For parents and schools</span>
                   </div>
                   <h3 className="bb-display-3">Free, local, and run to a real schedule.</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
@@ -401,13 +388,10 @@ export default function HomePage() {
                 </div>
               </Card>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      <div style={{ display: "flex", justifyContent: "center", paddingBottom: "var(--space-9)" }}>
-        <DrawArrow shape="curve" size={180} color="var(--buzz-600)" />
-      </div>
 
       {/* -------------------------------------------------------- Programs */}
       <section id="programs" style={{ paddingBlock: "0 var(--section-y)" }}>
@@ -421,7 +405,7 @@ export default function HomePage() {
             gap: "var(--space-12)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -431,7 +415,6 @@ export default function HomePage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Four programs</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 Ideate, prototype, and pitch
               </h2>
@@ -440,7 +423,7 @@ export default function HomePage() {
                 stage.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -451,7 +434,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------- Seasons rail */}
       <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y-tight) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -462,16 +445,16 @@ export default function HomePage() {
               }}
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <Eyebrow>2024 to 2027</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
                   Four seasons, one idea
                 </h2>
+                <Eyebrow>2024 to 2027</Eyebrow>
               </div>
               <p className="bb-body" style={{ maxWidth: "38ch", color: "var(--text-muted)" }}>
                 Keep scrolling. The seasons move sideways.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
 
         <ScrollRail height="190vh" gap="var(--space-9)" padInline="var(--gutter)" align="stretch">
@@ -499,38 +482,12 @@ export default function HomePage() {
               >
                 <Image src={s.image} alt={s.alt} fill sizes="500px" style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 20,
-                    right: 20,
-                    bottom: 20,
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "var(--space-4)",
-                  }}
-                >
-                  {s.chips.map((c) => (
-                    <span
-                      key={c}
-                      className="bb-caption"
-                      style={{
-                        background: "var(--surface-glass-inverse)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                        border: "1px solid rgba(251,245,233,.28)",
-                        color: "var(--cream-100)",
-                        padding: "7px 14px",
-                        borderRadius: "var(--radius-pill)",
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
+                <ul className="bb-facts bb-photo-facts">
+                  {s.chips.map((fact) => <li key={fact}>{fact}</li>)}
+                </ul>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", flex: "0 0 auto" }}>
-                <p className="bb-mono">{s.year}</p>
+                <p className="bb-meta">{s.year}</p>
                 <h3 className="bb-display-3">{s.title}</h3>
                 <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                   {s.blurb}
@@ -551,14 +508,13 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", alignItems: "center" }}>
-              <Eyebrow dot>Where our students come from</Eyebrow>
               <h2 className="bb-display-3" style={{ maxWidth: "26ch" }}>
                 {IMPACT.schools} schools across Naperville and greater Chicagoland
               </h2>
             </div>
-          </Reveal>
+          </div>
         </div>
 
         <Marquee speed={46} gap="var(--space-10)">
@@ -581,7 +537,7 @@ export default function HomePage() {
       {/* ----------------------------------------------------------- Quote */}
       <section style={{ paddingBlock: "var(--section-y)" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <Reveal>
+          <div>
             <Testimonial
               quote="What started as a small idea has now grown into one of the largest youth entrepreneurship programs in Chicagoland."
               name="NCTV17 Spotlight"
@@ -590,7 +546,7 @@ export default function HomePage() {
               imageSrc="/news/nctv-spotlight-2025.jpg"
               imageAlt="BizBuzz founders on the NCTV17 Spotlight set"
             />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -606,7 +562,7 @@ export default function HomePage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -617,14 +573,14 @@ export default function HomePage() {
               }}
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <Eyebrow>In the news</Eyebrow>
                 <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
                   Naperville has been watching
                 </h2>
+                <Eyebrow>In the news</Eyebrow>
               </div>
               <ArrowCTA href="/about#press">All coverage</ArrowCTA>
             </div>
-          </Reveal>
+          </div>
 
           <div
             style={{
@@ -659,7 +615,7 @@ export default function HomePage() {
                         style={{ objectFit: "cover" }}
                       />
                     </div>
-                    <p className="bb-mono">{n.meta}</p>
+                    <p className="bb-meta">{n.meta}</p>
                     <h3 className="bb-display-4">{n.headline}</h3>
                   </div>
                 </Card>
@@ -671,8 +627,8 @@ export default function HomePage() {
 
       {/* ---------------------------------------------------- Sponsor CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-blue"
+        style={{ paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -682,12 +638,12 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>Sponsors</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
                 $100 covers materials for a whole session
               </h2>
+              <Eyebrow>Sponsors</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch" }}>
                 Every program stays free because Naperville businesses and families pay for it. 16 sponsors funded
                 the last three seasons.
@@ -707,7 +663,7 @@ export default function HomePage() {
                 <ArrowCTA href={LINKS.email}>Email the team</ArrowCTA>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

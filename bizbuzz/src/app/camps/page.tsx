@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Eyebrow } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
-import { Parallax, Reveal } from "@/components/ds/motion";
+import { Parallax } from "@/components/ds/motion";
 import CampSeasons, { type CampSeason } from "@/components/camps/CampSeasons";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -214,14 +214,14 @@ export default function CampsPage() {
           }}
         >
           <div style={{ gridColumn: "span 6" }}>
-            <Reveal>
+            <div>
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "flex-start" }}
               >
-                <Eyebrow dot>Summer camp</Eyebrow>
                 <h1 className="bb-display-1" style={{ maxWidth: "13ch" }}>
-                  Six weeks. One business. Yours.
+                  Six weeks. One business. <span className="bb-brand-text">Yours.</span>
                 </h1>
+                <Eyebrow>Summer camp</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>
                   A free multi-week entrepreneurship camp for grades 3–8. You arrive with a hunch and leave with a
                   business you have pitched on a real stage.
@@ -233,7 +233,7 @@ export default function CampsPage() {
                   <ArrowCTA href="/fish-tank">Then comes Fish Tank</ArrowCTA>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
           <div style={{ gridColumn: "8 / span 5" }}>
             <Parallax depth={0.5}>
@@ -265,7 +265,7 @@ export default function CampsPage() {
             gap: "var(--space-11)",
           }}
         >
-          <Reveal>
+          <div>
             <div
               style={{
                 display: "flex",
@@ -275,7 +275,6 @@ export default function CampsPage() {
                 textAlign: "center",
               }}
             >
-              <Eyebrow dot>Guest speakers</Eyebrow>
               <h3 className="bb-display-2" style={{ maxWidth: "22ch" }}>
                 People who have actually done it
               </h3>
@@ -283,7 +282,7 @@ export default function CampsPage() {
                 Founders, a Shark Tank alum, and the Mayor of Naperville have all sat in front of our students.
               </p>
             </div>
-          </Reveal>
+          </div>
 
           <div
             style={{
@@ -292,8 +291,8 @@ export default function CampsPage() {
               gap: "var(--grid-gap)",
             }}
           >
-            {SPEAKERS.map((k, i) => (
-              <Reveal key={k.name} delay={i * 80}>
+            {SPEAKERS.map((k) => (
+              <div key={k.name}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
                   <div
                     style={{
@@ -301,7 +300,7 @@ export default function CampsPage() {
                       borderRadius: "var(--radius-lg)",
                       overflow: "hidden",
                       aspectRatio: "1 / 1",
-                      background: "var(--cream-300)",
+                      background: "var(--neutral-300)",
                     }}
                   >
                     <Image
@@ -315,10 +314,10 @@ export default function CampsPage() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
                     <p className="bb-display-4">{k.name}</p>
                     <p className="bb-caption">{k.role}</p>
-                    <p className="bb-mono">{k.session}</p>
+                    <p className="bb-meta">{k.session}</p>
                   </div>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -329,11 +328,11 @@ export default function CampsPage() {
         <div
           style={{ maxWidth: "var(--container)", margin: "0 auto var(--space-11)", paddingInline: "var(--gutter)" }}
         >
-          <Reveal>
+          <div>
             <h3 className="bb-display-2" style={{ maxWidth: "18ch" }}>
               What a session looks like
             </h3>
-          </Reveal>
+          </div>
         </div>
         <div
           className="bb-mosaic-4"
@@ -364,8 +363,8 @@ export default function CampsPage() {
 
       {/* ------------------------------------------------------------- CTA */}
       <section
-        className="bb-on-buzz"
-        style={{ background: "var(--surface-accent-soft)", paddingBlock: "var(--section-y)" }}
+        className="bb-on-neutral"
+        style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}
       >
         <div
           style={{
@@ -375,12 +374,12 @@ export default function CampsPage() {
             textAlign: "center",
           }}
         >
-          <Reveal>
+          <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow dot>Summer 2027</Eyebrow>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
                 Seats are limited and it is free
               </h2>
+              <Eyebrow>Summer 2027</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "48ch" }}>
                 Registration for the 2027 camp is open now. Grades 3–8, Naperville, no business experience needed.
               </p>
@@ -389,7 +388,7 @@ export default function CampsPage() {
               </Button>
               <p className="bb-caption">Questions? {CONTACT_EMAIL}</p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
