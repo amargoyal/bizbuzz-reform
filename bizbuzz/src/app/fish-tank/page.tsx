@@ -193,7 +193,7 @@ export default function FishTankPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
                 gap: "var(--grid-gap)",
                 alignItems: "stretch",
               }}
@@ -245,7 +245,7 @@ export default function FishTankPage() {
             margin: "0 auto",
             paddingInline: "var(--gutter)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: "var(--grid-gap)",
           }}
         >

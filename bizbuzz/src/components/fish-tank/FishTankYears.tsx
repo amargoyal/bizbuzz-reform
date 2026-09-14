@@ -89,7 +89,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 120px), 1fr))",
                   gap: "var(--space-8)",
                   paddingTop: "var(--space-4)",
                 }}

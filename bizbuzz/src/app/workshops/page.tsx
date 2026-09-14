@@ -101,7 +101,7 @@ export default function WorkshopsPage() {
             margin: "0 auto",
             paddingInline: "var(--gutter)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
             gap: "var(--space-9) var(--space-8)",
           }}
         >
@@ -155,7 +155,7 @@ export default function WorkshopsPage() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
                   gap: "var(--grid-gap)",
                   alignItems: "stretch",
                 }}

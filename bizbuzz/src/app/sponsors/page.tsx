@@ -105,7 +105,7 @@ export default function SponsorsPage() {
             margin: "0 auto",
             paddingInline: "var(--gutter)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
             gap: "var(--space-9) var(--space-8)",
           }}
         >
@@ -212,7 +212,7 @@ export default function SponsorsPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
                 gap: "var(--grid-gap)",
                 alignItems: "stretch",
               }}

@@ -129,7 +129,7 @@ export default function SeasonsPage() {
             margin: "0 auto",
             paddingInline: "var(--gutter)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
             gap: "var(--space-9) var(--space-8)",
           }}
         >
@@ -195,7 +195,7 @@ export default function SeasonsPage() {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 110px), 1fr))",
                       gap: "var(--space-8)",
                       paddingTop: "var(--space-4)",
                     }}

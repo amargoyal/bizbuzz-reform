@@ -567,6 +567,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
@@ -751,3 +752,5 @@ ol {
   .bb-sponsor-record { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-5); }
   .bb-sponsor-logo { grid-column: 1 / -1; justify-self: start; width: 150px; }
 }
+
+.bb-row-12 > *, .bb-data-grid > * { min-width: 0; }

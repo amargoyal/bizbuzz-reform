@@ -108,7 +108,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
               style={{
                 gridColumn: "7 / span 6",
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 130px), 1fr))",
                 gap: "var(--space-8)",
               }}
             >
@@ -132,7 +132,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
                   gap: "var(--grid-gap)",
                   alignItems: "stretch",
                 }}
