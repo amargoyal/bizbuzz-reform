@@ -258,7 +258,7 @@ export default function AboutPage() {
                       alt={m.name}
                       fill
                       sizes="(max-width: 900px) 50vw, 25vw"
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", objectPosition: "customPosition" in m ? m.customPosition : "center", ...("customImageStyle" in m ? m.customImageStyle : {}) }}
                     />
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>

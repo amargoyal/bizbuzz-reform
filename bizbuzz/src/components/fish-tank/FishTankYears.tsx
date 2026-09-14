@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import results from "@/data/fish-tank.json";
 import ArchiveGallery from "@/components/archive/ArchiveGallery";
@@ -60,6 +61,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
         </div>
 
         <Tabs
+          label="Competition year"
           items={years.map((y) => ({ value: y.year, label: y.year }))}
           value={current.year}
           onChange={(v) => {
@@ -112,7 +114,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
         {result && (
           <div key={current.year}>
             <h3 className="bb-display-3">{current.year} results and judges</h3>
-            <details className="bb-details">
+            <details className="bb-details" open>
               <summary>Competition winners</summary>
               <div className="bb-data-grid">
                 {result.winners.map((winner) => (
@@ -131,6 +133,7 @@ export default function FishTankYears({ years, initialYear }: { years: FishTankY
                 <div className="bb-data-grid">
                   {group.judges.map((judge) => (
                     <article key={judge.name}>
+                      {"image" in judge && typeof judge.image === "string" && <Image src={judge.image} alt={judge.name} width={100} height={100} style={{ objectFit: "cover", borderRadius: "var(--radius-sm)", width: 100, height: 100, marginBottom: "var(--space-5)" }} />}
                       <h4 className="bb-display-4">{judge.name}</h4>
                       <p className="bb-caption">{judge.title}</p>
                       <p className="bb-body">{judge.bio}</p>

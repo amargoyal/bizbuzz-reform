@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import campArchive from "@/data/camps.json";
 import ArchiveGallery from "@/components/archive/ArchiveGallery";
@@ -75,6 +76,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
           </div>
 
           <Tabs
+            label="Camp year"
             items={seasons.map((s) => ({ value: s.year, label: s.year }))}
             value={current.year}
             onChange={(v) => {
@@ -185,7 +187,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
           </div>
 
           {tracks && tracks.length > 1 && (
-            <Tabs items={tracks.map((item, index) => ({ value: String(index), label: item.title }))} value={track} onChange={setTrack} />
+            <Tabs label="Camp track" items={tracks.map((item, index) => ({ value: String(index), label: item.title }))} value={track} onChange={setTrack} />
           )}
           <div style={{ display: "flex", flexDirection: "column" }}>
             {sessions.map((s) => (
@@ -217,6 +219,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
                     {s.speakers.map((speaker) => (
                       <details className="bb-details" key={speaker.name}>
                         <summary>Guest speaker: {speaker.name}</summary>
+                        <Image src={speaker.image} alt={speaker.name} width={100} height={100} style={{ objectFit: "cover", borderRadius: "var(--radius-sm)", width: 100, height: 100, objectPosition: "objectPosition" in speaker ? String(speaker.objectPosition) : "center" }} />
                         <p className="bb-caption">{speaker.role}</p>
                         <p className="bb-display-4">{speaker.topic}</p>
                         <p className="bb-body">{speaker.bio}</p>
