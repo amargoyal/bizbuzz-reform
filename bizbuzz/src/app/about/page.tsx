@@ -403,7 +403,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                   <ArrowCTA href={n.href} target="_blank" rel="noopener noreferrer">
-                    Read it
+                    {n.outlet === "Daily Herald" ? "Visit Daily Herald" : n.outlet === "Teen Philanthropy Initiative" ? "Visit TPI" : `Read ${n.outlet} coverage`}
                   </ArrowCTA>
                 </div>
               </div>

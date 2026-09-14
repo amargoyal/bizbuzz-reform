@@ -1,3 +1,4 @@
+import ArchiveGallery from "@/components/archive/ArchiveGallery";
 import PageSections from "@/components/site/PageSections";
 import { IMPACT } from "@/data/impact";
 import data2024 from "@/data/2024.json";
@@ -234,8 +235,19 @@ export default function SeasonsPage() {
                             <h3 className="bb-display-4">{program.title}</h3>
                             <p className="bb-caption">{program.dateISO} · {program.venue} · {program.attendance} students</p>
                             <p className="bb-body">{program.description}</p>
+                            {program.images.length > 0 && <ArchiveGallery images={program.images} title={`${s.year} ${program.title}`} />}
                           </article>
                         ))}
+                        {s.archive.stories.map((story) => (
+                          <article key={story.id}>
+                            <h3 className="bb-display-4">{story.headline}</h3>
+                            <p className="bb-caption">{story.name}</p>
+                            <p className="bb-body">{story.body}</p>
+                          </article>
+                        ))}
+                        {s.archive.partners.length > 0 && (
+                          <div><h3 className="bb-display-4">Season partners</h3><ul>{s.archive.partners.map((partner) => <li key={partner.name}>{partner.name}</li>)}</ul></div>
+                        )}
                         <h3 className="bb-display-4">Season timeline</h3>
                         <ol>
                           {s.archive.timeline.map((event) => (
@@ -246,6 +258,12 @@ export default function SeasonsPage() {
                           ))}
                         </ol>
                       </div>
+                    </details>
+                  )}
+                  {s.archive && s.archive.gallery.length > 0 && (
+                    <details className="bb-details">
+                      <summary>{s.year} photo highlights</summary>
+                      <ArchiveGallery images={s.archive.gallery} title={`${s.year} season`} />
                     </details>
                   )}
                   <div
