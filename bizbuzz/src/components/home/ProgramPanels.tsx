@@ -30,7 +30,7 @@ export default function ProgramPanels({ programs }: { programs: ProgramPanel[] }
   const [pinned, setPinned] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 900px), (prefers-reduced-motion: reduce), (hover: none)");
+    const mq = window.matchMedia("(max-width: 900px), (max-height: 650px), (prefers-reduced-motion: reduce), (hover: none)");
     const sync = () => setPinned(!mq.matches);
     sync();
     mq.addEventListener("change", sync);
@@ -89,6 +89,13 @@ export default function ProgramPanels({ programs }: { programs: ProgramPanel[] }
           <div
             data-panel-layer=""
             className="bb-row-12"
+            onFocusCapture={(event) => {
+              const panel = event.currentTarget.closest<HTMLElement>("[data-panel]");
+              const rect = panel?.getBoundingClientRect();
+              if (pinned && rect && (rect.top >= window.innerHeight || rect.bottom <= 78)) {
+                panel?.scrollIntoView({ block: "start", behavior: "instant" });
+              }
+            }}
             style={{
               position: pinned ? "fixed" : "relative",
               left: 0,

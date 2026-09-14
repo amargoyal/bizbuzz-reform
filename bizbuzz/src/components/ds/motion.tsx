@@ -65,6 +65,7 @@ export function Marquee({
   children?: ReactNode;
 }) {
   const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const track: CSSProperties = {
     display: "flex",
     alignItems: "center",
@@ -73,16 +74,20 @@ export function Marquee({
     flex: "0 0 auto",
     animation: `bb-marquee ${speed ? speed + "s" : "var(--dur-marquee)"} linear infinite`,
     animationDirection: reverse ? "reverse" : "normal",
-    animationPlayState: paused ? "paused" : "running",
+    animationPlayState: paused || hovered ? "paused" : "running",
     willChange: "transform",
   };
   const mask = fade ? "linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)" : undefined;
 
   return (
+    <div>
+      <div className="bb-container" style={{ display: "flex", justifyContent: "flex-end" }}>
+        <button className="bb-text-button" type="button" aria-pressed={paused} onClick={() => setPaused((value) => !value)}>{paused ? "Resume" : "Pause"} school logos</button>
+      </div>
     <div
       className={className}
-      onMouseEnter={pauseOnHover ? () => setPaused(true) : undefined}
-      onMouseLeave={pauseOnHover ? () => setPaused(false) : undefined}
+      onMouseEnter={pauseOnHover ? () => setHovered(true) : undefined}
+      onMouseLeave={pauseOnHover ? () => setHovered(false) : undefined}
       style={{
         overflow: "hidden",
         display: "flex",
@@ -98,6 +103,7 @@ export function Marquee({
           {children}
         </div>
       </div>
+    </div>
     </div>
   );
 }
