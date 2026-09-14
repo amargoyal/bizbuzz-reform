@@ -160,9 +160,9 @@ export const PEOPLE = {
     {
       image: "/team/Amar_clean.png",
       name: "Amar Goyal",
-      role: "Chief Technology Officer",
+      role: "Vice President",
       customPosition: "center 30%",
-      description: "Amar is a student developer with strong skills in software engineering and development. On his FRC robotics team's software subteam, he helped engineer the software powering the robot's shooter mechanism, work that contributed to the team earning a spot at the 2026 FRC Championship. At BizBuzz, he leads the technical vision, architecting and maintaining the platforms that power every camp, session, and demo day experience. Amar believes great technology should be invisible and the ideas it enables should speak for themselves."
+      description: "Amar is a student developer with a background in software engineering. On his FRC robotics team's software subteam, he wrote the code for the robot's shooter mechanism, and the team earned a spot at the 2026 FRC Championship. As Vice President, he leads BizBuzz technical work. He builds and maintains the platforms behind every camp, session, and demo day. Amar keeps the tools simple so students stay focused on their ideas."
     },
     {
       image: "/team/Elizabeth.jpeg",
