@@ -788,3 +788,6 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-table th, .bb-table td { padding: 16px 20px 16px 0; border-bottom: var(--border-hair); }
 .bb-table th { font-weight: 600; }
 @media (max-width: 600px) { .bb-program-facts { grid-template-columns: 1fr; } }
+
+.bb-schedule { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: var(--space-5) var(--space-8); }
+.bb-schedule a { display: grid; gap: 4px; padding-block: var(--space-5); border-top: var(--border-hair); }

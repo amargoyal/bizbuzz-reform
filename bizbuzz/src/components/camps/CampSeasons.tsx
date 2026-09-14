@@ -70,7 +70,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
-                Every camp we have run
+                Explore camp by year
               </h2>
             </div>
           </div>
@@ -189,9 +189,23 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
           {tracks && tracks.length > 1 && (
             <Tabs label="Camp track" items={tracks.map((item, index) => ({ value: String(index), label: item.title }))} value={track} onChange={setTrack} />
           )}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <details className="bb-details" open key={`schedule-${current.year}-${track}`}>
+            <summary>{current.year === "2027" ? "Planned curriculum at a glance" : `${current.year} schedule at a glance`}</summary>
+            <ol className="bb-schedule">
+              {sessions.map((session) => (
+                <li key={session.n}>
+                  <a href={`#session-${current.year}-${track}-${session.n}`}>
+                    <span className="bb-caption">{session.date}</span>
+                    <span>{session.title}</span>
+                    <span className="bb-caption">{session.venue}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+          <div key={`${current.year}-${track}`} style={{ display: "flex", flexDirection: "column" }}>
             {sessions.map((s) => (
-              <div key={s.n}>
+              <div key={s.n} id={`session-${current.year}-${track}-${s.n}`}>
                 <div
                   className="bb-rowlist"
                   style={{
