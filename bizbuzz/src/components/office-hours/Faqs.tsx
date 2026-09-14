@@ -1,57 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export type Faq = { q: string; a: string };
 
-/** Accordion list. One open at a time, first one open on arrival. */
 export default function Faqs({ faqs }: { faqs: Faq[] }) {
-  const [open, setOpen] = useState(0);
-
+  const id = useId();
+  const [query, setQuery] = useState("");
+  const visible = faqs.filter((faq) => `${faq.q} ${faq.a}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {faqs.map((f, i) => {
-        const isOpen = open === i;
-        return (
-          <div key={f.q} style={{ borderTop: "1px solid var(--border-hairline)" }}>
-            <button
-              type="button"
-              aria-expanded={isOpen}
-              onClick={() => setOpen(isOpen ? -1 : i)}
-              style={{
-                width: "100%",
-                display: "flex",
-                gap: "var(--space-7)",
-                alignItems: "baseline",
-                justifyContent: "space-between",
-                textAlign: "left",
-                paddingBlock: "var(--space-7)",
-                background: "none",
-                border: 0,
-                cursor: "pointer",
-                font: "inherit",
-                color: "inherit",
-              }}
-            >
-              <span className="bb-display-4" style={{ maxWidth: "40ch" }}>
-                {f.q}
-              </span>
-              <span className="bb-meta" style={{ flex: "0 0 auto" }}>
-                {isOpen ? "−" : "+"}
-              </span>
-            </button>
-            {isOpen && (
-              <p
-                className="bb-body"
-                style={{ color: "var(--text-muted)", paddingBottom: "var(--space-8)", maxWidth: "62ch" }}
-              >
-                {f.a}
-              </p>
-            )}
-          </div>
-        );
-      })}
-      <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
+    <div className="bb-stack">
+      <div className="bb-stack" style={{ gap: "var(--space-3)" }}>
+        <label htmlFor={id}>Find an answer</label>
+        <input id={id} className="bb-search-input" type="search" placeholder="Try cost, grades, or office hours" value={query} onChange={(event) => setQuery(event.target.value)} />
+        <p className="bb-caption" role="status">{query ? `${visible.length} matching questions` : `${faqs.length} common questions`}</p>
+      </div>
+      <div>
+        {visible.map((faq) => (
+          <details key={faq.q} className="bb-details">
+            <summary>{faq.q}</summary>
+            <p className="bb-body" style={{ color: "var(--text-muted)" }}>{faq.a}</p>
+          </details>
+        ))}
+        {visible.length === 0 && (
+          <p>No answers match “{query}”. <button type="button" className="bb-text-button" onClick={() => setQuery("")}>Show all questions</button> or <a href="mailto:bizbuzznfp@gmail.com">email the team</a>.</p>
+        )}
+      </div>
     </div>
   );
 }

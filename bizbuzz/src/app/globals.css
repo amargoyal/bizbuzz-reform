@@ -773,3 +773,4 @@ main:focus { outline: none; }
 .bb-gallery-toolbar button:hover { background: var(--surface-link-hover); }
 .bb-gallery-toolbar button:disabled { opacity: .45; cursor: default; }
 body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
+.bb-text-button { border: 0; padding: 8px 0; background: none; color: var(--text-link); text-decoration: underline; cursor: pointer; }
