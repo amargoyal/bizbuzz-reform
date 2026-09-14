@@ -49,7 +49,7 @@ const SEASONS: CampSeason[] = [
         n: "02",
         title: "Finance",
         date: "Week 2",
-        venue: "Nichols Library",
+        venue: "Venue to be announced",
         blurb:
           "Cost, price and profit through a Startup Auction, Business Disaster scenarios and the $100 Challenge.",
       },
@@ -71,7 +71,7 @@ const SEASONS: CampSeason[] = [
         n: "05",
         title: "Speaking skills",
         date: "Week 5",
-        venue: "95th Street Library",
+        venue: "Venue to be announced",
         blurb: "Structure a pitch, steady your voice, and tell the story so an adult in the back row gets it.",
       },
       {
@@ -385,7 +385,7 @@ export default function CampsPage() {
                 Registration for the 2027 camp is open now. Grades 3–8, Naperville, no business experience needed.
               </p>
               <Button href={LINKS.campRegistration} size="lg" target="_blank" rel="noopener noreferrer">
-                Guarantee your 2027 spot
+                Register for 2027 camp
               </Button>
               <p className="bb-caption">Questions? {CONTACT_EMAIL}</p>
             </div>

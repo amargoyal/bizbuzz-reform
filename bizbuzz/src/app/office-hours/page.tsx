@@ -186,8 +186,8 @@ export default function OfficeHoursPage() {
                 Pick a time that works
               </h2>
               <p className="bb-lead" style={{ maxWidth: "50ch", color: "var(--text-muted)" }}>
-                Choose online or in person, pick a slot, and you get a confirmation email with the Meet link or the
-                library location right away. Spots are limited and first come, first served.
+                Choose online or in person and request a time. Once the team confirms your booking,
+                check your email for the meeting link or library address.
               </p>
             </div>
           </div>

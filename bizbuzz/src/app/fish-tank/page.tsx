@@ -201,7 +201,7 @@ export default function FishTankPage() {
             >
               <Card pad="var(--space-10)">
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-meta">Grades 3–6 · KidPreneur camp students</p>
+                  <p className="bb-meta">Grades 3–6 · KidPreneur division</p>
                   <h3 className="bb-display-3">KidPreneur division</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                     Built for our youngest entrepreneurs. Students pitch their business ideas in a supportive,
@@ -211,7 +211,7 @@ export default function FishTankPage() {
               </Card>
               <Card pad="var(--space-10)">
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-meta">Grades 6–9 · VentureLab students</p>
+                  <p className="bb-meta">Grades 6–9 · VentureLab division</p>
                   <h3 className="bb-display-3">VentureLab division</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                     For students who have been through the full VentureLab experience. A more rigorous pitch format,

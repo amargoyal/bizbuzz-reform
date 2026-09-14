@@ -112,10 +112,10 @@ export default function SeasonsPage() {
               }}
             >
               <h1 className="bb-display-1" style={{ maxWidth: "16ch" }}>
-                Three summers, one at a time
+                Past seasons. Next summer.
               </h1>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Everything we have run since April 2024, with the numbers as they actually landed.
+                Explore our completed programs since April 2024 and plans for summer 2027.
               </p>
             </div>
           </div>

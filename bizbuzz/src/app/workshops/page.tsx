@@ -202,7 +202,7 @@ export default function WorkshopsPage() {
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  Eight places, in order
+                  Workshops and community events
                 </h2>
                 <Eyebrow>Every workshop so far</Eyebrow>
               </div>

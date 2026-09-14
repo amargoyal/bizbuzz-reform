@@ -95,7 +95,7 @@ const SEASONS = [
     year: "2024",
     title: "The first summer",
     blurb:
-      "Six weeks, seven guest speakers, and an inaugural Fish Tank at College of DuPage where 100+ kidpreneurs competed for $750.",
+      "Six weeks, seven guest speakers, and an inaugural Fish Tank at College of DuPage where 80 students competed for $750.",
     image: "/hero_imgs/2.jpg",
     alt: "The first BizBuzz camp cohort in 2024",
     chips: ["110 students", "6 sessions", "$750 in prizes"],
@@ -646,8 +646,8 @@ export default function HomePage() {
               </h2>
               <Eyebrow>Sponsors</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch" }}>
-                Every program stays free because Naperville businesses and families pay for it. 16 sponsors funded
-                the last three seasons.
+                Every program stays free because Naperville businesses and families pay for it. Our community has funded
+                every season since 2024.
               </p>
               <div
                 style={{
