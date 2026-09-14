@@ -104,13 +104,8 @@ export function Marquee({
 
 /* --------------------------------------------------------- ScrollRail/Parallax */
 
-/**
- * Pinned section that converts vertical scroll into horizontal travel — the
- * "your scroll changes direction" moment. Falls back to a normal swipe rail
- * on touch/narrow viewports and under prefers-reduced-motion.
- */
+/** A native scroll rail with explicit controls, usable with touch or keyboard. */
 export function ScrollRail({
-  height = "300vh",
   gap = "var(--grid-gap)",
   padInline = "var(--gutter)",
   align = "center",
@@ -118,7 +113,6 @@ export function ScrollRail({
   style,
   children,
 }: {
-  height?: string;
   gap?: string;
   padInline?: string;
   align?: CSSProperties["alignItems"];
@@ -126,98 +120,36 @@ export function ScrollRail({
   style?: CSSProperties;
   children?: ReactNode;
 }) {
-  const outer = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [x, setX] = useState(0);
-  // Server render matches the fallback rail; the pinned version turns on after
-  // mount so there is no hydration mismatch on the 100vh sticky wrapper.
-  const [pinned, setPinned] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 900px), (prefers-reduced-motion: reduce), (hover: none)");
-    const sync = () => setPinned(!mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-
-  useEffect(() => {
-    if (!pinned) {
-      setX(0);
-      return;
-    }
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = outer.current;
-        const tr = trackRef.current;
-        if (!el || !tr) return;
-        const r = el.getBoundingClientRect();
-        const travel = Math.max(0, tr.scrollWidth - window.innerWidth + 2 * 24);
-        const total = r.height - window.innerHeight;
-        const p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
-        setX(-p * travel);
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, [pinned]);
-
-  if (!pinned) {
-    return (
-      <div
-        className={className}
-        style={{
-          display: "flex",
-          gap,
-          alignItems: align,
-          overflowX: "auto",
-          paddingInline: padInline,
-          scrollSnapType: "x mandatory",
-          scrollbarWidth: "none",
-          ...style,
-        }}
-      >
-        {Children.map(children, (c) => (
-          <div style={{ scrollSnapAlign: "center", flex: "0 0 auto" }}>{c}</div>
-        ))}
-      </div>
-    );
+  const rail = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ start: true, end: false });
+  function sync() {
+    const el = rail.current;
+    if (el) setPosition({ start: el.scrollLeft < 2, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2 });
   }
-
+  useEffect(() => {
+    const el = rail.current;
+    if (!el) return;
+    const observer = new ResizeObserver(sync);
+    observer.observe(el);
+    sync();
+    return () => observer.disconnect();
+  }, []);
+  function move(direction: number) {
+    const el = rail.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    const distance = (card?.offsetWidth ?? el.clientWidth) + parseFloat(getComputedStyle(el).columnGap || "0");
+    el.scrollBy({ left: direction * distance, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  }
   return (
-    <div ref={outer} className={className} style={{ height, position: "relative", ...style }}>
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          height: "100vh",
-          display: "flex",
-          alignItems: align,
-          overflow: "hidden",
-        }}
-      >
-        <div
-          ref={trackRef}
-          style={{
-            display: "flex",
-            gap,
-            alignItems: align,
-            paddingInline: padInline,
-            flex: "0 0 auto",
-            willChange: "transform",
-            transform: `translate3d(${x}px,0,0)`,
-          }}
-        >
-          {children}
-        </div>
+    <div className={className} style={style}>
+      <div className="bb-rail-controls bb-container">
+        <button type="button" aria-label="Previous season" disabled={position.start} onClick={() => move(-1)}>← Previous</button>
+        <button type="button" aria-label="Next season" disabled={position.end} onClick={() => move(1)}>Next →</button>
+      </div>
+      <div ref={rail} className="bb-season-rail" tabIndex={0} role="region" aria-label="Seasons, scroll horizontally" onScroll={sync}
+        style={{ display: "flex", gap, alignItems: align, overflowX: "auto", paddingInline: padInline }}>
+        {Children.map(children, (child) => <div style={{ flex: "0 0 auto", scrollSnapAlign: "start" }}>{child}</div>)}
       </div>
     </div>
   );

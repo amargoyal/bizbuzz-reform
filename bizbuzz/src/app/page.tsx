@@ -452,13 +452,13 @@ export default function HomePage() {
                 <Eyebrow>2024 to 2027</Eyebrow>
               </div>
               <p className="bb-body" style={{ maxWidth: "38ch", color: "var(--text-muted)" }}>
-                Keep scrolling. The seasons move sideways.
+                Explore each season, from our first camp to what comes next.
               </p>
             </div>
           </div>
         </div>
 
-        <ScrollRail height="190vh" gap="var(--space-9)" padInline="var(--gutter)" align="stretch">
+        <ScrollRail gap="var(--space-9)" padInline="var(--gutter)" align="stretch">
           {SEASONS.map((s) => (
             <div
               key={s.year}
@@ -469,7 +469,7 @@ export default function HomePage() {
                 flexDirection: "column",
                 gap: "var(--space-6)",
                 justifyContent: "center",
-                paddingBlock: "clamp(92px, 13vh, 124px) clamp(28px, 5vh, 56px)",
+                paddingBlock: "var(--space-7) var(--space-10)",
               }}
             >
               <div
@@ -493,6 +493,9 @@ export default function HomePage() {
                 <p className="bb-body" style={{ color: "var(--text-muted)" }}>
                   {s.blurb}
                 </p>
+                <ArrowCTA href={s.year === "2027" ? "/camps#2027" : `/seasons#${s.year}`}>
+                  {s.year === "2027" ? "Explore 2027 camp" : `View ${s.year} season`}
+                </ArrowCTA>
               </div>
             </div>
           ))}
