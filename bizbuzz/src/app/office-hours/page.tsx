@@ -127,7 +127,7 @@ export default function OfficeHoursPage() {
                 }}
               >
                 <h1 className="bb-display-1" style={{ maxWidth: "14ch" }}>
-                  One hour, one idea, <span className="bb-brand-text">one of us</span>
+                  Your idea, your questions, <span className="bb-brand-text">one of us</span>
                 </h1>
                 <Eyebrow>Office hours</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>

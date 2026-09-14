@@ -16,7 +16,7 @@ const MODES: { value: Mode; label: string }[] = [
 const BLURB: Record<Mode, { when: string; text: string }> = {
   online: {
     when: "Weekdays · Google Meet",
-    text: "A 1-on-1 video session. The Meet link arrives in your confirmation email as soon as you book.",
+    text: "A 1-on-1 video session. The Meet link arrives in your confirmation email after your booking is confirmed.",
   },
   inPerson: {
     when: "Weekends · Naperville libraries",
@@ -56,7 +56,7 @@ export default function CalBooking() {
         alignItems: "center",
       }}
     >
-      <Tabs items={MODES} value={mode} onChange={setMode} />
+      <Tabs label="Meeting format" items={MODES} value={mode} onChange={setMode} />
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", alignItems: "center" }}>
         <p className="bb-meta">{BLURB[mode].when}</p>
@@ -64,6 +64,14 @@ export default function CalBooking() {
           {BLURB[mode].text}
         </p>
       </div>
+
+      <p className="bb-body" style={{ maxWidth: "62ch", textAlign: "center" }}>
+        Check the duration shown in the calendar. Your request needs confirmation from the team.
+        Send at least three questions 24 hours before your session, then email a reminder 12 hours ahead.
+      </p>
+      <a href={`https://cal.com/${CAL_LINKS[mode]}`} target="_blank" rel="noopener noreferrer">
+        Open the {mode === "online" ? "online" : "in-person"} calendar in a new tab
+      </a>
 
       <Card pad="var(--space-5)" style={{ width: "100%" }}>
         <div style={{ borderRadius: "var(--radius-lg)", overflow: "hidden", minHeight: 620 }}>
