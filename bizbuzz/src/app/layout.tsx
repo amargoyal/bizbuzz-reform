@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
 import { BASE_PATH, SITE_URL } from "@/lib/site";
@@ -69,7 +70,7 @@ export default function RootLayout({
       lang="en"
       className={figtree.variable}
     >
-      <body>{children}</body>
+      <body>{children}{process.env.VERCEL && <Analytics />}</body>
     </html>
   );
 }
