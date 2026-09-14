@@ -759,3 +759,5 @@ ol {
 .bb-skip-link:focus { transform: translateY(0); }
 .bb-site-nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
 main:focus { outline: none; }
+
+.bb-mobile-years summary { cursor: pointer; min-height: 44px; padding-block: 12px; font-size: var(--size-body-sm); color: var(--text-muted); }

@@ -83,7 +83,7 @@ export const FOOTER_COLUMNS = [
   {
     title: "Get in touch",
     links: [
-      { label: CONTACT_EMAIL, href: LINKS.email },
+      { label: "Email the team", href: LINKS.email },
       { label: "Book office hours", href: "/office-hours" },
       { label: "Become a sponsor", href: "/sponsors" },
     ],

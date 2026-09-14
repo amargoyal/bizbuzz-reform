@@ -381,16 +381,17 @@ export function NavBar({
                 >
                   {it.label}
                 </NavAnchor>
-                {it.children?.map((child) => (
-                  <NavAnchor
-                    key={child.href}
-                    href={child.href}
-                    onClick={() => setMenu(false)}
-                    style={{ padding: "12px var(--space-5)", color: "var(--text-body)", textDecoration: "none" }}
-                  >
-                    {child.label}
-                  </NavAnchor>
-                ))}
+                {it.children && (
+                  <details className="bb-mobile-years">
+                    <summary>Past and upcoming {it.label.toLowerCase()}</summary>
+                    {it.children.map((child) => (
+                      <NavAnchor key={child.href} href={child.href} onClick={() => setMenu(false)}
+                        style={{ display: "block", padding: "12px var(--space-5)", color: "var(--text-body)" }}>
+                        {child.label}
+                      </NavAnchor>
+                    ))}
+                  </details>
+                )}
               </div>
             ))}
           </div>
