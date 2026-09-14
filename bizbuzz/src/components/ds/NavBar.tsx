@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import type { AnchorHTMLAttributes, CSSProperties, ReactNode } from "react";
 import { Button } from "./Button";
@@ -52,6 +53,7 @@ export function NavBar({
   className?: string;
   style?: CSSProperties;
 }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(!overlay);
   const [open, setOpen] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
@@ -109,6 +111,7 @@ export function NavBar({
         ...style,
       }}
     >
+      <a className="bb-skip-link" href="#main-content">Skip to content</a>
       <div
         style={{
           maxWidth: "var(--container)",
@@ -171,6 +174,7 @@ export function NavBar({
               >
                 <NavAnchor
                   href={it.href}
+                  aria-current={pathname.replace(/\/$/, "") === it.href ? "page" : undefined}
                   aria-expanded={it.children ? open === it.label : undefined}
                   aria-controls={it.children ? `${navId}-${encodeURIComponent(it.label)}` : undefined}
                   onClick={() => setOpen(null)}
@@ -363,6 +367,7 @@ export function NavBar({
               <div key={it.label} style={{ display: "flex", flexDirection: "column" }}>
                 <NavAnchor
                   href={it.href}
+                  aria-current={pathname.replace(/\/$/, "") === it.href ? "page" : undefined}
                   onClick={() => setMenu(false)}
                   style={{
                     padding: "12px 0",
@@ -400,18 +405,21 @@ export function Tabs<T extends string>({
   items = [],
   value,
   onChange,
+  label = "Choose an option",
   className = "",
   style,
 }: {
   items: { value: T; label: string }[];
   value: T;
   onChange: (v: T) => void;
+  label?: string;
   className?: string;
   style?: CSSProperties;
 }) {
   return (
     <div
-      role="tablist"
+      role="group"
+      aria-label={label}
       className={className}
       style={{
         display: "inline-flex",
@@ -428,15 +436,26 @@ export function Tabs<T extends string>({
         return (
           <button
             key={it.value}
-            role="tab"
-            aria-selected={on}
+            type="button"
+            aria-pressed={on}
             onClick={() => onChange(it.value)}
+            onKeyDown={(event) => {
+              const index = items.findIndex((item) => item.value === it.value);
+              const next = event.key === "ArrowRight" ? (index + 1) % items.length
+                : event.key === "ArrowLeft" ? (index - 1 + items.length) % items.length
+                : event.key === "Home" ? 0 : event.key === "End" ? items.length - 1 : -1;
+              if (next < 0) return;
+              event.preventDefault();
+              onChange(items[next].value);
+              event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>("button")[next]?.focus();
+            }}
             style={{
               position: "relative",
               background: "none",
               border: "none",
               cursor: "pointer",
-              padding: "0 0 14px",
+              padding: "10px 2px 14px",
+              minHeight: 44,
               fontFamily: "var(--font-text)",
               fontWeight: on ? "var(--weight-bold)" : "var(--weight-medium)",
               fontSize: "var(--size-body)",

@@ -65,6 +65,7 @@ export default function AboutPage() {
     <>
       <SiteHeader />
 
+      <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "var(--hero-y) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
@@ -479,6 +480,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

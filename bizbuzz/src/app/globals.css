@@ -754,3 +754,8 @@ ol {
 }
 
 .bb-row-12 > *, .bb-data-grid > * { min-width: 0; }
+
+.bb-skip-link { position: fixed; top: 10px; left: var(--gutter); z-index: 100; padding: 12px 20px; background: var(--buzz-500); color: var(--ink-900); transform: translateY(-160%); border-radius: var(--radius-sm); }
+.bb-skip-link:focus { transform: translateY(0); }
+.bb-site-nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+main:focus { outline: none; }

@@ -199,6 +199,7 @@ export default function CampsPage() {
     <>
       <SiteHeader />
 
+      <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div
@@ -392,6 +393,7 @@ export default function CampsPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

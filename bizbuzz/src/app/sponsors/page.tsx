@@ -57,6 +57,7 @@ export default function SponsorsPage() {
     <>
       <SiteHeader cta="Become a sponsor" ctaHref={LINKS.sponsorEmail} />
 
+      <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
@@ -315,6 +316,7 @@ export default function SponsorsPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

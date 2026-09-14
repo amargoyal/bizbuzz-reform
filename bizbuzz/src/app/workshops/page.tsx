@@ -53,6 +53,7 @@ export default function WorkshopsPage() {
     <>
       <SiteHeader cta="Book a workshop" ctaHref={LINKS.workshopEmail} />
 
+      <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
@@ -303,6 +304,7 @@ export default function WorkshopsPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

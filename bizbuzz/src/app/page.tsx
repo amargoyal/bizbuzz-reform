@@ -185,6 +185,7 @@ export default function HomePage() {
     <>
       <SiteHeader />
 
+      <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
       <section style={{ paddingBlock: "var(--hero-y) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
@@ -667,6 +668,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );
