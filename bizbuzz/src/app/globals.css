@@ -761,3 +761,15 @@ ol {
 main:focus { outline: none; }
 
 .bb-mobile-years summary { cursor: pointer; min-height: 44px; padding-block: 12px; font-size: var(--size-body-sm); color: var(--text-muted); }
+
+.bb-gallery-thumb { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-md); border: 0; cursor: zoom-in; background: var(--surface-sunken); }
+.bb-gallery-zoom { position: absolute; bottom: 10px; right: 10px; padding: 4px 10px; border-radius: var(--radius-xs); background: var(--surface-photo-caption); color: var(--neutral-0); font-size: var(--size-caption); }
+.bb-gallery-dialog { width: min(1100px, 96vw); max-height: 94dvh; padding: 0; border: 0; border-radius: var(--radius-md); background: var(--surface-card); color: var(--text-body); }
+.bb-gallery-dialog::backdrop { background: var(--surface-overlay); }
+.bb-gallery-viewer { padding: var(--space-5); display: grid; gap: var(--space-4); }
+.bb-gallery-image { position: relative; height: min(65dvh, 700px); background: var(--surface-sunken); }
+.bb-gallery-toolbar { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); }
+.bb-gallery-toolbar button { min-height: 44px; padding: 8px 16px; background: var(--surface-card); border: var(--border-hair-strong); border-radius: var(--radius-sm); cursor: pointer; }
+.bb-gallery-toolbar button:hover { background: var(--surface-link-hover); }
+.bb-gallery-toolbar button:disabled { opacity: .45; cursor: default; }
+body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
