@@ -10,14 +10,13 @@ import { CONTACT_EMAIL, LINKS } from "@/lib/site";
 const TIER_CARDS = [
   {
     label: "Bronze",
-    range: "Up to $250",
+    range: "Under $250",
     tone: "card" as const,
     cta: "Sponsor materials",
     href: `mailto:${CONTACT_EMAIL}?subject=Bronze%20sponsorship`,
     perks: [
-      "Covers folders, prototyping supplies and snacks for a full session.",
-      "Named on the sponsors page.",
-      "Photos from the session you funded.",
+      "Distribution of your promotional materials at our events.",
+      "A feature on the BizBuzz website.",
     ],
   },
   {
@@ -27,10 +26,9 @@ const TIER_CARDS = [
     cta: "Sponsor a workshop",
     href: `mailto:${CONTACT_EMAIL}?subject=Silver%20sponsorship`,
     perks: [
-      "Funds a full workshop series at one school.",
-      "Logo on the sponsors page and in session slide decks.",
-      "Named in our post-session parent emails.",
-      "Invitation to Fish Tank as a guest.",
+      "Everything in Bronze.",
+      "A speaking opportunity at Fish Tank.",
+      "An invitation to our picnic.",
     ],
   },
   {
@@ -40,11 +38,9 @@ const TIER_CARDS = [
     cta: "Sponsor a camp session",
     href: `mailto:${CONTACT_EMAIL}?subject=Gold%20sponsorship`,
     perks: [
-      "Covers venue, materials and prizes for an entire camp session.",
-      "Top billing on the sponsors page and at the event.",
-      "Logo on Fish Tank stage signage and the programme.",
-      "Invitation to judge or present an award at Fish Tank.",
-      "A written impact summary at the end of the season.",
+      "Everything in Silver.",
+      "A booth at the Fish Tank competition.",
+      "Recognition on the following year's BizBuzz shirt.",
     ],
   },
 ];
@@ -75,11 +71,11 @@ export default function SponsorsPage() {
               }}
             >
               <h1 className="bb-display-1" style={{ maxWidth: "17ch" }}>
-                Free is paid for by somebody
+                Help keep every program free
               </h1>
               <Eyebrow>Sponsors</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Sixteen Naperville businesses, families and foundations have funded three seasons of camps,
+                Local businesses, families and foundations have funded three seasons of camps,
                 workshops and Fish Tank. No student has ever paid a cent.
               </p>
               <div
