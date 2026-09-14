@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow } from "@/components/ds/Card";
@@ -94,7 +95,7 @@ export default function FishTankPage() {
 
       <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
+      <section id="divisions" style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
           <div>
             <div
@@ -165,6 +166,7 @@ export default function FishTankPage() {
           ))}
         </div>
       </section>
+      <PageSections links={[{ href: "#divisions", label: "Divisions" }, { href: "#season-archive", label: "Past competitions" }]} />
 
       {/* ------------------------------------------------------- Divisions */}
       <section style={{ paddingBlock: "var(--section-y)" }}>

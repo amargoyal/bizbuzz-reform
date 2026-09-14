@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import { IMPACT, IMPACT_STATS, PROGRAM_PARTICIPATION, SCHOOL_DIRECTORY } from "@/data/impact";
 import { PEOPLE } from "@/data/team";
 import Image from "next/image";
@@ -111,6 +112,7 @@ export default function AboutPage() {
           </Parallax>
         </div>
       </section>
+      <PageSections links={[{ href: "#impact", label: "Our impact" }, { href: "#team", label: "Meet the team" }, { href: "#press", label: "In the news" }]} />
 
       {/* ----------------------------------------------------------- Story */}
       <section style={{ paddingBlock: "var(--section-y)" }}>

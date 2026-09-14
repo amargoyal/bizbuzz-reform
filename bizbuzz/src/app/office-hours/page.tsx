@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow } from "@/components/ds/Card";
 import { MediaCard } from "@/components/ds/MediaCard";
@@ -158,6 +159,7 @@ export default function OfficeHoursPage() {
           </div>
         </div>
       </section>
+      <PageSections links={[{ href: "#book", label: "Request a session" }, { href: "#policies", label: "Prepare for your session" }, { href: "#faqs", label: "FAQs" }]} />
 
       {/* --------------------------------------------------------- Booking */}
       <section id="book" style={{ paddingBlock: "var(--section-y)" }}>
@@ -197,7 +199,7 @@ export default function OfficeHoursPage() {
       </section>
 
       {/* ---------------------------------------------------------- Policy */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
+      <section id="policies" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
         <div
           style={{
             maxWidth: "var(--container)",

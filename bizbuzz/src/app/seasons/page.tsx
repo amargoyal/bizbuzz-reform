@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import { IMPACT } from "@/data/impact";
 import data2024 from "@/data/2024.json";
 import data2025 from "@/data/2025.json";
@@ -121,6 +122,7 @@ export default function SeasonsPage() {
           </div>
         </div>
       </section>
+      <PageSections links={[{ href: "#comparison", label: "Compare seasons" }, { href: "#2027", label: "2027" }, { href: "#2026", label: "2026" }, { href: "#2025", label: "2025" }, { href: "#2024", label: "2024" }]} />
 
       {/* ------------------------------------------------------ Cumulative */}
       <section style={{ paddingBlock: "var(--section-y) var(--section-y-tight)" }}>
@@ -146,6 +148,19 @@ export default function SeasonsPage() {
           <div>
             <Stat value={<CountUp to={IMPACT.schools} />} label="schools represented" />
           </div>
+        </div>
+      </section>
+
+      <section id="comparison" className="bb-section-tight bb-container">
+        <h2 className="bb-display-3">Completed seasons at a glance</h2>
+        <div className="bb-table-scroll" tabIndex={0} role="region" aria-label="Season comparison">
+          <table className="bb-table">
+            <caption>Reported season figures. Cumulative totals are tracked separately.</caption>
+            <thead><tr><th scope="col">Season</th><th scope="col">Students</th><th scope="col">Sessions</th><th scope="col">Programs</th><th scope="col">Mentoring hours</th></tr></thead>
+            <tbody>{[data2026, data2025, data2024].map((season) => (
+              <tr key={season.year}><th scope="row"><a href={`#${season.year}`}>{season.year}</a></th><td>{season.kpis.students}</td><td>{season.kpis.sessions}</td><td>{season.kpis.programsRun}</td><td>{season.kpis.officeHours}</td></tr>
+            ))}</tbody>
+          </table>
         </div>
       </section>
 

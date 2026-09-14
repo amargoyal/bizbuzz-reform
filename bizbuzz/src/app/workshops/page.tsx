@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import { WORKSHOP_PARTICIPATION, WORKSHOP_STUDENTS } from "@/data/impact";
 import workshopArchive from "@/data/workshops.json";
 import ArchiveGallery from "@/components/archive/ArchiveGallery";
@@ -93,6 +94,7 @@ export default function WorkshopsPage() {
           </div>
         </div>
       </section>
+      <PageSections links={[{ href: "#curriculum", label: "What we teach" }, { href: "#history", label: "Past workshops" }, { href: "#request", label: "Request a workshop" }]} />
 
       {/* ----------------------------------------------------------- Proof */}
       <section style={{ paddingBlock: "var(--section-y-tight) var(--section-y)" }}>
@@ -122,7 +124,7 @@ export default function WorkshopsPage() {
       </section>
 
       {/* ---------------------------------------------------- What we cover */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
+      <section id="curriculum" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
         <div
           className="bb-row-12"
           style={{
@@ -275,7 +277,7 @@ export default function WorkshopsPage() {
       </section>
 
       {/* ------------------------------------------------------------- CTA */}
-      <section
+      <section id="request"
         className="bb-on-blue"
         style={{ paddingBlock: "var(--section-y)" }}
       >

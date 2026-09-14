@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import { IMPACT, FUNDING_SUMMARY, SUPPORTERS } from "@/data/impact";
 import SponsorDirectory from "@/components/sponsors/SponsorDirectory";
 import { ArrowCTA, Button } from "@/components/ds/Button";
@@ -59,7 +60,7 @@ export default function SponsorsPage() {
 
       <main id="main-content" tabIndex={-1}>
       {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
+      <section id="support" style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
           <div>
             <div
@@ -97,6 +98,7 @@ export default function SponsorsPage() {
           </div>
         </div>
       </section>
+      <PageSections links={[{ href: "#support", label: "Community support" }, { href: "#sponsors", label: "Sponsor directory" }, { href: "#tiers", label: "Sponsorship options" }]} />
 
       {/* ----------------------------------------------------------- Proof */}
       <section style={{ paddingBlock: "var(--section-y-tight) var(--section-y)" }}>
@@ -155,7 +157,7 @@ export default function SponsorsPage() {
       </section>
 
       {/* ---------------------------------------------------- Sponsor wall */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
+      <section id="sponsors" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
         <div
           style={{
             maxWidth: "var(--container)",

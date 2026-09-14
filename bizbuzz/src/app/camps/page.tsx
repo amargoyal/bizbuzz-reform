@@ -1,3 +1,4 @@
+import PageSections from "@/components/site/PageSections";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Eyebrow } from "@/components/ds/Card";
@@ -30,7 +31,7 @@ const SEASONS: CampSeason[] = [
           "First-time founders. Networking games, a Bug-Me List, BizBucks, and a friendly mock pitch to finish.",
       },
       {
-        grades: "Grades 6–9",
+        grades: "Grades 6–8",
         title: "VentureLab",
         blurb:
           "Students who want the harder version. Market research, prototyping, project management and Demo Day practice.",
@@ -250,6 +251,17 @@ export default function CampsPage() {
             </Parallax>
           </div>
         </div>
+      </section>
+      <PageSections links={[{ href: "#season-archive", label: "Choose a year" }, { href: "#curriculum", label: "Schedule" }, { href: "#camp-questions", label: "Before you register" }]} />
+
+      <section id="camp-questions" className="bb-section-tight bb-container">
+        <h2 className="bb-display-3">Before you register</h2>
+        <dl className="bb-program-facts">
+          <div><dt>Who can join</dt><dd>2027 camp is for grades 3–8. No business experience needed.</dd></div>
+          <div><dt>Cost</dt><dd>Free, with support from our community.</dd></div>
+          <div><dt>Dates and venues</dt><dd>The 2027 schedule is still being confirmed. Browse past sessions below to see what camp is like.</dd></div>
+          <div><dt>Choosing a track</dt><dd>KidPreneur introduces the basics; VentureLab develops existing ideas. <a href={LINKS.email}>Ask us about the right fit</a>, including for sixth graders.</dd></div>
+        </dl>
       </section>
 
       <CampSeasons seasons={SEASONS} initialYear="2026" />

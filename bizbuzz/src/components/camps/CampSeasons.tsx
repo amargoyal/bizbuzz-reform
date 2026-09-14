@@ -156,7 +156,7 @@ export default function CampSeasons({ seasons, initialYear }: { seasons: CampSea
         </section>
       )}
 
-      <section style={{ paddingBlock: "var(--section-y)" }}>
+      <section id="curriculum" style={{ paddingBlock: "var(--section-y)" }}>
         <div
           style={{
             maxWidth: "var(--container)",
