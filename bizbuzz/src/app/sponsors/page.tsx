@@ -1,46 +1,11 @@
 import { IMPACT, FUNDING_SUMMARY, SUPPORTERS } from "@/data/impact";
-import Image from "next/image";
+import SponsorDirectory from "@/components/sponsors/SponsorDirectory";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow, Stat } from "@/components/ds/Card";
 import { CountUp } from "@/components/ds/motion";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { CONTACT_EMAIL, LINKS } from "@/lib/site";
-
-const GOLD = [
-  { name: "Hiren Patel", logo: "/sponsors/hirenpatel.png", meta: "$2,000 · 2026" },
-  { name: "Right Choice Dental Care", logo: "/sponsors/rightchoicedentalcare.png", meta: "$1,500 · 2025" },
-  {
-    name: "Teen Philanthropy Initiative",
-    logo: "/sponsors/teenphilanthropyinstitute.png",
-    meta: "$1,000 · 2025 and 2026",
-  },
-  { name: "Kabat American", logo: "/sponsors/kabatamerican.jpg", meta: "$1,000 · 2024 and 2025" },
-  { name: "Costco", logo: "/sponsors/costco.png", meta: "$1,000 · 2024" },
-  { name: "Midwest Badminton", logo: "/sponsors/midwestbadminton.png", meta: "$1,000 · 2024" },
-  { name: "AT&T", logo: "/sponsors/att.png", meta: "$1,000 · 2025" },
-];
-
-const SILVER = [
-  { name: "Conference Planning Resources", logo: "/sponsors/conferenceplanningresources.jpg", meta: "$250 · 2024" },
-];
-
-const BRONZE = [
-  { name: "Nara Rosie", logo: "/sponsors/nararosie.png", meta: "$200 · 2026" },
-  { name: "SteamDream Team", logo: "/sponsors/steamdreamteam.png", meta: "$150 · 2024" },
-  { name: "Elite Tutoring Place", logo: "/sponsors/elitetutoringplace.jpg", meta: "$100 · 2024 and 2026" },
-  { name: "Office Furniture Solutions", logo: "/sponsors/officefurnituresolutions.png", meta: "$100 · 2026" },
-  { name: "Samantha Zylstra & Associates", logo: "/sponsors/samanthazylstra.jpeg", meta: "$100 · 2024" },
-  { name: "Best Brains", logo: "/sponsors/bestbrains.png", meta: "$100 · 2024" },
-  { name: "Center for Future Innovators", logo: "/sponsors/centerforfutureinnovators.jpg", meta: "$100 · 2024" },
-  { name: "Naper Nuts & Sweets", logo: "/sponsors/napernutsandsweets.png", meta: "$100 · 2024" },
-];
-
-const TIERS = [
-  { label: "Gold", range: "$1,000 and above", sponsors: GOLD },
-  { label: "Silver", range: "$250 – $999", sponsors: SILVER },
-  { label: "Bronze", range: "Up to $250", sponsors: BRONZE },
-];
 
 const TIER_CARDS = [
   {
@@ -207,70 +172,12 @@ export default function SponsorsPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                Who paid for this
+                Meet our sponsors
               </h2>
             </div>
           </div>
 
-          {TIERS.map((t) => (
-            <div key={t.label} style={{ display: "flex", flexDirection: "column", gap: "var(--space-9)" }}>
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "var(--space-7)",
-                    alignItems: "baseline",
-                    justifyContent: "space-between",
-                    borderBottom: "1px solid var(--border-hairline)",
-                    paddingBottom: "var(--space-6)",
-                  }}
-                >
-                  <h3 className="bb-display-3">{t.label}</h3>
-                  <p className="bb-meta">{t.range}</p>
-                </div>
-              </div>
-              <div>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                    gap: "var(--grid-gap)",
-                    alignItems: "stretch",
-                  }}
-                >
-                  {t.sponsors.map((s) => (
-                    <Card key={s.name} pad="var(--space-8)">
-                      <div
-                        style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", height: "100%" }}
-                      >
-                        <div style={{ height: 56, display: "flex", alignItems: "center" }}>
-                          <Image
-                            src={s.logo}
-                            alt={s.name}
-                            width={160}
-                            height={56}
-                            style={{ maxHeight: 56, maxWidth: 160, width: "auto", height: "auto", objectFit: "contain" }}
-                          />
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "var(--space-3)",
-                            marginTop: "auto",
-                          }}
-                        >
-                          <p className="bb-display-4">{s.name}</p>
-                          <p className="bb-meta">{s.meta}</p>
-                        </div>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+          <SponsorDirectory />
         </div>
       </section>
 

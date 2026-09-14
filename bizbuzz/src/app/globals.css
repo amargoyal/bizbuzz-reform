@@ -740,3 +740,14 @@ ol {
 .bb-brand-footer { border-top: 8px solid var(--surface-brand); }
 
 .bb-brand-footer a { overflow-wrap: anywhere; }
+
+.bb-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); }
+.bb-filter-row label { font-weight: 600; }
+.bb-filter-row select, .bb-search-input { min-height: 44px; padding: 10px 14px; border: var(--border-hair-strong); border-radius: var(--radius-sm); background: var(--surface-card); }
+.bb-sponsor-record { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; align-items: start; gap: var(--space-8); padding-block: var(--space-8); border-top: var(--border-hair); }
+.bb-sponsor-logo { min-height: 88px; background: var(--neutral-0); padding: var(--space-4); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
+.bb-sponsor-amount { text-align: right; }
+@media (max-width: 600px) {
+  .bb-sponsor-record { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-5); }
+  .bb-sponsor-logo { grid-column: 1 / -1; justify-self: start; width: 150px; }
+}
