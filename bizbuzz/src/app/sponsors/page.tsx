@@ -13,7 +13,7 @@ const TIER_CARDS = [
     label: "Bronze",
     range: "Under $250",
     tone: "card" as const,
-    cta: "Sponsor materials",
+    cta: "Become a Bronze sponsor",
     href: `mailto:${CONTACT_EMAIL}?subject=Bronze%20sponsorship`,
     perks: [
       "Distribution of your promotional materials at our events.",
@@ -24,7 +24,7 @@ const TIER_CARDS = [
     label: "Silver",
     range: "$250 – $999",
     tone: "card" as const,
-    cta: "Sponsor a workshop",
+    cta: "Become a Silver sponsor",
     href: `mailto:${CONTACT_EMAIL}?subject=Silver%20sponsorship`,
     perks: [
       "Everything in Bronze.",
@@ -36,7 +36,7 @@ const TIER_CARDS = [
     label: "Gold",
     range: "$1,000 and above",
     tone: "accent" as const,
-    cta: "Sponsor a camp session",
+    cta: "Become a Gold sponsor",
     href: `mailto:${CONTACT_EMAIL}?subject=Gold%20sponsorship`,
     perks: [
       "Everything in Silver.",
@@ -46,12 +46,7 @@ const TIER_CARDS = [
   },
 ];
 
-const BREAKDOWN = [
-  { what: "Folders, pencils and prototyping materials, one session", cost: "$100" },
-  { what: "A full workshop series at one elementary school", cost: "$250" },
-  { what: "Venue, materials and prizes for one camp session", cost: "$1,000" },
-  { what: "Fish Tank prize pool, matching our first year", cost: "$750" },
-];
+
 
 export default function SponsorsPage() {
   return (
@@ -117,16 +112,16 @@ export default function SponsorsPage() {
           </div>
           <div>
             <Stat
-              value={<CountUp to={100} prefix="$" />}
-              label="covers materials for one session"
-              note="the bronze tier"
+              value={<CountUp to={250} prefix="$" />}
+              label="Silver sponsorship starts here"
+              note="Bronze contributions are under $250"
             />
           </div>
           <div>
             <Stat
               value={<CountUp to={1000} prefix="$" />}
-              label="funds a whole camp session"
-              note="venue, materials, prizes"
+              label="Gold sponsorship starts here"
+              note="includes all Silver benefits"
             />
           </div>
           <div>
@@ -203,10 +198,10 @@ export default function SponsorsPage() {
               }}
             >
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                What your money actually buys
+                Choose your level of support
               </h2>
               <p className="bb-lead" style={{ maxWidth: "50ch", color: "var(--text-muted)" }}>
-                Every dollar goes to venues, materials and prizes. Nobody here takes a salary.
+                Sponsorship supports free entrepreneurship programs. Explore the recognition and opportunities included at each level.
               </p>
             </div>
           </div>
@@ -273,11 +268,10 @@ export default function SponsorsPage() {
                 style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "flex-start" }}
               >
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  Fund one session. See exactly where it went.
+                  Help the next student get started.
                 </h2>
                 <p className="bb-lead">
-                  Tell us what you can give and we will tell you which session it pays for, send photos from the
-                  day, and put your name on it.
+                  Tell us how you would like to help. Our team can discuss sponsorship options and current program needs with you.
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-7)", alignItems: "center" }}>
                   <Button href={LINKS.sponsorEmail} size="lg">
@@ -293,9 +287,9 @@ export default function SponsorsPage() {
           <div style={{ gridColumn: "8 / span 5" }}>
             <div>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                {BREAKDOWN.map((b) => (
+                {FUNDING_SUMMARY.map((b) => (
                   <div
-                    key={b.what}
+                    key={b.label}
                     style={{
                       display: "flex",
                       gap: "var(--space-7)",
@@ -305,9 +299,9 @@ export default function SponsorsPage() {
                       borderTop: "1px solid var(--border-hairline)",
                     }}
                   >
-                    <p className="bb-body">{b.what}</p>
+                    <p className="bb-body">{b.label}</p>
                     <p className="bb-display-4" style={{ flex: "0 0 auto" }}>
-                      {b.cost}
+                      {b.value}
                     </p>
                   </div>
                 ))}
