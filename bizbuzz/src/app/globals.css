@@ -319,8 +319,8 @@
   --space-15: 200px;
 
   /* Section rhythm — vertical air between full-width bands */
-  --section-y: clamp(72px, 9vw, 160px);
-  --section-y-tight: clamp(48px, 5vw, 88px);
+  --section-y: clamp(56px, 6vw, 96px);
+  --section-y-tight: clamp(36px, 4vw, 64px);
   --hero-y: clamp(32px, 4vw, 56px);
   --hero-media-gap: clamp(24px, 3vw, 40px);
 
