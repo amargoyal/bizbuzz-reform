@@ -147,8 +147,8 @@ export default function OfficeHoursPage() {
           <div style={{ gridColumn: "8 / span 5" }}>
             <Parallax depth={0.5}>
               <MediaCard
-                src="/program_cards/mentorship.jpg"
-                alt="A one-to-one mentorship session"
+                src="/camp_imgs/2026/session5vl/session5vlc.jpg"
+                alt="Students working with a BizBuzz instructor"
                 ratio="4 / 5"
                 float
                 scrim

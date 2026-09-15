@@ -223,7 +223,6 @@ export default function CampsPage() {
                 <h1 className="bb-display-1" style={{ maxWidth: "18ch" }}>
                   Summer camp for <span className="bb-brand-text">young entrepreneurs</span>
                 </h1>
-                <Eyebrow>Summer camp</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>
                   A free multi-week entrepreneurship camp for grades 3–8. You arrive with a hunch and leave with a
                   business you have pitched on a real stage.
