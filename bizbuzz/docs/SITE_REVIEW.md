@@ -44,6 +44,7 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 - Dependency audit reported zero known vulnerabilities after compatible dependency updates and a PostCSS override.
 - Export inspection checked all eight main pages: one main landmark and one H1 per page, same-page anchor targets, internal route destinations, and case-sensitive image paths. The inspection covered 303 image references and 385 links with no errors at that checkpoint.
 - Browser checks confirmed sponsor filtering (six contributions for 2026), expandable contribution details, FAQ matches and empty-state recovery, year/track selection by keyboard, mobile menu opening/Escape behavior, and photo viewer loading, next/previous navigation, Escape dismissal and focus restoration.
+- All eight production routes returned HTTP 200, and all ten configured legacy redirects returned the expected permanent redirect and destination.
 - The design detector reported no findings. This is an automated check, not a substitute for the visual review.
 
 ## Practical limits
