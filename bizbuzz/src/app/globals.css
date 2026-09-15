@@ -291,7 +291,7 @@
 }
 .bb-proof-stat > .bb-stat {
   color: var(--text-brand);
-  font-size: clamp(2rem, 18cqi, 5rem);
+  font-size: clamp(2rem, 14cqi, 3.5rem);
 }
 .bb-italic {
   font-style: italic;

@@ -182,7 +182,7 @@ export function Stat({
         minWidth: 0,
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-6)",
+        gap: "var(--space-4)",
         alignItems: align === "center" ? "center" : "flex-start",
         textAlign: align === "center" ? "center" : "left",
         ...style,
