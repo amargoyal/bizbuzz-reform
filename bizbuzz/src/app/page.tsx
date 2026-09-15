@@ -1,8 +1,7 @@
 import { IMPACT, WORKSHOP_STUDENTS } from "@/data/impact";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Eyebrow, Stat } from "@/components/ds/Card";
-import { Testimonial } from "@/components/ds/MediaCard";
+import { Eyebrow, Stat } from "@/components/ds/Card";
 import { CountUp, Marquee, ScrollRail } from "@/components/ds/motion";
 import HomeHero from "@/components/home/HomeHero";
 import ProgramPanels, { type ProgramPanel } from "@/components/home/ProgramPanels";
@@ -258,7 +257,7 @@ export default function HomePage() {
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
                 <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  Four seasons, one idea
+                  From our first camp to next summer
                 </h2>
                 <Eyebrow>2024 to 2027</Eyebrow>
               </div>
@@ -349,91 +348,34 @@ export default function HomePage() {
         </Marquee>
       </section>
 
-      {/* ----------------------------------------------------------- Quote */}
-      <section style={{ paddingBlock: "var(--section-y)" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <Testimonial
-              quote="What started as a small idea has now grown into one of the largest youth entrepreneurship programs in Chicagoland."
-              name="NCTV17 Spotlight"
-              detail="Naperville Community Television, 2025"
-              tag="Press"
-              imageSrc="/news/nctv-spotlight-2025.jpg"
-              imageAlt="BizBuzz founders on the NCTV17 Spotlight set"
-            />
-          </div>
+      <section className="bb-home-press bb-container" aria-labelledby="press-heading">
+        <div className="bb-program-heading">
+          <h2 id="press-heading" className="bb-display-2">BizBuzz in the news</h2>
+          <ArrowCTA href="/about#press">All coverage</ArrowCTA>
         </div>
-      </section>
-
-      {/* ----------------------------------------------------------- Press */}
-      <section style={{ paddingBlock: "0 var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-11)",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "var(--space-8)",
-                alignItems: "flex-end",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
-                  Naperville has been watching
-                </h2>
-                <Eyebrow>In the news</Eyebrow>
+        <div className="bb-news-layout">
+          <article className="bb-news-feature">
+            <a href={PRESS[0].href} target="_blank" rel="noopener noreferrer">
+              <div className="bb-news-photo">
+                <Image src={PRESS[0].image} alt="BizBuzz founders on the NCTV17 Spotlight set" fill sizes="(max-width: 800px) 100vw, 55vw" />
               </div>
-              <ArrowCTA href="/about#press">All coverage</ArrowCTA>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-              gap: "var(--grid-gap)",
-            }}
-          >
-            {PRESS.map((n) => (
-              <a
-                key={n.headline}
-                href={n.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: "block", textDecoration: "none" }}
-              >
-                <Card interactive pad="var(--space-7)">
-                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                    <div
-                      style={{
-                        position: "relative",
-                        borderRadius: "var(--radius-md)",
-                        overflow: "hidden",
-                        aspectRatio: "16 / 10",
-                      }}
-                    >
-                      <Image
-                        src={n.image}
-                        alt={n.outlet}
-                        fill
-                        sizes="(max-width: 900px) 100vw, 33vw"
-                        style={{ objectFit: "cover" }}
-                      />
-                    </div>
-                    <p className="bb-meta">{n.meta}</p>
-                    <h3 className="bb-display-4">{n.headline}</h3>
-                  </div>
-                </Card>
+              <p className="bb-caption">{PRESS[0].meta}</p>
+              <h3 className="bb-display-3">{PRESS[0].headline}</h3>
+            </a>
+            <blockquote>
+              <p className="bb-body">“What started as a small idea has now grown into one of the largest youth entrepreneurship programs in Chicagoland.”</p>
+              <footer className="bb-caption">NCTV17 Spotlight · Naperville Community Television, 2025</footer>
+            </blockquote>
+          </article>
+          <div className="bb-news-stories">
+            {PRESS.slice(1).map((story) => (
+              <a key={story.href} href={story.href} target="_blank" rel="noopener noreferrer" className="bb-news-story">
+                <div className="bb-news-thumb"><Image src={story.image} alt={story.outlet} fill sizes="120px" /></div>
+                <div>
+                  <p className="bb-caption">{story.meta}</p>
+                  <h3 className="bb-display-3">{story.headline}</h3>
+                  <span className="bb-news-action">Read story</span>
+                </div>
               </a>
             ))}
           </div>
@@ -456,7 +398,7 @@ export default function HomePage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
-                $100 covers materials for a whole session
+                Help keep BizBuzz free
               </h2>
               <Eyebrow>Sponsors</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch" }}>
