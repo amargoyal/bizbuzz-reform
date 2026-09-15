@@ -830,8 +830,7 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-news-feature > a { display: flex; flex-direction: column; gap: var(--space-5); text-decoration: none; }
 .bb-news-photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-sm); }
 .bb-news-photo img, .bb-news-thumb img { object-fit: cover; }
-.bb-news-feature blockquote { margin: var(--space-7) 0 0; padding-top: var(--space-6); border-top: var(--border-hair); color: var(--text-muted); }
-.bb-news-feature blockquote footer { margin-top: var(--space-4); }
+.bb-news-summary { margin: var(--space-7) 0 0; padding-top: var(--space-6); border-top: var(--border-hair); color: var(--text-muted); }
 .bb-news-story { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: start; gap: var(--space-6); padding-block: var(--space-7); border-top: var(--border-hair); text-decoration: none; }
 .bb-news-thumb { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-sm); }
 .bb-news-story h3 { font-size: 1.5rem; margin-block: var(--space-4) var(--space-5); }

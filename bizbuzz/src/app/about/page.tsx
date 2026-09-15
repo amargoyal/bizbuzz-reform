@@ -21,7 +21,7 @@ const PRESS = [
     blurb:
       "BizBuzz joined Jane Wernette on NCTV17's Spotlight show to talk about the 2025 summer camp and the second annual Fish Tank at Benedictine University. More students, more mentors, and guest speakers including Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli.",
     href: "https://www.nctv17.org/spotlight/bizbuzz-turns-imagination-into-innovation/",
-    image: "/news/nctv-spotlight-2025.jpg",
+    image: "/news/bizbuzz-spotlight-interview.jpg",
   },
   {
     outlet: "NCTV17",

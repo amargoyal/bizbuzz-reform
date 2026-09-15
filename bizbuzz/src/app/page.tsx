@@ -129,7 +129,7 @@ const PRESS = [
     meta: "NCTV17 Spotlight · 2025",
     headline: "BizBuzz Turns Imagination into Innovation",
     href: "https://www.nctv17.org/spotlight/bizbuzz-turns-imagination-into-innovation/",
-    image: "/news/nctv-spotlight-2025.jpg",
+    image: "/news/bizbuzz-spotlight-interview.jpg",
     outlet: "NCTV17",
   },
   {
@@ -357,15 +357,12 @@ export default function HomePage() {
           <article className="bb-news-feature">
             <a href={PRESS[0].href} target="_blank" rel="noopener noreferrer">
               <div className="bb-news-photo">
-                <Image src={PRESS[0].image} alt="BizBuzz founders on the NCTV17 Spotlight set" fill sizes="(max-width: 800px) 100vw, 55vw" />
+                <Image src={PRESS[0].image} alt="A Fish Tank winner with a trophy and prize check, from NCTV17 Spotlight" fill sizes="(max-width: 800px) 100vw, 55vw" />
               </div>
               <p className="bb-caption">{PRESS[0].meta}</p>
               <h3 className="bb-display-3">{PRESS[0].headline}</h3>
             </a>
-            <blockquote>
-              <p className="bb-body">“What started as a small idea has now grown into one of the largest youth entrepreneurship programs in Chicagoland.”</p>
-              <footer className="bb-caption">NCTV17 Spotlight · Naperville Community Television, 2025</footer>
-            </blockquote>
+            <p className="bb-news-summary bb-body">Co-founders Allen Xu and Aarav Khullar joined NCTV17 Spotlight to discuss BizBuzz, its summer programs, and expanding access to business education.</p>
           </article>
           <div className="bb-news-stories">
             {PRESS.slice(1).map((story) => (
