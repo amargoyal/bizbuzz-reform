@@ -79,7 +79,7 @@ export default function CalBooking() {
             key={mode}
             calLink={CAL_LINKS[mode]}
             style={{ width: "100%", height: "100%", minHeight: 620, overflow: "hidden" }}
-            config={{ layout: "month_view" }}
+            config={{ layout: "month_view", theme: "light" }}
           />
         </div>
       </Card>

@@ -28,7 +28,7 @@ const FAQS: Faq[] = [
   },
   {
     q: "Is it really free?",
-    a: "Yes. 100% free. Our mission is to make entrepreneurship accessible to every student, thanks to the support of our community partners.",
+    a: "Yes. There is no cost to attend. Our mission is to make entrepreneurship accessible to every student, thanks to the support of our community partners.",
   },
   {
     q: "Do we have to attend camp to compete in Fish Tank?",
