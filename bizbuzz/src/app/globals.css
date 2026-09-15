@@ -838,3 +838,17 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-news-layout a:hover h3 { color: var(--text-link); }
 @media (max-width: 800px) { .bb-news-layout { grid-template-columns: 1fr; } }
 @media (max-width: 400px) { .bb-news-story { grid-template-columns: 72px minmax(0, 1fr); gap: var(--space-5); } }
+
+/* About: lead with the people and story, then make the records easy to explore. */
+.bb-about-intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: var(--space-9); padding-block: var(--hero-y) var(--space-7); }
+.bb-about-story { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-6); }
+.bb-about-story h1 { font-size: clamp(2.25rem, 4vw, 3.5rem); max-width: 18ch; }
+.bb-about-story > .bb-body { color: var(--text-muted); max-width: 60ch; }
+.bb-about-team-photo { margin: 0; }
+.bb-about-team-photo > div { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-md); }
+.bb-about-team-photo img { object-fit: cover; }
+.bb-about-team-photo figcaption { font-size: var(--size-caption); color: var(--text-muted); padding-top: var(--space-4); }
+@media (max-width: 900px) {
+  .bb-about-intro { grid-template-columns: 1fr; }
+  .bb-about-team-photo > div { aspect-ratio: 16 / 9; }
+}

@@ -1,10 +1,10 @@
 import PageSections from "@/components/site/PageSections";
-import { IMPACT, IMPACT_STATS, PROGRAM_PARTICIPATION, SCHOOL_DIRECTORY } from "@/data/impact";
+import { IMPACT_STATS, PROGRAM_PARTICIPATION, SCHOOL_DIRECTORY } from "@/data/impact";
 import { PEOPLE } from "@/data/team";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Eyebrow, Stat } from "@/components/ds/Card";
-import { Parallax } from "@/components/ds/motion";
+import AboutIntro from "@/components/about/AboutIntro";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
@@ -67,109 +67,8 @@ export default function AboutPage() {
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1}>
-      {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "var(--hero-y) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-6)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h1 className="bb-display-1" style={{ maxWidth: "24ch" }}>
-                Business education, <span className="bb-brand-text">led by students</span>
-              </h1>
-              <p className="bb-lead" style={{ maxWidth: "54ch", color: "var(--text-muted)" }}>
-                BizBuzz was founded in April 2024 by two Naperville North High School juniors. Everything we run is
-                free, and it is run by students.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div style={{ padding: "var(--hero-media-gap) clamp(8px, 1vw, 16px) 0" }}>
-          <Parallax depth={0.35}>
-            <div
-              style={{
-                position: "relative",
-                borderRadius: "var(--radius-lg)",
-                overflow: "hidden",
-                aspectRatio: "21 / 9",
-              }}
-            >
-              <Image
-                src="/about/background.jpg"
-                alt="The BizBuzz team and students together"
-                fill
-                sizes="100vw"
-                priority
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </Parallax>
-        </div>
-      </section>
-      <PageSections links={[{ href: "#impact", label: "Our impact" }, { href: "#team", label: "Meet the team" }, { href: "#press", label: "In the news" }]} />
-
-      {/* ----------------------------------------------------------- Story */}
-      <section style={{ paddingBlock: "var(--section-y)" }}>
-        <div
-          className="bb-row-12"
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-            gap: "var(--grid-gap)",
-            alignItems: "start",
-          }}
-        >
-          <div style={{ gridColumn: "span 5" }}>
-            <div>
-              <div
-                className="bb-sticky-none"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "var(--space-7)",
-                  position: "sticky",
-                  top: 108,
-                }}
-              >
-                <h2 className="bb-display-2" style={{ maxWidth: "13ch" }}>
-                  90% of schools taught none of this
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div style={{ gridColumn: "7 / span 6" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <p className="bb-lead">
-                  In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change
-                  that.
-                </p>
-                <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  BizBuzz NFP is a 501(c)(3) nonprofit in Naperville, Illinois. Every student deserves access to
-                  entrepreneurial education that helps them find their ideas, and the confidence to share them. We
-                  offer a completely free platform designed by students, for students.
-                </p>
-                <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  Since 2024, we have taught {IMPACT.students.toLocaleString()}+ students across camps, competitions
-                  and workshops, reaching {IMPACT.schools} schools in {IMPACT.districts} districts across Chicagoland.
-                </p>
-                <p className="bb-body" style={{ fontWeight: "var(--weight-semibold)", color: "var(--text-display)" }}>
-                  Let&apos;s turn imagination into innovation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutIntro />
+      <PageSections links={[{ href: "#story", label: "Our story" }, { href: "#impact", label: "Our impact" }, { href: "#team", label: "Meet the team" }, { href: "#press", label: "News and recognition" }]} />
 
       <section id="impact" className="bb-content-section">
         <div className="bb-content-stack">
