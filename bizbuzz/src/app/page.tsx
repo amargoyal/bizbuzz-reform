@@ -50,8 +50,8 @@ const PROGRAMS: ProgramPanel[] = [
     chips: ["6 sessions", "KidPreneur + VentureLab"],
     linkLabel: "Explore the camp",
     href: "/camps",
-    bg: "/camp_imgs/landing/center.jpg",
-    bgAlt: "Students collaborating at a BizBuzz camp session",
+    bg: "/camp_imgs/2026/session3kp/session3kpb.jpg",
+    bgAlt: "Students working on a marketing and prototyping activity",
   },
   {
     title: "Fish Tank",
@@ -82,8 +82,8 @@ const PROGRAMS: ProgramPanel[] = [
     chips: ["Online or in person", "Naperville libraries"],
     linkLabel: "Request a session",
     href: "/office-hours",
-    bg: "/program_cards/mentorship.jpg",
-    bgAlt: "A one-to-one mentorship session",
+    bg: "/camp_imgs/2026/session5vl/session5vlc.jpg",
+    bgAlt: "Students working with a BizBuzz instructor",
   },
 ];
 
