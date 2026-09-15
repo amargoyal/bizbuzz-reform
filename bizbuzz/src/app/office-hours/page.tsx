@@ -128,7 +128,7 @@ export default function OfficeHoursPage() {
                 }}
               >
                 <h1 className="bb-display-1" style={{ maxWidth: "14ch" }}>
-                  Your idea, your questions, <span className="bb-brand-text">one of us</span>
+                  Work on your idea <span className="bb-brand-text">with a mentor</span>
                 </h1>
                 <Eyebrow>Office hours</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>
@@ -316,7 +316,7 @@ export default function OfficeHoursPage() {
             <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
                 <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
-                  At the library, or on a Meet link
+                  Meet online or at the library
                 </h2>
               </div>
             </div>

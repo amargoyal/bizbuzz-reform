@@ -220,8 +220,8 @@ export default function CampsPage() {
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "flex-start" }}
               >
-                <h1 className="bb-display-1" style={{ maxWidth: "13ch" }}>
-                  Six weeks. One business. <span className="bb-brand-text">Yours.</span>
+                <h1 className="bb-display-1" style={{ maxWidth: "18ch" }}>
+                  Summer camp for <span className="bb-brand-text">young entrepreneurs</span>
                 </h1>
                 <Eyebrow>Summer camp</Eyebrow>
                 <p className="bb-lead" style={{ maxWidth: "44ch", color: "var(--text-muted)" }}>
@@ -390,7 +390,7 @@ export default function CampsPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                Seats are limited and it is free
+                Join the 2027 summer camp
               </h2>
               <Eyebrow>Summer 2027</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "48ch" }}>
