@@ -49,6 +49,6 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 
 ## Practical limits
 
-External Google Forms and Cal.com remain owned by their existing providers. Their original destinations are preserved; no registration or booking was submitted during this review. Cal.com still displays its account-controlled dark calendar inside the light site even with a light-theme request. Direct calendar and email links provide a fallback if the embed cannot load.
+External Google Forms and Cal.com remain owned by their existing providers. Their original destinations are preserved; no registration or booking was submitted during this review. The calendar now requests a light theme, verified in the final browser check. Direct calendar and email links provide a fallback if the embed cannot load.
 
 This was a practical visual, content, keyboard and responsive review, not a formal accessibility certification or a measured Core Web Vitals assessment. The work updates the preview and the open pull request; production changes take effect only when that pull request is merged and deployed.
