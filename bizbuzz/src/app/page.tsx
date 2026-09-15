@@ -44,30 +44,29 @@ const SCHOOLS = [
 const PROGRAMS: ProgramPanel[] = [
   {
     title: "Summer Camp",
+    audience: "New to business · Grades 3–8",
     blurb:
       "Six sessions across six weeks. Ideation, finance, marketing, prototyping, speaking, and a mock pitch.",
-    chips: ["Always free", "Grades 3–8", "6 sessions", "KidPreneur + VentureLab"],
+    chips: ["6 sessions", "KidPreneur + VentureLab"],
     linkLabel: "Explore the camp",
     href: "/camps",
     bg: "/camp_imgs/landing/center.jpg",
     bgAlt: "Students collaborating at a BizBuzz camp session",
-    inset: "/camp_imgs/2026/session3kp/session3kpb.jpg",
-    insetAlt: "Marketing and prototyping session",
   },
   {
     title: "Fish Tank",
+    audience: "Ready to pitch · Two divisions",
     blurb:
       "Our pitch competition. Two divisions, real judges, and prizes for the businesses students actually built.",
-    chips: ["Free to enter", "2 divisions", "Business leaders judging", "$750 in prizes"],
+    chips: ["Business leaders judging", "Prizes for student businesses"],
     linkLabel: "See Fish Tank",
     href: "/fish-tank",
     bg: "/fish_tank/2025/images/hero-stage.jpg",
     bgAlt: "The Fish Tank stage at Benedictine University",
-    inset: "/fish_tank/2025/images/gallery-trophy.jpg",
-    insetAlt: "Fish Tank winners with their trophy",
   },
   {
     title: "Workshops",
+    audience: "For schools and business fairs",
     blurb:
       "Condensed curriculum brought to elementary schools, business fairs and community centers. We travel to you.",
     chips: ["School talks and business fairs", `${WORKSHOP_STUDENTS}+ students`, "We come to your school"],
@@ -75,19 +74,16 @@ const PROGRAMS: ProgramPanel[] = [
     href: "/workshops",
     bg: "/image_gallery/Sessions.jpg",
     bgAlt: "A BizBuzz workshop in progress",
-    inset: "/image_gallery/Group.jpg",
-    insetAlt: "Workshop students with their instructors",
   },
   {
     title: "1:1 Mentorship",
+    audience: "For feedback on an idea",
     blurb: "Office hours for business incubation, feedback on your idea, and pitch practice before Fish Tank.",
-    chips: ["Online or in person", "1 hour a week", "Naperville libraries"],
+    chips: ["Online or in person", "Naperville libraries"],
     linkLabel: "Request a session",
     href: "/office-hours",
     bg: "/program_cards/mentorship.jpg",
     bgAlt: "A one-to-one mentorship session",
-    inset: "/camp_imgs/2026/session5vl/session5vlc.jpg",
-    insetAlt: "A student practising a pitch with an instructor",
   },
 ];
 
@@ -160,6 +156,7 @@ export default function HomePage() {
 
       <main id="main-content" tabIndex={-1}>
       <HomeHero />
+      <ProgramPanels programs={PROGRAMS} />
 
       {/* ----------------------------------------------------------- Proof */}
       <section style={{ paddingBlock: "var(--section-y)" }}>
@@ -244,92 +241,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ------------------------------------------------------- Two paths */}
-      <section style={{ paddingBlock: "0 var(--section-y)" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-                gap: "var(--grid-gap)",
-                alignItems: "stretch",
-              }}
-            >
-              <Card className="bb-brand-card" pad="var(--space-10)" style={{ background: "var(--surface-brand)", borderColor: "var(--surface-brand)" }}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", height: "100%" }}>
-                  <div>
-                    <span className="bb-meta">For students</span>
-                  </div>
-                  <h3 className="bb-display-3">You have an idea. We&apos;ll help you build it.</h3>
-                  <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    Six sessions, real guest speakers, and a business you actually pitch on stage by the end of the
-                    summer.
-                  </p>
-                  <div style={{ marginTop: "auto", paddingTop: "var(--space-7)" }}>
-                    <ArrowCTA href="/camps">Explore the camp</ArrowCTA>
-                  </div>
-                </div>
-              </Card>
-              <Card pad="var(--space-10)">
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", height: "100%" }}>
-                  <div>
-                    <span className="bb-meta">For parents and schools</span>
-                  </div>
-                  <h3 className="bb-display-3">Free, local, and run to a real schedule.</h3>
-                  <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    Sessions at 95th Street and Nichols Library, weekly email updates, and 1:1 office hours online
-                    or in person.
-                  </p>
-                  <div style={{ marginTop: "auto", paddingTop: "var(--space-7)" }}>
-                    <ArrowCTA href="/office-hours">Office hours and FAQs</ArrowCTA>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* -------------------------------------------------------- Programs */}
-      <section id="programs" style={{ paddingBlock: "0 var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-12)",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-7)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                Ideate, prototype, and pitch
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "54ch", color: "var(--text-muted)" }}>
-                Every program is free. Start anywhere. Most students start at camp and finish on the Fish Tank
-                stage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ paddingBottom: "var(--section-y)" }}>
-        <ProgramPanels programs={PROGRAMS} />
       </section>
 
       {/* ---------------------------------------------------- Seasons rail */}
