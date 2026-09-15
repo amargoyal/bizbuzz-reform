@@ -868,3 +868,24 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
   .bb-about-highlights { grid-template-columns: 1fr; gap: var(--space-7); }
   .bb-about-figures { grid-template-columns: 1fr; }
 }
+
+.bb-about-team { background: var(--surface-sunken); padding-block: var(--section-y-tight); }
+.bb-about-team-group + .bb-about-team-group { margin-top: var(--space-9); }
+.bb-about-team-group > h3 { margin-bottom: var(--space-7); }
+.bb-about-members { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7) var(--space-8); align-items: start; }
+.bb-about-member { min-width: 0; }
+.bb-about-member-intro { display: flex; align-items: center; gap: var(--space-5); }
+.bb-about-member h4 { font-size: 1.375rem; margin-bottom: var(--space-3); }
+.bb-about-portrait { position: relative; flex: 0 0 100px; height: 125px; overflow: hidden; border-radius: var(--radius-sm); background: var(--neutral-300); }
+.bb-about-member .bb-details { padding-block: var(--space-3); }
+.bb-about-rosters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-9); margin-top: var(--space-9); }
+.bb-about-rosters h3 { margin-bottom: var(--space-5); }
+.bb-about-rosters .bb-details { padding-block: var(--space-3); }
+.bb-about-team-archive { margin-top: var(--space-9); }
+.bb-about-archive-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+.bb-about-archive-list article { display: flex; flex-direction: column; gap: var(--space-4); }
+@media (max-width: 1100px) { .bb-about-members { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .bb-about-members, .bb-about-rosters, .bb-about-archive-list { grid-template-columns: 1fr; }
+  .bb-about-portrait { flex-basis: 88px; height: 110px; }
+}

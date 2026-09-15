@@ -1,6 +1,6 @@
 import PageSections from "@/components/site/PageSections";
 import AboutImpact from "@/components/about/AboutImpact";
-import { PEOPLE } from "@/data/team";
+import AboutTeam from "@/components/about/AboutTeam";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Eyebrow } from "@/components/ds/Card";
@@ -8,10 +8,6 @@ import AboutIntro from "@/components/about/AboutIntro";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
 import { LINKS } from "@/lib/site";
-
-const LEADERSHIP = [...PEOPLE.coFounders2026, ...PEOPLE.leadershipTeam2026];
-const INSTRUCTORS = PEOPLE.instructors;
-const YOUTH = PEOPLE.youthLeadership;
 
 const PRESS = [
   {
@@ -72,146 +68,7 @@ export default function AboutPage() {
 
       <AboutImpact />
 
-      {/* ------------------------------------------------------ Leadership */}
-      <section id="team" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-11)",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-7)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                Meet the student team
-              </h2>
-              <Eyebrow>The team</Eyebrow>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                That is the point. Students who just learned this are the best people to teach it to students a few
-                years behind them.
-              </p>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
-              gap: "var(--grid-gap)",
-            }}
-          >
-            {LEADERSHIP.map((m) => (
-              <div key={m.name}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      borderRadius: "var(--radius-lg)",
-                      overflow: "hidden",
-                      aspectRatio: "4 / 5",
-                      background: "var(--neutral-300)",
-                    }}
-                  >
-                    <Image
-                      src={m.image}
-                      alt={m.name}
-                      fill
-                      sizes="(max-width: 900px) 50vw, 25vw"
-                      style={{ objectFit: "cover", objectPosition: "customPosition" in m ? m.customPosition : "center", ...("customImageStyle" in m ? m.customImageStyle : {}) }}
-                    />
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
-                    <p className="bb-display-4">{m.name}</p>
-                    <p className="bb-caption">{m.role}</p>
-                    <details className="bb-details">
-                      <summary>Read biography</summary>
-                      <p className="bb-body">{m.description}</p>
-                    </details>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bb-content-section" style={{ background: "var(--surface-sunken)", paddingTop: 0 }}>
-        <details className="bb-details bb-content-stack">
-          <summary>2025 leadership team</summary>
-          {[...PEOPLE.coFounders, ...PEOPLE.leadershipTeam].map((person) => (
-            <div key={person.name}>
-              <h3 className="bb-display-4">{person.name}</h3>
-              <p className="bb-caption">{person.role}</p>
-              <p className="bb-body">{person.description}</p>
-            </div>
-          ))}
-        </details>
-      </section>
-
-      {/* ----------------------------------------------------- Instructors */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "0 var(--section-y)" }}>
-        <div
-          className="bb-row-12"
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-            gap: "var(--grid-gap)",
-            alignItems: "start",
-          }}
-        >
-          <div style={{ gridColumn: "span 4" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <h3 className="bb-display-3" style={{ maxWidth: "16ch" }}>
-                  The people in the room every week
-                </h3>
-                <Eyebrow>Instructors</Eyebrow>
-              </div>
-            </div>
-          </div>
-          <div style={{ gridColumn: "6 / span 7" }}>
-            <div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
-                {INSTRUCTORS.map((person) => (
-                  <details className="bb-details" key={person.name}>
-                    <summary>{person.name}</summary>
-                    <p className="bb-body">{person.description}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
-            <div style={{ height: "var(--space-10)" }} />
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <p className="bb-eyebrow">Youth leadership team</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)" }}>
-                  {YOUTH.map((person) => (
-                    <details className="bb-details" key={person.name}>
-                      <summary>{person.name}</summary>
-                      <p className="bb-body">{person.description}</p>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutTeam />
 
       {/* ----------------------------------------------------------- Press */}
       <section id="press" style={{ paddingBlock: "var(--section-y)" }}>
