@@ -216,7 +216,7 @@ export default function FishTankPage() {
                   <p className="bb-meta">Grades 6–9 · VentureLab division</p>
                   <h3 className="bb-display-3">VentureLab division</h3>
                   <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    For students who have been through the full VentureLab experience. A more rigorous pitch format,
+                    For students ready to develop and present a more advanced business idea. A more rigorous pitch format,
                     deeper feedback from judges, and higher stakes as competitors go head to head.
                   </p>
                 </div>
