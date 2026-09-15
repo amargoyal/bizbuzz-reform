@@ -797,3 +797,19 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-rail-controls button:disabled { opacity: .45; cursor: default; }
 .bb-season-rail { scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); overscroll-behavior-x: contain; }
 .bb-season-rail:focus-visible { outline-offset: -3px; }
+
+/* Home: one clear introduction and a real view into camp. */
+.bb-home-hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-9); align-items: center; padding-block: var(--hero-y) var(--section-y-tight); }
+.bb-home-intro { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-7); }
+.bb-home-intro h1 { max-width: 12ch; }
+.bb-home-intro > .bb-lead { max-width: 42ch; color: var(--text-muted); }
+.bb-home-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); }
+.bb-home-photo { margin: 0; min-width: 0; }
+.bb-home-photo > div { position: relative; aspect-ratio: 5 / 4; overflow: hidden; border-radius: var(--radius-md); background: var(--surface-brand-soft); }
+.bb-home-photo img { object-fit: cover; object-position: 52% center; }
+.bb-home-photo figcaption { padding-top: var(--space-4); font-size: var(--size-caption); color: var(--text-muted); }
+@media (max-width: 800px) {
+  .bb-home-hero { grid-template-columns: 1fr; gap: var(--space-8); }
+  .bb-home-intro h1 { max-width: 16ch; }
+  .bb-home-photo > div { aspect-ratio: 4 / 3; }
+}

@@ -3,7 +3,8 @@ import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
 import { Card, Eyebrow, Stat } from "@/components/ds/Card";
 import { Testimonial } from "@/components/ds/MediaCard";
-import { CountUp, Marquee, Parallax, ScrollRail } from "@/components/ds/motion";
+import { CountUp, Marquee, ScrollRail } from "@/components/ds/motion";
+import HomeHero from "@/components/home/HomeHero";
 import ProgramPanels, { type ProgramPanel } from "@/components/home/ProgramPanels";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -152,114 +153,13 @@ const PRESS = [
   },
 ];
 
-const HERO_MOSAIC = [
-  { src: "/hero_imgs/9.jpg", alt: "Kidpreneurs at a BizBuzz camp session", depth: 0.35, offset: "0px" },
-  {
-    src: "/hero_imgs/2.jpg",
-    alt: "Students working through a business challenge",
-    depth: 0.85,
-    offset: "clamp(16px, 3vw, 48px)",
-  },
-  {
-    src: "/fish_tank/2025/images/hero-stage.jpg",
-    alt: "A student pitching on the Fish Tank stage",
-    depth: 0.15,
-    offset: "0px",
-  },
-  {
-    src: "/camp_imgs/2026/session3kp/session3kpb.jpg",
-    alt: "Marketing and prototyping session",
-    depth: 0.9,
-    offset: "clamp(24px, 4vw, 64px)",
-  },
-  {
-    src: "/fish_tank/2025/images/gallery-trophy.jpg",
-    alt: "Fish Tank winners with their trophy",
-    depth: 0.45,
-    offset: "0px",
-  },
-];
-
 export default function HomePage() {
   return (
     <>
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1}>
-      {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "var(--hero-y) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-6)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h1 className="bb-display-1" style={{ maxWidth: "24ch" }}>
-                Every student deserves to find <span className="bb-brand-text">their own idea</span>
-              </h1>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                BizBuzz is a student-run nonprofit teaching entrepreneurship to grades 3–8. Free camps, free
-                workshops, and a pitch competition called Fish Tank. Built by students, for students.
-              </p>
-              <p className="bb-meta">Naperville, Illinois</p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "var(--space-7)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingTop: "var(--space-3)",
-                }}
-              >
-                <Button size="lg" href={LINKS.campRegistration} target="_blank" rel="noopener noreferrer">
-                  Register for 2027 camp
-                </Button>
-                <ArrowCTA href="/seasons">See the 2026 season</ArrowCTA>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="bb-mosaic-5 bb-photo-field"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-            gap: "clamp(8px, 1vw, 16px)",
-            alignItems: "start",
-            padding: "var(--hero-media-gap) clamp(8px, 1vw, 16px) 0",
-          }}
-        >
-          {HERO_MOSAIC.map((m, i) => (
-            <Parallax key={m.src} depth={m.depth}>
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: "var(--radius-lg)",
-                  overflow: "hidden",
-                  aspectRatio: "3 / 4",
-                  marginTop: m.offset,
-                }}
-              >
-                <Image
-                  src={m.src}
-                  alt={m.alt}
-                  fill
-                  sizes="(max-width: 720px) 50vw, 20vw"
-                  priority={i < 3}
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </Parallax>
-          ))}
-        </div>
-      </section>
+      <HomeHero />
 
       {/* ----------------------------------------------------------- Proof */}
       <section style={{ paddingBlock: "var(--section-y)" }}>
