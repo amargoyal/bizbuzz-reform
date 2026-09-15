@@ -1,9 +1,9 @@
 import PageSections from "@/components/site/PageSections";
-import { IMPACT_STATS, PROGRAM_PARTICIPATION, SCHOOL_DIRECTORY } from "@/data/impact";
+import AboutImpact from "@/components/about/AboutImpact";
 import { PEOPLE } from "@/data/team";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Eyebrow, Stat } from "@/components/ds/Card";
+import { Eyebrow } from "@/components/ds/Card";
 import AboutIntro from "@/components/about/AboutIntro";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -70,37 +70,7 @@ export default function AboutPage() {
       <AboutIntro />
       <PageSections links={[{ href: "#story", label: "Our story" }, { href: "#impact", label: "Our impact" }, { href: "#team", label: "Meet the team" }, { href: "#press", label: "News and recognition" }]} />
 
-      <section id="impact" className="bb-content-section">
-        <div className="bb-content-stack">
-          <h2 className="bb-display-2">Our impact since 2024</h2>
-          <div className="bb-data-grid">
-            {IMPACT_STATS.map((stat) => (
-              <Stat key={stat.label} value={stat.value} label={stat.label} note={stat.description} />
-            ))}
-          </div>
-          <details className="bb-details">
-            <summary>Participation by program</summary>
-            <dl className="bb-data-list">
-              {PROGRAM_PARTICIPATION.map((program) => (
-                <div key={program.label}>
-                  <dt>{program.label}</dt><dd>{program.total} students</dd>
-                </div>
-              ))}
-            </dl>
-          </details>
-          <div>
-            <h3 className="bb-display-3">Schools and districts we serve</h3>
-            {SCHOOL_DIRECTORY.map((group) => (
-              <details className="bb-details" key={group.title}>
-                <summary>{group.title}</summary>
-                <ul className="bb-directory">
-                  {group.items.map((name) => <li key={name}>{name}</li>)}
-                </ul>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AboutImpact />
 
       {/* ------------------------------------------------------ Leadership */}
       <section id="team" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>

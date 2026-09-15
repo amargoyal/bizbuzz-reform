@@ -845,10 +845,26 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-about-story h1 { font-size: clamp(2.25rem, 4vw, 3.5rem); max-width: 18ch; }
 .bb-about-story > .bb-body { color: var(--text-muted); max-width: 60ch; }
 .bb-about-team-photo { margin: 0; }
-.bb-about-team-photo > div { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-md); }
+.bb-about-team-photo > div { position: relative; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius-md); }
 .bb-about-team-photo img { object-fit: cover; }
 .bb-about-team-photo figcaption { font-size: var(--size-caption); color: var(--text-muted); padding-top: var(--space-4); }
 @media (max-width: 900px) {
   .bb-about-intro { grid-template-columns: 1fr; }
   .bb-about-team-photo > div { aspect-ratio: 16 / 9; }
+}
+.bb-about-section { padding-block: var(--section-y-tight); }
+.bb-about-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-7); margin-bottom: var(--space-8); }
+.bb-about-section-heading > p { max-width: 44ch; color: var(--text-muted); }
+.bb-about-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+.bb-about-records { margin-top: var(--space-8); }
+.bb-about-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-7); margin: 0; }
+.bb-about-figures > div { display: flex; justify-content: space-between; gap: var(--space-5); }
+.bb-about-figures dt { font-weight: var(--weight-semibold); }
+.bb-about-figures dt span { display: block; color: var(--text-muted); font-size: var(--size-caption); font-weight: var(--weight-body); margin-top: var(--space-3); }
+.bb-about-figures dd { margin: 0; font-size: var(--size-display-3); font-weight: var(--weight-semibold); white-space: nowrap; }
+.bb-about-school-list { display: grid; gap: var(--space-7); }
+@media (max-width: 600px) {
+  .bb-about-section-heading { flex-direction: column; align-items: flex-start; gap: var(--space-5); }
+  .bb-about-highlights { grid-template-columns: 1fr; gap: var(--space-7); }
+  .bb-about-figures { grid-template-columns: 1fr; }
 }
