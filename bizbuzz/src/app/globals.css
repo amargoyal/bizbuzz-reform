@@ -612,25 +612,16 @@ ol {
   .bb-sticky-none {
     position: static !important;
   }
-  /* A program panel is exactly 100vh; the inset photo does not fit once the
-     copy stacks, so the copy wins. */
-  .bb-panel-inset {
-    display: none !important;
-  }
 }
 
 @media (max-width: 720px) {
-  .bb-mosaic-5 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
   .bb-mosaic-4 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
   .bb-mosaic-3 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  /* A 3- or 5-up mosaic on a 2-col grid leaves an orphan; drop it. */
-  .bb-mosaic-5 > :nth-child(5),
+  /* A 3-up mosaic on a 2-col grid leaves an orphan; drop it. */
   .bb-mosaic-3 > :nth-child(3) {
     display: none;
   }
@@ -731,11 +722,6 @@ ol {
   border-radius: var(--radius-sm);
 }
 
-@media (max-width: 900px) {
-  .bb-panel-scrim {
-    background: rgba(14, 22, 38, 0.76) !important;
-  }
-}
 
 /* Original blue/yellow pairing closes every route. */
 .bb-brand-footer { border-top: 8px solid var(--surface-brand); }
