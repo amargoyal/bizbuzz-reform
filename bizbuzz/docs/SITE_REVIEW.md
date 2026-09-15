@@ -52,3 +52,11 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 External Google Forms and Cal.com remain owned by their existing providers. Their original destinations are preserved; no registration or booking was submitted during this review. The calendar now requests a light theme, verified in the final browser check. Direct calendar and email links provide a fallback if the embed cannot load.
 
 This was a practical visual, content, keyboard and responsive review, not a formal accessibility certification or a measured Core Web Vitals assessment. The work updates the preview and the open pull request; production changes take effect only when that pull request is merged and deployed.
+
+## September 15 visual refinement
+
+The follow-up prioritizes program choice and real photography. The homepage now opens with one camp photograph and a direct introduction, followed immediately by all four programs with audience cues. Compact photo-and-copy rows replace the four full-height pinned scenes. Duplicate audience cards were removed; parent guidance remains directly beneath the programs.
+
+Section spacing is tighter throughout the site, impact figures are smaller, and several headings now identify their content directly. News coverage uses a lead story and a compact reading list rather than repeated framed cards. The existing logo, Figtree type, blue/yellow/navy palette, program archives, directories and contact destinations remain.
+
+The Spotlight image previously contained an unrelated donation graphic. Its replacement is the publisher's actual [video thumbnail](https://vimeo.com/1101292306), obtained from Vimeo oEmbed. The homepage description is grounded in the [July 14, 2025 NCTV17 article](https://www.nctv17.org/spotlight/bizbuzz-turns-imagination-into-innovation/), replacing an unverified quotation attribution. The thumbnail shows a Fish Tank award winner; the alt text describes that image.
