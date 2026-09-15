@@ -47,7 +47,12 @@ width and spacing to the actual words; do not shrink type to preserve an old wra
 | Animated counters and text entrances | Immediately visible facts and text |
 | Large decorative underline and connector arrows | Clear typography and real photographs |
 
-Retain the existing program panels, archive rail, and photo storytelling. Respect
+Keep the archive rail and photo storytelling. The September 15 refinement replaces
+the full-screen pinned program panels with a compact photo-led comparison directly
+after the homepage introduction. Families should be able to choose a program before
+reading the organization story. Use one lead camp photograph, plain audience cues,
+and an unboxed news feature with supporting stories. Section spacing is 56–96px,
+with 36–64px for tighter groups; impact figures support the content hierarchy. Respect
 reduced motion. New motion must explain an interaction or have a specific
 storytelling purpose. Do not wrap ordinary text in entrance animations.
 
