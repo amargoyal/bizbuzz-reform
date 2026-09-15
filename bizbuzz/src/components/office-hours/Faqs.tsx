@@ -13,7 +13,7 @@ export default function Faqs({ faqs }: { faqs: Faq[] }) {
       <div className="bb-stack" style={{ gap: "var(--space-3)" }}>
         <label htmlFor={id}>Find an answer</label>
         <input id={id} className="bb-search-input" type="search" placeholder="Try cost, grades, or office hours" value={query} onChange={(event) => setQuery(event.target.value)} />
-        <p className="bb-caption" role="status">{query ? `${visible.length} matching questions` : `${faqs.length} common questions`}</p>
+        <p className="bb-caption" role="status">{query ? `${visible.length} matching ${visible.length === 1 ? "question" : "questions"}` : `${faqs.length} common questions`}</p>
       </div>
       <div>
         {visible.map((faq) => (
