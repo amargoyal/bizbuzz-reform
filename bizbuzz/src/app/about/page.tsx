@@ -81,7 +81,7 @@ export default function AboutPage() {
               }}
             >
               <h1 className="bb-display-1" style={{ maxWidth: "24ch" }}>
-                Two juniors, one gap, and a <span className="bb-brand-text">very full summer</span>
+                Business education, <span className="bb-brand-text">led by students</span>
               </h1>
               <p className="bb-lead" style={{ maxWidth: "54ch", color: "var(--text-muted)" }}>
                 BizBuzz was founded in April 2024 by two Naperville North High School juniors. Everything we run is
@@ -226,7 +226,7 @@ export default function AboutPage() {
               }}
             >
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                Everyone here is still in school
+                Meet the student team
               </h2>
               <Eyebrow>The team</Eyebrow>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>

@@ -17,7 +17,7 @@ const SEASONS = [
     year: "2027",
     status: "Registration open",
     chipTone: "accent" as const,
-    title: "The one you can still join",
+    title: "Summer 2027 camp",
     blurb:
       "Next summer's camp keeps the two-track structure and is open for registration now. Dates, venues and speakers are announced through the spring.",
     stats: [
@@ -114,7 +114,7 @@ export default function SeasonsPage() {
               }}
             >
               <h1 className="bb-display-1" style={{ maxWidth: "16ch" }}>
-                Past seasons. Next summer.
+                Explore the BizBuzz seasons
               </h1>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 Explore our completed programs since April 2024 and plans for summer 2027.
@@ -306,7 +306,7 @@ export default function SeasonsPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                2027 is the one you can still join
+                Join us for summer 2027
               </h2>
               <Button href={LINKS.campRegistration} size="lg" target="_blank" rel="noopener noreferrer">
                 Register for 2027 camp

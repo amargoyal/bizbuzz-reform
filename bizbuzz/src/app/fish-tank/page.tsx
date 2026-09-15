@@ -183,7 +183,7 @@ export default function FishTankPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
               <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
-                Two competitions. One stage.
+                Find your competition division
               </h2>
               <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
                 Every entrant competes against peers at their own level, so a fourth grader is never pitching
