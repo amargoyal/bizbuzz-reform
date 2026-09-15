@@ -3,7 +3,6 @@ import AboutImpact from "@/components/about/AboutImpact";
 import AboutTeam from "@/components/about/AboutTeam";
 import Image from "next/image";
 import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Eyebrow } from "@/components/ds/Card";
 import AboutIntro from "@/components/about/AboutIntro";
 import SiteFooter from "@/components/site/SiteFooter";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -42,7 +41,7 @@ const PRESS = [
     meta: "KidsMatter TPI · 2025",
     headline: "2025 Teen Philanthropy Initiative grant winner",
     blurb:
-      "Following an intensive review process and a one-hour interview, BizBuzz was awarded a $1,000 grant. It was the largest amount of funding given to any organization in Naperville in the 2024 to 2025 cycle.",
+      "Following an intensive review process and a one-hour interview, BizBuzz was awarded a $1,000 grant. It was the largest single award in the TPI 2024 to 2025 cycle.",
     href: "https://www.teenphilanthropyinitiative.org/",
     image: "/news/tpi-2025-b.jpg",
   },
@@ -70,100 +69,27 @@ export default function AboutPage() {
 
       <AboutTeam />
 
-      {/* ----------------------------------------------------------- Press */}
-      <section id="press" style={{ paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-11)",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
-                What has been written about us
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Coverage from NCTV17 has connected BizBuzz with parents looking for opportunities for their
-                students, and sponsors looking to support youth entrepreneurship.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {PRESS.map((n) => (
-              <div key={n.headline}>
-                <div
-                  className="bb-rowlist"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "200px minmax(0, 1fr) auto",
-                    gap: "var(--space-9)",
-                    alignItems: "start",
-                    paddingBlock: "var(--space-9)",
-                    borderTop: "1px solid var(--border-hairline)",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "relative",
-                      borderRadius: "var(--radius-md)",
-                      overflow: "hidden",
-                      aspectRatio: "4 / 3",
-                      background: "var(--neutral-100)",
-                    }}
-                  >
-                    <Image src={n.image} alt={n.outlet} fill sizes="200px" style={{ objectFit: "cover" }} />
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                    <p className="bb-meta">{n.meta}</p>
-                    <h3 className="bb-display-4" style={{ maxWidth: "30ch" }}>
-                      {n.headline}
-                    </h3>
-                    <p className="bb-body-sm" style={{ color: "var(--text-muted)", maxWidth: "62ch" }}>
-                      {n.blurb}
-                    </p>
-                  </div>
-                  <ArrowCTA href={n.href} target="_blank" rel="noopener noreferrer">
-                    {n.outlet === "Daily Herald" ? "Visit Daily Herald" : n.outlet === "Teen Philanthropy Initiative" ? "Visit TPI" : `Read ${n.outlet} coverage`}
-                  </ArrowCTA>
-                </div>
-              </div>
-            ))}
-            <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
-          </div>
+      <section id="press" className="bb-about-section bb-container" aria-labelledby="press-heading">
+        <div className="bb-about-section-heading">
+          <h2 id="press-heading" className="bb-display-2">News and recognition</h2>
+          <p className="bb-body">Local coverage of our students, programs and community support.</p>
         </div>
-      </section>
-
-      {/* ----------------------------------------------------------- Grant */}
-      <section className="bb-on-ink" style={{ background: "var(--surface-inverse)", paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container-narrow)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            textAlign: "center",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <Eyebrow>2025 grant winner</Eyebrow>
-              <p className="bb-stat">$1,000</p>
-              <h2 className="bb-display-3" style={{ maxWidth: "26ch" }}>
-                The largest amount of funding given to any organization in Naperville
-              </h2>
-              <p className="bb-body" style={{ maxWidth: "56ch", color: "var(--text-muted)" }}>
-                The Teen Philanthropy Initiative, a program of Naperville nonprofit KidsMatter, trains high school
-                students in fundraising, budgeting and grant-making. Each cohort awards $10,000 across youth-serving
-                nonprofits in greater Chicago. After an intensive review and a one-hour interview, BizBuzz won the
-                largest single award in the 2024 to 2025 cycle. They funded us again in 2026.
-              </p>
-            </div>
-          </div>
+        <div className="bb-about-press-list">
+          {PRESS.map((story) => (
+            <article className="bb-about-press-story" key={story.headline}>
+              <div className="bb-about-press-photo"><Image src={story.image} alt={story.outlet} fill sizes="120px" style={{ objectFit: "cover" }} /></div>
+              <div className="bb-about-press-copy">
+                <p className="bb-caption">{story.meta}</p>
+                <h3 className="bb-display-4">{story.headline}</h3>
+                <details className="bb-details">
+                  <summary>About this {story.outlet === "Teen Philanthropy Initiative" ? "award" : "coverage"}</summary>
+                  <p className="bb-body-sm">{story.blurb}</p>
+                  {story.outlet === "Teen Philanthropy Initiative" && <p className="bb-body-sm">The Teen Philanthropy Initiative, a program of Naperville nonprofit KidsMatter, trains high school students in fundraising, budgeting and grant-making. Each cohort awards $10,000 across youth-serving nonprofits in greater Chicago. After an intensive review and a one-hour interview, BizBuzz won the largest single award in the 2024 to 2025 cycle. They funded us again in 2026.</p>}
+                </details>
+                <ArrowCTA href={story.href} target="_blank" rel="noopener noreferrer">{story.outlet === "Daily Herald" ? "Visit Daily Herald" : story.outlet === "Teen Philanthropy Initiative" ? "Visit TPI" : `Read ${story.outlet} coverage`}</ArrowCTA>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
