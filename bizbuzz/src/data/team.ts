@@ -138,6 +138,13 @@ export const PEOPLE = {
 
   leadershipTeam2026: [
     {
+      image: "/team/Amar_clean.png",
+      name: "Amar Goyal",
+      role: "Vice President",
+      customPosition: "center 30%",
+      description: "Amar is a student developer with a background in software engineering. On his FRC robotics team's software subteam, he wrote the code for the robot's shooter mechanism, and the team earned a spot at the 2026 FRC Championship. As Vice President, he leads BizBuzz technical work. He builds and maintains the platforms behind every camp, session, and demo day. Amar keeps the tools simple so students stay focused on their ideas."
+    },
+    {
       image: "/team/Lakhi.jpeg",
       name: "Lakhi Thotakura",
       role: "Chief Operating Officer",
@@ -156,13 +163,6 @@ export const PEOPLE = {
       role: "Chief Financial Officer",
       customPosition: "center 30%",
       description: "Abby manages the financial side of BizBuzz, overseeing budgeting and resource allocation to keep programs sustainable and growing. She is passionate about financial literacy and believes that understanding money is one of the most important skills a young entrepreneur can have."
-    },
-    {
-      image: "/team/Amar_clean.png",
-      name: "Amar Goyal",
-      role: "Vice President",
-      customPosition: "center 30%",
-      description: "Amar is a student developer with a background in software engineering. On his FRC robotics team's software subteam, he wrote the code for the robot's shooter mechanism, and the team earned a spot at the 2026 FRC Championship. As Vice President, he leads BizBuzz technical work. He builds and maintains the platforms behind every camp, session, and demo day. Amar keeps the tools simple so students stay focused on their ideas."
     },
     {
       image: "/team/Elizabeth.jpeg",
