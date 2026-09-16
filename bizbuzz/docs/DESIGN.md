@@ -80,3 +80,7 @@ Review every changed route at desktop and mobile sizes, including long headings,
 stats, menu states, focus, zoom, and dark sections. Compare screenshots against
 the approved treatment. Automated pattern detection supplements visual judgment;
 the original scan missed both the serif overuse and the decorative dotted labels.
+
+## About page structure
+
+Lead with the founding story and a real team photograph. Show the three primary impact figures before detailed records. Group current leadership, founders and teaching teams explicitly, keeping historical leadership after the current roster. Use compact portraits, native biography disclosures and readable press rows; let expanded descriptions span the content width on phones. Preserve all source biographies and directory records.
