@@ -898,5 +898,9 @@ body:has(.bb-gallery-dialog[open]) { overflow: hidden; }
 .bb-about-press-copy .bb-details p { margin-block: var(--space-4); }
 @media (max-width: 600px) {
   .bb-about-press-story { grid-template-columns: 72px minmax(0, 1fr); gap: var(--space-5); }
+  .bb-about-press-copy { display: contents; }
+  .bb-about-press-photo { grid-row: 1 / span 2; }
+  .bb-about-press-copy > .bb-caption, .bb-about-press-copy > h3 { grid-column: 2; }
+  .bb-about-press-copy > .bb-details, .bb-about-press-copy > a { grid-column: 1 / -1; justify-self: start; }
   .bb-about-press-copy h3 { font-size: 1.25rem; }
 }
