@@ -84,7 +84,7 @@ export default function AboutPage() {
                 <details className="bb-details">
                   <summary>About this {story.outlet === "Teen Philanthropy Initiative" ? "award" : "coverage"}</summary>
                   <p className="bb-body-sm">{story.blurb}</p>
-                  {story.outlet === "Teen Philanthropy Initiative" && <p className="bb-body-sm">The Teen Philanthropy Initiative, a program of Naperville nonprofit KidsMatter, trains high school students in fundraising, budgeting and grant-making. Each cohort awards $10,000 across youth-serving nonprofits in greater Chicago. After an intensive review and a one-hour interview, BizBuzz won the largest single award in the 2024 to 2025 cycle. They funded us again in 2026.</p>}
+                  {story.outlet === "Teen Philanthropy Initiative" && <p className="bb-body-sm">The Teen Philanthropy Initiative, a program of Naperville nonprofit KidsMatter, trains high school students in fundraising, budgeting and grant-making. Each cohort awards $10,000 across youth-serving nonprofits in greater Chicago. TPI funded BizBuzz again in 2026.</p>}
                 </details>
                 <ArrowCTA href={story.href} target="_blank" rel="noopener noreferrer">{story.outlet === "Daily Herald" ? "Visit Daily Herald" : story.outlet === "Teen Philanthropy Initiative" ? "Visit TPI" : `Read ${story.outlet} coverage`}</ArrowCTA>
               </div>
