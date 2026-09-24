@@ -368,30 +368,13 @@
   .section--navy .go { color: var(--white); }
   .section--navy .go:hover { color: var(--white); text-decoration-color: var(--white); }
 
-  /* ---------- Status labels ---------- */
+  /* Registration and season information stays plain, readable text. */
   .status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 10px 5px 9px;
-    border-radius: 999px;
     font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.2;
-    background: var(--done-bg);
-    color: var(--done);
-    white-space: nowrap;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink-muted);
   }
-  .status::before {
-    content: "";
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: currentColor;
-    flex: 0 0 auto;
-  }
-  .status--open { background: var(--open-bg); color: var(--open); }
-  .status--soon { background: var(--soon-bg); color: var(--soon); }
-  .status--done { background: var(--done-bg); color: var(--done); }
 
   /* ---------- Facts (definition lists) ---------- */
   .facts {

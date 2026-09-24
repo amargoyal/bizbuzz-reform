@@ -56,7 +56,7 @@ export default function FishTankPage() {
     <>
       <YearHashRedirect base="/fish-tank" years={FISH_TANK_YEARS.map((y) => y.year)} />
       <PageHero
-        status={<Status tone="soon">Fish Tank {CURRENT.fishTankYear}: dates to be announced</Status>}
+        status={<Status>Fish Tank {CURRENT.fishTankYear}: dates to be announced</Status>}
         title="Fish Tank"
         lead={
           <>

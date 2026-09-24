@@ -33,7 +33,7 @@ export default function CampsPage() {
     <>
       <YearHashRedirect base="/camps" years={CAMP_YEARS.map((y) => y.year)} />
       <PageHero
-        status={<Status tone="open">Summer {CURRENT.campYear} registration open</Status>}
+        status={<Status>Summer {CURRENT.campYear} registration open</Status>}
         title="Summer camp"
         lead={
           <>

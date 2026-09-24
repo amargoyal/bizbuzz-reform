@@ -59,7 +59,7 @@ export default function HomePage() {
           />
         </div>
         <div className="container home-hero__note">
-          <Status tone="open">Summer {CURRENT.campYear} registration open</Status>
+          <Status>Summer {CURRENT.campYear} registration open</Status>
           <p>Free for every family. Student-run since April 2024.</p>
         </div>
       </section>
