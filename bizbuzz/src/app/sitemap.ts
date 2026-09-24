@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { CAMP_YEARS, FISH_TANK_YEARS, SITE_URL } from "@/lib/site";
 
 // Emitted once at build time so the static export can include it.
 export const dynamic = "force-static";
@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/sponsors", priority: 0.8, changeFrequency: "monthly" },
     { path: "/workshops", priority: 0.8, changeFrequency: "monthly" },
     { path: "/seasons", priority: 0.7, changeFrequency: "monthly" },
+    ...CAMP_YEARS.map((y) => ({ path: `/camps/${y}`, priority: 0.6, changeFrequency: "yearly" as const })),
+    ...FISH_TANK_YEARS.map((y) => ({ path: `/fish-tank/${y}`, priority: 0.6, changeFrequency: "yearly" as const })),
   ];
 
   return routes.map((route) => ({

@@ -100,6 +100,13 @@
             "bio": "Mayor Wehrli shared how local entrepreneurs are innovating to solve real community problems in Naperville and beyond, encouraging students to use business as a tool for civic impact and leadership development.",
             "image": "/camp_imgs/speakers/scott_wehrli.png"
           },
+          "speaker2": {
+            "name": "Eddie Yoon",
+            "role": "Co-Creator of Category Pirates",
+            "topic": "Finance is Freedom",
+            "bio": "He challenged students to rethink their relationship with money, describing it as powerful dynamite that must be used wisely. He urged them to create rather than compete, emphasizing that entrepreneurship, not just education, is the path to true freedom.",
+            "image": "/camp_imgs/speakers/eddie_yoon.jpg"
+          },
           "images": [
             "/camp_imgs/cards/session5/1.jpg",
             "/camp_imgs/cards/session5/2.jpg",
@@ -115,7 +122,7 @@
           "title": "Pitching",
           "date": "July 17th, 2024",
           "location": "95th Street Library, Naperville",
-          "description": "In Session 6, the final session before Fish Tank, students participated in a business building workshop to finalize their pitch decks and practice rehearsing their scripts. Joining them for a special surprise were our preliminary judges—Athena Chen, Soohyun Cho, Isabel Yu, Nathan Mendoza, and Olivia Fisz—who offered exciting feedback.",
+          "description": "In Session 6, the final session before Fish Tank, students participated in a business building workshop to finalize their pitch decks and practice rehearsing their scripts. Joining them for a special surprise were our preliminary judges (Athena Chen, Soohyun Cho, Isabel Yu, Nathan Mendoza, and Olivia Fisz), who offered exciting feedback.",
           "speaker": {
             "name": "Sean Riley",
             "role": "CEO of Dude Wipes",
@@ -198,7 +205,7 @@
           "title": "Prototyping & Product Creation",
           "date": "June 27th, 2025",
           "location": "95th Street Library, Naperville",
-          "description": "In Session 4, students brought their Fish Tank ideas to life through hands-on creation. After the \"Personal Brand Soul Train\" icebreaker, they split into three creative tracks—Tinkercad for 3D modeling, Google Sites for website design, and detailed sketching—to build prototypes, online product pages, and prototype blueprints with high school specialists.",
+          "description": "In Session 4, students brought their Fish Tank ideas to life through hands-on creation. After the \"Personal Brand Soul Train\" icebreaker, they split into three creative tracks (Tinkercad for 3D modeling, Google Sites for website design, and detailed sketching) to build prototypes, online product pages, and prototype blueprints with high school specialists.",
           "speaker": {
             "name": "Lindsey Fleischhauer",
             "role": "Co-Founder at Totes Babies",
@@ -226,7 +233,7 @@
             "name": "Mary Gibson",
             "role": "Naperville Park District President",
             "topic": "Campaigning Your Company",
-            "bio": "As the city's Park District President, she connected big data, emotion, and politics, showing students how running a campaign is just like marketing a business—where authentic, consistent storytelling turns voters and customers into true supporters!",
+            "bio": "As the city's Park District President, she connected big data, emotion, and politics, showing students how running a campaign is just like marketing a business, where authentic, consistent storytelling turns voters and customers into true supporters!",
             "image": "/camp_imgs/speakers/marygibson.jpeg"
           },
           "speaker2": null,
@@ -243,7 +250,7 @@
           "title": "Business Planning & Leadership",
           "date": "July 18th, 2025",
           "location": "95th Street Library, Naperville",
-          "description": "In Session 6, students finalized their Fish Tank ideas, outlining full business plans from problem to profit. After hearing advice from Mayor Scott Wehrli and City Finance Director Raymond Munch, they spent the afternoon polishing slides, scripts, and prototypes—and celebrating their progress with prizes like Keller's Farmstead passes, a DuPage Children's Museum family pass, a DuPage Forest Preserve gift card, and a Gourmet Gift Baskets gift card.",
+          "description": "In Session 6, students finalized their Fish Tank ideas, outlining full business plans from problem to profit. After hearing advice from Mayor Scott Wehrli and City Finance Director Raymond Munch, they spent the afternoon polishing slides, scripts, and prototypes, and celebrated their progress with prizes like Keller's Farmstead passes, a DuPage Children's Museum family pass, a DuPage Forest Preserve gift card, and a Gourmet Gift Baskets gift card.",
           "speaker": {
             "name": "Scott Wehrli",
             "role": "Mayor of Naperville",
@@ -280,7 +287,7 @@
             "/camp_imgs/2025/session7/session7b.jpg",
             "/camp_imgs/2025/session7/session7c.jpg",
             "/camp_imgs/2025/session7/session7d.jpg",
-            "/camp_imgs/2025/session7/session7e.jpg"
+            "/camp_imgs/2025/session7/session7e.JPG"
           ]
         }
       ]
@@ -316,7 +323,7 @@
             "name": "Isha Elandassery",
             "role": "Entrepreneur & Finance Educator",
             "topic": "Money Moves & Smart Decisions",
-            "bio": "Bringing finance to life through real-world scenarios, she showed students how smart money decisions fuel entrepreneurship — from startup auctions to Shark Tank-style deal analysis, she made every dollar a lesson in strategy.",
+            "bio": "Bringing finance to life through real-world scenarios, she showed students how smart money decisions fuel entrepreneurship. From startup auctions to Shark Tank-style deal analysis, she made every dollar a lesson in strategy.",
             "image": "/camp_imgs/speakers/isha_elandassery.jpg"
           },
           "speaker2": null,

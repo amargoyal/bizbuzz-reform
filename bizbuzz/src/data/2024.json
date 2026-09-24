@@ -96,16 +96,17 @@
     {
       "id": "fish-tank-2024",
       "kind": "fish-tank",
-      "title": "Fish Tank 2024 Finals",
+      "title": "Fish Tank 2024",
       "dateISO": "2024-07-24",
       "venue": "College of DuPage, Glen Ellyn",
-      "attendance": 100,
-      "description": "Two-day pitch event where young entrepreneurs pitch innovative ideas, receive expert feedback, and compete for resources to turn their business concepts into reality. Over 100 competitors, 30+ mentors, and 11 judges.",
+      "attendance": 80,
+      "description": "Two-day pitch event where young entrepreneurs pitch innovative ideas, receive expert feedback, and compete for resources to turn their business concepts into reality. 80+ competitors, 30+ mentors, and 11 judges.",
       "images": [
         "/fish_tank/1.jpg",
         "/fish_tank/2.jpg",
         "/fish_tank/3.jpg"
-      ]
+      ],
+      "endISO": "2024-07-25"
     },
     {
       "id": "workshop-madison",
@@ -184,7 +185,7 @@
       "dateISO": "2024-05-21",
       "venue": "Scott Elementary School, Naperville",
       "attendance": 135,
-      "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses\u2014even as kids.",
+      "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses, even as kids.",
       "images": [
         "/workshops/se/1.png",
         "/workshops/se/2.png",
@@ -220,8 +221,9 @@
     {
       "id": "t5",
       "dateISO": "2024-07-24",
-      "label": "Fish Tank 2024 Finals",
-      "detail": "100+ students compete at College of DuPage in two-day pitch competition."
+      "label": "Fish Tank 2024",
+      "detail": "80+ students compete at College of DuPage in a two-day pitch competition.",
+      "endISO": "2024-07-25"
     },
     {
       "id": "t6",
@@ -263,12 +265,12 @@
   "partners": [
     {
       "name": "College of DuPage",
-      "logo": "/schools/college-of-dupage.png",
+      "logo": null,
       "href": "https://cod.edu"
     },
     {
       "name": "Naperville Public Libraries",
-      "logo": "/schools/naperville-central.png"
+      "logo": null
     },
     {
       "name": "Madison Junior High",
@@ -285,7 +287,6 @@
     "/camp_imgs/landing/left.jpg",
     "/camp_imgs/landing/center.jpg",
     "/camp_imgs/landing/right.jpg",
-    "/workshops/dcbf/1.jpg",
     "/workshops/be/1.png",
     "/image_gallery/1.jpg",
     "/image_gallery/2.jpg"

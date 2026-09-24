@@ -1,10 +1,12 @@
+// Portraits live in public/team. Steven, Arnav, Ethan and Aiden have no photo
+// file yet, so their cards show initials.
 export const PEOPLE = {
   coFounders: [
     {
       image: "/team/Allen.png",
       name: "Allen Xu",
       role: "President & Co-Founder",
-      description: "Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
+      description: "Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav, alongside other EdTech platforms, to help students like him find their ideas and the courage to share them."
     },
     {
       image: "/team/Aarav.png",
@@ -24,7 +26,6 @@ export const PEOPLE = {
       description: "Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
     },
     {
-      image: "/team/Steven.png",
       name: "Steven He",
       role: "Vice President",
       description: "Steven combines his engineering background with entrepreneurial vision to mentor young innovators. His creative approach to problem-solving and project-based learning helps students develop practical skills while exploring their own business ideas and building confidence through hands-on experience."
@@ -37,20 +38,17 @@ export const PEOPLE = {
       description: "Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
     },
     {
-      image: "/team/Arnav.png",
       name: "Arnav Sharma",
       role: "Executive Director & CTO",
       description: "Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts.",
       customPosition: "40% center"
     },
     {
-      image: "/team/Ethan.png",
       name: "Ethan Brock",
       role: "Chief Technology Officer",
       description: "Ethan specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences for students."
     },
     {
-      image: "/team/Aiden.png",
       name: "Aiden Xie",
       role: "Chief Technology Officer",
       description: "Aiden builds the infrastructure that powers BizBuzz's digital presence. His software development skills support scalable programs and user-friendly tools for students and families."
@@ -88,11 +86,9 @@ export const PEOPLE = {
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
-      image: "/team/Elizabeth.jpeg",
+      image: "/team/Elizabeth-portrait.jpg",
       name: "Elizabeth Gao",
       role: "Leadership Team",
-      customImageStyle: { transform: "scale(2.2)", transformOrigin: "center 20%" },
-      customPosition: "center 60%",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
@@ -118,7 +114,7 @@ export const PEOPLE = {
       name: "Allen Xu",
       role: "Co-Founder",
       customPosition: "center 10%",
-      description: "Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
+      description: "Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav, alongside other EdTech platforms, to help students like him find their ideas and the courage to share them."
     },
     {
       image: "/team/Aarav.png",
@@ -131,7 +127,7 @@ export const PEOPLE = {
       image: "/team/Taksh.png",
       name: "Taksh Taware",
       role: "President",
-      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. He is the founder of Venture Lab and Demo Day, two of BizBuzz's most impactful programs that give students real hands-on experience building and pitching their ideas. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level.",
+      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. He is the founder of VentureLab and Demo Day, two of BizBuzz's most impactful programs that give students real hands-on experience building and pitching their ideas. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level.",
       customPosition: "center 15%"
     },
   ],
@@ -165,11 +161,9 @@ export const PEOPLE = {
       description: "Abby manages the financial side of BizBuzz, overseeing budgeting and resource allocation to keep programs sustainable and growing. She is passionate about financial literacy and believes that understanding money is one of the most important skills a young entrepreneur can have."
     },
     {
-      image: "/team/Elizabeth.jpeg",
+      image: "/team/Elizabeth-portrait.jpg",
       name: "Elizabeth Gao",
       role: "Executive Director",
-      customImageStyle: { transform: "scale(2.2)", transformOrigin: "center 20%" },
-      customPosition: "center 60%",
       description: "Elizabeth helps drive the overall direction of BizBuzz as Executive Director, working across teams to make sure programs are well-coordinated and student-focused. She is deeply committed to expanding access to entrepreneurship education and plays a key role in keeping BizBuzz growing year over year."
     },
   ],

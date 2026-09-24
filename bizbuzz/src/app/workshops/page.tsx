@@ -1,313 +1,254 @@
-import PageSections from "@/components/site/PageSections";
-import { WORKSHOP_PARTICIPATION, WORKSHOP_STUDENTS } from "@/data/impact";
-import workshopArchive from "@/data/workshops.json";
-import ArchiveGallery from "@/components/archive/ArchiveGallery";
-import Image from "next/image";
-import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Eyebrow, Stat } from "@/components/ds/Card";
-import { CountUp, Parallax } from "@/components/ds/motion";
-import SiteFooter from "@/components/site/SiteFooter";
-import SiteHeader from "@/components/site/SiteHeader";
-import { LINKS } from "@/lib/site";
+import type { Metadata } from "next";
+import { Button, GoLink } from "@/components/ui/Button";
+import { Facts } from "@/components/ui/Facts";
+import { Gallery } from "@/components/ui/Gallery";
+import { PageHero } from "@/components/ui/PageHero";
+import { Photo } from "@/components/ui/Photo";
+import { Scoreboard } from "@/components/ui/Scoreboard";
+import workshops from "@/data/workshops.json";
+import { cleanDate } from "@/lib/format";
+import { CONTACT_EMAIL, LINKS } from "@/lib/site";
+import "./workshops.css";
+import { pageMetadata } from "@/lib/metadata";
 
-const MODULES = [
+export const metadata: Metadata = pageMetadata({
+  title: "Workshops",
+  description:
+    "Hands-on business workshops for elementary and middle school students, covering idea generation, marketing, budgeting, and pitching. Free for schools, business fairs, and learning centers.",
+  path: "/workshops",
+});
+
+type Workshop = (typeof workshops)[number];
+
+const FORMATS = [
   {
-    length: "45–60 min",
-    title: "Find the problem",
-    blurb: "The Bug-Me List: students collect everyday annoyances, then pick one worth solving.",
+    title: "School talks",
+    text: "A single visit that shows students how creative ideas can turn into real businesses, even as kids.",
+    examples: ["scott", "crone"],
   },
   {
-    length: "45–60 min",
-    title: "Price it",
-    blurb: "Cost, price and profit taught through games rather than worksheets.",
+    title: "Workshop series",
+    text: "Two to four sessions on business basics that can end in a pitch night for parents and guest judges.",
+    examples: ["brookdale", "bestbrains"],
   },
   {
-    length: "60–90 min",
-    title: "Prototype it",
-    blurb: "Sketches, mockups and cardboard. Students build a rough first version and test it on each other.",
+    title: "Business fair prep",
+    text: "Workshops that get students ready to sell their products at a children's business fair, covering ideation, marketing, and finance.",
+    examples: ["naperville", "dupage"],
   },
   {
-    length: "30–45 min",
-    title: "Pitch it",
-    blurb: "Structure, delivery and nerve. Everyone presents, everyone gets feedback.",
+    title: "Mentorship programs",
+    text: "A semester-long program that adds new worksheets, slides, and activities to a school's existing curriculum.",
+    examples: ["madison"],
+  },
+  {
+    title: "Judging and fair support",
+    text: "BizBuzz staff judge and support young entrepreneurs at local business fairs.",
+    examples: ["naperville2025"],
   },
 ];
 
-const WORKSHOPS = [
-  { id: "naperville2026", title: "2026 Naperville Children's Business Fair", date: "2026", location: "Naperville, IL", description: "100+ students participated in the 2026 Naperville Children's Business Fair.", sessions: [], images: [] },
-  ...workshopArchive,
-];
-
-const IMAGERY = [
-  { src: "/image_gallery/Sessions.jpg", alt: "A BizBuzz workshop session in progress", depth: 0.3, offset: "0px" },
-  {
-    src: "/image_gallery/Group.jpg",
-    alt: "Workshop students with their instructors",
-    depth: 0.8,
-    offset: "clamp(16px, 3vw, 44px)",
-  },
-  { src: "/image_gallery/4.jpg", alt: "Students presenting at a business fair", depth: 0.15, offset: "0px" },
-];
+function sessionParts(s: string) {
+  const [name, date] = s.split(" | ");
+  return { name, date: date ? cleanDate(date) : "" };
+}
 
 export default function WorkshopsPage() {
+  const byId = Object.fromEntries(workshops.map((w) => [w.id, w])) as Record<string, Workshop>;
+  const sessionCount = workshops.reduce((n, w) => n + w.sessions.length, 0);
+
   return (
     <>
-      <SiteHeader cta="Book a workshop" ctaHref={LINKS.workshopEmail} />
+      <PageHero
+        title="Workshops"
+        lead={
+          <>
+            <p>
+              Hands-on business lessons at your school or community event, with online workshops available too.
+              Students develop ideas and learn the basics of marketing and finance.
+            </p>
+            <p className="muted">Free for elementary and middle schools, business fairs, and learning centers.</p>
+          </>
+        }
+        actions={
+          <>
+            <Button href={LINKS.workshopEmail} icon="mail">
+              Request a workshop
+            </Button>
+            <GoLink href="#history">Past workshops</GoLink>
+          </>
+        }
+        media={
+          <Photo
+            src="/workshops/be/3.png"
+            alt="Elementary students presenting during a Mini Fish Tank activity in their school library"
+            caption="A Mini Fish Tank activity at Brookdale Elementary, fall 2024."
+            ratio="4 / 3"
+            sizes="(max-width: 900px) 100vw, 40vw"
+            priority
+          />
+        }
+        facts={
+          <>
+            <Facts
+              items={[
+                { label: "For", value: "Elementary and middle school students" },
+                { label: "Topics", value: "Idea generation, marketing, budgeting, and pitching" },
+                { label: "Where", value: "Schools, business fairs, learning centers, and online" },
+                { label: "Cost", value: "Free" },
+              ]}
+            />
+            <Scoreboard
+              label="Workshops so far"
+              items={[
+                { value: String(workshops.length), label: "workshops" },
+                { value: String(sessionCount), label: "total sessions" },
+                { value: "710", label: "students taught" },
+              ]}
+            />
+            <p className="small muted mt-4">
+              Totals from May 2024 to August 2025. In 2026, BizBuzz also worked with 100+ young entrepreneurs at the
+              Naperville Children&apos;s Business Fair.
+            </p>
+          </>
+        }
+      />
 
-      <main id="main-content" tabIndex={-1}>
-      {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-8)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h1 className="bb-display-1" style={{ maxWidth: "17ch" }}>
-                We bring the camp <span className="bb-brand-text">to your school</span>
-              </h1>
-              <Eyebrow>Workshops</Eyebrow>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                A condensed version of our curriculum, run in elementary schools, at business fairs and in community
-                centers. Free, and we travel to you.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "var(--space-7)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Button href={LINKS.workshopEmail} size="lg">
-                  Request a workshop
-                </Button>
-                <ArrowCTA href="#history">See where we have been</ArrowCTA>
-              </div>
-            </div>
+      {/* ------------------------------------------------------------ Formats */}
+      <section className="section" id="formats" aria-labelledby="formats-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="formats-title">What we can bring</h2>
+            <p>
+              Hosted at schools like Brookdale Elementary and Madison Junior High, fairs such as the Naperville and DuPage
+              Children&apos;s Business Fairs, and learning centers like Best Brains.
+            </p>
           </div>
-        </div>
-      </section>
-      <PageSections links={[{ href: "#curriculum", label: "What we teach" }, { href: "#history", label: "Past workshops" }, { href: "#request", label: "Request a workshop" }]} />
-
-      {/* ----------------------------------------------------------- Proof */}
-      <section style={{ paddingBlock: "var(--section-y-tight) var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
-            gap: "var(--space-9) var(--space-8)",
-          }}
-        >
-          <div>
-            <Stat value={<CountUp to={WORKSHOP_STUDENTS} suffix="+" />} label="workshop and fair participation" note="since May 2024" />
-          </div>
-          <div>
-            <Stat value={<CountUp to={WORKSHOP_PARTICIPATION.length} />} label="workshop and fair programs" />
-          </div>
-          <div>
-            <Stat value={<CountUp to={3} />} label="seasons of programming" />
-          </div>
-          <div>
-            <Stat value={<CountUp to={0} prefix="$" />} label="charged to any school" note="always free" />
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- What we cover */}
-      <section id="curriculum" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
-        <div
-          className="bb-row-12"
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-            gap: "var(--grid-gap)",
-            alignItems: "start",
-          }}
-        >
-          <div style={{ gridColumn: "span 5" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
-                  Design, prototype, and pitch
-                </h2>
-                <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  One session or a series. We shape it around your schedule, your grade levels and the time you
-                  have.
-                </p>
-                <div style={{ paddingTop: "var(--space-3)" }}>
-                  <ArrowCTA href={LINKS.workshopEmail}>Talk to us about dates</ArrowCTA>
+          <ul className="formats">
+            {FORMATS.map((f) => (
+              <li key={f.title}>
+                <h3>{f.title}</h3>
+                <p className="formats__text">{f.text}</p>
+                <div className="formats__examples">
+                  <p>Past examples</p>
+                  <ul>
+                    {f.examples.map((id) => (
+                      <li key={id}>
+                        <a href={`#${id}`}>{byId[id].title}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div style={{ gridColumn: "7 / span 6" }}>
-            <div>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
-                  gap: "var(--grid-gap)",
-                  alignItems: "stretch",
-                }}
-              >
-                {MODULES.map((m) => (
-                  <Card key={m.title} pad="var(--space-8)">
-                    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                      <p className="bb-meta">{m.length}</p>
-                      <h3 className="bb-display-4">{m.title}</h3>
-                      <p className="bb-body-sm" style={{ color: "var(--text-muted)" }}>
-                        {m.blurb}
-                      </p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------------- History */}
-      <section id="history" style={{ paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-10)",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "var(--space-8)",
-                alignItems: "flex-end",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  Workshops and community events
-                </h2>
-                <Eyebrow>Every workshop so far</Eyebrow>
-              </div>
-              <p className="bb-body" style={{ maxWidth: "32ch", color: "var(--text-muted)" }}>
-                Newest first, going back to the first talk in May 2024.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {WORKSHOPS.map((w) => (
-              <div key={w.title}>
-                <div
-                  className="bb-rowlist"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "minmax(0, 1.1fr) minmax(0, 1fr) auto",
-                    gap: "var(--space-8)",
-                    alignItems: "baseline",
-                    paddingBlock: "var(--space-8)",
-                    borderTop: "1px solid var(--border-hairline)",
-                  }}
-                >
-                  <div>
-                    <h3 className="bb-display-4">{w.title}</h3>
-                    <details className="bb-details">
-                      <summary>Program details</summary>
-                      <p className="bb-body">{w.description}</p>
-                      <ul>{w.sessions.map((session) => <li key={session}>{session}</li>)}</ul>
-                      <ArchiveGallery images={w.images} title={w.title} />
-                    </details>
-                  </div>
-                  <p className="bb-meta">{w.date}</p>
-                  <p className="bb-caption">{w.location}</p>
-                </div>
-              </div>
+              </li>
             ))}
-            <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* --------------------------------------------------------- Imagery */}
-      <section style={{ paddingBlock: "0 var(--section-y)" }}>
-        <div
-          className="bb-mosaic-3"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "clamp(8px, 1vw, 16px)",
-            paddingInline: "clamp(8px, 1vw, 16px)",
-          }}
-        >
-          {IMAGERY.map((m) => (
-            <Parallax key={m.src} depth={m.depth}>
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: "var(--radius-lg)",
-                  overflow: "hidden",
-                  aspectRatio: "4 / 3",
-                  marginTop: m.offset,
-                }}
-              >
-                <Image src={m.src} alt={m.alt} fill sizes="(max-width: 720px) 50vw, 33vw" style={{ objectFit: "cover" }} />
-              </div>
-            </Parallax>
-          ))}
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------- CTA */}
-      <section id="request"
-        className="bb-on-blue"
-        style={{ paddingBlock: "var(--section-y)" }}
-      >
-        <div
-          style={{
-            maxWidth: "var(--container-narrow)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            textAlign: "center",
-          }}
-        >
+      {/* ------------------------------------------------------------ Request */}
+      <section className="section section--navy" id="request" aria-labelledby="request-title">
+        <div className="container request">
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
-                Bring BizBuzz to your school
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "50ch" }}>
-                Tell us your grade levels, how long you have, and roughly when. We will build the session around it.
-                No cost, no catch.
-              </p>
-              <Button href={LINKS.workshopEmail} size="lg">
-                Email bizbuzznfp@gmail.com
+            <h2 id="request-title">Bring BizBuzz to your school</h2>
+            <p className="lead mt-6">
+              Email us and tell us a little about your group. We will reply to plan a format and dates that work for you.
+            </p>
+          </div>
+          <div className="request__list">
+            <p className="request__label">Helpful to include</p>
+            <ul>
+              <li>Your school or organization</li>
+              <li>Grade levels and about how many students</li>
+              <li>Dates or weeks that could work</li>
+              <li>Whether you want a single talk, a series, or help before a business fair</li>
+            </ul>
+            <div className="actions">
+              <Button href={LINKS.workshopEmail} icon="mail">
+                Email {CONTACT_EMAIL}
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      </main>
-      <SiteFooter />
+      {/* ------------------------------------------------------------ History */}
+      <section className="section" id="history" aria-labelledby="history-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="history-title">Every workshop since May 2024</h2>
+            <p>
+              {workshops.length} workshops and {sessionCount} sessions from May 2024 to August 2025, plus the 2026 Naperville
+              Children&apos;s Business Fair. Newest first, with sessions and photos.
+            </p>
+          </div>
+          <ol className="workshop-list">
+            <li className="workshop" id="naperville2026">
+              <div className="workshop__head">
+                <p className="workshop__date">2026</p>
+                <h3>2026 Naperville Children&apos;s Business Fair</h3>
+                <p className="workshop__place">Naperville, IL</p>
+              </div>
+              <div className="workshop__body">
+                <p>100+ students took part in the 2026 Naperville Children&apos;s Business Fair.</p>
+              </div>
+            </li>
+            {workshops.map((w) => (
+              <li className="workshop" id={w.id} key={w.id}>
+                <div className="workshop__head">
+                  <p className="workshop__date">{cleanDate(w.date).replace(" to ", " – ")}</p>
+                  <h3>{w.title}</h3>
+                  <p className="workshop__place">{w.location}</p>
+                </div>
+                <div className="workshop__body">
+                  <p>{w.description}</p>
+                  {w.sessions.length > 1 && (
+                    <ol className="workshop__sessions">
+                      {w.sessions.map((s) => {
+                        const { name, date } = sessionParts(s);
+                        return (
+                          <li key={s}>
+                            <span>{name}</span>
+                            <span className="muted">{date}</span>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  )}
+                  {w.images.length > 0 && (
+                    <Gallery
+                      images={w.images.map((src, i) => ({
+                        src,
+                        alt: `${w.title}, photo ${i + 1}`,
+                        caption: `${w.title}, ${cleanDate(w.date)}.`,
+                      }))}
+                      label={`${w.title} photos`}
+                      limit={4}
+                      thumb={140}
+                      className="workshop__photos"
+                      sizes="(max-width: 700px) 25vw, 200px"
+                    />
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section section--paper" aria-labelledby="cta-title">
+        <div className="container cta-band">
+          <h2 id="cta-title">Planning a business fair or a class unit?</h2>
+          <div>
+            <p className="lead">We can help students come up with an idea, price it, market it, and pitch it.</p>
+            <div className="actions">
+              <Button href={LINKS.workshopEmail} icon="mail">
+                Request a workshop
+              </Button>
+              <GoLink href="/camps">Summer camp</GoLink>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

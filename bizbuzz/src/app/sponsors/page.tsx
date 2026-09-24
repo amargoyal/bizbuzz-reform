@@ -1,319 +1,237 @@
-import PageSections from "@/components/site/PageSections";
-import { IMPACT, FUNDING_SUMMARY, SUPPORTERS } from "@/data/impact";
-import SponsorDirectory from "@/components/sponsors/SponsorDirectory";
-import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Eyebrow, Stat } from "@/components/ds/Card";
-import { CountUp } from "@/components/ds/motion";
-import SiteFooter from "@/components/site/SiteFooter";
-import SiteHeader from "@/components/site/SiteHeader";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Button, GoLink } from "@/components/ui/Button";
+import { PageHero } from "@/components/ui/PageHero";
+import { FUNDING_SUMMARY, IMPACT, SUPPORTERS } from "@/data/impact";
+import sponsors from "@/data/sponsors.json";
+import { initials, money } from "@/lib/format";
 import { CONTACT_EMAIL, LINKS } from "@/lib/site";
+import "./sponsors.css";
+import { pageMetadata } from "@/lib/metadata";
 
-const TIER_CARDS = [
+export const metadata: Metadata = pageMetadata({
+  title: "Our Sponsors",
+  description:
+    "The businesses and individuals funding free youth entrepreneurship programs at BizBuzz NFP. See every sponsor since 2024 and learn how to join them.",
+  path: "/sponsors",
+});
+
+type Sponsor = (typeof sponsors)[number] & { date?: string };
+type TierKey = "gold" | "silver" | "bronze";
+
+const TIERS: { key: TierKey; label: string; range: string; min: number; perks: string[] }[] = [
   {
+    key: "bronze",
     label: "Bronze",
     range: "Under $250",
-    tone: "card" as const,
-    cta: "Become a Bronze sponsor",
-    href: `mailto:${CONTACT_EMAIL}?subject=Bronze%20sponsorship`,
-    perks: [
-      "Distribution of your promotional materials at our events.",
-      "A feature on the BizBuzz website.",
-    ],
+    min: 0,
+    perks: ["Distribution of your promotional materials at our events", "A feature on the BizBuzz website"],
   },
   {
+    key: "silver",
     label: "Silver",
-    range: "$250 – $999",
-    tone: "card" as const,
-    cta: "Become a Silver sponsor",
-    href: `mailto:${CONTACT_EMAIL}?subject=Silver%20sponsorship`,
-    perks: [
-      "Everything in Bronze.",
-      "A speaking opportunity at Fish Tank.",
-      "An invitation to our picnic.",
-    ],
+    range: "$250 to $999",
+    min: 250,
+    perks: ["Everything in Bronze", "A speaking opportunity at Fish Tank", "An invitation to our picnic"],
   },
   {
+    key: "gold",
     label: "Gold",
     range: "$1,000 and above",
-    tone: "accent" as const,
-    cta: "Become a Gold sponsor",
-    href: `mailto:${CONTACT_EMAIL}?subject=Gold%20sponsorship`,
+    min: 1000,
     perks: [
-      "Everything in Silver.",
-      "A booth at the Fish Tank competition.",
-      "Recognition on the following year's BizBuzz shirt.",
+      "Everything in Silver",
+      "A booth at the Fish Tank competition",
+      "T-shirt recognition on the following year's BizBuzz shirt",
     ],
   },
 ];
 
+/** Logos that show a brand other than the sponsor's own name. */
+const LOGO_ALT: Record<string, string> = {
+  "/sponsors/hirenpatel.png": "Dunkin' logo",
+};
 
+function tierOf(amount: number): TierKey {
+  if (amount >= 1000) return "gold";
+  if (amount >= 250) return "silver";
+  return "bronze";
+}
+
+const byTier = (key: TierKey) =>
+  (sponsors as Sponsor[])
+    .filter((s) => tierOf(s.amount) === key)
+    .sort((a, b) => b.amount - a.amount || b.year.localeCompare(a.year));
+
+const tierEmail = (label: string) => `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Sponsorship Inquiry (${label})`)}`;
+
+function SponsorItem({ s }: { s: Sponsor }) {
+  return (
+    <li className="sponsor">
+      <div className="sponsor__logo">
+        {s.logo ? (
+          <Image src={s.logo} alt={LOGO_ALT[s.logo] ?? `${s.name} logo`} fill sizes="80px" />
+        ) : (
+          <span aria-hidden="true">{initials(s.name)}</span>
+        )}
+      </div>
+      <div className="sponsor__body">
+        <h4>{s.name}</h4>
+        <p className="sponsor__meta">
+          <span className="num sponsor__amount">{money(s.amount)}</span>
+          <span>{s.date ?? s.year}</span>
+        </p>
+        <p className="sponsor__desc">{s.description}</p>
+      </div>
+    </li>
+  );
+}
 
 export default function SponsorsPage() {
+  const total = FUNDING_SUMMARY[0];
+  const rest = FUNDING_SUMMARY.slice(1);
+  const descending = [...TIERS].reverse();
+
   return (
     <>
-      <SiteHeader cta="Become a sponsor" ctaHref={LINKS.sponsorEmail} />
-
-      <main id="main-content" tabIndex={-1}>
-      {/* ------------------------------------------------------------ Hero */}
-      <section id="support" style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-8)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h1 className="bb-display-1" style={{ maxWidth: "17ch" }}>
-                Help keep every program free
-              </h1>
-              <Eyebrow>Sponsors</Eyebrow>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Local businesses, families and foundations have funded three seasons of camps,
-                workshops and Fish Tank. No student has ever paid a cent.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "var(--space-7)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Button href={LINKS.sponsorEmail} size="lg">
-                  Sponsor a session
-                </Button>
-                <ArrowCTA href="#tiers">See the tiers</ArrowCTA>
-              </div>
+      <PageHero
+        title="Keep every program free"
+        lead={
+          <p>
+            Your support pays for camp materials, competitions, and student programs. Together, our sponsors
+            make it possible for every family to take part for free.
+          </p>
+        }
+        actions={
+          <>
+            <Button href={LINKS.sponsorEmail} icon="mail">
+              Become a sponsor
+            </Button>
+            <GoLink href="#perks">Sponsorship options</GoLink>
+          </>
+        }
+        media={
+          <dl className="raised" aria-label="Community support since 2024">
+            <div className="raised__total">
+              <dt>
+                {total.label}
+                <span className="muted"> from {IMPACT.partners} organizations since 2024</span>
+              </dt>
+              <dd className="num">{total.value}</dd>
             </div>
-          </div>
-        </div>
-      </section>
-      <PageSections links={[{ href: "#support", label: "Community support" }, { href: "#sponsors", label: "Sponsor directory" }, { href: "#tiers", label: "Sponsorship options" }]} />
-
-      {/* ----------------------------------------------------------- Proof */}
-      <section style={{ paddingBlock: "var(--section-y-tight) var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
-            gap: "var(--space-9) var(--space-8)",
-          }}
-        >
-          <div>
-            <Stat value={<CountUp to={IMPACT.partners} />} label="community partners and supporters" />
-          </div>
-          <div>
-            <Stat
-              value={<CountUp to={250} prefix="$" />}
-              label="Silver sponsorship starts here"
-              note="Bronze contributions are under $250"
-            />
-          </div>
-          <div>
-            <Stat
-              value={<CountUp to={1000} prefix="$" />}
-              label="Gold sponsorship starts here"
-              note="includes all Silver benefits"
-            />
-          </div>
-          <div>
-            <Stat
-              value={<CountUp to={IMPACT.students} suffix="+" />}
-              label="students funded so far"
-              note="camps, competitions and workshops"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bb-content-section" style={{ paddingTop: 0 }}>
-        <div className="bb-content-stack">
-          <h2 className="bb-display-2">Community support</h2>
-          <div className="bb-data-grid">
-            {FUNDING_SUMMARY.map((stat) => (
-              <Stat key={stat.label} value={stat.value} label={stat.label} note={"helper" in stat ? stat.helper : undefined} />
+            {rest.map((f) => (
+              <div key={f.label}>
+                <dt>{f.label}</dt>
+                <dd className="num">{f.value}</dd>
+              </div>
             ))}
+          </dl>
+        }
+      />
+
+      {/* --------------------------------------------------------------- Perks */}
+      <section className="section" id="perks" aria-labelledby="perks-title">
+        <span id="tiers" className="anchor" aria-hidden="true" />
+        <div className="container">
+          <div className="sh">
+            <h2 id="perks-title">Sponsorship tiers</h2>
+            <p>Support the programs that help students build and pitch their first business. We recognize each contribution through the benefits below.</p>
           </div>
-          <details className="bb-details">
-            <summary>All 51 community partners and supporters</summary>
-            <ul className="bb-directory">
-              {SUPPORTERS.map((name) => <li key={name}>{name}</li>)}
-            </ul>
-          </details>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- Sponsor wall */}
-      <section id="sponsors" style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-12)",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                Meet our sponsors
-              </h2>
-            </div>
-          </div>
-
-          <SponsorDirectory />
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------------- Tiers */}
-      <section id="tiers" style={{ paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-11)",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-7)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h2 className="bb-display-2" style={{ maxWidth: "20ch" }}>
-                Choose your level of support
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "50ch", color: "var(--text-muted)" }}>
-                Sponsorship supports free entrepreneurship programs. Explore the recognition and opportunities included at each level.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-                gap: "var(--grid-gap)",
-                alignItems: "stretch",
-              }}
-            >
-              {TIER_CARDS.map((c) => (
-                <Card key={c.label} pad="var(--space-10)" tone={c.tone}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)", height: "100%" }}>
-                    <div>
-                      <span className="bb-meta">{c.label}</span>
-                    </div>
-                    <p className="bb-display-3">{c.range}</p>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                      {c.perks.map((perk) => (
-                        <p
-                          key={perk}
-                          className="bb-body-sm"
-                          style={{
-                            color: "var(--text-muted)",
-                            borderTop: "1px solid var(--border-hairline)",
-                            paddingTop: "var(--space-5)",
-                          }}
-                        >
-                          {perk}
-                        </p>
-                      ))}
-                    </div>
-                    <div style={{ marginTop: "auto", paddingTop: "var(--space-7)" }}>
-                      <ArrowCTA href={c.href}>{c.cta}</ArrowCTA>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------- Ask */}
-      <section className="bb-on-ink" style={{ background: "var(--surface-inverse)", paddingBlock: "var(--section-y)" }}>
-        <div
-          className="bb-row-12"
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-            gap: "var(--grid-gap)",
-            alignItems: "center",
-          }}
-        >
-          <div style={{ gridColumn: "span 6" }}>
-            <div>
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "flex-start" }}
-              >
-                <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  Help the next student get started.
-                </h2>
-                <p className="bb-lead">
-                  Tell us how you would like to help. Our team can discuss sponsorship options and current program needs with you.
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-7)", alignItems: "center" }}>
-                  <Button href={LINKS.sponsorEmail} size="lg">
-                    Email us about sponsoring
+          <ol className="tiers">
+            {TIERS.map((t) => {
+              const count = byTier(t.key).length;
+              return (
+                <li key={t.key} className="tier">
+                  <h3>{t.label}</h3>
+                  <p className="tier__range num">{t.range}</p>
+                  <ul className="tier__perks">
+                    {t.perks.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  <p className="tier__count">
+                    <a href={`#${t.key}`}>
+                      {count} {t.label} {count === 1 ? "contribution" : "contributions"} so far
+                    </a>
+                  </p>
+                  <Button href={tierEmail(t.label)} variant={t.key === "gold" ? "primary" : "outline"} icon="mail" block>
+                    Become a {t.label} sponsor
                   </Button>
-                  <ArrowCTA tone="inverse" href="/about">
-                    Read about BizBuzz
-                  </ArrowCTA>
-                </div>
-              </div>
-            </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------ Sponsors */}
+      <section className="section section--paper" id="sponsors" aria-labelledby="sponsors-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="sponsors-title">Every sponsor since 2024</h2>
+            <p>
+              {sponsors.length} contributions from local businesses, national companies, nonprofits, and individuals, listed
+              by tier and then by amount.
+            </p>
           </div>
-          <div style={{ gridColumn: "8 / span 5" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {FUNDING_SUMMARY.map((b) => (
-                  <div
-                    key={b.label}
-                    style={{
-                      display: "flex",
-                      gap: "var(--space-7)",
-                      alignItems: "baseline",
-                      justifyContent: "space-between",
-                      paddingBlock: "var(--space-7)",
-                      borderTop: "1px solid var(--border-hairline)",
-                    }}
-                  >
-                    <p className="bb-body">{b.label}</p>
-                    <p className="bb-display-4" style={{ flex: "0 0 auto" }}>
-                      {b.value}
-                    </p>
-                  </div>
-                ))}
-                <div style={{ borderTop: "1px solid var(--border-hairline)" }} />
-              </div>
+          {descending.map((t) => {
+            const list = byTier(t.key);
+            if (!list.length) return null;
+            return (
+              <section key={t.key} id={t.key} className={`tier-list tier-list--${t.key}`} aria-labelledby={`${t.key}-title`}>
+                <header className="tier-list__head">
+                  <h3 id={`${t.key}-title`}>{t.label}</h3>
+                  <p>
+                    {t.range} · {list.length} {list.length === 1 ? "contribution" : "contributions"}
+                  </p>
+                </header>
+                <ul className="sponsor-list">
+                  {list.map((s) => (
+                    <SponsorItem key={`${s.name}-${s.year}`} s={s} />
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------- Supporters */}
+      <section className="section" id="supporters" aria-labelledby="supporters-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="supporters-title">{SUPPORTERS.length} partners and supporters</h2>
+            <p>
+              Financial contributions and in-kind resources from these organizations and people empower BizBuzz to stay
+              student-led and cost-free.
+            </p>
+          </div>
+          <ul className="supporters">
+            {[...SUPPORTERS].sort((a, b) => a.localeCompare(b)).map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- CTA */}
+      <section className="section section--navy" aria-labelledby="join-title">
+        <div className="container cta-band">
+          <h2 id="join-title">Join them.</h2>
+          <div>
+            <p className="lead">
+              Your sponsorship directly funds entrepreneurship education for elementary and middle school students across
+              Chicagoland. Reach out to learn about partnership opportunities.
+            </p>
+            <div className="actions">
+              <Button href={LINKS.sponsorEmail} icon="mail">
+                Become a sponsor
+              </Button>
+              <GoLink href="/about#impact">See our impact</GoLink>
             </div>
           </div>
         </div>
       </section>
-
-      </main>
-      <SiteFooter />
     </>
   );
 }

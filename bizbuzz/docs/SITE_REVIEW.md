@@ -1,6 +1,76 @@
-# Site review — September 14, 2026
+# Site review
 
-## Scope and visual direction
+## September 23, 2026: v3 rebuild
+
+This rebuild replaces the earlier v3 pages and the September 6 design direction.
+The notes further down describe that earlier work and are kept for history.
+
+### What changed
+
+- New design: Big Shoulders for headings and numbers, Figtree for text, colors
+  sampled from the logo, ruled lists instead of shadowed cards, and real photos
+  with who, where, and when captions. See [DESIGN.md](DESIGN.md).
+- One page per camp season (`/camps/2024` to `/camps/2026`) and per Fish Tank
+  (`/fish-tank/2024` to `/fish-tank/2026`), linked from the `/camps` and
+  `/fish-tank` hubs. Main's old addresses redirect to the matching page.
+- Every page was rebuilt: home, camps, Fish Tank, workshops, office hours and
+  FAQs, about, sponsors, seasons, and a new 404 page.
+- Each page has its own link preview, and the sitemap lists every season page.
+
+### Content parity with main
+
+- Six audit passes compared main's source and rendered pages with the rebuild,
+  then a final rendered-text comparison of all routes (with disclosures, tabs,
+  and photo viewers opened) found no missing facts beyond deliberate changes.
+- Restored from main during the rebuild: the full mission, all six news stories
+  with both NCTV17 videos, the TPI photo, link, and funding claim, the 2025
+  leadership team with photos, Eddie Yoon's session, the 2024 judge photos,
+  judge panel descriptions, per-tier sponsor counts, the College of DuPage
+  link, workshop totals (8 workshops, 18 sessions, 710 students), the office
+  hours rules word for word, and photos that only appeared on main.
+- An independent review compared about 250 facts with main and checked every
+  page for internal contradictions; its findings were fixed.
+
+### Deliberate changes to confirm
+
+- Fish Tank 2024 shows 80+ competitors (main said both 100+ and 80).
+- 2025 prizes read "the top five split $750", matching the five listed prizes
+  (main's 2025 page said "Top 4 winners awarded $750+").
+- TPI is described as a KidsMatter program, as on main's sponsors page (main's
+  About page called it a national 501(c)(3)).
+- The station is named Naperville Community Television (NCTV17).
+- Removed images: the Daily Herald sign (it is the Provo, Utah paper) and an
+  NCTV17 "Donate Today" card.
+- Past registration forms and `github.com/bizbuzz` are not linked.
+- Office hours say the team confirms each booking, as the calendar requires.
+
+### Open questions from the data
+
+- Scott Elementary: 135 or 145 students? 2024 NCBF workshops: 50 or 45?
+- 2026 VentureLab grades: 6 to 9 (v3's 2026 data) or 6 to 8 (v3's 2027 data)?
+- 2026 Session 3: June 19 (main) or June 26 (a slide in a June 12 photo)?
+- Fish Tank 2026 at Benedictine University comes only from main's page description.
+- Co-founder bios still say "is a junior"; Elite Tutoring "every year since
+  2024" has no 2025 record; Office Furniture Solutions is not in the 51
+  supporters; listed contributions total $11,750 against $12,487 monetary.
+
+### Verification
+
+- `next build` and ESLint pass; all 14 routes return 200, the 404 page returns
+  404, and all 11 old addresses redirect to the right place.
+- No sideways scrolling at 390, 820, or 1440 pixels on any route.
+- axe-core (WCAG 2.1 A and AA plus best practices) reports no violations on
+  any route with every disclosure open. One `h1` and one `main` per page, no
+  heading skips, no missing anchor targets, no broken internal links.
+- Keyboard and interaction checks: mobile menu (Escape returns focus), nav
+  menus, photo viewer (arrows, End, Escape, focus return), FAQ search and empty
+  state, booking format switch, camp track tabs, and old `#year` links.
+- Cal.com is blocked in the build environment, so the live calendar was not
+  loaded here; its loading, slow, and failed states were tested.
+
+## September 14, 2026 (earlier v3 design)
+
+### Scope and visual direction
 
 Reviewed Home, Camps, Fish Tank, Workshops, Office Hours & FAQs, About, Sponsors, and Seasons, including their lower sections and archives. Two independent initial assessments informed the changes. Follow-up browser checks covered desktop and a 390 × 844 mobile viewport, navigation, archive selectors, galleries, FAQs, and booking calendars.
 
@@ -8,7 +78,7 @@ Preserved the existing Reform identity: blue, yellow and navy; Figtree typograph
 
 References were the current [BizBuzz website](https://bizbuzz.it/) and its source, [Junior Achievement USA](https://jausa.ja.org/), and [NFTE](https://nfte.com/). The professional references informed clear audience pathways, visible program details, evidence of impact, and straightforward ways to get involved. No reference organization's copy or claims were imported.
 
-## Content reconciliation
+### Content reconciliation
 
 - Restored the current team biographies and roles, including Amar's vice president role.
 - Restored all 21 dated sponsor contributions, their descriptions, amounts and recognition tiers. The complete 51-member supporter directory remains available.
@@ -21,7 +91,7 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 - Matched sponsorship benefits to production. Removed unsupported itemized program costs and promises of personalized sponsor reporting from the redesign copy.
 - Restored the production canonical domain and conditional Vercel analytics. Preview assets retain the GitHub Pages path prefix.
 
-## Route-by-route findings and changes
+### Route-by-route findings and changes
 
 | Surface | Finding | Result |
 | --- | --- | --- |
@@ -37,7 +107,7 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 | Shared layout | Fixed grid minima caused horizontal overflow at phone widths. | Responsive minima across the site; all eight reviewed routes fit the mobile viewport. |
 | Error and motion states | Missing pages offered no useful onward path; motion lacked explicit controls. | A branded missing-page screen, useful program links, pause/resume buttons, reduced-motion support and improved focus behavior in the pinned program section. |
 
-## Verification
+### Verification
 
 - ESLint and Next.js type validation passed.
 - Both the GitHub Pages static export and the production Next.js build passed on Next.js 15.5.25.
@@ -47,7 +117,7 @@ References were the current [BizBuzz website](https://bizbuzz.it/) and its sourc
 - All eight production routes returned HTTP 200, and all ten configured legacy redirects returned the expected permanent redirect and destination.
 - The design detector reported no findings. This is an automated check, not a substitute for the visual review.
 
-## Practical limits
+### Practical limits
 
 External Google Forms and Cal.com remain owned by their existing providers. Their original destinations are preserved; no registration or booking was submitted during this review. The calendar now requests a light theme, verified in the final browser check. Direct calendar and email links provide a fallback if the embed cannot load.
 

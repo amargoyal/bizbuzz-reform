@@ -1,14 +1,15 @@
 # BizBuzz NFP Website
 
-Official website for BizBuzz NFP — turning imagination into innovation via social
-entrepreneurship. Next.js 15 App Router, TypeScript, and a hand-rolled design system.
+Official website for BizBuzz NFP, turning imagination into innovation via social
+entrepreneurship. Next.js 15 App Router, React 19, TypeScript, and hand-written CSS.
 
 ## Getting started
 
 ```bash
 npm install
 npm run dev     # http://localhost:3000
-npm run build   # production build + type check + lint
+npm run build   # production build with type check
+npm run lint    # ESLint
 npm start       # serve the production build
 ```
 
@@ -18,48 +19,43 @@ Node 18+.
 
 | Route | What it is |
 | --- | --- |
-| `/` | Home — hero mosaic, proof stats, pinned program panels, season rail, school marquee, press |
-| `/camps` | Summer camp, with a year switcher. `#2024`–`#2027` deep-link to a season |
-| `/fish-tank` | The pitch competition, with a year switcher. `#2024`–`#2026` |
-| `/workshops` | School and business-fair workshops, plus the full delivery history |
-| `/office-hours` | Cal.com booking embed, office-hours policy, and the FAQ accordion |
-| `/about` | Story, leadership, instructors, press, and the TPI grant |
-| `/sponsors` | Sponsor wall by tier, sponsorship tiers, and the cost breakdown |
-| `/seasons` | The archive: every season with the numbers as they landed |
+| `/` | Home: the four free programs, Fish Tank 2025 winners, the team, totals, past summers, news, schools, and sponsors |
+| `/camps` | Summer camp: how it works, the schedule, guest speakers, and past camps |
+| `/camps/2024` to `/camps/2026` | One page per camp season, with every session, speaker, and photo |
+| `/fish-tank` | The pitch competition: how it works, divisions, prizes, past competitions, FAQs |
+| `/fish-tank/2024` to `/fish-tank/2026` | One page per competition, with winners, judges, and photos |
+| `/workshops` | Workshop formats, how to request one, and every workshop since May 2024 |
+| `/office-hours` | Booking rules, the Cal.com calendar (online or in person), and searchable FAQs |
+| `/about` | Mission, impact, schools, the team, and news coverage |
+| `/sponsors` | Money raised, sponsorship tiers, every contribution by tier, and all supporters |
+| `/seasons` | Every season side by side, with timelines, programs, stories, and photos |
 
-Old routes (`/camps-2025`, `/fish-tank-2024`, `/sessions`, `/years/*`) redirect
-permanently in `next.config.mjs`.
+Old addresses redirect in `next.config.mjs`: `/camps-2024` to `/camps/2024` (and
+2025, 2026), `/camps-2027` to `/camps`, `/fish-tank-2024` to `/fish-tank/2024`
+(and 2025, 2026), `/sessions` to `/office-hours`, `/years` to `/seasons`, and
+`/years/2025` to `/seasons#2025`.
 
-## Design system
+## Design
 
-Everything visual comes from one place — no utility-class framework.
+See [docs/DESIGN.md](docs/DESIGN.md). In short: Big Shoulders for headings and
+numbers, Figtree for text, colors sampled from the logo, ruled lists instead of
+cards, and real photos with real captions.
 
-- **`src/app/globals.css`** — the whole token set (color, type, spacing, shape,
-  motion) plus the `.bb-*` type and layout roles. Pages use CSS custom properties
-  (`var(--space-8)`, `var(--surface-card)`) rather than hard-coded values.
-- **`src/components/ds/`** — the primitives those tokens dress:
-  `Button`/`ArrowCTA`, `Card`/`Chip`/`Eyebrow`/`Stat`, `MediaCard`/`Testimonial`,
-  `NavBar`/`Tabs`/`Footer`, and the motion set (`Reveal`, `Parallax`, `ScrollRail`,
-  `Marquee`, `CountUp`, `DrawArrow`, `DrawUnderline`).
-- **`src/components/site/`** — the header and footer every page mounts. Only the
-  header CTA differs page to page.
-
-Three surfaces carry the brand: a warm cream canvas, a buzz-yellow band
-(`.bb-on-buzz`), and a deep ink band (`.bb-on-ink`). Adding a fourth background
-family is the one thing not to do.
-
-Type is Newsreader (editorial serif), Figtree (sans), and JetBrains Mono (data
-labels), all loaded via `next/font` in `src/app/layout.tsx`.
+- `src/app/globals.css` holds the tokens (color, type, spacing) and the shared
+  layout and component styles, in CSS cascade layers.
+- Each route has its own CSS file next to its `page.tsx` for page-only styles.
+- `src/components/ui/` has the shared building blocks; `src/components/site/`
+  has the header and footer.
 
 ## Content
 
-Page copy and lists live as typed constants at the top of each `page.tsx`. Shared
-links, nav, footer columns and the Cal.com event slugs live in `src/lib/site.ts` —
-change a registration form or an email address there and every page follows.
-
-Images live in `public/`. Every photographic slot is a fixed-ratio box with a
-`next/image` `fill` inside it, so new images need a `sizes` hint but no dimensions.
+- `src/lib/site.ts`: registration links, emails, navigation, footer, Cal.com
+  links, and the current camp and Fish Tank status. Change the 2027 status or a
+  form link here and every page follows.
+- `src/data/`: camps, Fish Tank, workshops, seasons, team, sponsors, press,
+  FAQs, schools, and the all-time totals in `impact.ts`.
+- `public/`: photos and logos.
 
 ## Deployment
 
-Vercel. Push to `main` and it ships.
+Vercel. Pushing to `main` deploys the live site; other branches get preview URLs.

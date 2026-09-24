@@ -1,314 +1,246 @@
-import PageSections from "@/components/site/PageSections";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Card, Eyebrow } from "@/components/ds/Card";
-import { MediaCard, Testimonial } from "@/components/ds/MediaCard";
-import { Parallax } from "@/components/ds/motion";
-import FishTankYears, { type FishTankYear } from "@/components/fish-tank/FishTankYears";
-import SiteFooter from "@/components/site/SiteFooter";
-import SiteHeader from "@/components/site/SiteHeader";
-import { CONTACT_EMAIL, LINKS } from "@/lib/site";
+import Link from "next/link";
+import { Button, GoLink } from "@/components/ui/Button";
+import { Disclosure } from "@/components/ui/Disclosure";
+import { Facts } from "@/components/ui/Facts";
+import { PageHero } from "@/components/ui/PageHero";
+import { Photo } from "@/components/ui/Photo";
+import { Status } from "@/components/ui/Status";
+import { PrizeChecks } from "@/components/fish-tank/PrizeChecks";
+import { YearHashRedirect } from "@/components/site/YearHashRedirect";
+import { FAQS } from "@/data/faqs";
+import { FISH_TANK_HERO, FISH_TANK_YEARS } from "@/data/fishTank";
+import { CURRENT, LINKS } from "@/lib/site";
+import "./fish-tank.css";
+import { pageMetadata } from "@/lib/metadata";
 
-const YEARS: FishTankYear[] = [
+export const metadata: Metadata = pageMetadata({
+  title: "Fish Tank",
+  description:
+    "Fish Tank is the BizBuzz pitch competition for 3rd to 9th grade students in the Chicagoland area. Students pitch a business to real judges and compete for prize money.",
+  path: "/fish-tank",
+});
+
+const STEPS = [
   {
-    year: "2026",
-    venue: "2026 season",
-    headline: "The year the tank split in two",
-    summary:
-      "Fish Tank 2026 ran two separate tracks so every young entrepreneur competed against peers at their level. A beginner-friendly KidPreneur division and a rigorous VentureLab division, both on the same stage.",
-    stats: [
-      { value: "100", label: "competitors" },
-      { value: "2", label: "divisions" },
-      { value: "Free", label: "to enter" },
-      { value: "3–9", label: "grades" },
-    ],
-    image: "/fish_tank/2025/images/hero-celebration.jpg",
-    alt: "Fish Tank competitors celebrating",
-    chips: ["KidPreneur", "VentureLab"],
+    title: "Register and form a team",
+    body: "Compete on your own or with a small team, and register. Define your business concept, conduct market research, and develop both a marketing and financial plan.",
   },
   {
-    year: "2025",
-    venue: "Benedictine University",
-    headline: "70 competitors at Benedictine University",
-    summary:
-      "Our second annual pitch competition, hosted at Benedictine University, where 70 young entrepreneurs competed for funding, mentorship and resources to launch their businesses. Students pitched to business owners, investors and community leaders.",
-    stats: [
-      { value: "70", label: "competitors" },
-      { value: "11", label: "judges" },
-      { value: "5", label: "placed" },
-    ],
-    image: "/fish_tank/2025/images/gallery-stage.jpg",
-    alt: "The Fish Tank 2025 stage at Benedictine University",
-    chips: ["Benedictine University", "70 competitors"],
+    title: "Prepare with a mentor",
+    body: "Every Fish Tank participant attends at least 1 hour of office hours per week leading up to the competition. This is mandatory, so every team shows up ready.",
   },
   {
-    year: "2024",
-    venue: "College of DuPage",
-    headline: "The inaugural Fish Tank",
-    summary:
-      "Our first pitch competition, at College of DuPage, where 100+ young entrepreneurs competed for $750 in prizes, mentorship, and resources to launch their businesses. Garrett Hauk took the inaugural championship.",
-    stats: [
-      { value: "100+", label: "competitors" },
-      { value: "11", label: "judges" },
-      { value: "$750", label: "in prizes" },
-    ],
-    image: "/fish_tank/overall.jpg",
-    alt: "The inaugural Fish Tank at College of DuPage",
-    chips: ["College of DuPage", "$750 in prizes"],
+    title: "Preliminary round",
+    body: "Present your business to a panel of high school business leaders, including DECA state officers and international finalists. Pitches run 5 minutes, followed by questions. The top 12 teams advance.",
+  },
+  {
+    title: "Final round",
+    body: "Pitch your polished idea to a panel of business owners, industry leaders, and government leaders. The top five teams win prize money to help launch their businesses.",
+  },
+  {
+    title: "After Fish Tank",
+    body: "Every participant keeps access to BizBuzz camp resources, detailed feedback from the judges, and contact information for our high school judging panel. Support does not stop after the pitch.",
   },
 ];
 
-const HERO_MOSAIC = [
-  {
-    src: "/fish_tank/2025/images/gallery-pitching.jpg",
-    alt: "A student mid-pitch at Fish Tank",
-    depth: 0.3,
-    offset: "0px",
-  },
-  {
-    src: "/fish_tank/2025/images/hero-judges.jpg",
-    alt: "The Fish Tank judging panel",
-    depth: 0.85,
-    offset: "clamp(20px, 3vw, 56px)",
-  },
-  {
-    src: "/fish_tank/2025/images/gallery-trophy.jpg",
-    alt: "Winners holding the Fish Tank trophy",
-    depth: 0.2,
-    offset: "0px",
-  },
-];
-
-const GALLERY = [
-  { src: "/fish_tank/2025/images/gallery-stage.jpg", alt: "On stage" },
-  { src: "/fish_tank/2025/images/gallery-audience.jpg", alt: "The audience" },
-  { src: "/fish_tank/2025/images/gallery-awards.jpg", alt: "Awards" },
-  { src: "/fish_tank/2025/images/gallery-mentors.jpg", alt: "Mentors" },
-  { src: "/fish_tank/2025/images/gallery-pitching.jpg", alt: "Pitching" },
-  { src: "/fish_tank/2025/images/gallery-trophy.jpg", alt: "The trophy" },
-];
+const FT_FAQ_IDS = ["what-is-fish-tank", "fish-tank-without-camp", "divisions", "fish-tank-sign-up", "free"];
 
 export default function FishTankPage() {
+  const faqs = FT_FAQ_IDS.map((id) => FAQS.find((f) => f.id === id)!).filter(Boolean);
+  const y2025 = FISH_TANK_YEARS.find((y) => y.year === 2025)!;
+  const y2024 = FISH_TANK_YEARS.find((y) => y.year === 2024)!;
+
   return (
     <>
-      <SiteHeader cta="Enter Fish Tank" ctaHref={LINKS.fishTankEntry} />
+      <YearHashRedirect base="/fish-tank" years={FISH_TANK_YEARS.map((y) => y.year)} />
+      <PageHero
+        status={<Status tone="soon">Fish Tank {CURRENT.fishTankYear}: dates to be announced</Status>}
+        title="Fish Tank"
+        lead={
+          <>
+            <p>
+              A pitch competition for students in grades 3–9 across Chicagoland, inspired by Shark Tank.
+              Bring your business idea, present it to the judges, and answer their questions.
+            </p>
+            <p className="muted">It is free to enter, and you do not have to attend camp to compete.</p>
+          </>
+        }
+        actions={
+          <>
+            <Button href={LINKS.fishTankEmail} icon="mail">
+              Get Fish Tank {CURRENT.fishTankYear} updates
+            </Button>
+            <GoLink href="#how-it-works">How it works</GoLink>
+          </>
+        }
+        media={
+          <Photo
+            src="/fish_tank/2025/images/gallery-pitching.jpg"
+            alt="A student demonstrating a block-tower product during a Fish Tank pitch"
+            caption="A live demo during a Fish Tank 2025 pitch."
+            ratio="4 / 3"
+            sizes="(max-width: 900px) 100vw, 40vw"
+            priority
+          />
+        }
+        facts={
+          <Facts
+            items={[
+              { label: "Who", value: "Grades 3 to 9" },
+              { label: "Teams", value: "Solo or a small team" },
+              { label: "Pitch", value: "5 minutes plus questions" },
+              { label: "Prizes", value: "$750 for the top five" },
+              { label: "Cost", value: "Free" },
+            ]}
+          />
+        }
+      />
 
-      <main id="main-content" tabIndex={-1}>
-      {/* ------------------------------------------------------------ Hero */}
-      <section style={{ paddingBlock: "clamp(56px, 7vw, 96px) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-8)",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <h1 className="bb-display-1" style={{ maxWidth: "16ch" }}>
-                <span className="bb-brand-text">Pitch it</span> to a room of real judges
-              </h1>
-              <Eyebrow>Fish Tank</Eyebrow>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Our flagship competition. Two divisions, a stage, and a panel of founders, investors and community
-                leaders. You do not have to attend camp to compete.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "var(--space-7)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Button href={LINKS.fishTankEntry} size="lg" target="_blank" rel="noopener noreferrer">
-                  Enter Fish Tank
-                </Button>
-                <ArrowCTA href="/office-hours">Book pitch office hours</ArrowCTA>
-              </div>
-            </div>
+      {/* ----------------------------------------------------------- How it works */}
+      <section className="section" id="how-it-works" aria-labelledby="how-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="how-title">How it works</h2>
+            <p>
+              Fish Tank runs in two rounds after camp. This is how the 2024 and 2025 competitions worked. The{" "}
+              {CURRENT.fishTankYear} details will be posted here when they are set.
+            </p>
           </div>
-        </div>
-
-        <div
-          className="bb-mosaic-3"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "clamp(8px, 1vw, 16px)",
-            padding: "clamp(40px, 6vw, 80px) clamp(8px, 1vw, 16px) 0",
-          }}
-        >
-          {HERO_MOSAIC.map((m, i) => (
-            <Parallax key={m.src} depth={m.depth}>
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: "var(--radius-lg)",
-                  overflow: "hidden",
-                  aspectRatio: "4 / 5",
-                  marginTop: m.offset,
-                }}
-              >
-                <Image
-                  src={m.src}
-                  alt={m.alt}
-                  fill
-                  sizes="(max-width: 720px) 50vw, 33vw"
-                  priority={i < 2}
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </Parallax>
-          ))}
-        </div>
-      </section>
-      <PageSections links={[{ href: "#divisions", label: "Divisions" }, { href: "#season-archive", label: "Past competitions" }]} />
-
-      {/* ------------------------------------------------------- Divisions */}
-      <section id="divisions" style={{ paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-11)",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "18ch" }}>
-                Find your competition division
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "52ch", color: "var(--text-muted)" }}>
-                Every entrant competes against peers at their own level, so a fourth grader is never pitching
-                against a ninth grader.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-                gap: "var(--grid-gap)",
-                alignItems: "stretch",
-              }}
-            >
-              <Card pad="var(--space-10)">
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-meta">Grades 3–6 · KidPreneur division</p>
-                  <h3 className="bb-display-3">KidPreneur division</h3>
-                  <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    Built for our youngest entrepreneurs. Students pitch their business ideas in a supportive,
-                    beginner-friendly format designed to build confidence and creativity rather than nerves.
-                  </p>
+          <ol className="steps">
+            {STEPS.map((s, n) => (
+              <li key={s.title} className="step">
+                <p className="step__n num" aria-hidden="true">
+                  {n + 1}
+                </p>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
                 </div>
-              </Card>
-              <Card pad="var(--space-10)">
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                  <p className="bb-meta">Grades 6–9 · VentureLab division</p>
-                  <h3 className="bb-display-3">VentureLab division</h3>
-                  <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                    For students ready to develop and present a more advanced business idea. A more rigorous pitch format,
-                    deeper feedback from judges, and higher stakes as competitors go head to head.
-                  </p>
-                </div>
-              </Card>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-
-      <FishTankYears years={YEARS} initialYear="2026" />
-
-      {/* --------------------------------------------------------- Gallery */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}>
-        <div
-          style={{ maxWidth: "var(--container)", margin: "0 auto var(--space-11)", paddingInline: "var(--gutter)" }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", alignItems: "center" }}>
-              <h3 className="bb-display-2" style={{ maxWidth: "20ch", textAlign: "center" }}>
-                A real stage, a real audience
-              </h3>
-            </div>
+      {/* -------------------------------------------------------------- Divisions */}
+      <section className="section section--paper" id="divisions" aria-labelledby="divisions-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="divisions-title">Two divisions</h2>
+            <p>Since 2026, every student competes against peers at their own level.</p>
           </div>
-        </div>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
-            gap: "var(--grid-gap)",
-          }}
-        >
-          {GALLERY.map((g) => (
-            <div key={g.alt}>
-              <MediaCard ratio="1 / 1" src={g.src} alt={g.alt} meta={g.alt} sizes="(max-width: 900px) 50vw, 25vw" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------------- Quote */}
-      <section style={{ paddingBlock: "var(--section-y)" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <Testimonial
-              quote="This year, we came back bigger than ever, with more students, more mentors, and an incredible lineup of guest speakers."
-              name="BizBuzz on NCTV17 Spotlight"
-              detail="On the second annual Fish Tank at Benedictine University"
-              tag="Fish Tank 2025"
-              imageSrc="/fish_tank/2025/images/gallery-group.jpg"
-              imageAlt="The Fish Tank 2025 group photo"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------- CTA */}
-      <section
-        className="bb-on-neutral"
-        style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y)" }}
-      >
-        <div
-          style={{
-            maxWidth: "var(--container-narrow)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            textAlign: "center",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
-                You do not need to attend camp to compete
-              </h2>
-              <p className="bb-lead" style={{ maxWidth: "50ch" }}>
-                Fish Tank is open to all eligible students. Bring friends who are not in the program. Teams are
-                encouraged. Every entrant attends at least one hour of office hours a week beforehand.
+          <ul className="divisions">
+            <li>
+              <h3>KidPreneur division</h3>
+              <p className="divisions__for">KidPreneur students, or grades 3 to 6</p>
+              <p>
+                Built for our youngest entrepreneurs. Students pitch their business ideas in a supportive, beginner-friendly
+                environment designed to build confidence and creativity.
               </p>
-              <Button href={LINKS.fishTankEntry} size="lg" target="_blank" rel="noopener noreferrer">
-                Enroll for Fish Tank
+            </li>
+            <li>
+              <h3>VentureLab division</h3>
+              <p className="divisions__for">VentureLab students, or grades 6 to 9</p>
+              <p>
+                For students who went through the full VentureLab experience. A more rigorous pitch format, deeper feedback
+                from judges, and higher stakes as competitors go head to head.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- Prizes */}
+      <section className="section" id="prizes" aria-labelledby="prizes-title">
+        <div className="container prizes">
+          <div className="prizes__text">
+            <h2 id="prizes-title">$750 in prize money</h2>
+            <p className="lead">
+              In 2024 and 2025 the top five teams split $750 to help launch their businesses, each presented on a giant
+              check.
+            </p>
+            <p>
+              Every participant gets detailed feedback from the high school judges, and finalists also get feedback from
+              the professional panel. All participants gain access to year-round support and resources to keep building.
+            </p>
+          </div>
+          <PrizeChecks years="2024 and 2025" />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------- Past years */}
+      <section className="section section--navy" id="past" aria-labelledby="past-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="past-title">Past competitions</h2>
+            <p>Winners, judges, and photos from 2024 and 2025, and the two divisions of 2026.</p>
+          </div>
+          <ul className="ft-past">
+            {FISH_TANK_YEARS.map((y) => {
+              const winner = y.winners[0];
+              const hero = FISH_TANK_HERO[y.year];
+              return (
+                <li key={y.year}>
+                  <Link href={`/fish-tank/${y.year}`} className="ft-past__link">
+                    <span className="ft-past__photo">
+                      <Image src={winner?.image ?? hero.src} alt="" fill sizes="(max-width: 900px) 100vw, 30vw" style={{ objectPosition: "50% 30%" }} />
+                    </span>
+                    <span className="ft-past__year num">{y.year}</span>
+                    <span className="ft-past__title">{y.meta.venue ? `${y.meta.venue.replace(" Goodwin Hall of Business", "")}` : y.meta.edition}</span>
+                    <span className="ft-past__meta">
+                      {y.meta.dates}
+                      {winner ? ` · Winner: ${winner.project}` : ` · ${y.meta.stats.map((s) => `${s.value} ${s.label}`).join(", ")}`}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="ft-past__note">
+            Winners so far: {y2024.winners[0].project} ({y2024.winners[0].team}, 2024) and {y2025.winners[0].project} (
+            {y2025.winners[0].team}, 2025).
+          </p>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------------- FAQ */}
+      <section className="section" id="faq" aria-labelledby="faq-title">
+        <div className="container faq-block">
+          <div className="faq-block__head">
+            <h2 id="faq-title">Questions about Fish Tank</h2>
+            <GoLink href="/office-hours#faqs">All FAQs</GoLink>
+          </div>
+          <div className="faq-block__list">
+            {faqs.map((f) => (
+              <Disclosure key={f.id} summary={f.q} name="ft-faq">
+                {f.a.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </Disclosure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--paper" aria-labelledby="ready-title">
+        <div className="container cta-band">
+          <h2 id="ready-title">Want to pitch in {CURRENT.fishTankYear}?</h2>
+          <div>
+            <p className="lead">
+              Start at camp, or come with a business you are already building. Email us and we will tell you when Fish Tank
+              registration opens.
+            </p>
+            <div className="actions">
+              <Button href={LINKS.fishTankEmail} icon="mail">
+                Email us about Fish Tank
               </Button>
-              <p className="bb-caption">Questions? {CONTACT_EMAIL}</p>
+              <GoLink href="/camps">Summer camp {CURRENT.campYear}</GoLink>
             </div>
           </div>
         </div>
       </section>
-
-      </main>
-      <SiteFooter />
     </>
   );
 }

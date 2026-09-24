@@ -1,428 +1,201 @@
-import { IMPACT, WORKSHOP_STUDENTS } from "@/data/impact";
 import Image from "next/image";
-import { ArrowCTA, Button } from "@/components/ds/Button";
-import { Eyebrow, Stat } from "@/components/ds/Card";
-import { CountUp, Marquee, ScrollRail } from "@/components/ds/motion";
-import HomeHero from "@/components/home/HomeHero";
-import ProgramPanels, { type ProgramPanel } from "@/components/home/ProgramPanels";
-import SiteFooter from "@/components/site/SiteFooter";
-import SiteHeader from "@/components/site/SiteHeader";
-import { LINKS } from "@/lib/site";
+import { Button, GoLink } from "@/components/ui/Button";
+import { Photo } from "@/components/ui/Photo";
+import { Status } from "@/components/ui/Status";
+import fishTank from "@/data/fish-tank.json";
+import { IMPACT } from "@/data/impact";
+import { PRESS } from "@/data/press";
+import { money } from "@/lib/format";
+import { CURRENT, LINKS } from "@/lib/site";
+import "./home.css";
 
-const SCHOOLS = [
-  "Naperville North",
-  "Naperville Central",
-  "Madison",
-  "Scullen",
-  "Kennedy",
-  "Crone",
-  "Springbrook",
-  "Lincoln",
-  "Beebe",
-  "Gregory",
-  "Jefferson",
-  "Granger",
-  "Still",
-  "Neuqua Valley",
-  "Waubonsie Valley",
-  "Avery Coonley",
-  "Twin Groves",
-  "Margaret Mead",
-  "Bednarcik",
-  "Homer",
-  "Summit Hill",
-  "Heritage Grove",
-  "Lake Zurich North",
-  "Calvary",
-  "Cass",
-].map((name) => ({
-  name,
-  src: `/schools/${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`,
-}));
-
-const PROGRAMS: ProgramPanel[] = [
-  {
-    title: "Summer Camp",
-    audience: "New to business · Grades 3–8",
-    blurb:
-      "Six sessions across six weeks. Ideation, finance, marketing, prototyping, speaking, and a mock pitch.",
-    chips: ["6 sessions", "KidPreneur + VentureLab"],
-    linkLabel: "Explore the camp",
-    href: "/camps",
-    bg: "/camp_imgs/2026/session3kp/session3kpb.jpg",
-    bgAlt: "Students working on a marketing and prototyping activity",
-  },
-  {
-    title: "Fish Tank",
-    audience: "Ready to pitch · Two divisions",
-    blurb:
-      "Our pitch competition. Two divisions, real judges, and prizes for the businesses students actually built.",
-    chips: ["Business leaders judging", "Prizes for student businesses"],
-    linkLabel: "See Fish Tank",
-    href: "/fish-tank",
-    bg: "/fish_tank/2025/images/hero-stage.jpg",
-    bgAlt: "The Fish Tank stage at Benedictine University",
-  },
-  {
-    title: "Workshops",
-    audience: "For schools and business fairs",
-    blurb:
-      "Condensed curriculum brought to elementary schools, business fairs and community centers. We travel to you.",
-    chips: ["School talks and business fairs", `${WORKSHOP_STUDENTS}+ students`, "We come to your school"],
-    linkLabel: "Book a workshop",
-    href: "/workshops",
-    bg: "/image_gallery/Sessions.jpg",
-    bgAlt: "A BizBuzz workshop in progress",
-  },
-  {
-    title: "1:1 Mentorship",
-    audience: "For feedback on an idea",
-    blurb: "Office hours for business incubation, feedback on your idea, and pitch practice before Fish Tank.",
-    chips: ["Online or in person", "Naperville libraries"],
-    linkLabel: "Request a session",
-    href: "/office-hours",
-    bg: "/camp_imgs/2026/session5vl/session5vlc.jpg",
-    bgAlt: "Students working with a BizBuzz instructor",
-  },
+const PROGRAMS = [
+  { id: "camp", name: "Summer camp", audience: "Grades 3–8", description: "Develop a business idea, learn how to budget and market it, and practice your pitch.", label: "Explore camp", href: "/camps" },
+  { id: "fish-tank", name: "Fish Tank", audience: "Grades 3–9", description: "Present your business to a panel of judges in our annual pitch competition. You can enter without attending camp.", label: "Explore Fish Tank", href: "/fish-tank" },
+  { id: "workshops", name: "Workshops", audience: "Schools & community groups", description: "Bring hands-on business lessons to your school, business fair, or learning center.", label: "Explore workshops", href: "/workshops" },
+  { id: "office-hours", name: "Office hours", audience: "Students with an idea", description: "Work through a business question, catch up on a lesson, or get feedback from a mentor.", label: "Find a mentoring session", href: "/office-hours" },
 ];
 
-const SEASONS = [
-  {
-    year: "2024",
-    title: "The first summer",
-    blurb:
-      "Six weeks, seven guest speakers, and an inaugural Fish Tank at College of DuPage where 80 students competed for $750.",
-    image: "/hero_imgs/2.jpg",
-    alt: "The first BizBuzz camp cohort in 2024",
-    chips: ["110 students", "6 sessions", "$750 in prizes"],
-  },
-  {
-    year: "2025",
-    title: "Bigger stage",
-    blurb:
-      "Seven sessions, 120 students, and Fish Tank at Benedictine University with a Shark Tank alum and the Mayor of Naperville judging.",
-    image: "/fish_tank/2025/images/gallery-stage.jpg",
-    alt: "Fish Tank 2025 at Benedictine University",
-    chips: ["120 students", "7 sessions", "10 judges"],
-  },
-  {
-    year: "2026",
-    title: "Two tracks",
-    blurb:
-      "KidPreneur and VentureLab ran in parallel. Same six weeks, two levels, two separate Fish Tank divisions.",
-    image: "/camp_imgs/2026/session4vl/session4vla.jpg",
-    alt: "VentureLab students in a 2026 session",
-    chips: ["KidPreneur", "VentureLab", "2 divisions"],
-  },
-  {
-    year: "2027",
-    title: "Registration open",
-    blurb: "Next summer's camp is open now. Free, in Naperville, grades 3–8, and seats are limited.",
-    image: "/camp_imgs/landing/center.jpg",
-    alt: "Students collaborating at a BizBuzz session",
-    chips: ["Register free", "Grades 3–8", "Limited seats"],
-  },
+const HIGHLIGHTS = [
+  { value: `${IMPACT.students.toLocaleString("en-US")}+`, label: "students taught" },
+  { value: String(IMPACT.schools), label: "schools represented" },
+  { value: String(IMPACT.officeHours), label: "hours of mentoring" },
 ];
 
-const PRESS = [
-  {
-    meta: "NCTV17 Spotlight · 2025",
-    headline: "BizBuzz Turns Imagination into Innovation",
-    href: "https://www.nctv17.org/spotlight/bizbuzz-turns-imagination-into-innovation/",
-    image: "/news/bizbuzz-spotlight-interview.jpg",
-    outlet: "NCTV17",
-  },
-  {
-    meta: "NCTV17 News · 2024",
-    headline: "Naperville North Juniors Hold Youth Entrepreneurship Camp for Students",
-    href: "https://www.nctv17.org/news/naperville-north-juniors-hold-youth-entrepreneurship-camp-for-students/",
-    image: "/news/nctv-students-2024.jpg",
-    outlet: "NCTV17",
-  },
-  {
-    meta: "We Love Naperville · 2024",
-    headline: "Inaugural BizBuzz Camp for Kid Entrepreneurs",
-    href: "https://welovenaperville.co/article/inaugural-bizbuzz-camp-for-kid-entrepreneurs",
-    image: "/news/welovenaperville-2024.jpg",
-    outlet: "We Love Naperville",
-  },
+const SPONSOR_LOGOS = [
+  { name: "Hiren Patel", logo: "/sponsors/hirenpatel.png" },
+  { name: "Right Choice Dental Care", logo: "/sponsors/rightchoicedentalcare.png" },
+  { name: "AT&T", logo: "/sponsors/att.png" },
+  { name: "Kabat American", logo: "/sponsors/kabatamerican.jpg" },
+  { name: "Midwest Badminton", logo: "/sponsors/midwestbadminton.png" },
+  { name: "Teen Philanthropy Initiative", logo: "/sponsors/teenphilanthropyinstitute.png" },
 ];
 
 export default function HomePage() {
+  const champion = fishTank["2025"].winners[0];
+  const press = PRESS.filter((p) => p.link).slice(0, 3);
+
   return (
     <>
-      <SiteHeader />
-
-      <main id="main-content" tabIndex={-1}>
-      <HomeHero />
-      <ProgramPanels programs={PROGRAMS} />
-
-      {/* ----------------------------------------------------------- Proof */}
-      <section style={{ paddingBlock: "var(--section-y)" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
-              gap: "var(--space-9) var(--space-8)",
-            }}
-          >
-            <div>
-              <Stat
-                value={<CountUp to={IMPACT.students} suffix="+" />}
-                label="students taught"
-                note="across camps, competitions and workshops"
-              />
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="container home-hero__grid">
+          <div className="home-hero__intro">
+            <h1 id="home-title">Build your first business.</h1>
+            <p className="lead">Free entrepreneurship programs for students in Naperville, taught by high school students.</p>
+            <div className="home-hero__registration">
+              <Button href={LINKS.campRegistration}>Register for {CURRENT.campYear} camp</Button>
+              <p>Grades 3–8 · Dates and venue to be announced</p>
             </div>
-            <div>
-              <Stat value={<CountUp to={IMPACT.schools} />} label="schools across Chicagoland" />
-            </div>
-            <div>
-              <Stat
-                value={<CountUp to={IMPACT.funding} prefix="$" suffix="+" />}
-                label="raised by our community"
-                note="51 community partners"
-              />
-            </div>
-            <div>
-              <Stat
-                value={<CountUp to={IMPACT.sessions} />}
-                label="camp and workshop sessions"
-                note="always free"
-              />
-            </div>
+            <GoLink href="#programs">Find your program</GoLink>
           </div>
+          <Photo
+            className="home-hero__photo"
+            src="/camp_imgs/landing/center.jpg"
+            alt="Campers raising their hands to answer a question at a 2024 camp session"
+            caption="Ideas start here. Summer camp, 2024."
+            ratio="5 / 4"
+            sizes="(max-width: 800px) 100vw, 55vw"
+            priority
+          />
+        </div>
+        <div className="container home-hero__note">
+          <Status tone="open">Summer {CURRENT.campYear} registration open</Status>
+          <p>Free for every family. Student-run since April 2024.</p>
         </div>
       </section>
 
-      {/* --------------------------------------------------------- Mission */}
-      <section className="bb-on-ink bb-brand-mission">
-        <div
-          className="bb-row-12"
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            display: "grid",
-            gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-            gap: "var(--grid-gap)",
-            alignItems: "start",
-          }}
-        >
-          <div style={{ gridColumn: "span 5" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <h2 className="bb-display-2" style={{ maxWidth: "14ch" }}>
-                  <span className="bb-brand-text">Build Biz.</span>{" "}<span className="bb-brand-yellow">Bring Buzz.</span>
-                </h2>
-              </div>
-            </div>
+      <section className="section" id="programs" aria-labelledby="programs-title">
+        <div className="container">
+          <div className="sh">
+            <h2 id="programs-title">A place for your idea</h2>
+            <p>Start at camp, enter a competition, or work with a mentor. Every program is free. No business experience needed.</p>
           </div>
-          <div style={{ gridColumn: "7 / span 6" }}>
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
-                <p className="bb-lead">
-                  Two Naperville North juniors founded BizBuzz in April 2024 after finding that 90% of K-8 schools
-                  in the city offer no business education at all.
-                </p>
-                <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  We built it on the belief that every student deserves access to entrepreneurial education that
-                  helps them find their ideas, and the confidence to share them. Every program is free. Students
-                  design it. Students run it.
-                </p>
-                <p className="bb-body" style={{ fontWeight: "var(--weight-semibold)", color: "var(--text-display)" }}>
-                  Let&apos;s turn <span className="bb-brand-text">imagination</span> into <span className="bb-brand-yellow">innovation</span>.
-                </p>
-                <div style={{ paddingTop: "var(--space-3)" }}>
-                  <ArrowCTA href="/about">Read our story</ArrowCTA>
+          <ul className="programs">
+            {PROGRAMS.map((program) => (
+              <li className="program" key={program.id} id={`program-${program.id}`}>
+                <div className="program__heading">
+                  <h3>{program.name}</h3>
+                  <p>{program.audience}</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- Seasons rail */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y-tight) 0" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", paddingInline: "var(--gutter)" }}>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "var(--space-8)",
-                alignItems: "flex-end",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
-                <h2 className="bb-display-2" style={{ maxWidth: "16ch" }}>
-                  From our first camp to next summer
-                </h2>
-                <Eyebrow>2024 to 2027</Eyebrow>
-              </div>
-              <p className="bb-body" style={{ maxWidth: "38ch", color: "var(--text-muted)" }}>
-                Explore each season, from our first camp to what comes next.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <ScrollRail gap="var(--space-9)" padInline="var(--gutter)" align="stretch">
-          {SEASONS.map((s) => (
-            <div
-              key={s.year}
-              style={{
-                width: "min(80vw, 500px)",
-                flex: "0 0 auto",
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-6)",
-                justifyContent: "center",
-                paddingBlock: "var(--space-7) var(--space-10)",
-              }}
-            >
-              <div
-                style={{
-                  flex: "1 1 auto",
-                  minHeight: 280,
-                  borderRadius: "var(--radius-lg)",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <Image src={s.image} alt={s.alt} fill sizes="500px" style={{ objectFit: "cover" }} />
-                <div style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
-                <ul className="bb-facts bb-photo-facts">
-                  {s.chips.map((fact) => <li key={fact}>{fact}</li>)}
-                </ul>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", flex: "0 0 auto" }}>
-                <p className="bb-meta">{s.year}</p>
-                <h3 className="bb-display-3">{s.title}</h3>
-                <p className="bb-body" style={{ color: "var(--text-muted)" }}>
-                  {s.blurb}
-                </p>
-                <ArrowCTA href={s.year === "2027" ? "/camps#2027" : `/seasons#${s.year}`}>
-                  {s.year === "2027" ? "Explore 2027 camp" : `View ${s.year} season`}
-                </ArrowCTA>
-              </div>
-            </div>
-          ))}
-        </ScrollRail>
-      </section>
-
-      {/* --------------------------------------------------------- Schools */}
-      <section style={{ background: "var(--surface-sunken)", paddingBlock: "var(--section-y-tight) var(--section-y)" }}>
-        <div
-          style={{
-            maxWidth: "var(--container)",
-            margin: "0 auto var(--space-11)",
-            paddingInline: "var(--gutter)",
-            textAlign: "center",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", alignItems: "center" }}>
-              <h2 className="bb-display-3" style={{ maxWidth: "26ch" }}>
-                {IMPACT.schools} schools across Naperville and greater Chicagoland
-              </h2>
-            </div>
-          </div>
-        </div>
-
-        <Marquee speed={46} gap="var(--space-10)">
-          {SCHOOLS.slice(0, 13).map((s) => (
-            <div key={s.name} style={{ position: "relative", width: 160, height: 84, flex: "0 0 auto" }}>
-              <Image src={s.src} alt={s.name} fill sizes="160px" style={{ objectFit: "contain", opacity: 0.85 }} />
-            </div>
-          ))}
-        </Marquee>
-        <div style={{ height: "var(--space-8)" }} />
-        <Marquee speed={52} reverse gap="var(--space-10)">
-          {SCHOOLS.slice(13).map((s) => (
-            <div key={s.name} style={{ position: "relative", width: 160, height: 84, flex: "0 0 auto" }}>
-              <Image src={s.src} alt={s.name} fill sizes="160px" style={{ objectFit: "contain", opacity: 0.85 }} />
-            </div>
-          ))}
-        </Marquee>
-      </section>
-
-      <section className="bb-home-press bb-container" aria-labelledby="press-heading">
-        <div className="bb-program-heading">
-          <h2 id="press-heading" className="bb-display-2">BizBuzz in the news</h2>
-          <ArrowCTA href="/about#press">All coverage</ArrowCTA>
-        </div>
-        <div className="bb-news-layout">
-          <article className="bb-news-feature">
-            <a href={PRESS[0].href} target="_blank" rel="noopener noreferrer">
-              <div className="bb-news-photo">
-                <Image src={PRESS[0].image} alt="A Fish Tank winner with a trophy and prize check, from NCTV17 Spotlight" fill sizes="(max-width: 800px) 100vw, 55vw" />
-              </div>
-              <p className="bb-caption">{PRESS[0].meta}</p>
-              <h3 className="bb-display-3">{PRESS[0].headline}</h3>
-            </a>
-            <p className="bb-news-summary bb-body">Co-founders Allen Xu and Aarav Khullar joined NCTV17 Spotlight to discuss BizBuzz, its summer programs, and expanding access to business education.</p>
-          </article>
-          <div className="bb-news-stories">
-            {PRESS.slice(1).map((story) => (
-              <a key={story.href} href={story.href} target="_blank" rel="noopener noreferrer" className="bb-news-story">
-                <div className="bb-news-thumb"><Image src={story.image} alt={story.outlet} fill sizes="120px" /></div>
-                <div>
-                  <p className="bb-caption">{story.meta}</p>
-                  <h3 className="bb-display-3">{story.headline}</h3>
-                  <span className="bb-news-action">Read story</span>
-                </div>
-              </a>
+                <p className="program__description">{program.description}</p>
+                <GoLink href={program.href}>{program.label}</GoLink>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* ---------------------------------------------------- Sponsor CTA */}
-      <section
-        className="bb-on-blue"
-        style={{ paddingBlock: "var(--section-y)" }}
-      >
-        <div
-          style={{
-            maxWidth: "var(--container-narrow)",
-            margin: "0 auto",
-            paddingInline: "var(--gutter)",
-            textAlign: "center",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)", alignItems: "center" }}>
-              <h2 className="bb-display-2" style={{ maxWidth: "22ch" }}>
-                Help keep BizBuzz free
-              </h2>
-              <Eyebrow>Sponsors</Eyebrow>
-              <p className="bb-lead" style={{ maxWidth: "52ch" }}>
-                Every program stays free because Naperville businesses and families pay for it. Our community has funded
-                every season since 2024.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "var(--space-7)",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Button href="/sponsors" size="lg">
-                  See sponsorship tiers
-                </Button>
-                <ArrowCTA href={LINKS.email}>Email the team</ArrowCTA>
-              </div>
+      <section className="section section--navy" aria-labelledby="winners-title">
+        <div className="container home-story">
+          <Photo
+            src={champion.image}
+            alt={`${champion.team} holding the first-place trophy and check for ${champion.project}`}
+            caption="First place at Fish Tank 2025, Benedictine University."
+            ratio="5 / 4"
+            sizes="(max-width: 800px) 100vw, 45vw"
+            position="50% 32%"
+          />
+          <div className="home-story__text">
+            <p className="home-story__credit">{champion.team} · Fish Tank 2025 winner</p>
+            <h2 id="winners-title">{champion.project}</h2>
+            <p className="lead">An investing education app with AI coaching, experience points, and titles to earn as you learn.</p>
+            <p>One of the businesses presented by 70+ students at Fish Tank 2025. Twelve finalists pitched to a panel of judges, and the top five shared $750 in prizes.</p>
+            <div className="actions">
+              <Button href="/fish-tank/2025">Meet the 2025 winners</Button>
+              <GoLink href="/fish-tank">How Fish Tank works</GoLink>
             </div>
           </div>
         </div>
       </section>
 
-      </main>
-      <SiteFooter />
+      <section className="section" aria-labelledby="team-title">
+        <div className="container home-team">
+          <div className="home-team__intro">
+            <h2 id="team-title">For students.<br />By students.</h2>
+            <p className="lead">Allen Xu and Aarav Khullar started BizBuzz in April 2024 as Naperville North High School students.</p>
+            <p>Today, our high school team designs the programs, teaches the sessions, and mentors the next group of young entrepreneurs.</p>
+            <div className="actions">
+              <GoLink href="/about#team">Meet the team</GoLink>
+              <GoLink href="/about">Our story</GoLink>
+            </div>
+          </div>
+          <Photo
+            src="/about/background.jpg"
+            alt="The BizBuzz student team dressed up for an event"
+            caption="The students behind BizBuzz."
+            ratio="3 / 2"
+            sizes="(max-width: 800px) 100vw, 50vw"
+          />
+          <div className="home-impact">
+            <dl>
+              {HIGHLIGHTS.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd className="num">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="home-impact__source">
+              <p>From BizBuzz records, across our programs since 2024.</p>
+              <GoLink href="/about#impact">Our impact</GoLink>
+              <GoLink href="/seasons">Explore past seasons</GoLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------ Press */}
+      <section className="section section--paper" aria-labelledby="press-title">
+        <div className="container home-press">
+          <div className="home-press__intro">
+            <h2 id="press-title">In the news</h2>
+            <p>Coverage from NCTV17, We Love Naperville, and the Daily Herald, plus a 2025 grant from the KidsMatter Teen Philanthropy Initiative.</p>
+            <GoLink href="/about#press">All coverage</GoLink>
+          </div>
+          <ul className="clippings">
+            {press.map((item) => (
+              <li key={item.id}>
+                <a href={item.link!.href} target="_blank" rel="noopener noreferrer" className="clipping">
+                  <span className="clipping__meta">
+                    {item.outlet} · {item.date}
+                  </span>
+                  <span className="clipping__title">{item.title}</span>
+                  <span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------- Support */}
+      <section className="section home-support" aria-labelledby="support-title">
+        <div className="container home-support__grid">
+          <div>
+            <h2 id="support-title">Help keep every program free</h2>
+            <p className="lead mt-6">
+              Local businesses and organizations have contributed {money(IMPACT.funding)}+ so far. Every contribution
+              goes directly toward camps, competitions, and programs for students.
+            </p>
+            <div className="actions mt-7">
+              <Button href="/sponsors" variant="dark">
+                Become a sponsor
+              </Button>
+              <GoLink href={LINKS.sponsorEmail}>Get in touch</GoLink>
+            </div>
+          </div>
+          <ul className="home-support__logos" aria-label="Some of our sponsors">
+            {SPONSOR_LOGOS.map((s) => (
+              <li key={s.name}>
+                <span className="home-support__logo">
+                  <Image src={s.logo} alt="" fill sizes="180px" />
+                </span>
+                <span className="home-support__name">{s.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </>
   );
 }

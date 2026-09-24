@@ -16,20 +16,24 @@
   },
   {
     "id": "dupage",
-    "title": "Dupage Children's Business Fair Workshops",
+    "title": "DuPage Children's Business Fair Workshops",
     "date": "March 16th, 2025 to April 26th, 2025",
-    "location": "Dupage County, IL",
-    "description": "Three workshops preparing 30 entrepreneurs for the upcoming Dupage Children's Business Fair, guiding them through ideation, marketing, and finance.",
+    "location": "DuPage County, IL",
+    "description": "Three workshops preparing 30 entrepreneurs for the DuPage Children's Business Fair, guiding them through ideation, marketing, and finance.",
     "sessions": [
       "DCBF Workshop 1 | March 16th, 2025",
       "DCBF Workshop 2 | March 23rd, 2025",
       "DCBF Workshop 3 | April 6th, 2025",
-      "Dupage Children's Business Fair | April 26th, 2025"
+      "DuPage Children's Business Fair | April 26th, 2025"
     ],
     "images": [
       "/workshops/dcbf/1.jpg",
       "/workshops/dcbf/2.jpg",
-      "/workshops/dcbf/3.jpg"
+      "/workshops/dcbf/3.jpg",
+      "/workshops/dcbf/4.png",
+      "/workshops/dcbf/5.png",
+      "/workshops/dcbf/6.png",
+      "/workshops/dcbf/7.png"
     ]
   },
   {
@@ -62,7 +66,11 @@
     "images": [
       "/workshops/be/1.png",
       "/workshops/be/2.png",
-      "/workshops/be/3.png"
+      "/workshops/be/3.png",
+      "/workshops/be/4.png",
+      "/workshops/be/5.png",
+      "/workshops/be/6.png",
+      "/workshops/be/7.png"
     ]
   },
   {
@@ -96,7 +104,11 @@
     "images": [
       "/workshops/ncbf/1.jpeg",
       "/workshops/ncbf/2.jpeg",
-      "/workshops/ncbf/3.jpeg"
+      "/workshops/ncbf/3.jpeg",
+      "/workshops/ncbf/4.png",
+      "/workshops/ncbf/5.png",
+      "/workshops/ncbf/6.png",
+      "/workshops/ncbf/7.png"
     ]
   },
   {
@@ -119,7 +131,7 @@
     "title": "Scott Elementary School Talk",
     "date": "May 21st, 2024",
     "location": "Naperville, IL",
-    "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses—even as kids.",
+    "description": "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses, even as kids.",
     "sessions": [
       "Scott Elementary School Talk | May 21st, 2024"
     ],

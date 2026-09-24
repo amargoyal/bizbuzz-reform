@@ -10,6 +10,21 @@
   },
   "programs": [
     {
+      "id": "workshop-dcbf-2025",
+      "kind": "workshop",
+      "title": "DuPage Children's Business Fair Workshops",
+      "dateISO": "2025-03-16",
+      "endISO": "2025-04-26",
+      "venue": "DuPage County, IL",
+      "attendance": 30,
+      "description": "Three workshops preparing 30 entrepreneurs for the DuPage Children's Business Fair, guiding them through ideation, marketing, and finance.",
+      "images": [
+        "/workshops/dcbf/1.jpg",
+        "/workshops/dcbf/2.jpg",
+        "/workshops/dcbf/3.jpg"
+      ]
+    },
+    {
       "id": "camp-2025",
       "kind": "camp",
       "title": "2025 Summer Entrepreneurship Camp",
@@ -26,7 +41,7 @@
     {
       "id": "fish-tank-2025",
       "kind": "fish-tank",
-      "title": "Fish Tank 2025 Finals",
+      "title": "Fish Tank 2025",
       "dateISO": "2025-08-02",
       "venue": "Benedictine University, Goodwin Hall of Business",
       "attendance": 70,
@@ -35,10 +50,31 @@
         "/fish_tank/2025/images/gallery-stage.jpg",
         "/fish_tank/2025/images/gallery-pitching.jpg",
         "/fish_tank/2025/images/gallery-awards.jpg"
+      ],
+      "endISO": "2025-08-03"
+    },
+    {
+      "id": "workshop-ncbf-2025",
+      "kind": "workshop",
+      "title": "2025 Naperville Children's Business Fair",
+      "dateISO": "2025-08-09",
+      "venue": "Matrix Club, Naperville",
+      "attendance": 150,
+      "description": "BizBuzz staff judged a full-day, farmers-market style event at the new Matrix Club, where kidpreneurs ages 5–14 tested the waters of entrepreneurship by selling handmade goods and pitching their small businesses.",
+      "images": [
+        "/workshops/ncbf/1.jpeg",
+        "/workshops/ncbf/2.jpeg",
+        "/workshops/ncbf/3.jpeg"
       ]
     }
   ],
   "timeline": [
+    {
+      "id": "t0",
+      "dateISO": "2025-03-16",
+      "label": "DuPage Children's Business Fair Workshops",
+      "detail": "Three workshops prepare 30 students for the April 26 fair."
+    },
     {
       "id": "t1",
       "dateISO": "2025-06-06",
@@ -54,8 +90,15 @@
     {
       "id": "t3",
       "dateISO": "2025-08-02",
-      "label": "Fish Tank 2025 Finals",
-      "detail": "Two-day competition at Benedictine University with 70 competitors."
+      "label": "Fish Tank 2025",
+      "detail": "Two-day competition at Benedictine University with 70 competitors.",
+      "endISO": "2025-08-03"
+    },
+    {
+      "id": "t4",
+      "dateISO": "2025-08-09",
+      "label": "Naperville Children's Business Fair",
+      "detail": "BizBuzz staff judge the full-day fair at the Matrix Club."
     }
   ],
   "stories": [],
@@ -65,6 +108,7 @@
     "/fish_tank/2025/images/gallery-stage.jpg",
     "/fish_tank/2025/images/gallery-pitching.jpg",
     "/fish_tank/2025/images/gallery-awards.jpg",
-    "/camp_imgs/2025/session1/session1a.jpg"
+    "/camp_imgs/2025/session1/session1a.jpg",
+    "/workshops/dcbf/1.jpg"
   ]
 }
